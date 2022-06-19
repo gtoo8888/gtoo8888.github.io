@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>ubuntu command | Hexo</title>
+  <meta name="description" content="开启摄像头cheese 显示系统进程显示系统进程 top 杀死这个进程号的进程 sudo kill pid 获取最高用户权限sudo -i 挂载和弹出U盘挂载查看系统磁盘设备信息，并找到待U盘的目录(Linux系统中所有设备均被视为文件)fdisk -l#&#x2F;dev&#x2F;sdb1将U盘挂载到系统某个位置mount &#x2F;dev&#x2F;sdb1 &#x2F;mnt现在U盘所有">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ubuntu command">
+<meta property="og:url" content="http://example.com/2022/03/03/%E9%B8%9F%E5%93%A5%E7%9A%84Linux%E7%A7%81%E6%88%BF%E8%8F%9C/ubuntu-command/index.html">
+<meta property="og:site_name" content="gtoo8888">
+<meta property="og:description" content="开启摄像头cheese 显示系统进程显示系统进程 top 杀死这个进程号的进程 sudo kill pid 获取最高用户权限sudo -i 挂载和弹出U盘挂载查看系统磁盘设备信息，并找到待U盘的目录(Linux系统中所有设备均被视为文件)fdisk -l#&#x2F;dev&#x2F;sdb1将U盘挂载到系统某个位置mount &#x2F;dev&#x2F;sdb1 &#x2F;mnt现在U盘所有">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-03-03T14:03:11.000Z">
+<meta property="article:modified_time" content="2022-04-09T05:36:36.558Z">
+<meta property="article:author" content="Kuku De">
+<meta property="article:tag" content="鸟哥的Linux私房菜">
+<meta name="twitter:card" content="summary">
+  <!-- Canonical links -->
+  <link rel="canonical" href="http://example.com/2022/03/03/%E9%B8%9F%E5%93%A5%E7%9A%84Linux%E7%A7%81%E6%88%BF%E8%8F%9C/ubuntu-command/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="gtoo8888" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+    <link href="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.3.5/dist/jquery.fancybox.min.css" rel="stylesheet">
+  
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/gtoo8888" target="_blank">
+          <img class="img-circle img-rotate" src="/images/cat.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">gtoo8888</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">C++ Developer</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Luoyang, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav menu-highlight">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/Tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">标签</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">项目</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-books">
+          <a href="/books">
+            
+            <i class="icon icon-book-fill"></i>
+            
+            <span class="menu-title">书单</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">友链</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/gtoo8888" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>记录自己的学习过程，Linux网络编程冲啊</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/" rel="tag">Linux网络编程</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MIT-6-828/" rel="tag">MIT 6.828</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/env/" rel="tag">env</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tutorial/" rel="tag">tutorial</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%B6%E4%BB%96/" rel="tag">其他</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%99%E7%A8%8B/" rel="tag">教程</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%AD%E6%B3%95%E7%9B%B8%E5%85%B3/" rel="tag">语法相关</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%B8%9F%E5%93%A5%E7%9A%84Linux%E7%A7%81%E6%88%BF%E8%8F%9C/" rel="tag">鸟哥的Linux私房菜</a><span class="tag-list-count">4</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/Linux%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/" style="font-size: 14px;">Linux网络编程</a> <a href="/tags/MIT-6-828/" style="font-size: 13px;">MIT 6.828</a> <a href="/tags/env/" style="font-size: 13px;">env</a> <a href="/tags/tutorial/" style="font-size: 13.4px;">tutorial</a> <a href="/tags/%E5%85%B6%E4%BB%96/" style="font-size: 13.6px;">其他</a> <a href="/tags/%E6%95%99%E7%A8%8B/" style="font-size: 13.8px;">教程</a> <a href="/tags/%E8%AF%AD%E6%B3%95%E7%9B%B8%E5%85%B3/" style="font-size: 13.2px;">语法相关</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 13.6px;">面试</a> <a href="/tags/%E9%B8%9F%E5%93%A5%E7%9A%84Linux%E7%A7%81%E6%88%BF%E8%8F%9C/" style="font-size: 13.6px;">鸟哥的Linux私房菜</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">五月 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">四月 2022</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">三月 2022</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">二月 2022</a><span class="archive-list-count">8</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2022/05/25/Linux%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/%E9%99%88%E7%A1%95%E7%9A%84muduo%E5%BA%93/mudduo-ch01/" class="title">mudduo-ch01</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-05-25T13:15:34.000Z" itemprop="datePublished">2022-05-25</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2022/05/17/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/" class="title">软件工程</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-05-17T04:13:07.000Z" itemprop="datePublished">2022-05-17</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2022/05/15/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%AD%A6%E4%B9%A0/" class="title">设计模式学习</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-05-15T07:08:04.000Z" itemprop="datePublished">2022-05-15</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2022/04/23/%E5%85%B6%E4%BB%96/PPT%E5%88%B6%E4%BD%9C%E8%A6%81%E7%82%B9/" class="title">PPT制作要点</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-04-23T08:34:57.000Z" itemprop="datePublished">2022-04-23</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2022/04/19/%E9%9D%A2%E8%AF%95%E9%A2%98%E7%9B%AE/%E7%AE%97%E6%B3%95/" class="title">算法</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-04-19T07:03:57.000Z" itemprop="datePublished">2022-04-19</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-鸟哥的Linux私房菜/ubuntu-command" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      ubuntu command
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2022/03/03/%E9%B8%9F%E5%93%A5%E7%9A%84Linux%E7%A7%81%E6%88%BF%E8%8F%9C/ubuntu-command/" class="article-date">
+	  <time datetime="2022-03-03T14:03:11.000Z" itemprop="datePublished">2022-03-03</time>
+	</a>
+</span>
+        
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/%E9%B8%9F%E5%93%A5%E7%9A%84Linux%E7%A7%81%E6%88%BF%E8%8F%9C/" rel="tag">鸟哥的Linux私房菜</a>
+  </span>
+
+
+        
+	<span class="article-read hidden-xs">
+	    <i class="icon icon-eye-fill" aria-hidden="true"></i>
+	    <span id="busuanzi_container_page_pv">
+			<span id="busuanzi_value_page_pv">0</span>
+		</span>
+	</span>
+
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2022/03/03/%E9%B8%9F%E5%93%A5%E7%9A%84Linux%E7%A7%81%E6%88%BF%E8%8F%9C/ubuntu-command/#comments" class="article-comment-link">评论</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h1 id="开启摄像头"><a href="#开启摄像头" class="headerlink" title="开启摄像头"></a>开启摄像头</h1><p>cheese</p>
+<h1 id="显示系统进程"><a href="#显示系统进程" class="headerlink" title="显示系统进程"></a>显示系统进程</h1><p>显示系统进程 top</p>
+<p>杀死这个进程号的进程 sudo kill pid</p>
+<h1 id="获取最高用户权限"><a href="#获取最高用户权限" class="headerlink" title="获取最高用户权限"></a>获取最高用户权限</h1><p>sudo -i</p>
+<h1 id="挂载和弹出U盘"><a href="#挂载和弹出U盘" class="headerlink" title="挂载和弹出U盘"></a>挂载和弹出U盘</h1><h2 id="挂载"><a href="#挂载" class="headerlink" title="挂载"></a>挂载</h2><p>查看系统磁盘设备信息，并找到待U盘的目录(Linux系统中所有设备均被视为文件)<br>fdisk -l<br>#&#x2F;dev&#x2F;sdb1<br>将U盘挂载到系统某个位置<br>mount &#x2F;dev&#x2F;sdb1 &#x2F;mnt<br>现在U盘所有文件被挂载到了&#x2F;mnt目录中，进入U盘目录查看内容<br>cd &#x2F;mnt</p>
+<h2 id="弹出"><a href="#弹出" class="headerlink" title="弹出"></a>弹出</h2><p>df 查看一下有没有usb设备在挂载使用<br>umount &#x2F;dev&#x2F;sdb1</p>
+<h1 id="export-添加环境变量"><a href="#export-添加环境变量" class="headerlink" title="export  添加环境变量"></a>export  添加环境变量</h1><h1 id="last-显示最近使用者的登录列表"><a href="#last-显示最近使用者的登录列表" class="headerlink" title="last 显示最近使用者的登录列表"></a>last 显示最近使用者的登录列表</h1><h1 id="set-观察bash下的所有环境变量"><a href="#set-观察bash下的所有环境变量" class="headerlink" title="set 观察bash下的所有环境变量"></a>set 观察bash下的所有环境变量</h1><h1 id="id-vvv-查询是不是有这个用户"><a href="#id-vvv-查询是不是有这个用户" class="headerlink" title="id vvv 查询是不是有这个用户"></a>id vvv 查询是不是有这个用户</h1><h1 id="alias-设置永久的alias别名"><a href="#alias-设置永久的alias别名" class="headerlink" title="alias 设置永久的alias别名"></a>alias 设置永久的alias别名</h1><h1 id="uname"><a href="#uname" class="headerlink" title="uname"></a>uname</h1><p>uname -r 获取内核版本</p>
+<h1 id="更改-x2F-bashrc配置"><a href="#更改-x2F-bashrc配置" class="headerlink" title="更改.&#x2F;.bashrc配置"></a>更改.&#x2F;.bashrc配置</h1><p>vim .&#x2F;.bashrc<br>source .&#x2F;.bashrc</p>
+<h1 id="批量改权限"><a href="#批量改权限" class="headerlink" title="批量改权限"></a>批量改权限</h1><p>sudo chmod +x ~&#x2F;bin&#x2F;*</p>
+<h1 id="bash快捷键"><a href="#bash快捷键" class="headerlink" title="bash快捷键"></a>bash快捷键</h1><table>
+<thead>
+<tr>
+<th>按键</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ALT+B</td>
+<td>光标移动到所在单词词首</td>
+</tr>
+<tr>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>CTRL+C</td>
+<td>停止当前运行的命令</td>
+</tr>
+<tr>
+<td>CTRL+L</td>
+<td>清空屏幕并重新显示当前行</td>
+</tr>
+<tr>
+<td>CTRL+U</td>
+<td>删除光标前的所有字符</td>
+</tr>
+<tr>
+<td>CTRL+K</td>
+<td>删除光标后的所有字符</td>
+</tr>
+<tr>
+<td>CTRL+A</td>
+<td>快速移动到行首</td>
+</tr>
+<tr>
+<td>CTRL+E</td>
+<td>移动到行末</td>
+</tr>
+<tr>
+<td>CTRL+T</td>
+<td>交换最后两个字符</td>
+</tr>
+</tbody></table>
+<h1 id="重启命令："><a href="#重启命令：" class="headerlink" title="重启命令："></a>重启命令：</h1><ol>
+<li>reboot</li>
+<li>shutdown -r now 立刻重启(root用户使用)</li>
+<li>shutdown -r 10 过10分钟自动重启(root用户使用)</li>
+<li>shutdown -r 20:35 在时间为20:35时候重启(root用户使用)<br>如果是通过shutdown命令设置重启的话，可以用shutdown -c命令取消重启</li>
+</ol>
+<h1 id="关机命令："><a href="#关机命令：" class="headerlink" title="关机命令："></a>关机命令：</h1><ol>
+<li>halt   立刻关机</li>
+<li>poweroff 立刻关机</li>
+<li>shutdown -h now 立刻关机(root用户使用)</li>
+<li>shutdown -h 10 10分钟后自动关机</li>
+</ol>
+<h1 id="关机前准备"><a href="#关机前准备" class="headerlink" title="关机前准备"></a>关机前准备</h1><h1 id="who-查看谁在线"><a href="#who-查看谁在线" class="headerlink" title="who 查看谁在线"></a>who 查看谁在线</h1><h1 id="netstat-a-网络的联机状态"><a href="#netstat-a-网络的联机状态" class="headerlink" title="netstat -a 网络的联机状态"></a>netstat -a 网络的联机状态</h1><h1 id="ps-aux-后台的使用情况"><a href="#ps-aux-后台的使用情况" class="headerlink" title="ps -aux 后台的使用情况"></a>ps -aux 后台的使用情况</h1><h1 id="dmesg-查看内核信息"><a href="#dmesg-查看内核信息" class="headerlink" title="dmesg 查看内核信息"></a>dmesg 查看内核信息</h1><h1 id="查看电脑是否支持虚拟化技术"><a href="#查看电脑是否支持虚拟化技术" class="headerlink" title="查看电脑是否支持虚拟化技术"></a>查看电脑是否支持虚拟化技术</h1><h2 id="通过lscpu命令"><a href="#通过lscpu命令" class="headerlink" title="通过lscpu命令"></a>通过lscpu命令</h2><p>lscpu命令是一种提取有关CPU体系结构信息的常用方法。此命令从sysfs的&#x2F;pro &#x2F;cpuinfo文件中提取硬件信息。该信息包括处理器数量，CPU操作模式，套接字，内核，线程，型号名称和虚拟化信息等。</p>
+<h2 id="通过cpu-checker实用程序"><a href="#通过cpu-checker实用程序" class="headerlink" title="通过cpu-checker实用程序"></a>通过cpu-checker实用程序</h2><p> sudo apt-get install cpu-checker</p>
+<p> sudo kvm-ok</p>
+<h1 id="查看系统位数"><a href="#查看系统位数" class="headerlink" title="查看系统位数"></a>查看系统位数</h1><p> file &#x2F;bin&#x2F;ls</p>
+<h1 id="vmstat-命令功能说明：-命令报告关于内核线程、虚拟内存、磁盘、陷阱和-CPU-活动的统计信息"><a href="#vmstat-命令功能说明：-命令报告关于内核线程、虚拟内存、磁盘、陷阱和-CPU-活动的统计信息" class="headerlink" title="vmstat 命令功能说明： 命令报告关于内核线程、虚拟内存、磁盘、陷阱和 CPU 活动的统计信息"></a>vmstat 命令功能说明： 命令报告关于内核线程、虚拟内存、磁盘、陷阱和 CPU 活动的统计信息</h1><h1 id="du-disk-usage-命令功能说明：统计目录-或文件-所占磁盘空间的大小"><a href="#du-disk-usage-命令功能说明：统计目录-或文件-所占磁盘空间的大小" class="headerlink" title="du(disk usage) 命令功能说明：统计目录(或文件)所占磁盘空间的大小"></a>du(disk usage) 命令功能说明：统计目录(或文件)所占磁盘空间的大小</h1><p> qemu-kvm - 为 KVM 管理程序提供硬件模拟的软件程序<br>libvirt-daemon-system - 将 libvirt 守护程序作为系统服务运行的配置文件<br>libvirt-clients - 用来管理虚拟化平台的软件<br>bridge-utils - 用来配置网络桥接的命令行工具<br>virtinst - 用来创建虚拟机的命令行工具<br>virt-manager - 提供一个易用的图形界面，并且通过libvirt 支持用于管理虚拟机的命令行工具</p>
+<h1 id="查看电量"><a href="#查看电量" class="headerlink" title="查看电量"></a>查看电量</h1><p>sudo apt-get install acpi<br>使用acpi命令行工具<br>查看电池是否在充电，剩余电量百分比，具体剩余时间，使用命令acpi<br>[matrix@localhost ~]$ acpi<br>Battery 0: Discharging, 33%, 00:44:53 remaining<br>如果你要看更多的信息，如电池总容量、温度等信息，使用acpi -V命令</p>
+<p>使用IBAM检测电池用量<br>IBAM自称为“智能的电池监测器”</p>
+<p>upower –dump | grep –color&#x3D;never -E “state|to\ full|to\ empty|percentage”</p>
+<p> systemctl isolate multi-user.target</p>
+<p>  systemctl isolate graphical.target</p>
+<table>
+<thead>
+<tr>
+<th>目录</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>&#x2F;</td>
+<td>虚拟目录的根目录，万物起源。通常不会在这里存储文件</td>
+</tr>
+<tr>
+<td>&#x2F;bin</td>
+<td>二进制目录，存放许多用户级的GNU工具</td>
+</tr>
+<tr>
+<td>&#x2F;boot</td>
+<td>启动目录，包含Linux内核，存放启动文件</td>
+</tr>
+<tr>
+<td>&#x2F;boot&#x2F;grub&#x2F;grub.conf or menu.lst</td>
+<td>被用来配置启动加载程序</td>
+</tr>
+<tr>
+<td>&#x2F;boot&#x2F;vmlinuz</td>
+<td>Linux 内核</td>
+</tr>
+<tr>
+<td>&#x2F;dev</td>
+<td>设备目录，Linux在这里创建设备节点</td>
+</tr>
+<tr>
+<td>&#x2F;etc</td>
+<td>系统配置文件目录，也包含一系列的shell脚本</td>
+</tr>
+<tr>
+<td>&#x2F;etc&#x2F;crontab</td>
+<td>定义自动运行的任务</td>
+</tr>
+<tr>
+<td>&#x2F;etc&#x2F;fstab</td>
+<td>包含存储设备的列表，以及与他们相关的挂载点</td>
+</tr>
+<tr>
+<td>&#x2F;etc&#x2F;passwd</td>
+<td>包含用户帐号列表</td>
+</tr>
+<tr>
+<td>&#x2F;home</td>
+<td>主目录，Linux在这 里创建用户目录</td>
+</tr>
+<tr>
+<td>&#x2F;lib</td>
+<td>库目录，存放系统和应用程序的库文件</td>
+</tr>
+<tr>
+<td>&#x2F;media</td>
+<td>媒体目录，可移动媒体设备的常用挂载点</td>
+</tr>
+<tr>
+<td>&#x2F;mnt</td>
+<td>挂载目录，另一个可移动媒体设备的常用挂载点</td>
+</tr>
+<tr>
+<td>&#x2F;opt</td>
+<td>可选目录，常用于存放第三方软件包和数据文件</td>
+</tr>
+<tr>
+<td>&#x2F;proc</td>
+<td>进程目录，存放现有硬件及当前进程的相关信息</td>
+</tr>
+<tr>
+<td>&#x2F;root</td>
+<td>root用户的主目录</td>
+</tr>
+<tr>
+<td>&#x2F;sbin</td>
+<td>系统二进制目录，存放许多GNU管理员级工具</td>
+</tr>
+<tr>
+<td>&#x2F;run</td>
+<td>运行目录，存放系统运作时的运行时数据</td>
+</tr>
+<tr>
+<td>&#x2F;srv</td>
+<td>服务目录，存放本地服务的相关文件</td>
+</tr>
+<tr>
+<td>&#x2F;sys</td>
+<td>系统目录，存放系统硬件信息的相关文件</td>
+</tr>
+<tr>
+<td>&#x2F;tmp</td>
+<td>临时目录，可以在该目录中创建和删除临时工作文件</td>
+</tr>
+<tr>
+<td>&#x2F;usr</td>
+<td>用户二进制目录，大量用户级的GNU工具和数据文件都存储在这里，它可能是Linux系统中最大的一个</td>
+</tr>
+<tr>
+<td>&#x2F;usr&#x2F;bin</td>
+<td>包含系统安装的可执行程序，通常会包含许多程序</td>
+</tr>
+<tr>
+<td>&#x2F;usr&#x2F;lib</td>
+<td>包含由&#x2F;usr&#x2F;bin目录中的程序所用的共享库</td>
+</tr>
+<tr>
+<td>&#x2F;usr&#x2F;local</td>
+<td>非系统发行版自带却打算让系统使用的程序的安装目录</td>
+</tr>
+<tr>
+<td>&#x2F;usr&#x2F;sbin</td>
+<td>包含许多系统管理程序</td>
+</tr>
+<tr>
+<td>&#x2F;usr&#x2F;share</td>
+<td>包含许多由&#x2F;usr&#x2F;bin目录中的程序使用的共享数据，其中包括像默认的配置文件、图标、桌面背景、音频文件等等</td>
+</tr>
+<tr>
+<td>&#x2F;usr&#x2F;share&#x2F;doc</td>
+<td>大多数安装在系统中的软件包会包含一些文档</td>
+</tr>
+<tr>
+<td>&#x2F;var</td>
+<td>可变目录，用以存放经常变化的文件，比如日志文件</td>
+</tr>
+</tbody></table>
+<h1 id="常用的库"><a href="#常用的库" class="headerlink" title="常用的库"></a>常用的库</h1><p>GCC multilib主要是用于支持交叉编译（cross compiling），即编译出来的程序是用来在其他处理器平台上运行的。例如可以在x86 64位处理器上编译出x86 32位程序，运行在32位处理器上，或者在x86平台上编译出可以在ARM处理器上运行的程序</p>
+<p>build-essential<br>Ubuntu缺省情况下，并没有提供C&#x2F;C++的编译环境，因此还需要手动安装。但是如果单独安装gcc以及g++比较麻烦，幸运的是，Ubuntu提供了一个build-essential软件包。查看该软件包的依赖关系：</p>
+<p>libtool 是一个通用库支持脚本，将使用动态库的复杂性隐藏在统一、可移植的接口中，也就是说，你可以通过如下所示的标准方法，在不同平台上创建并调用动态库，我们 可以认为libtool是gcc的一个抽象，也就是说，它包装了gcc或者其他的任何编译器，用户无需知道细节，只要告诉libtool说我需要要编译哪 些库即可，并且，它只与libtool文件打交道，例如lo、la为后缀的文件。</p>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="http://example.com/2022/03/03/%E9%B8%9F%E5%93%A5%E7%9A%84Linux%E7%A7%81%E6%88%BF%E8%8F%9C/ubuntu-command/" title="ubuntu command" target="_blank" rel="external">http://example.com/2022/03/03/鸟哥的Linux私房菜/ubuntu-command/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/gtoo8888" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/cat.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/gtoo8888" target="_blank"><span class="text-dark">gtoo8888</span><small class="ml-1x">C++ Developer</small></a></h3>
+        <div>个人简介。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+      <div id="vcomments"></div>
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/2022/03/04/%E6%95%99%E7%A8%8B/vim-tutorial/" title="vim 教程"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/2022/02/25/%E5%85%B6%E4%BB%96/%E5%A6%82%E4%BD%95%E9%98%85%E8%AF%BB%E6%BA%90%E7%A0%81/" title="如何阅读源码"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/gtoo8888" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+
+
+
+   
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+   
+    
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine"></script>
+  <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: false,
+    notify: false,
+    appId: '',
+    appKey: '',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+  </script>
+
+     
+
+
+
+  <script src="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.3.5/dist/jquery.fancybox.min.js"></script>
+  <script>
+  //利用 FancyBox 实现点击图片放大
+  $(document).ready(function() {
+    $('article img').not('[hidden]').not('.panel-body img').each(function() {
+      var $image = $(this);
+      var imageCaption = $image.attr('alt');
+      var $imageWrapLink = $image.parent('a');
+      if ($imageWrapLink.length < 1) {
+        var src = this.getAttribute('src');
+        var idx = src.lastIndexOf('?');
+        if (idx != -1) {
+          src = src.substring(0, idx);
+        }
+        $imageWrapLink = $image.wrap('<a href="' + src + '"></a>').parent('a');
+      }
+      $imageWrapLink.attr('data-fancybox', 'images');
+      if (imageCaption) {
+        $imageWrapLink.attr('data-caption', imageCaption);
+      }
+    });
+    $().fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+    });
+  });
+  </script>
+
+
+
+
+
+</body>
+</html>

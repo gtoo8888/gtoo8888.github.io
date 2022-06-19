@@ -17,19 +17,21 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>归档 | Hexo</title>
-  <meta name="description" content="Linux学习者">
-<meta property="og:type" content="website">
-<meta property="og:title" content="gtoo8888">
-<meta property="og:url" content="http://example.com/archives/index.html">
+  <title>Part10 认识与学习bash | Hexo</title>
+  <meta name="description" content="10.5 数据流重定向标准输入　　(stdin) ：代码为 0 ，使用 &lt; 或 &lt;&lt; ；标准输出　　(stdout)：代码为 1 ，使用 &gt; 或 &gt;&gt; ；标准错误输出(stderr)：代码为 2 ，使用 2&gt; 或 2&gt;&gt; ； 1&gt; ：以覆盖的方法将『正确的数据』输出到指定的文件或装置上；1&gt;&gt;：以累加的方法将『正确的数据』输出">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Part10 认识与学习bash">
+<meta property="og:url" content="http://example.com/2022/03/31/%E9%B8%9F%E5%93%A5%E7%9A%84Linux%E7%A7%81%E6%88%BF%E8%8F%9C/Part10-%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0bash/index.html">
 <meta property="og:site_name" content="gtoo8888">
-<meta property="og:description" content="Linux学习者">
+<meta property="og:description" content="10.5 数据流重定向标准输入　　(stdin) ：代码为 0 ，使用 &lt; 或 &lt;&lt; ；标准输出　　(stdout)：代码为 1 ，使用 &gt; 或 &gt;&gt; ；标准错误输出(stderr)：代码为 2 ，使用 2&gt; 或 2&gt;&gt; ； 1&gt; ：以覆盖的方法将『正确的数据』输出到指定的文件或装置上；1&gt;&gt;：以累加的方法将『正确的数据』输出">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-03-31T07:06:08.000Z">
+<meta property="article:modified_time" content="2022-04-19T06:54:51.864Z">
 <meta property="article:author" content="Kuku De">
-<meta property="article:tag" content="pig">
+<meta property="article:tag" content="鸟哥的Linux私房菜">
 <meta name="twitter:card" content="summary">
   <!-- Canonical links -->
-  <link rel="canonical" href="http://example.com/archives/index.html">
+  <link rel="canonical" href="http://example.com/2022/03/31/%E9%B8%9F%E5%93%A5%E7%9A%84Linux%E7%A7%81%E6%88%BF%E8%8F%9C/Part10-%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0bash/index.html">
   
     <link rel="alternate" href="/atom.xml" title="gtoo8888" type="application/atom+xml">
   
@@ -332,164 +334,286 @@
   
   
 <main class="main" role="main">
-  	<article class="content article article-archives article-type-list" itemscope="">
-	    <header class="article-header">
-	      <h1 itemprop="title">归档</h1>
-	      <p class="text-muted">共 36 篇文章</p>
-	    </header>
-	    <div class="article-body">
-	      
-  
-  
+  <div class="content">
+  <article id="post-鸟哥的Linux私房菜/Part10-认识与学习bash" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
-    
+    <div class="article-header">
       
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Part10 认识与学习bash
+    </h1>
+  
+
       
-      <section class="panel panel-default b-no">
-        <div class="panel-heading" role="tab">
-          <h3 class="panel-title">
-            <a data-toggle="collapse" href="#collapse2022" aria-expanded="true">
-              <i class="icon icon-calendar-plus text-active"></i><i class="icon icon-calendar-minus text"></i>
-              2022
-            </a>
-            <!-- <a href="/archives/2022" class="archive-year">2022</a> -->
-          </h3>
-        </div>
-        <div id="collapse2022" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading2022">
-        <div class="panel-body">
-          <div class="collection">
-    
-    
-<a href="/2022/05/25/Linux%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/%E9%99%88%E7%A1%95%E7%9A%84muduo%E5%BA%93/mudduo-ch01/" class="collection-item"  target="_blank"   itemprop="url">
-  <time datetime="2022-05-25T13:15:34.000Z" itemprop="datePublished">2022-05-25</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> mudduo-ch01
-</a>
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2022/03/31/%E9%B8%9F%E5%93%A5%E7%9A%84Linux%E7%A7%81%E6%88%BF%E8%8F%9C/Part10-%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0bash/" class="article-date">
+	  <time datetime="2022-03-31T07:06:08.000Z" itemprop="datePublished">2022-03-31</time>
+	</a>
+</span>
+        
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/%E9%B8%9F%E5%93%A5%E7%9A%84Linux%E7%A7%81%E6%88%BF%E8%8F%9C/" rel="tag">鸟哥的Linux私房菜</a>
+  </span>
 
 
+        
+	<span class="article-read hidden-xs">
+	    <i class="icon icon-eye-fill" aria-hidden="true"></i>
+	    <span id="busuanzi_container_page_pv">
+			<span id="busuanzi_value_page_pv">0</span>
+		</span>
+	</span>
+
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2022/03/31/%E9%B8%9F%E5%93%A5%E7%9A%84Linux%E7%A7%81%E6%88%BF%E8%8F%9C/Part10-%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0bash/#comments" class="article-comment-link">评论</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h1 id="10-5-数据流重定向"><a href="#10-5-数据流重定向" class="headerlink" title="10.5 数据流重定向"></a>10.5 数据流重定向</h1><p>标准输入　　(stdin) ：代码为 0 ，使用 &lt; 或 &lt;&lt; ；<br>标准输出　　(stdout)：代码为 1 ，使用 &gt; 或 &gt;&gt; ；<br>标准错误输出(stderr)：代码为 2 ，使用 2&gt; 或 2&gt;&gt; ；</p>
+<p>1&gt; ：以覆盖的方法将『正确的数据』输出到指定的文件或装置上；<br>1&gt;&gt;：以累加的方法将『正确的数据』输出到指定的文件或装置上；<br>2&gt; ：以覆盖的方法将『错误的数据』输出到指定的文件或装置上；<br>2&gt;&gt;：以累加的方法将『错误的数据』输出到指定的文件或装置上；</p>
+<p>&#x2F;dev&#x2F;null 垃圾桶黑洞装置与特殊写法</p>
+<hr>
+<p>命令下达情况	说明<br>cmd1 &amp;&amp; cmd2	1. 若 cmd1 运行完毕且正确运行($?&#x3D;0)，则开始运行 cmd2。<br> 2. 若 cmd1 运行完毕且为错误 ($?≠0)，则 cmd2 不运行。<br>cmd1 || cmd2	1. 若 cmd1 运行完毕且正确运行($?&#x3D;0)，则 cmd2 不运行。<br> 2. 若 cmd1 运行完毕且为错误 ($?≠0)，则开始运行 cmd2。</p>
+<hr>
+<p>测试 &#x2F;tmp&#x2F;abc 是否存在，若不存在则予以创建，若存在就不作任何事情<br>ls &#x2F;tmp&#x2F;abc || mkdir &#x2F;tmp&#x2F;abc &amp;&amp; touch &#x2F;tmp&#x2F;abc&#x2F;hehe</p>
+<p>ls &#x2F;tmp&#x2F;abc &amp;&amp; touch &#x2F;tmp&#x2F;abc&#x2F;hehe</p>
+<h1 id="10-6-管道命令"><a href="#10-6-管道命令" class="headerlink" title="10.6 管道命令"></a>10.6 管道命令</h1><h2 id="提取命令"><a href="#提取命令" class="headerlink" title="提取命令"></a>提取命令</h2><h3 id="cut-将一行信息当中取出想要的"><a href="#cut-将一行信息当中取出想要的" class="headerlink" title="cut 将一行信息当中取出想要的"></a>cut 将一行信息当中取出想要的</h3><p>对同一行的数据进行分解，难以处理多个空格相连的情况<br>cut -d’分隔字符’ -f fields</p>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-d</td>
+<td>后面接分隔字符。与 -f 一起使用；</td>
+</tr>
+<tr>
+<td>-f</td>
+<td>取出第几段的意思</td>
+</tr>
+<tr>
+<td>-c</td>
+<td>以字符 (characters) 的单位取出固定字符区间；</td>
+</tr>
+</tbody></table>
+<h3 id="grep-分析一行信息，提取整行"><a href="#grep-分析一行信息，提取整行" class="headerlink" title="grep     分析一行信息，提取整行"></a>grep     分析一行信息，提取整行</h3><p>grep [-acinv] [–color&#x3D;auto] ‘搜寻字符串’ filename</p>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-a</td>
+<td>将 binary 文件以 text 文件的方式搜寻数据</td>
+</tr>
+<tr>
+<td>-c</td>
+<td>计算找到 ‘搜寻字符串’ 的次数</td>
+</tr>
+<tr>
+<td>-i</td>
+<td>忽略大小写的不同，所以大小写视为相同</td>
+</tr>
+<tr>
+<td>-n</td>
+<td>顺便输出行号</td>
+</tr>
+<tr>
+<td>-v</td>
+<td>反向选择</td>
+</tr>
+<tr>
+<td>–color&#x3D;auto</td>
+<td>可以将找到的关键词部分加上颜色</td>
+</tr>
+</tbody></table>
+<h2 id="排序命令"><a href="#排序命令" class="headerlink" title="排序命令"></a>排序命令</h2><h3 id="sort"><a href="#sort" class="headerlink" title="sort"></a>sort</h3><p>进行排序<br>sort [-fbMnrtuk] [file or stdin]</p>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-f</td>
+<td>忽略大小写的差异，例如 A 与 a 视为编码相同</td>
+</tr>
+<tr>
+<td>-b</td>
+<td>忽略最前面的空格符部分</td>
+</tr>
+<tr>
+<td>-M</td>
+<td>以月份的名字来排序，例如 JAN, DEC 等等的排序方法</td>
+</tr>
+<tr>
+<td>-n</td>
+<td>使用『纯数字』进行排序(默认是以文字型态来排序的)</td>
+</tr>
+<tr>
+<td>-r</td>
+<td>反向排序,原来是从小到大，-r后从大到小</td>
+</tr>
+<tr>
+<td>-u</td>
+<td>就是 uniq ，相同的数据中，仅出现一行代表</td>
+</tr>
+<tr>
+<td>-t</td>
+<td>分隔符，默认是用 [tab] 键来分隔</td>
+</tr>
+<tr>
+<td>-k</td>
+<td>以那个区间 (field) 来进行排序的意思</td>
+</tr>
+</tbody></table>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">sort</span><br><span class="line">1</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">2</span><br><span class="line">20</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">sort -n # 如果不加n，就是用字典序排序了</span><br><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">20</span><br><span class="line">sort -rn    </span><br><span class="line">sort -t &#x27;:&#x27;  # 用冒号分割</span><br></pre></td></tr></table></figure>
+
+<h3 id="uniq"><a href="#uniq" class="headerlink" title="uniq"></a>uniq</h3><p>将重复的数据列出一行显示<br>uniq [-ic]</p>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-i</td>
+<td>忽略大小写字符的不同行</td>
+</tr>
+<tr>
+<td>-c</td>
+<td>进行计数</td>
+</tr>
+</tbody></table>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uniq -c | sort -rn | head -n 5  # 找到次数最多的几个</span><br></pre></td></tr></table></figure>
+
+<h3 id="wc"><a href="#wc" class="headerlink" title="wc"></a>wc</h3><p>wc [-lwm]</p>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-l</td>
+<td>仅列出行</td>
+</tr>
+<tr>
+<td>-w</td>
+<td>仅列出多少字(英文单字)</td>
+</tr>
+<tr>
+<td>-m</td>
+<td>多少字符</td>
+</tr>
+</tbody></table>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/passwd | wc -l   # 目前你的账号文件中有多少个账号时</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="http://example.com/2022/03/31/%E9%B8%9F%E5%93%A5%E7%9A%84Linux%E7%A7%81%E6%88%BF%E8%8F%9C/Part10-%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0bash/" title="Part10 认识与学习bash" target="_blank" rel="external">http://example.com/2022/03/31/鸟哥的Linux私房菜/Part10-认识与学习bash/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/gtoo8888" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/cat.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/gtoo8888" target="_blank"><span class="text-dark">gtoo8888</span><small class="ml-1x">C++ Developer</small></a></h3>
+        <div>个人简介。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
   
     
-    
-    
-<a href="/2022/05/17/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/" class="collection-item"  target="_blank"   itemprop="url">
-  <time datetime="2022-05-17T04:13:07.000Z" itemprop="datePublished">2022-05-17</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> 软件工程
-</a>
-
-
-  
-    
-    
-    
-<a href="/2022/05/15/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%AD%A6%E4%B9%A0/" class="collection-item"  target="_blank"   itemprop="url">
-  <time datetime="2022-05-15T07:08:04.000Z" itemprop="datePublished">2022-05-15</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> 设计模式学习
-</a>
-
-
-  
-    
-    
-    
-<a href="/2022/04/23/%E5%85%B6%E4%BB%96/PPT%E5%88%B6%E4%BD%9C%E8%A6%81%E7%82%B9/" class="collection-item"  target="_blank"   itemprop="url">
-  <time datetime="2022-04-23T08:34:57.000Z" itemprop="datePublished">2022-04-23</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> PPT制作要点
-</a>
-
-
-  
-    
-    
-    
-<a href="/2022/04/19/%E9%9D%A2%E8%AF%95%E9%A2%98%E7%9B%AE/%E7%AE%97%E6%B3%95/" class="collection-item"  target="_blank"   itemprop="url">
-  <time datetime="2022-04-19T07:03:57.000Z" itemprop="datePublished">2022-04-19</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> 算法
-</a>
-
-
-  
-    
-    
-    
-<a href="/2022/04/19/%E9%9D%A2%E8%AF%95%E9%A2%98%E7%9B%AE/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="collection-item"  target="_blank"   itemprop="url">
-  <time datetime="2022-04-19T06:57:24.000Z" itemprop="datePublished">2022-04-19</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> 数据结构
-</a>
-
-
-  
-    
-    
-    
-<a href="/2022/04/05/%E6%95%99%E7%A8%8B/linux%E4%B8%8B%E7%9A%84%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/makefile-tutorial/" class="collection-item"  target="_blank"   itemprop="url">
-  <time datetime="2022-04-05T12:34:26.000Z" itemprop="datePublished">2022-04-05</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> makefile tutorial
-</a>
-
-
-  
-    
-    
-    
-<a href="/2022/04/05/%E6%95%99%E7%A8%8B/vscode%20tutorial/" class="collection-item"  target="_blank"   itemprop="url">
-  <time datetime="2022-04-05T12:33:12.000Z" itemprop="datePublished">2022-04-05</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> vscode 教程
-</a>
-
-
-  
-    
-    
-    
-<a href="/2022/04/03/Linux%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/%E9%BB%91%E9%A9%AC%E7%9A%84%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/day07-%E9%A1%B9%E7%9B%AE/" class="collection-item"  target="_blank"   itemprop="url">
-  <time datetime="2022-04-03T07:51:39.000Z" itemprop="datePublished">2022-04-03</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> day07-项目
-</a>
-
-
-  
-    
-    
-    
-<a href="/2022/04/03/Linux%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/%E9%BB%91%E9%A9%AC%E7%9A%84%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/day06-libevent/" class="collection-item"  target="_blank"   itemprop="url">
-  <time datetime="2022-04-03T07:20:48.000Z" itemprop="datePublished">2022-04-03</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> day06-libevent
-</a>
-
-
-  
-  
-    </div></div></div></section>
-  
-
-	    </div>
-  	</article>
+  <section id="comments">
   	
+      <div id="vcomments"></div>
     
-    <nav class="bar bar-footer clearfix" data-stick-bottom>
-        <div class="bar-inner">
-        <ul class="pager pull-left">
-            
-            <li class="prev disabled">
-                <a href="javascript:;">
-                    <i class="icon icon-angle-left"></i>
-                    上一页
-                </a>
-            </li>
-            
-            
-            <li class="next">
-                <a href="/archives/page/2/">
-                    下一页
-                    <i class="icon icon-angle-right"></i>
-                </a>
-            </li>
-            
-        </ul>
-            <div class="total-article bar-right">Page 1 of 4</div>
-        </div>
-    </nav>
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
     
- 	
+    <li class="prev">
+      <a href="/2022/04/02/Linux%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/%E9%BB%91%E9%A9%AC%E7%9A%84%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/day05-%E7%BA%BF%E7%A8%8B%E6%B1%A0/" title="day05-线程池"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/2022/03/29/%E9%B8%9F%E5%93%A5%E7%9A%84Linux%E7%A7%81%E6%88%BF%E8%8F%9C/Part6-Linux%E6%96%87%E4%BB%B6%E4%B8%8E%E7%9B%AE%E5%BD%95%E7%B3%BB%E7%BB%9F/" title="Part6 Linux文件与目录系统"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+
+
 </main>
 
   <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
@@ -542,6 +666,39 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
 
 
 
+
+   
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+   
+    
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine"></script>
+  <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: false,
+    notify: false,
+    appId: '',
+    appKey: '',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+  </script>
+
+     
 
 
 
