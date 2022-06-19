@@ -17,23 +17,21 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>vim 教程 | Hexo</title>
-  <meta name="description" content="第一部分：一般模式移动光标的方法   命令 解释    [Ctrl] + [f] 屏幕『向下』移动一页，相当于 [Page Down]按键 (常用)   [Ctrl] + [b] 屏幕『向上』移动一页，相当于 [Page Up] 按键 (常用)   [Ctrl] + [d] 屏幕『向下』移动半页   [Ctrl] + [u] 屏幕『向上』移动半页   h 或 向左箭头键(←) 光标向左移动一个字">
+  <title>gcc tutorial | Hexo</title>
+  <meta name="description" content="GCC介绍 GCC 原名为 GNU C语言编译器（GNU C Compiler） GCC（GNU Compiler Collection， GNU编译器套件）是由 GNU 开发的编程语言译器。 GNU 编译器套件包括 C、 C++、 Objective-C、 Java、 Ada 和 Go 语言前端，也包括了这些语言的库（如 libstdc++， libgcj等） GCC 不仅支持 C 的许多“方言">
 <meta property="og:type" content="article">
-<meta property="og:title" content="vim 教程">
-<meta property="og:url" content="http://example.com/2022/03/04/%E6%95%99%E7%A8%8B/vim-tutorial/index.html">
+<meta property="og:title" content="gcc tutorial">
+<meta property="og:url" content="http://example.com/2022/03/11/%E6%95%99%E7%A8%8B/linux%E4%B8%8B%E7%9A%84%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/gcc%20%E6%95%99%E7%A8%8B/index.html">
 <meta property="og:site_name" content="gtoo8888">
-<meta property="og:description" content="第一部分：一般模式移动光标的方法   命令 解释    [Ctrl] + [f] 屏幕『向下』移动一页，相当于 [Page Down]按键 (常用)   [Ctrl] + [b] 屏幕『向上』移动一页，相当于 [Page Up] 按键 (常用)   [Ctrl] + [d] 屏幕『向下』移动半页   [Ctrl] + [u] 屏幕『向上』移动半页   h 或 向左箭头键(←) 光标向左移动一个字">
+<meta property="og:description" content="GCC介绍 GCC 原名为 GNU C语言编译器（GNU C Compiler） GCC（GNU Compiler Collection， GNU编译器套件）是由 GNU 开发的编程语言译器。 GNU 编译器套件包括 C、 C++、 Objective-C、 Java、 Ada 和 Go 语言前端，也包括了这些语言的库（如 libstdc++， libgcj等） GCC 不仅支持 C 的许多“方言">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://s1.ax1x.com/2022/04/05/qXil1P.png">
-<meta property="article:published_time" content="2022-03-04T07:01:03.000Z">
-<meta property="article:modified_time" content="2022-05-25T14:10:30.855Z">
+<meta property="article:published_time" content="2022-03-11T06:11:23.000Z">
+<meta property="article:modified_time" content="2022-06-19T16:17:07.183Z">
 <meta property="article:author" content="Kuku De">
 <meta property="article:tag" content="教程">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://s1.ax1x.com/2022/04/05/qXil1P.png">
   <!-- Canonical links -->
-  <link rel="canonical" href="http://example.com/2022/03/04/%E6%95%99%E7%A8%8B/vim-tutorial/index.html">
+  <link rel="canonical" href="http://example.com/2022/03/11/%E6%95%99%E7%A8%8B/linux%E4%B8%8B%E7%9A%84%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/gcc%20%E6%95%99%E7%A8%8B/index.html">
   
     <link rel="alternate" href="/atom.xml" title="gtoo8888" type="application/atom+xml">
   
@@ -218,7 +216,7 @@
   <div class="widget">
     <h3 class="widget-title">标签</h3>
     <div class="widget-body">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/" rel="tag">Linux网络编程</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MIT-6-828/" rel="tag">MIT 6.828</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/env/" rel="tag">env</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tutorial/" rel="tag">tutorial</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%B6%E4%BB%96/" rel="tag">其他</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%99%E7%A8%8B/" rel="tag">教程</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%AD%E6%B3%95%E7%9B%B8%E5%85%B3/" rel="tag">语法相关</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%B8%9F%E5%93%A5%E7%9A%84Linux%E7%A7%81%E6%88%BF%E8%8F%9C/" rel="tag">鸟哥的Linux私房菜</a><span class="tag-list-count">4</span></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/" rel="tag">Linux网络编程</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MIT-6-828/" rel="tag">MIT 6.828</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%B6%E4%BB%96/" rel="tag">其他</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%99%E7%A8%8B/" rel="tag">教程</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" rel="tag">环境配置</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%AD%E6%B3%95%E7%9B%B8%E5%85%B3/" rel="tag">语法相关</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%B8%9F%E5%93%A5%E7%9A%84Linux%E7%A7%81%E6%88%BF%E8%8F%9C/" rel="tag">鸟哥的Linux私房菜</a><span class="tag-list-count">4</span></li></ul>
     </div>
   </div>
 
@@ -228,7 +226,7 @@
   <div class="widget">
     <h3 class="widget-title">标签云</h3>
     <div class="widget-body tagcloud">
-      <a href="/tags/Linux%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/" style="font-size: 14px;">Linux网络编程</a> <a href="/tags/MIT-6-828/" style="font-size: 13px;">MIT 6.828</a> <a href="/tags/env/" style="font-size: 13px;">env</a> <a href="/tags/tutorial/" style="font-size: 13.4px;">tutorial</a> <a href="/tags/%E5%85%B6%E4%BB%96/" style="font-size: 13.6px;">其他</a> <a href="/tags/%E6%95%99%E7%A8%8B/" style="font-size: 13.8px;">教程</a> <a href="/tags/%E8%AF%AD%E6%B3%95%E7%9B%B8%E5%85%B3/" style="font-size: 13.2px;">语法相关</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 13.6px;">面试</a> <a href="/tags/%E9%B8%9F%E5%93%A5%E7%9A%84Linux%E7%A7%81%E6%88%BF%E8%8F%9C/" style="font-size: 13.6px;">鸟哥的Linux私房菜</a>
+      <a href="/tags/Linux%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/" style="font-size: 13.75px;">Linux网络编程</a> <a href="/tags/MIT-6-828/" style="font-size: 13px;">MIT 6.828</a> <a href="/tags/%E5%85%B6%E4%BB%96/" style="font-size: 13.5px;">其他</a> <a href="/tags/%E6%95%99%E7%A8%8B/" style="font-size: 14px;">教程</a> <a href="/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" style="font-size: 13px;">环境配置</a> <a href="/tags/%E8%AF%AD%E6%B3%95%E7%9B%B8%E5%85%B3/" style="font-size: 13.25px;">语法相关</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 13.5px;">面试</a> <a href="/tags/%E9%B8%9F%E5%93%A5%E7%9A%84Linux%E7%A7%81%E6%88%BF%E8%8F%9C/" style="font-size: 13.5px;">鸟哥的Linux私房菜</a>
     </div>
   </div>
 
@@ -237,7 +235,7 @@
   <div class="widget">
     <h3 class="widget-title">归档</h3>
     <div class="widget-body">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">五月 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">四月 2022</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">三月 2022</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">二月 2022</a><span class="archive-list-count">8</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">六月 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">五月 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">四月 2022</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">三月 2022</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">二月 2022</a><span class="archive-list-count">8</span></li></ul>
     </div>
   </div>
 
@@ -249,6 +247,36 @@
     <div class="widget-body">
       <ul class="recent-post-list list-unstyled no-thumbnail">
         
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2022/06/19/%E5%AE%9E%E4%B9%A0%E5%86%85%E5%AE%B9/" class="title">实习内容</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-06-19T15:43:01.000Z" itemprop="datePublished">2022-06-19</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2022/06/19/%E6%95%99%E7%A8%8B/docker%20%E6%95%99%E7%A8%8B/" class="title">docker 教程</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-06-19T15:39:25.000Z" itemprop="datePublished">2022-06-19</time>
+              </p>
+            </div>
+          </li>
+          
           <li>
             
             <div class="item-inner">
@@ -294,36 +322,6 @@
             </div>
           </li>
           
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category">
-                
-              </p>
-              <p class="item-title">
-                <a href="/2022/04/23/%E5%85%B6%E4%BB%96/PPT%E5%88%B6%E4%BD%9C%E8%A6%81%E7%82%B9/" class="title">PPT制作要点</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2022-04-23T08:34:57.000Z" itemprop="datePublished">2022-04-23</time>
-              </p>
-            </div>
-          </li>
-          
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category">
-                
-              </p>
-              <p class="item-title">
-                <a href="/2022/04/19/%E9%9D%A2%E8%AF%95%E9%A2%98%E7%9B%AE/%E7%AE%97%E6%B3%95/" class="title">算法</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2022-04-19T07:03:57.000Z" itemprop="datePublished">2022-04-19</time>
-              </p>
-            </div>
-          </li>
-          
       </ul>
     </div>
   </div>
@@ -337,14 +335,14 @@
   
 <main class="main" role="main">
   <div class="content">
-  <article id="post-教程/vim-tutorial" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-教程/linux下的开发环境/gcc 教程" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      vim 教程
+      gcc tutorial
     </h1>
   
 
@@ -352,8 +350,8 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/2022/03/04/%E6%95%99%E7%A8%8B/vim-tutorial/" class="article-date">
-	  <time datetime="2022-03-04T07:01:03.000Z" itemprop="datePublished">2022-03-04</time>
+	<a href="/2022/03/11/%E6%95%99%E7%A8%8B/linux%E4%B8%8B%E7%9A%84%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/gcc%20%E6%95%99%E7%A8%8B/" class="article-date">
+	  <time datetime="2022-03-11T06:11:23.000Z" itemprop="datePublished">2022-03-11</time>
 	</a>
 </span>
         
@@ -373,170 +371,156 @@
 	</span>
 
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2022/03/04/%E6%95%99%E7%A8%8B/vim-tutorial/#comments" class="article-comment-link">评论</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2022/03/11/%E6%95%99%E7%A8%8B/linux%E4%B8%8B%E7%9A%84%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/gcc%20%E6%95%99%E7%A8%8B/#comments" class="article-comment-link">评论</a></span>
         
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <p><img src="https://s1.ax1x.com/2022/04/05/qXil1P.png" alt="VIM"></p>
-<h1 id="第一部分：一般模式"><a href="#第一部分：一般模式" class="headerlink" title="第一部分：一般模式"></a>第一部分：一般模式</h1><h2 id="移动光标的方法"><a href="#移动光标的方法" class="headerlink" title="移动光标的方法"></a>移动光标的方法</h2><table>
+        <h1 id="GCC介绍"><a href="#GCC介绍" class="headerlink" title="GCC介绍"></a>GCC介绍</h1><ul>
+<li>GCC 原名为 GNU C语言编译器（GNU C Compiler）</li>
+<li>GCC（GNU Compiler Collection， GNU编译器套件）是由 GNU 开发的编程语言<br>译器。 GNU 编译器套件包括 C、 C++、 Objective-C、 Java、 Ada 和 Go 语言前<br>端，也包括了这些语言的库（如 libstdc++， libgcj等）</li>
+<li>GCC 不仅支持 C 的许多“方言”，也可以区别不同的 C 语言标准；可以使用命令行<br>选项来控制编译器在翻译源代码时应该遵循哪个 C 标准。例如，当使用命令行参数<br><code>-std=c99</code> 启动 GCC 时，编译器支持 C99 标准。</li>
+<li>安装命令 sudo apt install gcc g++ （版本 &gt; 4.8.5）</li>
+<li>查看版本 gcc&#x2F;g++ -v&#x2F;–version</li>
+</ul>
+<h1 id="语言流程"><a href="#语言流程" class="headerlink" title="语言流程"></a>语言流程</h1><p>高级语言<br>编译<br>汇编语言<br>汇编<br>机器语言<br>运行<br>计算机</p>
+<h1 id="GCC工作流程"><a href="#GCC工作流程" class="headerlink" title="GCC工作流程"></a>GCC工作流程</h1><p>源代码(预处理)-&gt;预处理后源代码(编译器)-&gt;汇编代码(汇编器)-&gt;目标代码(链接器)-&gt;可执行程序<br>.h.c.cpp<br>.i<br>.s<br>.exe.out</p>
+<h1 id="gcc-和-g-的区别"><a href="#gcc-和-g-的区别" class="headerlink" title="gcc 和 g++ 的区别"></a>gcc 和 g++ 的区别</h1><p>gcc 和 g++都是GNU(组织)的一个编译器</p>
+<ul>
+<li>误区一： gcc 只能编译 c 代码， g++ 只能编译 c++ 代码。两者都可以，请注意：</li>
+<li>误区二： gcc 不会定义 __cplusplus 宏，而 g++ 会</li>
+<li>误区三：编译只能用 gcc，链接只能用 g++</li>
+</ul>
+<h1 id="GCC常用参数选项"><a href="#GCC常用参数选项" class="headerlink" title="GCC常用参数选项"></a>GCC常用参数选项</h1><table>
 <thead>
 <tr>
-<th>命令</th>
-<th>解释</th>
+<th>输出</th>
+<th>说明</th>
+<th>文件名</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>[Ctrl] + [f]</td>
-<td>屏幕『向下』移动一页，相当于 [Page Down]按键 (常用)</td>
+<td></td>
+<td>没有指令</td>
+<td>a.out</td>
 </tr>
 <tr>
-<td>[Ctrl] + [b]</td>
-<td>屏幕『向上』移动一页，相当于 [Page Up] 按键 (常用)</td>
+<td>-E</td>
+<td>预处理指定的源文件，不进行编译</td>
+<td>被导入到标准输出流（也就是显示器）</br>gcc -E test.c -o 7.i</td>
 </tr>
 <tr>
-<td>[Ctrl] + [d]</td>
-<td>屏幕『向下』移动半页</td>
+<td>-S</td>
+<td>编译指定的源文件，但是不进行汇编，生成汇编文件</td>
+<td>原文件名.s</td>
 </tr>
 <tr>
-<td>[Ctrl] + [u]</td>
-<td>屏幕『向上』移动半页</td>
+<td>-c</td>
+<td>编译、汇编指定的源文件，生成目标文件，但是不进行链接</td>
+<td>原文件名.o</td>
 </tr>
 <tr>
-<td>h 或 向左箭头键(←)</td>
-<td>光标向左移动一个字符</td>
+<td>-o [file1] [file2] [file2]</td>
+<td>将文件 file2 编译成可执行文件 file1</td>
+<td></td>
 </tr>
 <tr>
-<td>j 或 向下箭头键(↓)</td>
-<td>光标向下移动一个字符</td>
-</tr>
-<tr>
-<td>k 或 向上箭头键(↑)</td>
-<td>光标向上移动一个字符</td>
-</tr>
-<tr>
-<td>l 或 向右箭头键(→)</td>
-<td>光标向右移动一个字符</td>
-</tr>
-<tr>
-<td>0 或功能键[Home]</td>
-<td>移动到这一行的最前面字符处 (常用)</td>
-</tr>
-<tr>
-<td>$ 或功能键[End]</td>
-<td>移动到这一行的最后面字符处(常用)</td>
-</tr>
-<tr>
-<td>G</td>
-<td>移动到这个档案的最后一行(常用)</td>
-</tr>
-<tr>
-<td>nG	n</td>
-<td>为数字。移动到这个档案的第 n 行。例如 20G 则会移动到这个档案的第 20</td>
-</tr>
-<tr>
-<td>gg</td>
-<td>移动到这个档案的第一行，相当于 1G  (常用)</td>
-</tr>
-<tr>
-<td>n<Enter></td>
-<td>n 为数字。光标向下移动 n 行</td>
+<td>-o [file1]</td>
+<td>生成指定文件名file1</td>
+<td></td>
 </tr>
 </tbody></table>
-<h2 id="搜索替换"><a href="#搜索替换" class="headerlink" title="搜索替换"></a>搜索替换</h2><table>
+<p>将main.c和string.c编译成一个执行文件<br>gcc -o test mian.c string.c</p>
+<table>
 <thead>
 <tr>
-<th>命令</th>
-<th>解释</th>
+<th>指令</th>
+<th>说明</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>&#x2F;word</td>
-<td>向光标之下寻找一个名称为 word 的字符串</td>
+<td>-I</td>
+<td>directory 指定 include 包含文件的搜索目录</td>
 </tr>
 <tr>
-<td>?word</td>
-<td>向光标之上寻找一个字符串名称为 word 的字符串</td>
+<td>—</td>
+<td>—</td>
 </tr>
 <tr>
-<td>n</td>
-<td>这个 n 是英文按键。代表重复前一个搜寻的动作</td>
+<td>-g</td>
+<td>在编译的时候，生成调试信息，该程序可以被调试器调试</td>
 </tr>
 <tr>
-<td>N</td>
-<td>反向进行前一个搜寻动作</td>
+<td>-D</td>
+<td>在程序编译的时候，指定一个宏</td>
+</tr>
+<tr>
+<td>-w</td>
+<td>不生成任何警告信息</td>
+</tr>
+<tr>
+<td>-Wall</td>
+<td>生成所有警告信息</td>
+</tr>
+<tr>
+<td>-O n</td>
+<td>n的取值范围： 0~3,编译器的优化选项的4个级别</br> -O 0表示没有优化， -O 1为缺省值， -O 3优化级别最高</td>
+</tr>
+<tr>
+<td>-l</td>
+<td>在程序编译的时候，指定使用的库</td>
+</tr>
+<tr>
+<td>-L</td>
+<td>指定编译的时候，搜索的库的路径。</td>
+</tr>
+<tr>
+<td>-fPIC&#x2F;fpic</td>
+<td>生成与位置无关的代码</td>
+</tr>
+<tr>
+<td>-shared</td>
+<td>生成共享目标文件，通常用在建立共享库时</td>
+</tr>
+<tr>
+<td>-std</td>
+<td>指定C方言，如:-std&#x3D;c++11， gcc默认的方言是GNU C</td>
 </tr>
 </tbody></table>
-<h2 id="删除、复制与粘贴"><a href="#删除、复制与粘贴" class="headerlink" title="删除、复制与粘贴"></a>删除、复制与粘贴</h2><table>
-<thead>
-<tr>
-<th>命令</th>
-<th>解释</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>dd</td>
-<td>剪切游标所在的那一整行(常用)</td>
-</tr>
-<tr>
-<td>yy</td>
-<td>复制游标所在的那一行(常用)</td>
-</tr>
-<tr>
-<td>p</td>
-<td>p 为将已复制的数据在光标下一行贴上</td>
-</tr>
-<tr>
-<td>P</td>
-<td>P 则为贴在游标上一行</td>
-</tr>
-<tr>
-<td>c</td>
-<td>重复删除多个数据，例如向下删除 10 行，[ 10cj ]</td>
-</tr>
-<tr>
-<td>u</td>
-<td>复原前一个动作。(常用)</td>
-</tr>
-<tr>
-<td>[Ctrl]+r</td>
-<td>重做上一个动作。(常用)</td>
-</tr>
-</tbody></table>
-<hr>
-<h1 id="第二部分：一般模式切换到编辑模式"><a href="#第二部分：一般模式切换到编辑模式" class="headerlink" title="第二部分：一般模式切换到编辑模式"></a>第二部分：一般模式切换到编辑模式</h1><hr>
-<h1 id="第三部分：一般模式切换到指令行模式"><a href="#第三部分：一般模式切换到指令行模式" class="headerlink" title="第三部分：一般模式切换到指令行模式"></a>第三部分：一般模式切换到指令行模式</h1><hr>
-<h1 id="vim-环境的变更"><a href="#vim-环境的变更" class="headerlink" title="vim 环境的变更"></a>vim 环境的变更</h1><table>
-<thead>
-<tr>
-<th>命令</th>
-<th>解释</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>:set nu</td>
-<td>显示行号，设定之后，会在每一行的前缀显示该行的行号</td>
-</tr>
-<tr>
-<td>:set nonu</td>
-<td>与 set nu 相反，为取消行号</td>
-</tr>
-</tbody></table>
-<hr>
-<h1 id="复制粘贴"><a href="#复制粘贴" class="headerlink" title="复制粘贴"></a>复制粘贴</h1><p>全选（高亮显示）：按esc后，然后ggvG或者ggVG</p>
-<p>全部复制：按esc后，然后ggyG</p>
-<p>全部删除：按esc后，然后dG</p>
-<p>解析：</p>
-<p>gg：是让光标移到首行，在vim才有效，vi中无效 </p>
-<p>v ： 是进入Visual(可视）模式 </p>
-<p>G ：光标移到最后一行 </p>
-<p>选中内容以后就可以其他的操作了，比如： <br>d  删除选中内容 <br>y  复制选中内容到0号寄存器 <br>“+y  复制选中内容到＋寄存器，也就是系统的剪贴板，供其他程序用 </p>
-<p> </p>
-<p>全选（高亮显示）：按esc后，然后ggvG或者ggVG</p>
-<p>全部复制：按esc后，然后ggyG</p>
-<h2 id="全部删除：按esc后，然后dG"><a href="#全部删除：按esc后，然后dG" class="headerlink" title="全部删除：按esc后，然后dG"></a>全部删除：按esc后，然后dG</h2><p>vim全选，全部复制，全部删除</p>
-<p><a target="_blank" rel="noopener" href="https://blog.51cto.com/u_15127698/3564626">https://blog.51cto.com/u_15127698/3564626</a><br><a target="_blank" rel="noopener" href="https://www.runoob.com/linux/linux-vim.html">https://www.runoob.com/linux/linux-vim.html</a></p>
+<h1 id="库文件"><a href="#库文件" class="headerlink" title="库文件"></a>库文件</h1><ul>
+<li>库文件是计算机上的一类文件，可以简单的把库文件看成一种代码仓库，它提供给使用者一些可以直接拿来用的变量、函数或类。</li>
+<li>库是特殊的一种程序，编写库的程序和编写一般的程序区别不大，只是库不能单独运行。</li>
+<li>库文件有两种，静态库和动态库（共享库），区别是：静态库在程序的链接阶段被复制到了程序中；动态库在链接阶段没有被复制到程序中，而是程序在运行时由系统动态加载到内存中供程序调用。</li>
+<li>库的好处： 1.代码保密 2.方便部署和分发</li>
+</ul>
+<h1 id="静态库的制作"><a href="#静态库的制作" class="headerlink" title="静态库的制作"></a>静态库的制作</h1><ul>
+<li><p>命名规则：</p>
+<ul>
+<li>Linux : libxxx.a</li>
+<li>lib : 前缀（固定）</li>
+<li>xxx : 库的名字，自己起</li>
+<li>.a : 后缀（固定）</li>
+</ul>
+</li>
+<li><p>Windows : libxxx.lib</p>
+</li>
+<li><p>静态库的制作：</p>
+</li>
+<li><p>gcc 获得 .o 文件</p>
+</li>
+<li><p>将 .o 文件打包，使用 ar 工具（archive）</p>
+<ul>
+<li>ar rcs libxxx.a xxx.o xxx.o<ul>
+<li>r – 将文件插入备存文件中</li>
+<li>c – 建立备存文件</li>
+<li>s – 索引</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="参考资料："><a href="#参考资料：" class="headerlink" title="参考资料："></a>参考资料：</h1><p><a target="_blank" rel="noopener" href="https://www.nowcoder.com/courses/cover/live/504">https://www.nowcoder.com/courses/cover/live/504</a></p>
 
       
     </div>
@@ -546,7 +530,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="http://example.com/2022/03/04/%E6%95%99%E7%A8%8B/vim-tutorial/" title="vim 教程" target="_blank" rel="external">http://example.com/2022/03/04/教程/vim-tutorial/</a>
+      <a href="http://example.com/2022/03/11/%E6%95%99%E7%A8%8B/linux%E4%B8%8B%E7%9A%84%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/gcc%20%E6%95%99%E7%A8%8B/" title="gcc tutorial" target="_blank" rel="external">http://example.com/2022/03/11/教程/linux下的开发环境/gcc 教程/</a>
     </li>
     
     <li class="post-copyright-license">
@@ -593,12 +577,12 @@
   <ul class="pager pull-left">
     
     <li class="prev">
-      <a href="/2022/03/08/%E8%AF%AD%E6%B3%95%E7%9B%B8%E5%85%B3/CPP-grammar/" title="CPP-tutorial"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+      <a href="/2022/03/12/MIT%206.828/Lab1-Part1-PC-bootstrap/" title="Lab1 Part1:PC bootstrap"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
     </li>
     
     
     <li class="next">
-      <a href="/2022/03/03/%E9%B8%9F%E5%93%A5%E7%9A%84Linux%E7%A7%81%E6%88%BF%E8%8F%9C/ubuntu-command/" title="ubuntu command"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="/2022/03/08/%E8%AF%AD%E6%B3%95%E7%9B%B8%E5%85%B3/CPP-grammar/" title="CPP-tutorial"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     
