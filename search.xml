@@ -1,0 +1,2012 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>实习内容</title>
+    <url>/2022/06/19/%E5%AE%9E%E4%B9%A0%E5%86%85%E5%AE%B9/</url>
+    <content><![CDATA[<p>2022.6.13-6.19</p>
+<p>本周的工作内容，<br>周一安装环境，了解docker<br>周二了解docker，可以把docker的镜像跑起来<br>周三出现了巨大问题，程序一直没有弄明白，也没有问别人<br>周四还是在做周三做的事情，而且效率很底下<br>周五完成任务，得到了新的任务</p>
+<p>总结和反思：<br>1.当自己有问题解决不了的，分析问题的原因，来自自己，还是来自别人，接下来，我解决这个问题，需要寻求别人的帮助，还是自己去找方法解决<br>2.下午后半段的工作效率不高，在中午的时候，以3:00区分，规划一下下午的3点前后的任务。<br>在3:00的时候应该对自己当前的工作状况进行反思，看一下现在自己状态好不好，设计一下接下来干什么<br>3.当自己程序看不懂的时候，很大情况下是自己知识点的欠缺，需要去补足，先把东西学会，再去做东西，效率会更高<br>4.应该一直做同一个工作，不要总是换来换去</p>
+<p>需要加强的：<br>构建docker镜像的能力，只是会用docker命令，还是没有具体了解docker内部的情况</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>linux网络编程</title>
+    <url>/2022/03/16/Linux%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/linux%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/</url>
+    <content><![CDATA[<p>用man pthread没有相应的解释<br>sudo apt-get install glibc-doc</p>
+<p>sudo apt-get install manpages-posix-dev</p>
+<p>man -k pthread </p>
+<p>sudo apt-get install mysql-server</p>
+<p>service mysql start启动mysql</p>
+<p>&#x2F;&#x2F; 建立yourdb库<br>create database yourdb;</p>
+<p>&#x2F;&#x2F;创建user表<br>USE yourdb;<br>CREATE TABLE user(<br>    username char(50) NULL,<br>    passwd char(50) NULL<br>)ENGINE&#x3D;InnoDB;</p>
+<p>&#x2F;&#x2F; 添加数据<br>INSERT INTO user(username, passwd) VALUES(‘name’, ‘passwd’);</p>
+<p>show databases;<br>显示数据库</p>
+<p>use demo_test;<br>连接数据库</p>
+<p>查看当前使用的数据库：<br>mysql&gt; select database();</p>
+<p>查看表<br>show tables;</p>
+<p>获取表结构<br>desc user;</p>
+<p>查询表中的数据<br>mysql&gt; select * from user;</p>
+]]></content>
+      <tags>
+        <tag>Linux网络编程</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>设计模式学习</title>
+    <url>/2022/05/15/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%AD%A6%E4%B9%A0/</url>
+    <content><![CDATA[<h1 id="面向对象的设计原则，五个"><a href="#面向对象的设计原则，五个" class="headerlink" title="面向对象的设计原则，五个"></a>面向对象的设计原则，五个</h1><p>SOLID指代了<strong>面向对象编程</strong>和<strong>面向对象设计</strong>的五个基本原则</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>缩写</th>
+<th>全称</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>单一职责原则</td>
+<td>SRP</td>
+<td>Single Responsibility Principle</td>
+<td>每个类的职责单一</td>
+</tr>
+<tr>
+<td><strong>开闭原则</strong></td>
+<td>OCP</td>
+<td>Open Closed Principle</td>
+<td>类的改动，增加代码是好的，修改源代码是不好的</td>
+</tr>
+<tr>
+<td>里氏替换原则</td>
+<td>LSP</td>
+<td>Liskov Substitution Principle</td>
+<td>多态</td>
+</tr>
+<tr>
+<td>接口隔离原则</td>
+<td>ISP</td>
+<td>Interface Segregation Principle</td>
+<td>接口隔离</td>
+</tr>
+<tr>
+<td><strong>依赖倒置原则</strong></td>
+<td>DIP</td>
+<td>Dependence Inversion Principle</td>
+<td>依赖抽象接口</td>
+</tr>
+<tr>
+<td>——</td>
+<td>——</td>
+<td>——</td>
+<td>——</td>
+</tr>
+<tr>
+<td>迪米特法则</td>
+<td>LoD</td>
+<td>Law of Demeter</td>
+<td>一个对象应当对其他对象少了解</td>
+</tr>
+<tr>
+<td>组合&#x2F;聚合复用原则</td>
+<td>CRP</td>
+<td>Composite&#x2F;Aggregate Reuse Principle</td>
+<td>继承不好，组合好的</td>
+</tr>
+</tbody></table>
+<p>总体原则：高聚合，低耦合</p>
+<h1 id="6-迪米特法则"><a href="#6-迪米特法则" class="headerlink" title="6.迪米特法则"></a>6.迪米特法则</h1><p>解释：<br>去公司找人修电脑，不应该去找某个具体的小李、小张来修，应该抽象出一个接口类，IT部门，找IT部门修，用抽象接口再去对接实际的类，不然找小张解决不了问题，找小李解决不了问题。<br>结论：迪米特法则强调了类之间的松耦合关系，类之间的耦合越松，越有利于复用。</p>
+<h1 id="简单工厂模式"><a href="#简单工厂模式" class="headerlink" title="简单工厂模式"></a>简单工厂模式</h1><h2 id="概述："><a href="#概述：" class="headerlink" title="概述："></a>概述：</h2><p>本来每个类都需要new出来，现在是通过一个工厂来创建</p>
+<h2 id="优点："><a href="#优点：" class="headerlink" title="优点："></a>优点：</h2><p>1.客户端和具体实现类解耦<br>2.对于某些对象创建过程比较复杂情况，我们不用考虑这些了</p>
+<h2 id="缺点："><a href="#缺点：" class="headerlink" title="缺点："></a>缺点：</h2><p>1.简单工厂模式，增加新的功能是通过修改源代码实现，不符合开闭原则<br>2.这个类职责过重，这个类发生问题，会影响很多实用这个工厂的模块</p>
+<h2 id="使用场景："><a href="#使用场景：" class="headerlink" title="使用场景："></a>使用场景：</h2><p>1.工厂类负责创建的对象比较少，由于创建的对象较少，不会造成工厂方法中个的业务逻辑太过复杂。<br>2.客户端只知道传入工厂类的参数，对于如何创建对象并不关心。<br><strong>解释</strong>：用在不需要关心创建过程，读取什么文件，什么什么的，就想要用这个类<br>比如创建过程很复杂，但是我只是想用这个类，那我就用这个简单工厂创建一下就行，具体的创建过程都放在工厂里面</p>
+<h1 id="工厂模式"><a href="#工厂模式" class="headerlink" title="工厂模式"></a>工厂模式</h1><h2 id="概述：-1"><a href="#概述：-1" class="headerlink" title="概述："></a>概述：</h2><p>对于每一个类，都对应一个具体创建的工厂类，然后再定义一个抽象工厂作为接口<br>简单工厂模式 + “开闭原则” &#x3D; 工厂方法模式</p>
+<h2 id="优点：-1"><a href="#优点：-1" class="headerlink" title="优点："></a>优点：</h2><p>1.不需要记住具体类名，甚至连具体参数都不用记忆（因为用的是抽象的工厂接口）<br>2.实现了对象创建和使用的分离。<br>3.系统的可扩展性也就变得非常好，无需修改接口和原类。（符合开闭原则）</p>
+<h2 id="缺点：-1"><a href="#缺点：-1" class="headerlink" title="缺点："></a>缺点：</h2><p>1.增加系统中类的个数，复杂度和理解度增加。<br>2.增加了系统的抽象性和理解难度。</p>
+<h2 id="适用场景"><a href="#适用场景" class="headerlink" title="适用场景"></a>适用场景</h2><p>1.客户端不知道它所需要的对象的类。<br>2.抽象工厂类通过其子类来指定创建哪个对象。</p>
+<h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><p><a href="https://blog.csdn.net/weixin_42636062/category_11313224.html?spm=1001.2014.3001.5482">https://blog.csdn.net/weixin_42636062/category_11313224.html?spm=1001.2014.3001.5482</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>Lab1 Part1:PC bootstrap</title>
+    <url>/2022/03/12/MIT%206.828/Lab1-Part1-PC-bootstrap/</url>
+    <content><![CDATA[<p>安装环境</p>
+<p>sudo apt install ninja-build</p>
+<p>1h<br>3340&#x2F;9263</p>
+<p>21：41<br>4199&#x2F;9263</p>
+]]></content>
+      <tags>
+        <tag>MIT 6.828</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hexo-Logs</title>
+    <url>/2022/02/21/%E5%85%B6%E4%BB%96/hexo-Logs/</url>
+    <content><![CDATA[<h2 id="2022-2-12"><a href="#2022-2-12" class="headerlink" title="2022-2-12"></a>2022-2-12</h2><ul>
+<li>创建博客，添加了两篇文章</li>
+</ul>
+<h2 id="2022-2-21"><a href="#2022-2-21" class="headerlink" title="2022-2-21"></a>2022-2-21</h2><ul>
+<li>更改了主题，统计访问人数，更改分类，改了网站图标</li>
+</ul>
+<h2 id="2022-3-21"><a href="#2022-3-21" class="headerlink" title="2022-3-21"></a>2022-3-21</h2><ul>
+<li>不断增加文章</li>
+</ul>
+<h2 id="2022-4-5"><a href="#2022-4-5" class="headerlink" title="2022-4-5"></a>2022-4-5</h2><ul>
+<li>暂时用路过图床作为图床，图片本地保存一份，起码可以上传图片了</li>
+<li>以后考虑用腾讯云的CDS来代替<br><a href="https://imgtu.com/ytgh678">https://imgtu.com/ytgh678</a></li>
+<li>做了一些头像等细节的优化，图片放大插件，阅读时长，字数统计</li>
+</ul>
+<h2 id="2022-6-21"><a href="#2022-6-21" class="headerlink" title="2022-6-21"></a>2022-6-21</h2><ul>
+<li>修复了左边导航栏的问题</li>
+<li>添加了搜索功能</li>
+</ul>
+<h1 id="等待加入的功能"><a href="#等待加入的功能" class="headerlink" title="等待加入的功能"></a>等待加入的功能</h1><ol>
+<li><p>刚进入的页面要弄得整齐</p>
+<ul>
+<li>置顶某一篇文章</li>
+<li>每篇文章的显示更加详细</li>
+</ul>
+</li>
+<li><p>做归档那边的功能，不能空着</p>
+</li>
+<li><p>每个分类点进去应该是横着的格式，而不是现在的样子</p>
+</li>
+</ol>
+<hr>
+<ol>
+<li>改变字体颜色</li>
+<li>同一个页面下的多级目录</li>
+<li>左下角显示时间，访客</li>
+<li>可以被搜索到<br>分开统计每个页面浏览量<br>标签云添加颜色<br>图片点一下会放大</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>其他</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>软件工程</title>
+    <url>/2022/05/17/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/</url>
+    <content><![CDATA[<h1 id="需求工程"><a href="#需求工程" class="headerlink" title="需求工程"></a>需求工程</h1><h2 id="怎么开会？"><a href="#怎么开会？" class="headerlink" title="怎么开会？"></a>怎么开会？</h2><p>开会如何组织？<br>开会内容肯定是最重要的，但是在会议内容之外，组织方面要注意什么<br>一定需要有会议日程，会议记录<br>agenda:<br>过去的开会：几点开会，大概要商量几件时期<br>改进后的开会：几点开会，本次有几个议题，第一个议题讨论多少分钟，第二个讨论多久，每个讨论多久，总会议时间多久<br>方便别人对自己的安排<br>facilitator:(会议主持人)<br>顾客主持，自己主持，仲裁主持<br>主持人的作用：按照会议日程，每个议题讨论多久，就讨论多久，时间到了要切换到下一个议题，不论是否讨论出结果<br>或者时间快到了，一个议题最多讨论30分钟，20分钟过去了，我们要加快出结果<br>如果讨论时间不够，就说明agenda给错了，会议组织人没有做好充分的准备，时间到了也要切换掉，下次再讨论<br>一个人一直在啰嗦，没有说到点子上，主持人要过去打断一下，让他简短一下<br>definition mechanism:(工作台)<br>有一个工具，可以让大家讨论的时候把东西记录下来<br>会议的时候，给每个人发一个纸和笔<br>会议时候有个投影、或者黑板，有人要发表意见的时候，可以在黑板上写两句</p>
+<p>学生的开会：<br>发个QQ消息，把人聚集过来，人反正都来了，也不知道要具体说什么，反正就是说这个项目相关的事情<br>组长想到哪里说到哪里，大家也都是想到哪里，说到哪里<br>产生一个会议纪要</p>
+<p>Quality Function Deployment(QFD)<br>把顾客想要的东西，转换成技术员可以理解的需求<br>以客户满意度最大化去做所有的事情(Maximize customer satisfaction)<br>需要弄清楚客户满意度是什么<br>步骤：<br>1.把要做的每一个功能搞清楚，并且给每个功能一个值，这个功能对客户来说有多少价值<br>2.确定目标和事件<br>3.确定输入输出<br>4.价值分析，对每个需求进行一个打分，对打分进行分类<br>Nomal<br>Expected<br>Exciting<br>需求依次递减，一定得先把Nomal做好，Expected能做就做<br>Exciting有余力再做，看对面钱给的够不够了</p>
+<p>不能本末倒置的做，做个手机，地图，导航，相册，都很好用，但是打电话不好用，这就是QFD做的不好</p>
+<p>需求分析阶段需要给客户提供的：<br>1.可行性分析报告<br>2.系统涵盖的范围是什么样子的<br>3.每个人的通讯方式<br>4.技术环境<br>5.有什么功能，有什么特殊的限制</p>
+<h1 id="谈判"><a href="#谈判" class="headerlink" title="谈判"></a>谈判</h1><p>1.达成双赢目标<br>自己胜利的条件是确定的，但是客户的胜利条件是不确定的，或者说自己是不清楚的<br>2.如果一方占不到便宜，项目失败的可能会很大<br>如果谈判的时候客户比较傻，被自己占到了便宜，但是事后也会有很大的麻烦<br>3.站在对方的角度想，他为什么要做这件事<br>ex:<br>出国留学时候的答辩：<br>1.每个人都说“我很想获得这个机会”<br>2.但是自己很拉，成绩很差，那学院为什么会同意你出去留学，你出去留学，没法双赢</p>
+<p>谈判注意事项；<br>1.谈判不是辩论，不是要说服对方，谈判是妥协的艺术<br>2.谈判是一种策略，给对方营造出不得不接受的情景<br>充分了解对手，了解对方的需求，了解对方的长处和弱点，设计谈判的策略，先说什么，后说什么，把哪件事情谈判到什么程度<br>直接方法：比较直爽，比较不好，上来就一杆子插到底，说我的底线就在这里，上来就谈崩了<br>3.少说，多听<br>可能说的很啰嗦，但是要仔细的听，可能会有弦外之音，可能会透露出本来不想透露出的信息<br>没必要告诉别人过多的信息，尽量从别人的只言片语中得到尽可能多的信息<br>4.站在对方的角度想，对他有什么好处<br>5.不要人身攻击，不要翻旧账，就事论事，对事不对人<br>6.说出去的话，就要去做到<br>谈判的时候，自己抛出的每一个条件，就划线了，这自己就要做得到<br>随时准备好，自己说的这个话，可能作为一条线被画下来<br>7.谈判结束后，看看有没有漏掉什么东西，有什么不一致的地方</p>
+<h1 id="需求模型"><a href="#需求模型" class="headerlink" title="需求模型"></a>需求模型</h1><h1 id="设计模型"><a href="#设计模型" class="headerlink" title="设计模型"></a>设计模型</h1>]]></content>
+  </entry>
+  <entry>
+    <title>如何阅读源码</title>
+    <url>/2022/02/25/%E5%85%B6%E4%BB%96/%E5%A6%82%E4%BD%95%E9%98%85%E8%AF%BB%E6%BA%90%E7%A0%81/</url>
+    <content><![CDATA[<h1 id="0-确定阅读源码的目的"><a href="#0-确定阅读源码的目的" class="headerlink" title="0.确定阅读源码的目的"></a>0.确定阅读源码的目的</h1><p>1.通过编译，能跑起来。<br>有的时候环境比较复杂，搭建调试环境的时候就需要花很多时间。<br>先通过搜索把调试环境搭建起来，这一步就能积累很多经验。</p>
+<p>2.精简调试环境，减少干扰信息<br>python用pycharm<br>C\C++类的代码，使用Vim+Ctags+Cscope来</p>
+<p>3.调试手段</p>
+<ul>
+<li><p>加调试语句。为了做到这一点，你需要先了解项目如何加调试日志，可能需要修改项目的日志级别支持输出一些在调试级别的日志，等等。</p>
+</li>
+<li><p>断点调试。并不是所有项目代码，跑起来之后都自带调试信息能够断点调试的。所以在自己的调试环境里需要先确定这一点。</p>
+</li>
+</ul>
+<h1 id="利用好测试用例"><a href="#利用好测试用例" class="headerlink" title="利用好测试用例"></a>利用好测试用例</h1><p>好的项目都会自带不少用例，这类型的例子有：etcd、google出品的几个开源项目。</p>
+<p>如果测试用例写的很仔细，那么很值得好好去研究一下。原因在于：测试用例往往是针对某个单一的场景，独自构造出一些数据来对程序的流程进行验证。所以，其实跟前面的“情景分析”一样，都是让你从大的项目转而关注具体某个场景的手段之一。</p>
+<h1 id="厘清核心数据结构之间的关系"><a href="#厘清核心数据结构之间的关系" class="headerlink" title="厘清核心数据结构之间的关系"></a>厘清核心数据结构之间的关系</h1><p>虽然说“程序设计&#x3D;算法+数据结构”，然后我实际中的体会，数据结构更加重要。</p>
+<p>因为结构定义了一个程序的架构，结构定下来了才有具体的实现。</p>
+<p>Linus说： “烂程序员关心的是代码。好程序员关心的是数据结构和它们之间的关系。”</p>
+<p>因此，在阅读一份代码时，厘清核心的数据结构之间的关系尤其重要。这个时候，需要使用一些工具来画一下这些结构之间的关系，我的源码分析类博客中有很多这样的例子，比如《Leveldb代码阅读笔记》、《Etcd存储的实现》等等。</p>
+<p>需要说明的是，情景分析、厘清核心数据结构这两步并没有严格的顺序关系，不见得是先做某事再做某事，而是交互进行的。</p>
+<p>比如，你如果现在刚接手某个项目，需要简单的了解一下项目，可以先阅读代码了解都有哪些核心数据结构。理解了之后，如果不清楚某些情景下的流程，可以使用情景分析法。总而言之，交替进行直到解答你的疑问为止。</p>
+<h1 id="3整体和细节"><a href="#3整体和细节" class="headerlink" title="3整体和细节"></a>3整体和细节</h1><p>阅读代码的过程中，需要在整体和细节之间做权衡。</p>
+<p>比如，有时候你需要大体了解一个整体的框架、轮廓、流程之后，才能再针对具体的细节深入进去。这个时候，不宜针对具体的函数实现、算法等深入分析。而细节的分析，又不能缺少，否则一些东西的理解又流于表面。</p>
+<p>所以，如何把握整体和细节是一个需要累积阅读代码经验才能把握好的。我的建议是：过程中还是以整体为首，在不理解整体的前提之前，不要太过深入某个细节。把某个函数、数据结构当成一个黑盒，知道它们的输入、输出就好，只要不影响整体的理解就暂且放下接着往前看。</p>
+<h1 id="3多问自己几个问题"><a href="#3多问自己几个问题" class="headerlink" title="3多问自己几个问题"></a>3多问自己几个问题</h1><p>学习的过程中离不开交互。</p>
+<p>如果阅读代码只是输入（Input），那么还需要有输出（Output）。只有简单的输入好比喂东西给你吃，而只有更好的消化才能变为自己的营养，而输出就是更好消化知识的重要手段。</p>
+<p>其实这个思想很常见，比如学生上课（Input）了需要做练习作业（Output），比如学了算法（Input）需要自己编码练习（Output），等等。简而言之，输出是学习过程中的一种及时反馈，质量越高学习效率越高。</p>
+<p>输出的手段有很多，在阅读代码时，比较建议的是自己能够多问自己一些问题，比如：</p>
+<p>为什么选择这个数据结构来描述这个问题？类似的场景下，其他项目是怎么设计的？都有哪些数据结构做这样的事情？<br>如果由我来设计这样的项目，我会怎么做？<br>等等等等。越是主动积极的思考，就越有更好的输出，输出质量与学习质量成正比关系。</p>
+<p>4.写自己的代码阅读笔记<br>我从开始写博客，就是写不少各种项目的代码解读类文章，网名“codedump”也源于想把“code内部的实现原理dump出来”之意。</p>
+<p>前面提到学习质量与输出质量成正比关系，这是我自己的深刻体会。也因为如此，所以才要坚持阅读源码之后写自己的分析类笔记。</p>
+<p>写这类笔记，有以下几个需要注意的地方。</p>
+<p>虽然是笔记，但是要想象着在向一个不太熟悉这个项目的人讲解原理，或者想象一下是几个月甚至几年后的自己回头来看这个文章。在这种情况下，会尽量的把语言组织好，循循善诱的解释。</p>
+<p>尽量避免大段的贴代码。我认为在这类文章中，大段贴上代码有点自欺欺人：就是看上去自己懂了，其实并不见得。如果真要解释某段代码，可以使用伪代码或者缩减代码的方式。记住：不要自欺欺人，要真的懂了。如果真的想在代码上加上自己的注释，我有一个建议是fork出来一份该项目某个版本的代码，提交到自己的github上，上面随时可以加上自己的注释并且保存提交。比如我自己注释的etcd 3.1.10代码：etcd-3.1.10-codedump，类似的我阅读的其他项目都会在github上fork出一个带上codedump后缀的项目。</p>
+<p>多画图，一图胜千言，使用图形展示代码流程、数据结构之间的关系。我最近才发现画图能力也是很重要的能力，自己在从头学习如何使用图像来表达自己的想法。</p>
+<p>写作是很重要的基础能力，我一个朋友最近教育我，大体的意思是说：如果你在某方面的能力很强，如果再加上写作好、英语好，那么将极大放大你在这方面的能力。而类似写作、英语这样的底层基础能力，不是一撮而就的，需要长时间保持练习才可以。而写博客，对于技术人员而言，就是一种很好的锻炼写作的手段。</p>
+<p>必须找好切入点。你要解决什么问题。是要fix bug；还是要把这个系统和其它模块集成；还是要增加新功能。物理学家没有上来就研究整个宇宙的，必须选好分支。如果你有一个猜想，但是又和你的目标关联不太大，那就坚持这个猜想，直到出现明显反例。物理学有很多这样的例子，和数学不同，为了旁支猜想投入过多研究是不明智的。如果有明显证据证明你的某个旁支猜想大错特错，你就要放弃主要目标，暂时把解决旁支猜想作为主要目标。比如，你本来以为某个结构是LRU的cache，结果发现怎么做都不对，那就先放弃原来的目标，专门研究这个结构的用途。对于旁支猜想的不断切换，要做好自己的task stack保留。在旁支猜想解决之后，要根据结论尽快回到上次中断的任务。</p>
+<p>很简单的第一，找准入口出口，不要直接跳进去看，任何代码都有触发点，无论是http request，还是服务器自动启动，还是main函数，还是其他的，先从入口开始。第二，手边一支笔一张纸，除非你是Jeff，否则你不会记得那么多跳转的。一个跳转就写下来函数&#x2F;方法名和参数，读完一遍，就有了一个sequence diagram雏形第三，私有方法掠过，只要记住输入输出即可，无需看具体实现</p>
+<p>常见的困难<br>在阅读源代码的过程中，会遇到不少的困难，常见的有：</p>
+<p>成熟的开源项目往往自身的代码量很大，盲目地从入口文件开始阅读，会陷入到各种代码分支上，耗费大量时间不说，收获也甚微。<br>代码难以看懂，不清楚来龙去脉。<br>本人在阅读源代码的时候，走了不少的弯路，结合自己的实践谈谈自己是如何克服上述的困难。</p>
+<p>阅读的目的<br>首先，做一件事件，要先明确目的。目的可以起到指引的作用，同时也可以检验自己是否已经完成。</p>
+<p>阅读源代码也不例外。阅读源代码的目的可能是：</p>
+<p>了解源代码的目录结构，学习开源项目是如何组织代码<br>开源项目有某些强大的功能，阅读源代码了解实现细节，以便更加全面的掌握。<br>在使用开源项目时，遇到一些问题，边阅读源码，边debug<br>其他<br>漫无目的的看源代码一般难以有收获。</p>
+<p>事先准备<br>如果目的是通过阅读源代码，加深对技术细节的理解，做好以下几步，可以降低阅读源码的难度。</p>
+<p>了解这门技术的历史，搞清楚这门技术是为了解决什么样的问题而发展起来的。<br>了解技术的架构，概念。优秀的开源项目源码实现和技术架构，概念都有清晰的联系。<br>如果没有在实际运用中使用过该技术，建议还是仔细阅读官网上的start指引，编写运行几个小的demo。<br>准备问题，试着在阅读官网文档或者编写demo的过程中提出几个问题，当然也可以参考别人提出的问题（常见的面试题也是不错的）。<br>在github上clone该项目到本地，保留项目完整的commit和tag。</p>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a href="https://www.codedump.info/post/20190324-how-to-read-code/">https://www.codedump.info/post/20190324-how-to-read-code/</a><br><a href="https://www.zhihu.com/question/19625320/answer/12429108">https://www.zhihu.com/question/19625320/answer/12429108</a><br><a href="https://www.zhihu.com/question/19625320/answer/307133854">https://www.zhihu.com/question/19625320/answer/307133854</a><br><a href="https://github.com/zhangguixu/myblogs/issues/4">https://github.com/zhangguixu/myblogs/issues/4</a></p>
+]]></content>
+      <tags>
+        <tag>其他</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>PPT制作要点</title>
+    <url>/2022/04/23/%E5%85%B6%E4%BB%96/PPT%E5%88%B6%E4%BD%9C%E8%A6%81%E7%82%B9/</url>
+    <content><![CDATA[<p>以“除草智能装备及机器人”为题目，制作一个PPT</p>
+<p>构思：</p>
+<ol>
+<li><p>首先接到一个做PPT的需求</p>
+</li>
+<li><p>思考从哪几个方面开始写<br>注意：由于是刚刚接触到这个题目，一般是十分的陌生，所以第一个任务就是找出哪几个点去写，但是一般情况下，刚刚提出的都是有问题的<br>但是一定要找到几个要点，先提出来，再后面的不断思考中，会不断改进，自然就会优化了</p>
+</li>
+</ol>
+<p>举例：</p>
+<ul>
+<li>发展现状</li>
+<li>机械介绍</li>
+<li>算法介绍</li>
+<li>未来展望</li>
+</ul>
+<ol start="3">
+<li>写一个大纲<br>主要内容：<br>大的点，2-3条<br>每个大点里面找要展开来讲的点，3-4条</li>
+</ol>
+<p>举例：</p>
+<ul>
+<li>发展现状<ul>
+<li>农田割草机</li>
+<li>技术情况</li>
+<li>市场情况</li>
+<li>国内</li>
+<li>国外</li>
+</ul>
+</li>
+<li>机械介绍<ul>
+<li>有什么</li>
+</ul>
+</li>
+<li>算法介绍<ul>
+<li>路径规划</li>
+<li>点到点</li>
+<li>全覆盖</li>
+</ul>
+</li>
+<li>未来展望<ul>
+<li>ROS、SLAM</li>
+<li>多机器人</li>
+<li>不规则地块</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p>开始制作：</p>
+<ol start="4">
+<li><p>确定主题颜色，从要讲述的东西中，选取2-3个主题颜色</p>
+</li>
+<li><p>从头开始<br>对每个点进行扩充，查找图片和相关资料，多找GIF<br>先把内容都填充到PPT中，不用考虑排版<br>差不多半天，比如19:00-22:00这么长时间，可以完成对个大点内容的填充</p>
+</li>
+<li><p>设计每个页面的排版<br>将页面精简，从大段文字中提取出主要内容<br>这个步骤完成后，主要内容已经制作完成了</p>
+</li>
+</ol>
+<hr>
+<p>设计动画：<br>7. 给每个页面加上动画<br>设计每个段落之间的逻辑关系</p>
+<ol start="8">
+<li>反复看整个PPT的演示效果</li>
+</ol>
+<hr>
+<p>自己复述，设计改怎么表述</p>
+<hr>
+<p>PPT设计要点：</p>
+<ol>
+<li>减少大段文字的出现，大段文字总结成小标题，或者小标题配和一小段文字</li>
+<li>必须出现一小段文字，用红字加粗主要内容</li>
+<li>空荡荡的字放在那里很空虚，最后放一个背景框</li>
+<li>给小标题加上一条线</li>
+<li>没有边框的图标，柱状图，饼图，用框框框起来</li>
+<li>纯白的背景很单调，后面添加一半的纯色背景</li>
+<li>能用图片代替文字就尽量用图片代替</li>
+</ol>
+<p>动画要点</p>
+<ol>
+<li>强调重点的时候，不止用红框框<ul>
+<li>图片+扩展图形放大凸显</li>
+<li>放大镜凸显</li>
+<li>后面加阴影，前面放大</li>
+</ul>
+</li>
+<li>增加时间轴的表现形式</li>
+<li>设计封面的时候，用动画将主要要讲述的物体突出</li>
+<li>红圈，用轮子效果</li>
+<li>半透明形状</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>其他</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Markdown 教程</title>
+    <url>/2022/02/12/%E6%95%99%E7%A8%8B/Markdown%20%E6%95%99%E7%A8%8B/</url>
+    <content><![CDATA[<h1 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 这是 &lt;h1&gt; 一级标题</span><br><span class="line"></span><br><span class="line">## 这是 &lt;h2&gt; 二级标题</span><br><span class="line"></span><br><span class="line">### 这是 &lt;h3&gt; 三级标题</span><br><span class="line"></span><br><span class="line">#### 这是 &lt;h4&gt; 四级标题</span><br><span class="line"></span><br><span class="line">##### 这是 &lt;h5&gt; 五级标题</span><br><span class="line"></span><br><span class="line">###### 这是 &lt;h6&gt; 六级标题</span><br></pre></td></tr></table></figure>
+
+<h1 id="斜体"><a href="#斜体" class="headerlink" title="斜体"></a>斜体</h1><figure class="highlight plaintext"><figcaption><span>斜体 的文字*``` *这会是 斜体 的文字*</span></figcaption><table><tr><td class="code"><pre><span class="line">```_这会是 斜体 的文字_``` _这会是 斜体 的文字_</span><br><span class="line">```**这会是 粗体 的文字**``` **这会是 粗体 的文字**</span><br><span class="line">```__这会是 粗体 的文字__``` __这会是 粗体 的文字__</span><br><span class="line">```_你也 **组合** 这些符号_``` _你也 **组合** 这些符号_</span><br><span class="line">```~~这个文字将会被横线删除~~``` ~~这个文字将会被横线删除~~```</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 列表</span><br><span class="line">## 无序列表</span><br><span class="line">- Item 1</span><br><span class="line">- Item 2</span><br><span class="line">  - Item 2a</span><br><span class="line">  - Item 2b</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ul>
+<li>Item 1</li>
+<li>Item 2<ul>
+<li>Item 2a</li>
+<li>Item 2b<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">## 有序列表</span><br><span class="line">1. Item 1</span><br><span class="line">1. Item 2</span><br><span class="line">1. Item 3</span><br><span class="line">   1. Item 3a</span><br><span class="line">   1. Item 3b</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+<ol>
+<li>Item 1</li>
+<li>Item 2</li>
+<li>Item 3<ol>
+<li>Item 3a</li>
+<li>Item 3b<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">* 第一项      </span><br><span class="line">* 第二项</span><br><span class="line">* 第三项</span><br><span class="line"></span><br><span class="line">+ 第一项</span><br><span class="line">+ 第二项</span><br><span class="line">+ 第三项</span><br><span class="line"></span><br><span class="line">- 第一项</span><br><span class="line">- 第二项</span><br><span class="line">- 第三项</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+</ol>
+</li>
+</ol>
+<ul>
+<li>第一项      </li>
+<li>第二项</li>
+<li>第三项</li>
+</ul>
+<ul>
+<li>第一项</li>
+<li>第二项</li>
+<li>第三项</li>
+</ul>
+<ul>
+<li>第一项</li>
+<li>第二项</li>
+<li>第三项<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"># 图片</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<img src="/%E5%9B%BE%E7%89%87%E9%93%BE%E6%8E%A5" alt="Alt text" title="optional title"><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Alt text：图片的Alt标签，用来描述图片的关键词，可以不写。最初的本意是当图片因为某种原因不能被显示时而出现的替代文字，后来又被用于SEO，可以方便搜索引擎根据Alt text里面的关键词搜索到图片。 </span><br><span class="line">图片链接：可以是图片的本地地址或者是网址。</span><br><span class="line">&quot;optional title&quot;：鼠标悬置于图片上会出现的标题文字，可以不写。</span><br><span class="line"></span><br><span class="line">![Hollow Knight](../img/1.jpg)</span><br><span class="line"></span><br><span class="line"># 引用</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>We’re living the future so<br>the present is our past.</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"># 分隔符</span><br><span class="line">---</span><br><span class="line">连字符</span><br><span class="line">---</span><br><span class="line">星号</span><br><span class="line">---</span><br><span class="line">下划线</span><br><span class="line">---</span><br><span class="line"></span><br><span class="line"># 代码块</span><br><span class="line">你可以在你的代码上面和下面添加 ``` 来表示代码块。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>printf(“hello world”) </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"># 创建表格</span><br><span class="line"></span><br><span class="line">## 默认表格</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>标题1</th>
+<th>标题2</th>
+<th>标题3</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>文本好短</td>
+<td>文本不短也不长</td>
+<td>文本好长文本好长文本好长</td>
+</tr>
+<tr>
+<td>文本好长文本好长文本好长</td>
+<td>文本好短</td>
+<td>文本不短也不长</td>
+</tr>
+</tbody></table>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">| 标题1 | 标题2 | 标题3 |</span><br><span class="line">| ------ | ------ | ------ |</span><br><span class="line">| 文本好短 | 文本不短也不长 | 文本好长文本好长文本好长 |</span><br><span class="line">| 文本好长文本好长文本好长 | 文本好短 | 文本不短也不长 |</span><br><span class="line"></span><br><span class="line">## 带有对齐格式的表格</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th align="left">左对齐</th>
+<th align="right">右对齐</th>
+<th align="center">居中对齐</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">文本好短</td>
+<td align="right">文本不短也不长</td>
+<td align="center">文本好长文本好长文本好长</td>
+</tr>
+<tr>
+<td align="left">文本好长文本好长文本好长</td>
+<td align="right">文本好短</td>
+<td align="center">文本不短也不长</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<pre><code>
+| 左对齐 | 右对齐 | 居中对齐 |
+| :-----| ----: | :----: |
+| 文本好短 | 文本不短也不长 | 文本好长文本好长文本好长 |
+| 文本好长文本好长文本好长 | 文本好短 | 文本不短也不长 |
+
+## Markdown关于表格的语法
+默认标题居中对齐，内容居左对齐
+:-内容和标题栏居左对齐，:-:内容和标题栏居中对齐，-:内容和标题栏居右对齐
+| - :之间多余的空格会被忽略，-的数量至少一个
+内容和|之间多余的空格会被忽略
+
+## 表格内换行
+```&lt;br&gt;```
+
+## 转义字符
+
+``\&lt;mutex&gt;``
+\&lt;mutex&gt;
+
+
+
+
+# 参考文献
+https://shd101wyy.github.io/markdown-preview-enhanced/#/zh-cn/markdown-basics
+https://www.jianshu.com/p/280c6a6f2594
+</code></pre>
+]]></content>
+      <tags>
+        <tag>教程</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>docker 教程</title>
+    <url>/2022/06/19/%E6%95%99%E7%A8%8B/docker%20%E6%95%99%E7%A8%8B/</url>
+    <content><![CDATA[<h1 id="一、docker-镜像命令"><a href="#一、docker-镜像命令" class="headerlink" title="一、docker 镜像命令"></a>一、docker 镜像命令</h1><h2 id="镜像查看"><a href="#镜像查看" class="headerlink" title="镜像查看"></a>镜像查看</h2><p>docker images -a            #列出本地所有的镜像<br>docker images -q            #只显示镜像ID<br>docker images –digests     #显示镜像的摘要信息<br>docker images –no-trunc    #显示完整的镜像信息</p>
+<p>NAME            #名称<br>DESCRIPTION     #描述<br>STARS           #点赞，关注度，类似GitHub<br>OFFICIAL        #是否官方<br>AUTOMATED       #是否自动构建 请确认输入了正确的用户名和密码。</p>
+<h2 id="镜像下载"><a href="#镜像下载" class="headerlink" title="镜像下载"></a>镜像下载</h2><p>docker pull tomcat      #从Docker Hub上下载tomcat镜像，默认是最新版本。等价于：docker pull tomcat:latest<br>docker pull tomcat:8  # 选择指定版本下载</p>
+<h2 id="镜像运行"><a href="#镜像运行" class="headerlink" title="镜像运行"></a>镜像运行</h2><p>此时从镜像变成了容器<br>docker run 镜像名<br>docker run 镜像名:Tag</p>
+<p>–name&#x3D;”nginx-lb”: 为容器指定一个名称；<br>-p: 指定端口映射，格式为：主机(宿主)端口:容器端口<br>    -p 8888:6379<br>    -p 8888:6379 解析 将容器内部的 6379端口与docker 宿主机（docker装在哪太服务器 那台服务器 就是其数组机）8888 端口进行映射 那通过外部访问宿主机8888端口 即可访问到 docker 容器 6379 端口了<br>-d: 后台运行容器，并返回容器ID；<br>-i: 以交互模式运行容器，通常与 -t 同时使用；<br>-t: 为容器重新分配一个伪输入终端，通常与 -i 同时使用；<br> –privileged<br>    大约在0.6版，privileged被引入docker。<br>    使用该参数，container内的root拥有真正的root权限。<br>    否则，container内的root只是外部的一个普通用户权限。<br>    privileged启动的容器，可以看到很多host上的设备，并且可以执行mount。<br>    甚至允许你在docker容器中启动docker容器</p>
+<p>docker run -it –privileged -v D:\test:&#x2F;output -d -p 8010:22 -p 50001:50051 -p 50002:50052 -p 50005:55555 e9e8789a3024</p>
+<p>docker run -it -v $PWD:output test_tool:1-3 &#x2F;bin&#x2F;bash</p>
+<h2 id="镜像删除"><a href="#镜像删除" class="headerlink" title="镜像删除"></a>镜像删除</h2><p>docker rmi java<br>#强制删除(删除正在运行的镜像，注：以后台方式运行的不能被强制删除)<br>docker rmi -f java<br>#多个镜像删除，不同镜像间以空格间隔<br>docker rmi -f java tomcat nginx<br>#删除本地全部镜像<br>docker rmi -f $(docker images -q)</p>
+<h1 id="二、docker-容器命令"><a href="#二、docker-容器命令" class="headerlink" title="二、docker 容器命令"></a>二、docker 容器命令</h1><h2 id="查看容器"><a href="#查看容器" class="headerlink" title="查看容器"></a>查看容器</h2><p>查看正在运行容器列表<br>docker ps<br>查看所有容器 —–包含正在运行 和已停止的<br>docker ps -a</p>
+<h2 id="停止容器"><a href="#停止容器" class="headerlink" title="停止容器"></a>停止容器</h2><p>docker stop 容器名&#x2F;容器ID</p>
+<h2 id="进入容器"><a href="#进入容器" class="headerlink" title="进入容器"></a>进入容器</h2><p>docker exec -it 容器名&#x2F;容器ID &#x2F;bin&#x2F;bash<br>docker exec -it test01 &#x2F;bin&#x2F;bash</p>
+<h2 id="启动容器"><a href="#启动容器" class="headerlink" title="启动容器"></a>启动容器</h2><p>docker start 容器ID&#x2F;容器名<br>docker start t1</p>
+<h2 id="删除容器"><a href="#删除容器" class="headerlink" title="删除容器"></a>删除容器</h2><p>#删除一个容器<br>docker rm -f 容器名&#x2F;容器ID<br>#删除多个容器 空格隔开要删除的容器名或容器ID<br>docker rm -f 容器名&#x2F;容器ID 容器名&#x2F;容器ID 容器名&#x2F;容器ID<br>#删除全部容器<br>docker rm -f $(docker ps -aq)</p>
+]]></content>
+      <tags>
+        <tag>教程</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>git 教程</title>
+    <url>/2022/03/16/%E6%95%99%E7%A8%8B/git%20%E6%95%99%E7%A8%8B/</url>
+    <content><![CDATA[<h1 id="linux环境下下载"><a href="#linux环境下下载" class="headerlink" title="linux环境下下载"></a>linux环境下下载</h1><ol>
+<li><p><code>git clone [ssh地址]</code><br>直接克隆代码</p>
+</li>
+<li><p><code>git clone -b [分支名字] [ssh地址]</code><br>需要克隆这个代码的一个分支</p>
+</li>
+</ol>
+<h1 id="linux环境下提交"><a href="#linux环境下提交" class="headerlink" title="linux环境下提交"></a>linux环境下提交</h1><ol>
+<li><p><code>git init</code><br>git初始化<br>输出：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Initialized empty Git repository in /home/yzx/network/.git/</span><br></pre></td></tr></table></figure></li>
+<li><p><code>git add .</code><br>提交所有的内容<br>输出：<br>无</p>
+</li>
+<li><p><code>git status</code><br>查看当前提交的状态</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">On branch master</span><br><span class="line">No commits yet</span><br><span class="line"></span><br><span class="line">Changes to be committed:</span><br><span class="line">  (use &quot;git rm --cached &lt;file&gt;...&quot; to unstage)</span><br><span class="line">        new file:   ch04/4-2-1-getpid.c</span><br><span class="line">        new file:   ch04/4-2-2-fork.c</span><br><span class="line">        new file:   ch04/4-2-3-system.c</span><br><span class="line">        new file:   ch04/4-2-4-ececve.c</span><br><span class="line">        new file:   ch04/4-4-1-pthread.c</span><br><span class="line">        new file:   ch04/a.out</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>git commit -m &quot;ch04&quot;</code><br>提交到远程仓库<br>git commit 规范指南<br>Commit message 的格式</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;type&gt;(&lt;scope&gt;): &lt;subject&gt;</span><br><span class="line">&lt;BLANK LINE&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;BLANK LINE&gt;</span><br><span class="line">&lt;footer&gt;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="type"><a href="#type" class="headerlink" title="type"></a>type</h3><p>用于说明 commit 的类别，只允许使用下面7个标识。<br>feat：新功能（feature）<br>fix：修补bug<br>docs：文档（documentation）<br>style： 格式（不影响代码运行的变动）<br>refactor：重构（即不是新增功能，也不是修改bug的代码变动）<br>test：增加测试<br>chore：构建过程或辅助工具的变动</p>
+<h3 id="scope"><a href="#scope" class="headerlink" title="scope"></a>scope</h3><p>scope用于说明 commit 影响的范围，比如数据层、控制层、视图层等等，视项目不同而不同。</p>
+<h3 id="subject"><a href="#subject" class="headerlink" title="subject"></a>subject</h3><p>subject是 commit 目的的简短描述，不超过50个字符。</p>
+<h3 id="Body"><a href="#Body" class="headerlink" title="Body"></a>Body</h3><p>Body 部分是对本次 commit 的详细描述，可以分成多行。下面是一个范例。</p>
+<ol start="5">
+<li><code>git remote add origin git@github.com:gtoo8888/linux-network.git</code><br>正常输出：<br>无</br></li>
+</ol>
+<ul>
+<li>报错：</li>
+<li>fatal: remote origin already exists.</li>
+<li><ul>
+<li>解决：</li>
+</ul>
+</li>
+<li><ol>
+<li>git remote -v 查看远程的仓库有什么</li>
+</ol>
+</li>
+<li><ul>
+<li>输出：</li>
+</ul>
+</li>
+<li><ul>
+<li>origin  <a href="mailto:&#103;&#105;&#x74;&#64;&#x67;&#x69;&#116;&#104;&#x75;&#x62;&#x2e;&#99;&#x6f;&#109;">&#103;&#105;&#x74;&#64;&#x67;&#x69;&#116;&#104;&#x75;&#x62;&#x2e;&#99;&#x6f;&#109;</a>:gtoo8888&#x2F;linux-network.git (fetch)</li>
+</ul>
+</li>
+<li><ul>
+<li>origin  <a href="mailto:&#103;&#x69;&#116;&#x40;&#x67;&#x69;&#x74;&#x68;&#x75;&#98;&#46;&#x63;&#x6f;&#109;">&#103;&#x69;&#116;&#x40;&#x67;&#x69;&#x74;&#x68;&#x75;&#98;&#46;&#x63;&#x6f;&#109;</a>:gtoo8888&#x2F;linux-network.git (push)</li>
+</ul>
+</li>
+<li><ol start="2">
+<li>git remote rm origin 移除远程的仓库</li>
+</ol>
+</li>
+<li><ul>
+<li>输出：无</li>
+</ul>
+</li>
+<li><ol start="3">
+<li>git remote add origin <a href="mailto:&#103;&#x69;&#x74;&#x40;&#103;&#105;&#116;&#104;&#x75;&#98;&#46;&#99;&#x6f;&#x6d;">&#103;&#x69;&#x74;&#x40;&#103;&#105;&#116;&#104;&#x75;&#98;&#46;&#99;&#x6f;&#x6d;</a>:gtoo8888&#x2F;linux-network.git 再次使用指令</li>
+</ol>
+</li>
+</ul>
+<ol start="6">
+<li><code>git push origin master</code><br>步骤5操作过一次以后，下一次就不需要了</li>
+</ol>
+<p>输出：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Enumerating objects: 9, done.</span><br><span class="line">Counting objects: 100% (9/9), done.</span><br><span class="line">Delta compression using up to 2 threads</span><br><span class="line">Compressing objects: 100% (8/8), done.</span><br><span class="line">Writing objects: 100% (9/9), 3.65 KiB | 1.21 MiB/s, done.</span><br><span class="line">Total 9 (delta 0), reused 0 (delta 0)</span><br><span class="line">remote:</span><br><span class="line">remote: Create a pull request for &#x27;master&#x27; on GitHub by visiting:</span><br><span class="line">remote:      https://github.com/gtoo8888/linux-network/pull/new/master</span><br><span class="line">remote:</span><br><span class="line">To github.com:gtoo8888/linux-network.git</span><br><span class="line"> * [new branch]      master -&gt; master</span><br></pre></td></tr></table></figure>
+<p>报错：<br>error: src refspec main does not match any<br>error: failed to push some refs to ‘<a href="mailto:&#103;&#105;&#116;&#x40;&#103;&#x69;&#x74;&#104;&#117;&#98;&#46;&#99;&#111;&#109;">&#103;&#105;&#116;&#x40;&#103;&#x69;&#x74;&#104;&#117;&#98;&#46;&#99;&#111;&#109;</a>:gtoo8888&#x2F;linux-network.git’<br>报错原因：<br>本地文件与github上的文件有冲突<br>本地需要提交的文件中存在空文件<br>本地的origin和remote origin&#x2F;master 没有建立关联<br>解决方法：<br>git push origin main<br>发现仓库中主要分支叫做master修改后就好了</p>
+<h1 id="生成ssh秘钥"><a href="#生成ssh秘钥" class="headerlink" title="生成ssh秘钥"></a>生成ssh秘钥</h1><h2 id="1-生成公钥："><a href="#1-生成公钥：" class="headerlink" title="1.生成公钥："></a>1.生成公钥：</h2><p>git命令：ssh-keygen  -m [密钥格式]  -t [密钥类型]  -C[密钥注解] </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ssh-keygen -m PEM -t ed25519 -C &quot;your.email@example.com&quot; // 创建新的 SSH 私钥与公钥秘钥对，输入你的邮箱作为标签</span><br><span class="line">Enter file in which to save the key (/Users/you/.ssh/id_rsa): [Press enter] // 推荐使用默认地址</span><br><span class="line">Enter passphrase (empty for no passphrase): // 此处直接回车即可；若设置密码，则每次使用 SSH 方式推送代码时都会要求输入密码</span><br></pre></td></tr></table></figure>
+<p>成功之后显示：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Your identification has been saved in /Users/you/.ssh/id_rsa.</span><br><span class="line"># Your public key has been saved in /Users/you/.ssh/id_rsa.pub.</span><br><span class="line"># The key fingerprint is:</span><br><span class="line"># 01:0f:f4:3b:ca:85:d6:17:a1:7d:f0:68:9d:f0:a2:db your.email@example.com</span><br></pre></td></tr></table></figure>
+<h2 id="2-添加公钥"><a href="#2-添加公钥" class="headerlink" title="2.添加公钥"></a>2.添加公钥</h2><p>windows地址为（C:\Users\you.ssh）<br>打开上文中生成的秘钥对的地址（默认地址通常为 ~&#x2F;.ssh&#x2F;）找到后缀为 pub 的公钥文件，使用 cat 命令输出所有内容并复制。</p>
+<h2 id="3-尝试使用ssh连接github"><a href="#3-尝试使用ssh连接github" class="headerlink" title="3.尝试使用ssh连接github"></a>3.尝试使用ssh连接github</h2><p>ssh -T <a href="mailto:&#x67;&#x69;&#116;&#64;&#x67;&#105;&#x74;&#104;&#117;&#98;&#x2e;&#99;&#x6f;&#x6d;">&#x67;&#x69;&#116;&#64;&#x67;&#105;&#x74;&#104;&#117;&#98;&#x2e;&#99;&#x6f;&#x6d;</a><br>ssh -T <a href="mailto:&#x67;&#x69;&#x74;&#64;&#101;&#x2e;&#x63;&#111;&#x64;&#x69;&#x6e;&#103;&#46;&#110;&#x65;&#116;">&#x67;&#x69;&#x74;&#64;&#101;&#x2e;&#x63;&#111;&#x64;&#x69;&#x6e;&#103;&#46;&#110;&#x65;&#116;</a></p>
+<h1 id="一些git的命令"><a href="#一些git的命令" class="headerlink" title="一些git的命令"></a>一些git的命令</h1><h2 id="git-LFS技术"><a href="#git-LFS技术" class="headerlink" title="git LFS技术"></a>git LFS技术</h2><p>可以用来存放大文件</p>
+<p>git lfs pull –all<br>git lfs pull</p>
+<h2 id="checkout"><a href="#checkout" class="headerlink" title="checkout"></a>checkout</h2><p>git checkout – bin&#x2F;test_tool.sh</p>
+<h2 id="git-submodule"><a href="#git-submodule" class="headerlink" title="git submodule"></a>git submodule</h2><p>当我们的项目很大很复杂的时候，需要将各个模块文件进行抽离，以此来降低项目文件之间的耦合程度。（当然你项目不大不复杂也可以使用，看个人喜好啦！！！）这个时候就可以使用git submodule来对项目文件进行抽离，最终使抽离出来的文件可以单独成为一个git仓库。这样做的好处是整个主项目对抽离出来的子项目（子模块）有依赖关系，却又并不关心子项目（子模块）的内部开发流程细节。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git submodule init</span><br><span class="line"># 初始化子项目</span><br><span class="line">git submodule update</span><br><span class="line"># 对子项目获取远程项目中最新的状态</span><br></pre></td></tr></table></figure>
+<h1 id="git-rm"><a href="#git-rm" class="headerlink" title="git rm"></a>git rm</h1><p>git rm –cached <File Name><br>git rm –cached test<br><File Name>直接写要删除的文件或者文件夹名字就可以<br>删除之后把自己需要的文件加上<br>git add .<br>git commit -m “”<br>git push </p>
+<h1 id="git-config"><a href="#git-config" class="headerlink" title="git config"></a>git config</h1><p>git config –list<br>列出git的所有配置</p>
+<p>git配置中的CRLF、LF、CR<br>CRLF: Carriage-Return Line-Feed的缩写，意思是回车换行，即\r\n;<br>LF: Line-Feed的缩写,意思是换行，即\n;<br>CR: Carriage-Return的缩写，回车，即\r;<br>进阶<br>当我们敲击回车键(Enter)时，操作系统会插入不可见的字符表示换行，不同的操作系统插入不同<br>Windows: 插入\r\n,回车换行；<br>Linux\Unix: 插入\n,换行；<br>MacOS: 插入\r，回车；</p>
+<p>git config –global core.autocrlf input</p>
+<p>AutoCRLF<br>提交时转换为LF，检出时转换为CRLF<br>git config –global core.autocrlf true<br>提交时转换为LF，检出时不转换<br>git config –global core.autocrlf input<br>提交检出均不转换<br>如果下windows下下载的文件，需要映射到linux中去，不用总是手动改变编码</p>
+<h1 id="git-branch"><a href="#git-branch" class="headerlink" title="git branch"></a>git branch</h1><p>查看当前所在分支 </p>
+<h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><p><a href="https://blog.csdn.net/ajianyingxiaoqinghan/article/details/70544159">https://blog.csdn.net/ajianyingxiaoqinghan/article/details/70544159</a><br><a href="https://blog.csdn.net/u014361280/article/details/109703556">https://blog.csdn.net/u014361280/article/details/109703556</a><br>[git submodule]<a href="https://blog.csdn.net/weixin_44901565/article/details/123086226">https://blog.csdn.net/weixin_44901565/article/details/123086226</a><br>[git配置中的CRLF、LF、CR]<a href="https://blog.csdn.net/u013037336/article/details/121541008">https://blog.csdn.net/u013037336/article/details/121541008</a><br>[git commit -m需要参考的]<a href="https://www.conventionalcommits.org/zh-hans/v1.0.0/">https://www.conventionalcommits.org/zh-hans/v1.0.0/</a><br>[白色箭头]<a href="https://blog.csdn.net/bowenlaw/article/details/124594664">https://blog.csdn.net/bowenlaw/article/details/124594664</a><br>[git commit 规范指南]<a href="https://blog.csdn.net/qq_41662115/article/details/99759645">https://blog.csdn.net/qq_41662115/article/details/99759645</a></p>
+]]></content>
+      <tags>
+        <tag>教程</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hexo 教程</title>
+    <url>/2022/02/12/%E6%95%99%E7%A8%8B/hexo%20%E6%95%99%E7%A8%8B/</url>
+    <content><![CDATA[<h1 id="常见的博客种类的介绍"><a href="#常见的博客种类的介绍" class="headerlink" title="常见的博客种类的介绍"></a>常见的博客种类的介绍</h1><ul>
+<li><p>动态博客</p>
+<ul>
+<li>全都自己搭建<ul>
+<li>springboot +js+mysql</li>
+</ul>
+</li>
+<li>wordpress<ul>
+<li>docker</li>
+<li>PHP</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>静态博客</p>
+<ul>
+<li>基于XXX的开源博客</li>
+<li>hexo<ul>
+<li>纯前端，纯js的展示界面</li>
+<li>node.js</li>
+</ul>
+</li>
+<li>jekyllrb<ul>
+<li>Ruby</li>
+</ul>
+</li>
+<li>hugo<ul>
+<li>go语言</li>
+</ul>
+</li>
+<li>VuePress</li>
+<li>solo<ul>
+<li>java</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="一、hexo-安装教程"><a href="#一、hexo-安装教程" class="headerlink" title="一、hexo 安装教程"></a>一、hexo 安装教程</h1><h2 id="1-下载node-js"><a href="#1-下载node-js" class="headerlink" title="1.下载node.js"></a>1.下载node.js</h2><p>去<a href="http://nodejs.cn/">http://nodejs.cn/</a> 下载长期支持版<br>直接下一步安装即可<br>安装后有两个东西<br>node.js本身<br>npm包管理器<br>确认安装成功</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">node -v</span><br><span class="line">v16.13.1</span><br><span class="line">npm -v</span><br><span class="line">8.1.2</span><br></pre></td></tr></table></figure>
+<h2 id="2-安装cnpm代替npm"><a href="#2-安装cnpm代替npm" class="headerlink" title="2.安装cnpm代替npm"></a>2.安装cnpm代替npm</h2><p>在国内npm比较慢<br>npm install -g cnpm –registry&#x3D;<a href="https://registry.npm.taobao.org/">https://registry.npm.taobao.org</a><br>确认安装成功</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cnpm -v</span><br></pre></td></tr></table></figure>
+<h2 id="3-cnpm安装hexo"><a href="#3-cnpm安装hexo" class="headerlink" title="3..cnpm安装hexo"></a>3..cnpm安装hexo</h2><p>cnpm install -g hexo-cli<br>确认安装成功</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo -v</span><br></pre></td></tr></table></figure>
+<p>到这里，hexo博客的框架已经安装好了</p>
+<h1 id="二、搭建第一个hexo博客"><a href="#二、搭建第一个hexo博客" class="headerlink" title="二、搭建第一个hexo博客"></a>二、搭建第一个hexo博客</h1><h2 id="1-新建一个文件夹"><a href="#1-新建一个文件夹" class="headerlink" title="1.新建一个文件夹"></a>1.新建一个文件夹</h2><p>D盘随便新建一个文件夹blog<br>以后的东西都是在里面用的，如果出错了直接删掉找个文件夹重来就可以了</p>
+<h2 id="2-初始化博客"><a href="#2-初始化博客" class="headerlink" title="2.初始化博客"></a>2.初始化博客</h2><p>进入文件夹<br>hexo init</p>
+<h2 id="3-第一次启动博客"><a href="#3-第一次启动博客" class="headerlink" title="3.第一次启动博客"></a>3.第一次启动博客</h2><p>hexo s<br>粘贴网址，查看启动的博客</p>
+<h2 id="4-部署到github"><a href="#4-部署到github" class="headerlink" title="4.部署到github"></a>4.部署到github</h2><p>安装一个git插件<br>npm install hexo-deployer-git –save</p>
+<h2 id="5-对hexo进行配置"><a href="#5-对hexo进行配置" class="headerlink" title="5.对hexo进行配置"></a>5.对hexo进行配置</h2><p>打开blog文件夹下的_config.yml<br>拉到最底部</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: &#x27;&#x27;</span><br></pre></td></tr></table></figure>
+<p>改为</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repository: # github中仓库的地址</span><br><span class="line">  branch: master/main # 参考github中主分支的名字</span><br></pre></td></tr></table></figure>
+<p>git config –global user.name  “name”<br>git config –global user.email  “emal”</p>
+<p>hexo d # 推送上去，就推送到github了</p>
+<h2 id="6-在github中开启GitHub-Pages服务"><a href="#6-在github中开启GitHub-Pages服务" class="headerlink" title="6.在github中开启GitHub Pages服务"></a>6.在github中开启GitHub Pages服务</h2><p>在最上面一行找到settings<br>找到Pages</p>
+<h1 id="三、hexo-常用命令"><a href="#三、hexo-常用命令" class="headerlink" title="三、hexo 常用命令"></a>三、hexo 常用命令</h1><p>下次开始再次编辑的时候，在需要编辑的文件夹里面打开git bash，不需要hexo init,直接hexo s就可以启动本地页面</p>
+<h2 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure>
+
+<h2 id="创建新页面"><a href="#创建新页面" class="headerlink" title="创建新页面"></a>创建新页面</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo n &quot;我的页面名称&quot;</span><br><span class="line">hexo new [layout] &quot;我的页面名称&quot;</span><br></pre></td></tr></table></figure>
+<p>您可以在命令中指定文章的布局（layout），默认为 post，可以通过修改 _config.yml 中的 default_layout 参数来指定默认布局。</p>
+<h2 id="生成静态文件"><a href="#生成静态文件" class="headerlink" title="生成静态文件"></a>生成静态文件</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo g </span><br><span class="line">hexo generate</span><br></pre></td></tr></table></figure>
+
+<h2 id="启动服务器"><a href="#启动服务器" class="headerlink" title="启动服务器"></a>启动服务器</h2><p>每次再次想要编辑网站的时候可以直接用这个命令</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo s </span><br><span class="line">hexo server</span><br></pre></td></tr></table></figure>
+
+<h2 id="部署网站"><a href="#部署网站" class="headerlink" title="部署网站"></a>部署网站</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo d </span><br><span class="line">hexo deploy</span><br></pre></td></tr></table></figure>
+
+<h2 id="清除缓存文件"><a href="#清除缓存文件" class="headerlink" title="清除缓存文件"></a>清除缓存文件</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br></pre></td></tr></table></figure>
+<h2 id="列出网站资料"><a href="#列出网站资料" class="headerlink" title="列出网站资料"></a>列出网站资料</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo list </span><br><span class="line">Usage: hexo list &lt;type&gt;</span><br><span class="line">Arguments:</span><br><span class="line">  type  Available types: page, post, route, tag, category</span><br></pre></td></tr></table></figure>
+
+<h2 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">https://hexo.io/zh-cn/docs/commands.html</span><br><span class="line">直接放链接就可以了</span><br></pre></td></tr></table></figure>
+<h1 id="四、修复一些问题"><a href="#四、修复一些问题" class="headerlink" title="四、修复一些问题"></a>四、修复一些问题</h1><h2 id="hexo下markdown表格失效"><a href="#hexo下markdown表格失效" class="headerlink" title="hexo下markdown表格失效"></a>hexo下markdown表格失效</h2><p>表格和正文空开一行</p>
+<h2 id="编码"><a href="#编码" class="headerlink" title="编码"></a>编码</h2><p>使用UTF-8编码<br>GB 2312会乱码</p>
+<h2 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h2><p>文件名没有用，只有文章里面的内容的名字才有用<br>直接新建文件，开头用如下格式，就可以新建文章</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: day07123141</span><br><span class="line">date: 2022-04-03 15:51:39</span><br><span class="line">tags:</span><br><span class="line">- Linux网络编程</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+<h2 id="Cannot-GET-x2F-xxxx"><a href="#Cannot-GET-x2F-xxxx" class="headerlink" title="Cannot GET&#x2F;xxxx"></a>Cannot GET&#x2F;xxxx</h2><p>使用了pure主题以后，多出了很多的分类，比如友链，书单之类的，点进出会出现<code>Cannot GET /book</code>的错误，实际情况希望能获取到自己想要的页面修复方法</p>
+<ul>
+<li>步骤一：<br>去主题目录下查看\blog\theme\pure_config.yml<br>这就是当前左边的主标签<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">menu:</span><br><span class="line">  Home: .</span><br><span class="line">  Archives: archives  # 归档</span><br><span class="line">  Categories: categories  # 分类</span><br><span class="line">  Links: links  # 友链</span><br><span class="line">  About: about  # 关于</span><br><span class="line">  Books: book  # 关于</span><br></pre></td></tr></table></figure></li>
+<li>步骤二：<br>想要创建对应的标签的内容，以book举例<br>在控制台中执行<br>hexo new page “book”<br>\blog\source\book\index.md<br>index.md就是每个文件都要包含的文件，也是需要展示的内容<br>直接生成就可以了</li>
+<li>步骤三：<br>如果需要建立新的标签，重复上面两个步骤<br>如果不改编码，会在左侧标签出现<br>menu.book的问题<br>由于使用了中文字符编码，所以需要进入主题中改一下yml文件<br>\blog\themes\pure\languages<br>使用的是zh-CN.yml<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">menu:</span><br><span class="line">  Home: 首页</span><br><span class="line">  Archives: 归档</span><br><span class="line">  Categories: 分类</span><br><span class="line">  ...</span><br><span class="line">  book: 书</span><br><span class="line">  About: 关于</span><br><span class="line">  Cat: 猫 # 自己添加的标签</span><br></pre></td></tr></table></figure>
+将自己想要添加标签写上<br>重新生成</li>
+</ul>
+<h2 id="添加搜索功能"><a href="#添加搜索功能" class="headerlink" title="添加搜索功能"></a>添加搜索功能</h2><p>安装插件<br>npm i -S hexo-generator-json-content<br>在你运行 hexo g 或者 hexo s 时生效，在 hexo g 生成站点时, 会在根目录下生成 content.json 该文件内容即为搜索内容。<br>你可以对搜索内容进行自定义的配置， 只要在 _config.yml 中配置</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 示例: 隐藏分类和标签的搜索</span><br><span class="line">jsonContent:</span><br><span class="line">  dateFormat: DD/MM/YYYY</span><br><span class="line">  posts:</span><br><span class="line">    title: true</span><br><span class="line">    date: true</span><br><span class="line">    path: true</span><br><span class="line">    text: true</span><br><span class="line">    raw: false</span><br><span class="line">    content: false</span><br><span class="line">    slug: false</span><br><span class="line">    updated: false</span><br><span class="line">    comments: false</span><br><span class="line">    link: false</span><br><span class="line">    permalink: false</span><br><span class="line">    excerpt: false</span><br><span class="line">    categories: false</span><br><span class="line">    tags: false</span><br><span class="line">    author: false</span><br></pre></td></tr></table></figure>
+
+<h1 id="五、配置相关"><a href="#五、配置相关" class="headerlink" title="五、配置相关"></a>五、配置相关</h1><h2 id="配置语言"><a href="#配置语言" class="headerlink" title="配置语言"></a>配置语言</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">language: zh-CN  # 中文</span><br><span class="line">language: en        # 英文</span><br></pre></td></tr></table></figure>
+<p>得查看当前使用的主题使用的什么配置<br>我使用的主题是pure里面有languages文件有配置文件名字zh-CN.yml，使用中文需要改成这个</p>
+<h2 id="pure主题的改变"><a href="#pure主题的改变" class="headerlink" title="pure主题的改变"></a>pure主题的改变</h2><p>fancybox：实现点击图片放大的部件，默认关闭，打开后会导致友链打不开<br>profile：改变个人信息</p>
+<h3 id="改变每页的文章数目"><a href="#改变每页的文章数目" class="headerlink" title="改变每页的文章数目"></a>改变每页的文章数目</h3><p>per_page: 20</p>
+<h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><p>[B站羊哥的教程]<a href="https://www.bilibili.com/video/BV1Yb411a7ty?spm_id_from=333.337.search-card.all.click&amp;vd_source=76dff3ae3b42b00d067c0921bf6859ca">https://www.bilibili.com/video/BV1Yb411a7ty?spm_id_from=333.337.search-card.all.click&amp;vd_source=76dff3ae3b42b00d067c0921bf6859ca</a><br>[官方的链接参考] <a href="https://hexo.io/zh-cn/docs/commands.html">https://hexo.io/zh-cn/docs/commands.html</a><br>hexo下Markdown语法失效总结 <a href="https://blog.csdn.net/weixin_42932905/article/details/106153679?utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-1-106153679.pc_agg_new_rank&amp;utm_term=hexo+markdown%E4%B8%8D%E7%94%9F%E6%95%88&amp;spm=1000.2123.3001.4430">https://blog.csdn.net/weixin_42932905/article/details/106153679?utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-1-106153679.pc_agg_new_rank&amp;utm_term=hexo+markdown%E4%B8%8D%E7%94%9F%E6%95%88&amp;spm=1000.2123.3001.4430</a><br>大佬的一些教程 <a href="https://hwame.top/">https://hwame.top/</a><br>[hexo博客出现“Cannot GET&#x2F;xxxx”的错误]<a href="https://blog.csdn.net/weixin_30699831/article/details/96894620">https://blog.csdn.net/weixin_30699831/article/details/96894620</a><br>[启用搜索功能]<a href="https://blog.plcent.com/2019/11/05/hexo-theme-pure/">https://blog.plcent.com/2019/11/05/hexo-theme-pure/</a></p>
+]]></content>
+      <tags>
+        <tag>教程</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>install ubuntu20</title>
+    <url>/2022/02/12/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/install%20ubuntu20/</url>
+    <content><![CDATA[]]></content>
+      <tags>
+        <tag>环境配置</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>shell 教程</title>
+    <url>/2022/03/26/%E6%95%99%E7%A8%8B/shell%20%E6%95%99%E7%A8%8B/</url>
+    <content><![CDATA[<p>ans_yn.sh: 2: [: missing ]<br>代码中的 ] 方括号内部必须要有个空格， [ “${yn}” &#x3D;&#x3D; “Y” -o “${yn}” &#x3D;&#x3D; “y”] 改成  [ “${yn}” &#x3D;&#x3D; “Y” -o “${yn}” &#x3D;&#x3D; “y” ] 即可<br>ans_yn.sh: 2: [: y: unexpected operator</p>
+<p>后来发现，因为ubuntu默认的sh是连接到dash的,又因为dash跟bash的不兼容所以出错了.执行时可以把sh换成bash文件名.sh来执行.成功.dash是什么东西,查了一下,应该也是一种shell,貌似用户对它的诟病颇多。<br>修改sh默认连接到bash的一种方法：</p>
+<p>sudo dpkg-reconfigure dash<br>选择no即可.</p>
+<p><a href="https://blog.csdn.net/liuqiyao_01/article/details/41551075">https://blog.csdn.net/liuqiyao_01/article/details/41551075</a></p>
+]]></content>
+      <tags>
+        <tag>教程</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>vim 教程</title>
+    <url>/2022/03/04/%E6%95%99%E7%A8%8B/vim%20%E6%95%99%E7%A8%8B/</url>
+    <content><![CDATA[<p><img src="https://s1.ax1x.com/2022/04/05/qXil1P.png" alt="VIM"></p>
+<h1 id="第一部分：一般模式"><a href="#第一部分：一般模式" class="headerlink" title="第一部分：一般模式"></a>第一部分：一般模式</h1><h2 id="移动光标的方法"><a href="#移动光标的方法" class="headerlink" title="移动光标的方法"></a>移动光标的方法</h2><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>[Ctrl] + [f]</td>
+<td>屏幕『向下』移动一页，相当于 [Page Down]按键 (常用)</td>
+</tr>
+<tr>
+<td>[Ctrl] + [b]</td>
+<td>屏幕『向上』移动一页，相当于 [Page Up] 按键 (常用)</td>
+</tr>
+<tr>
+<td>[Ctrl] + [d]</td>
+<td>屏幕『向下』移动半页</td>
+</tr>
+<tr>
+<td>[Ctrl] + [u]</td>
+<td>屏幕『向上』移动半页</td>
+</tr>
+<tr>
+<td>h 或 向左箭头键(←)</td>
+<td>光标向左移动一个字符</td>
+</tr>
+<tr>
+<td>j 或 向下箭头键(↓)</td>
+<td>光标向下移动一个字符</td>
+</tr>
+<tr>
+<td>k 或 向上箭头键(↑)</td>
+<td>光标向上移动一个字符</td>
+</tr>
+<tr>
+<td>l 或 向右箭头键(→)</td>
+<td>光标向右移动一个字符</td>
+</tr>
+<tr>
+<td>0 或功能键[Home]</td>
+<td>移动到这一行的最前面字符处 (常用)</td>
+</tr>
+<tr>
+<td>$ 或功能键[End]</td>
+<td>移动到这一行的最后面字符处(常用)</td>
+</tr>
+<tr>
+<td>G</td>
+<td>移动到这个档案的最后一行(常用)</td>
+</tr>
+<tr>
+<td>nG	n</td>
+<td>为数字。移动到这个档案的第 n 行。例如 20G 则会移动到这个档案的第 20</td>
+</tr>
+<tr>
+<td>gg</td>
+<td>移动到这个档案的第一行，相当于 1G  (常用)</td>
+</tr>
+<tr>
+<td>n<Enter></td>
+<td>n 为数字。光标向下移动 n 行</td>
+</tr>
+</tbody></table>
+<h2 id="搜索替换"><a href="#搜索替换" class="headerlink" title="搜索替换"></a>搜索替换</h2><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>&#x2F;word</td>
+<td>向光标之下寻找一个名称为 word 的字符串</td>
+</tr>
+<tr>
+<td>?word</td>
+<td>向光标之上寻找一个字符串名称为 word 的字符串</td>
+</tr>
+<tr>
+<td>n</td>
+<td>这个 n 是英文按键。代表重复前一个搜寻的动作</td>
+</tr>
+<tr>
+<td>N</td>
+<td>反向进行前一个搜寻动作</td>
+</tr>
+</tbody></table>
+<h2 id="删除、复制与粘贴"><a href="#删除、复制与粘贴" class="headerlink" title="删除、复制与粘贴"></a>删除、复制与粘贴</h2><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>dd</td>
+<td>剪切游标所在的那一整行(常用)</td>
+</tr>
+<tr>
+<td>yy</td>
+<td>复制游标所在的那一行(常用)</td>
+</tr>
+<tr>
+<td>p</td>
+<td>p 为将已复制的数据在光标下一行贴上</td>
+</tr>
+<tr>
+<td>P</td>
+<td>P 则为贴在游标上一行</td>
+</tr>
+<tr>
+<td>c</td>
+<td>重复删除多个数据，例如向下删除 10 行，[ 10cj ]</td>
+</tr>
+<tr>
+<td>u</td>
+<td>复原前一个动作。(常用)</td>
+</tr>
+<tr>
+<td>[Ctrl]+r</td>
+<td>重做上一个动作。(常用)</td>
+</tr>
+</tbody></table>
+<hr>
+<h1 id="第二部分：一般模式切换到编辑模式"><a href="#第二部分：一般模式切换到编辑模式" class="headerlink" title="第二部分：一般模式切换到编辑模式"></a>第二部分：一般模式切换到编辑模式</h1><hr>
+<h1 id="第三部分：一般模式切换到指令行模式"><a href="#第三部分：一般模式切换到指令行模式" class="headerlink" title="第三部分：一般模式切换到指令行模式"></a>第三部分：一般模式切换到指令行模式</h1><hr>
+<h1 id="vim-环境的变更"><a href="#vim-环境的变更" class="headerlink" title="vim 环境的变更"></a>vim 环境的变更</h1><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>:set nu</td>
+<td>显示行号，设定之后，会在每一行的前缀显示该行的行号</td>
+</tr>
+<tr>
+<td>:set nonu</td>
+<td>与 set nu 相反，为取消行号</td>
+</tr>
+<tr>
+<td>:set ff&#x3D;unix</td>
+<td>改变vim文件中换行符的编码格式</td>
+</tr>
+</tbody></table>
+<hr>
+<h1 id="复制粘贴"><a href="#复制粘贴" class="headerlink" title="复制粘贴"></a>复制粘贴</h1><p>全选（高亮显示）：按esc后，然后ggvG或者ggVG</p>
+<p>全部复制：按esc后，然后ggyG</p>
+<p>全部删除：按esc后，然后dG</p>
+<p>解析：</p>
+<p>gg：是让光标移到首行，在vim才有效，vi中无效 </p>
+<p>v ： 是进入Visual(可视）模式 </p>
+<p>G ：光标移到最后一行 </p>
+<p>选中内容以后就可以其他的操作了，比如： <br>d  删除选中内容 <br>y  复制选中内容到0号寄存器 <br>“+y  复制选中内容到＋寄存器，也就是系统的剪贴板，供其他程序用 </p>
+<p> </p>
+<p>全选（高亮显示）：按esc后，然后ggvG或者ggVG</p>
+<p>全部复制：按esc后，然后ggyG</p>
+<h2 id="全部删除：按esc后，然后dG"><a href="#全部删除：按esc后，然后dG" class="headerlink" title="全部删除：按esc后，然后dG"></a>全部删除：按esc后，然后dG</h2><p>vim全选，全部复制，全部删除</p>
+<p><a href="https://blog.51cto.com/u_15127698/3564626">https://blog.51cto.com/u_15127698/3564626</a><br><a href="https://www.runoob.com/linux/linux-vim.html">https://www.runoob.com/linux/linux-vim.html</a></p>
+]]></content>
+      <tags>
+        <tag>教程</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Cpluspulus 语法</title>
+    <url>/2022/03/08/%E8%AF%AD%E6%B3%95%E7%9B%B8%E5%85%B3/Cpluspulus%20%E8%AF%AD%E6%B3%95/</url>
+    <content><![CDATA[<h1 id="C-11"><a href="#C-11" class="headerlink" title="C++11"></a>C++11</h1><h1 id="std-thread"><a href="#std-thread" class="headerlink" title="std::thread"></a>std::thread</h1><p>C++11中加入了&lt;thread&gt;头文件，此头文件主要声明了std::thread线程类</p>
+<h1 id="std-mutex"><a href="#std-mutex" class="headerlink" title="std::mutex"></a>std::mutex</h1><p>C++11中新增了&lt;mutex&gt;，它是C++标准程序库中的一个头文件，定义了C++11标准中的一些互斥访问的类与方法等</p>
+<h1 id="explicit"><a href="#explicit" class="headerlink" title="explicit"></a>explicit</h1><p>explicit构造函数是用来防止隐式转换的</p>
+<h1 id="noexcept"><a href="#noexcept" class="headerlink" title="noexcept"></a>noexcept</h1><p>从C++11开始，我们能看到很多代码当中都有关键字noexcept。比如下面就是std::initializer_list的默认构造函数，其中使用了noexcept。</p>
+<pre><code>  constexpr initializer_list() noexcept
+  : _M_array(0), _M_len(0) &#123; &#125;
+</code></pre>
+<p>该关键字告诉编译器，函数中不会发生异常,这有利于编译器对程序做更多的优化。<br>如果在运行时，noexecpt函数向外抛出了异常（如果函数内部捕捉了异常并完成处理，这种情况不算抛出异常），程序会直接终止，调用std::terminate()函数，该函数内部会调用std::abort()终止程序。</p>
+<h1 id="参考文献："><a href="#参考文献：" class="headerlink" title="参考文献："></a>参考文献：</h1><p>vscode配置C++11问题</p>
+<p><a href="https://blog.csdn.net/weixin_42292229/article/details/113767569">https://blog.csdn.net/weixin_42292229/article/details/113767569</a><br><a href="https://www.cnblogs.com/sword03/p/10020344.html">https://www.cnblogs.com/sword03/p/10020344.html</a></p>
+]]></content>
+      <tags>
+        <tag>语法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Part10 认识与学习bash</title>
+    <url>/2022/03/31/%E9%B8%9F%E5%93%A5%E7%9A%84Linux%E7%A7%81%E6%88%BF%E8%8F%9C/Part10-%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0bash/</url>
+    <content><![CDATA[<h1 id="10-5-数据流重定向"><a href="#10-5-数据流重定向" class="headerlink" title="10.5 数据流重定向"></a>10.5 数据流重定向</h1><p>标准输入　　(stdin) ：代码为 0 ，使用 &lt; 或 &lt;&lt; ；<br>标准输出　　(stdout)：代码为 1 ，使用 &gt; 或 &gt;&gt; ；<br>标准错误输出(stderr)：代码为 2 ，使用 2&gt; 或 2&gt;&gt; ；</p>
+<p>1&gt; ：以覆盖的方法将『正确的数据』输出到指定的文件或装置上；<br>1&gt;&gt;：以累加的方法将『正确的数据』输出到指定的文件或装置上；<br>2&gt; ：以覆盖的方法将『错误的数据』输出到指定的文件或装置上；<br>2&gt;&gt;：以累加的方法将『错误的数据』输出到指定的文件或装置上；</p>
+<p>&#x2F;dev&#x2F;null 垃圾桶黑洞装置与特殊写法</p>
+<hr>
+<p>命令下达情况	说明<br>cmd1 &amp;&amp; cmd2	1. 若 cmd1 运行完毕且正确运行($?&#x3D;0)，则开始运行 cmd2。<br> 2. 若 cmd1 运行完毕且为错误 ($?≠0)，则 cmd2 不运行。<br>cmd1 || cmd2	1. 若 cmd1 运行完毕且正确运行($?&#x3D;0)，则 cmd2 不运行。<br> 2. 若 cmd1 运行完毕且为错误 ($?≠0)，则开始运行 cmd2。</p>
+<hr>
+<p>测试 &#x2F;tmp&#x2F;abc 是否存在，若不存在则予以创建，若存在就不作任何事情<br>ls &#x2F;tmp&#x2F;abc || mkdir &#x2F;tmp&#x2F;abc &amp;&amp; touch &#x2F;tmp&#x2F;abc&#x2F;hehe</p>
+<p>ls &#x2F;tmp&#x2F;abc &amp;&amp; touch &#x2F;tmp&#x2F;abc&#x2F;hehe</p>
+<h1 id="10-6-管道命令"><a href="#10-6-管道命令" class="headerlink" title="10.6 管道命令"></a>10.6 管道命令</h1><h2 id="提取命令"><a href="#提取命令" class="headerlink" title="提取命令"></a>提取命令</h2><h3 id="cut-将一行信息当中取出想要的"><a href="#cut-将一行信息当中取出想要的" class="headerlink" title="cut 将一行信息当中取出想要的"></a>cut 将一行信息当中取出想要的</h3><p>对同一行的数据进行分解，难以处理多个空格相连的情况<br>cut -d’分隔字符’ -f fields</p>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-d</td>
+<td>后面接分隔字符。与 -f 一起使用；</td>
+</tr>
+<tr>
+<td>-f</td>
+<td>取出第几段的意思</td>
+</tr>
+<tr>
+<td>-c</td>
+<td>以字符 (characters) 的单位取出固定字符区间；</td>
+</tr>
+</tbody></table>
+<h3 id="grep-分析一行信息，提取整行"><a href="#grep-分析一行信息，提取整行" class="headerlink" title="grep     分析一行信息，提取整行"></a>grep     分析一行信息，提取整行</h3><p>grep [-acinv] [–color&#x3D;auto] ‘搜寻字符串’ filename</p>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-a</td>
+<td>将 binary 文件以 text 文件的方式搜寻数据</td>
+</tr>
+<tr>
+<td>-c</td>
+<td>计算找到 ‘搜寻字符串’ 的次数</td>
+</tr>
+<tr>
+<td>-i</td>
+<td>忽略大小写的不同，所以大小写视为相同</td>
+</tr>
+<tr>
+<td>-n</td>
+<td>顺便输出行号</td>
+</tr>
+<tr>
+<td>-v</td>
+<td>反向选择</td>
+</tr>
+<tr>
+<td>–color&#x3D;auto</td>
+<td>可以将找到的关键词部分加上颜色</td>
+</tr>
+</tbody></table>
+<h2 id="排序命令"><a href="#排序命令" class="headerlink" title="排序命令"></a>排序命令</h2><h3 id="sort"><a href="#sort" class="headerlink" title="sort"></a>sort</h3><p>进行排序<br>sort [-fbMnrtuk] [file or stdin]</p>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-f</td>
+<td>忽略大小写的差异，例如 A 与 a 视为编码相同</td>
+</tr>
+<tr>
+<td>-b</td>
+<td>忽略最前面的空格符部分</td>
+</tr>
+<tr>
+<td>-M</td>
+<td>以月份的名字来排序，例如 JAN, DEC 等等的排序方法</td>
+</tr>
+<tr>
+<td>-n</td>
+<td>使用『纯数字』进行排序(默认是以文字型态来排序的)</td>
+</tr>
+<tr>
+<td>-r</td>
+<td>反向排序,原来是从小到大，-r后从大到小</td>
+</tr>
+<tr>
+<td>-u</td>
+<td>就是 uniq ，相同的数据中，仅出现一行代表</td>
+</tr>
+<tr>
+<td>-t</td>
+<td>分隔符，默认是用 [tab] 键来分隔</td>
+</tr>
+<tr>
+<td>-k</td>
+<td>以那个区间 (field) 来进行排序的意思</td>
+</tr>
+</tbody></table>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sort</span><br><span class="line">1</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">2</span><br><span class="line">20</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">sort -n # 如果不加n，就是用字典序排序了</span><br><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">20</span><br><span class="line">sort -rn    </span><br><span class="line">sort -t &#x27;:&#x27;  # 用冒号分割</span><br></pre></td></tr></table></figure>
+
+<h3 id="uniq"><a href="#uniq" class="headerlink" title="uniq"></a>uniq</h3><p>将重复的数据列出一行显示<br>uniq [-ic]</p>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-i</td>
+<td>忽略大小写字符的不同行</td>
+</tr>
+<tr>
+<td>-c</td>
+<td>进行计数</td>
+</tr>
+</tbody></table>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">uniq -c | sort -rn | head -n 5  # 找到次数最多的几个</span><br></pre></td></tr></table></figure>
+
+<h3 id="wc"><a href="#wc" class="headerlink" title="wc"></a>wc</h3><p>wc [-lwm]</p>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-l</td>
+<td>仅列出行</td>
+</tr>
+<tr>
+<td>-w</td>
+<td>仅列出多少字(英文单字)</td>
+</tr>
+<tr>
+<td>-m</td>
+<td>多少字符</td>
+</tr>
+</tbody></table>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cat /etc/passwd | wc -l   # 目前你的账号文件中有多少个账号时</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+]]></content>
+      <tags>
+        <tag>鸟哥的Linux私房菜</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>vscode 教程</title>
+    <url>/2022/04/05/%E6%95%99%E7%A8%8B/vscode%20%E6%95%99%E7%A8%8B/</url>
+    <content><![CDATA[<h1 id="代码里的左侧颜色标识"><a href="#代码里的左侧颜色标识" class="headerlink" title="代码里的左侧颜色标识:"></a>代码里的左侧颜色标识:</h1><p>红色，未加入版本控制; (刚clone到本地)<br>绿色，已经加入版本控制暂未提交; (新增部分)<br>蓝色，加入版本控制，已提交，有改动； (修改部分)<br>白色，加入版本控制，已提交，无改动；<br>灰色：版本控制已忽略文件。</p>
+<p>git文件标识:</p>
+<p>A: 增加的文件.<br>C: 文件的一个新拷贝.<br>D: 删除的一个文件.<br>M: 文件的内容或者mode被修改了.<br>R: 文件名被修改了。<br>T: 文件的类型被修改了。<br>U: 文件没有被合并(你需要完成合并才能进行提交)<br>X: 未知状态</p>
+<h1 id="使用VSCode远程调试linux"><a href="#使用VSCode远程调试linux" class="headerlink" title="使用VSCode远程调试linux"></a>使用VSCode远程调试linux</h1><ol>
+<li>准备工作<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">apt-get update</span><br><span class="line">apt-get install sudo</span><br><span class="line">apt-get install vim</span><br><span class="line">passwd # 修改密码</span><br></pre></td></tr></table></figure></li>
+<li>安装openssh<br>apt-get install openssh-server<br>apt-get install openssh-client</li>
+<li>修改ssh配置文件<br>sudo vi &#x2F;etc&#x2F;ssh&#x2F;sshd_config<br>PermitRootLogin yes<br>（默认为#PermitRootLogin prohibit-password）前面的#号要放开</li>
+<li>启动服务<br>&#x2F;etc&#x2F;init.d&#x2F;ssh restart</li>
+<li>连接测试<br>ssh user@[ip] -p [端口]<br>ssh <a href="mailto:&#x75;&#x73;&#x65;&#x72;&#x40;&#x31;&#x39;&#x32;&#x2e;&#x31;&#54;&#56;&#x2e;&#x30;&#46;&#51;">&#x75;&#x73;&#x65;&#x72;&#x40;&#x31;&#x39;&#x32;&#x2e;&#x31;&#54;&#56;&#x2e;&#x30;&#46;&#51;</a> -p 22</li>
+<li>vscode配置<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Host 192.168.0.3</span><br><span class="line">  HostName 192.168.0.3</span><br><span class="line">  User username</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h1 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h1><table>
+<thead>
+<tr>
+<th align="center">快捷键</th>
+<th align="center">功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">ctl + k + 0</td>
+<td align="center">快速收缩全部代码</td>
+</tr>
+<tr>
+<td align="center">ctl + k + j</td>
+<td align="center">展开全部代码</td>
+</tr>
+<tr>
+<td align="center">ctl + shift + [</td>
+<td align="center">收缩当前代码</td>
+</tr>
+<tr>
+<td align="center">ctl + shift + ]</td>
+<td align="center">展开当前代码</td>
+</tr>
+<tr>
+<td align="center">alt + left</td>
+<td align="center">向后</td>
+</tr>
+<tr>
+<td align="center">alt + left</td>
+<td align="center">向前</td>
+</tr>
+</tbody></table>
+<h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><p>[在VScode中，代码提示左边的图标各自代表的含义]<a href="https://blog.csdn.net/qq_42838904/article/details/108222619">https://blog.csdn.net/qq_42838904/article/details/108222619</a></p>
+]]></content>
+      <tags>
+        <tag>教程</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Part6 Linux文件与目录系统</title>
+    <url>/2022/03/29/%E9%B8%9F%E5%93%A5%E7%9A%84Linux%E7%A7%81%E6%88%BF%E8%8F%9C/Part6-Linux%E6%96%87%E4%BB%B6%E4%B8%8E%E7%9B%AE%E5%BD%95%E7%B3%BB%E7%BB%9F/</url>
+    <content><![CDATA[<h1 id="6-5命令的文件与查找"><a href="#6-5命令的文件与查找" class="headerlink" title="6.5命令的文件与查找"></a>6.5命令的文件与查找</h1><h2 id="6-5-1脚本文件的查找"><a href="#6-5-1脚本文件的查找" class="headerlink" title="6.5.1脚本文件的查找"></a>6.5.1脚本文件的查找</h2><h3 id="which"><a href="#which" class="headerlink" title="which"></a>which</h3><p>which [-a] command<br>选项或参数：<br>-a ：将所有由 PATH 目录中可以找到的命令均列出，而不止第一个被找到的命令名称</p>
+<p>which ifconfig</p>
+<h2 id="文件查找"><a href="#文件查找" class="headerlink" title="文件查找"></a>文件查找</h2><h3 id="whereis"><a href="#whereis" class="headerlink" title="whereis"></a>whereis</h3><p><strong>在特定的目录中查找文件</strong><br>whereis [-bmsu] 文件或目录名</p>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-b</td>
+<td>只找 binary 格式的文件</td>
+</tr>
+<tr>
+<td>-m</td>
+<td>只找在说明档 manual 路径下的文件</td>
+</tr>
+<tr>
+<td>-s</td>
+<td>只找 source 来源文件</td>
+</tr>
+<tr>
+<td>-u</td>
+<td>搜寻不在上述三个项目当中的其他特殊文件</td>
+</tr>
+</tbody></table>
+<h3 id="locate"><a href="#locate" class="headerlink" title="locate"></a>locate</h3><p>locate [-ir] keyword</p>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-i</td>
+<td>忽略大小写的差异</td>
+</tr>
+<tr>
+<td>-r</td>
+<td>后面可接正规表示法的显示方式</td>
+</tr>
+</tbody></table>
+<h3 id="find"><a href="#find" class="headerlink" title="find"></a>find</h3><p>find [PATH] [option] [action]<br>选项与参数：</p>
+<ol>
+<li><p>与时间有关的选项：共有 -atime, -ctime 与 -mtime ，以 -mtime 说明<br>-mtime  n ：n 为数字，意义为在 n 天之前的『一天之内』被更动过内容的文件；<br>-mtime +n ：列出在 n 天之前(不含 n 天本身)被更动过内容的文件档名；<br>-mtime -n ：列出在 n 天之内(含 n 天本身)被更动过内容的文件档名。<br>-newer file ：file 为一个存在的文件，列出比 file 还要新的文件档名</p>
+</li>
+<li><p>与使用者或群组名称有关的参数：<br>-uid n ：n 为数字，这个数字是使用者的帐号 ID，亦即 UID ，这个 UID 是记录在<br> &#x2F;etc&#x2F;passwd 里面与帐号名称对应的数字。这方面我们会在第四篇介绍。<br>-gid n ：n 为数字，这个数字是群组名称的 ID，亦即 GID，这个 GID 记录在<br> &#x2F;etc&#x2F;group，相关的介绍我们会第四篇说明～<br>-user name ：name 为使用者帐号名称喔！例如 dmtsai<br>-group name：name 为群组名称喔，例如 users ；<br>-nouser    ：寻找文件的拥有者不存在 &#x2F;etc&#x2F;passwd 的人！<br>-nogroup   ：寻找文件的拥有群组不存在於 &#x2F;etc&#x2F;group 的文件！<br>     当你自行安装软件时，很可能该软件的属性当中并没有文件拥有者，<br>     这是可能的！在这个时候，就可以使用 -nouser 与 -nogroup 搜寻。</p>
+</li>
+<li><p>与文件权限及名称有关的参数：<br>-name filename：搜寻文件名称为 filename 的文件；<br>-size [+-]SIZE：搜寻比 SIZE 还要大(+)或小(-)的文件。这个 SIZE 的规格有：<br>            c: 代表 byte， k: 代表 1024bytes。所以，要找比 50KB<br>            还要大的文件，就是『 -size +50k 』<br>-type TYPE    ：搜寻文件的类型为 TYPE 的，类型主要有：一般正规文件 (f),<br>            装置文件 (b, c), 目录 (d), 连结档 (l), socket (s),<br>            及 FIFO (p) 等属性。<br>-perm mode  ：搜寻文件权限『刚好等於』 mode 的文件，这个 mode 为类似 chmod<br>          的属性值，举例来说， -rwsr-xr-x 的属性为 4755 ！<br>-perm -mode ：搜寻文件权限『必须要全部囊括 mode 的权限』的文件，举例来说，<br>          我们要搜寻 -rwxr–r– ，亦即 0744 的文件，使用 -perm -0744，<br>          当一个文件的权限为 -rwsr-xr-x ，亦即 4755 时，也会被列出来，<br>          因为 -rwsr-xr-x 的属性已经囊括了 -rwxr–r– 的属性了。<br>-perm +mode ：搜寻文件权限『包含任一 mode 的权限』的文件，举例来说，我们搜寻<br>          -rwxr-xr-x ，亦即 -perm +755 时，但一个文件属性为 -rw——-<br>          也会被列出来，因为他有 -rw…. 的属性存在！</p>
+</li>
+<li><p>额外可进行的动作：<br>-exec command ：command 为其他命令，-exec 后面可再接额外的命令来处理搜寻到<br>            的结果。<br>-print        ：将结果列印到萤幕上，这个动作是默认动作！</p>
+</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>鸟哥的Linux私房菜</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Part7 磁盘与文件系统管理</title>
+    <url>/2022/03/12/%E9%B8%9F%E5%93%A5%E7%9A%84Linux%E7%A7%81%E6%88%BF%E8%8F%9C/Part7-%E7%A3%81%E7%9B%98%E4%B8%8E%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/</url>
+    <content><![CDATA[<h1 id="xfs-info-观察XFS文件系统"><a href="#xfs-info-观察XFS文件系统" class="headerlink" title="xfs_info 观察XFS文件系统"></a>xfs_info 观察XFS文件系统</h1><h1 id="df"><a href="#df" class="headerlink" title="df"></a>df</h1><h1 id="du"><a href="#du" class="headerlink" title="du"></a>du</h1><h1 id="ln-硬链接"><a href="#ln-硬链接" class="headerlink" title="ln 硬链接"></a>ln 硬链接</h1><h1 id="lsblk-列出所有磁盘列表"><a href="#lsblk-列出所有磁盘列表" class="headerlink" title="lsblk 列出所有磁盘列表"></a>lsblk 列出所有磁盘列表</h1><h1 id="blkid-列出设备的UUID等参数"><a href="#blkid-列出设备的UUID等参数" class="headerlink" title="blkid 列出设备的UUID等参数"></a>blkid 列出设备的UUID等参数</h1><p>UUID 全局唯一标识符</p>
+<h1 id="parted-列出磁盘分区表类型与分区信息"><a href="#parted-列出磁盘分区表类型与分区信息" class="headerlink" title="parted 列出磁盘分区表类型与分区信息"></a>parted 列出磁盘分区表类型与分区信息</h1><h1 id="gdisk-GPT分区"><a href="#gdisk-GPT分区" class="headerlink" title="gdisk GPT分区"></a>gdisk GPT分区</h1><h1 id="fdisk-MBR分区"><a href="#fdisk-MBR分区" class="headerlink" title="fdisk MBR分区"></a>fdisk MBR分区</h1><h1 id="mount"><a href="#mount" class="headerlink" title="mount"></a>mount</h1><h1 id="mknod"><a href="#mknod" class="headerlink" title="mknod"></a>mknod</h1>]]></content>
+      <tags>
+        <tag>鸟哥的Linux私房菜</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ubuntu command</title>
+    <url>/2022/03/03/%E9%B8%9F%E5%93%A5%E7%9A%84Linux%E7%A7%81%E6%88%BF%E8%8F%9C/ubuntu-command/</url>
+    <content><![CDATA[<h1 id="开启摄像头"><a href="#开启摄像头" class="headerlink" title="开启摄像头"></a>开启摄像头</h1><p>cheese</p>
+<h1 id="显示系统进程"><a href="#显示系统进程" class="headerlink" title="显示系统进程"></a>显示系统进程</h1><p>显示系统进程 top</p>
+<p>杀死这个进程号的进程 sudo kill pid</p>
+<h1 id="获取最高用户权限"><a href="#获取最高用户权限" class="headerlink" title="获取最高用户权限"></a>获取最高用户权限</h1><p>sudo -i</p>
+<h1 id="挂载和弹出U盘"><a href="#挂载和弹出U盘" class="headerlink" title="挂载和弹出U盘"></a>挂载和弹出U盘</h1><h2 id="挂载"><a href="#挂载" class="headerlink" title="挂载"></a>挂载</h2><p>查看系统磁盘设备信息，并找到待U盘的目录(Linux系统中所有设备均被视为文件)<br>fdisk -l<br>#&#x2F;dev&#x2F;sdb1<br>将U盘挂载到系统某个位置<br>mount &#x2F;dev&#x2F;sdb1 &#x2F;mnt<br>现在U盘所有文件被挂载到了&#x2F;mnt目录中，进入U盘目录查看内容<br>cd &#x2F;mnt</p>
+<h2 id="弹出"><a href="#弹出" class="headerlink" title="弹出"></a>弹出</h2><p>df 查看一下有没有usb设备在挂载使用<br>umount &#x2F;dev&#x2F;sdb1</p>
+<h1 id="export-添加环境变量"><a href="#export-添加环境变量" class="headerlink" title="export  添加环境变量"></a>export  添加环境变量</h1><h1 id="last-显示最近使用者的登录列表"><a href="#last-显示最近使用者的登录列表" class="headerlink" title="last 显示最近使用者的登录列表"></a>last 显示最近使用者的登录列表</h1><h1 id="set-观察bash下的所有环境变量"><a href="#set-观察bash下的所有环境变量" class="headerlink" title="set 观察bash下的所有环境变量"></a>set 观察bash下的所有环境变量</h1><h1 id="id-vvv-查询是不是有这个用户"><a href="#id-vvv-查询是不是有这个用户" class="headerlink" title="id vvv 查询是不是有这个用户"></a>id vvv 查询是不是有这个用户</h1><h1 id="alias-设置永久的alias别名"><a href="#alias-设置永久的alias别名" class="headerlink" title="alias 设置永久的alias别名"></a>alias 设置永久的alias别名</h1><h1 id="uname"><a href="#uname" class="headerlink" title="uname"></a>uname</h1><p>uname -r 获取内核版本<br>uname -v 可以查看版本号<br>uname -a，可以看到操作系统的发行版号和操作系统版本<br>lsb_release -a，查看发行版本信息，并且方法可以适用于所有的Linux发行版本<br>cat &#x2F;etc&#x2F;issue可以查看到当前是Linux什么版本系统。<br>cat &#x2F;proc&#x2F;version可以查看内核的版本号。</p>
+<h1 id="更改-x2F-bashrc配置"><a href="#更改-x2F-bashrc配置" class="headerlink" title="更改.&#x2F;.bashrc配置"></a>更改.&#x2F;.bashrc配置</h1><p>vim .&#x2F;.bashrc<br>source .&#x2F;.bashrc</p>
+<h1 id="批量改权限"><a href="#批量改权限" class="headerlink" title="批量改权限"></a>批量改权限</h1><p>sudo chmod +x ~&#x2F;bin&#x2F;*</p>
+<h1 id="bash快捷键"><a href="#bash快捷键" class="headerlink" title="bash快捷键"></a>bash快捷键</h1><table>
+<thead>
+<tr>
+<th>按键</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ALT+B</td>
+<td>光标移动到所在单词词首</td>
+</tr>
+<tr>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>CTRL+C</td>
+<td>停止当前运行的命令</td>
+</tr>
+<tr>
+<td>CTRL+L</td>
+<td>清空屏幕并重新显示当前行</td>
+</tr>
+<tr>
+<td>CTRL+U</td>
+<td>删除光标前的所有字符</td>
+</tr>
+<tr>
+<td>CTRL+K</td>
+<td>删除光标后的所有字符</td>
+</tr>
+<tr>
+<td>CTRL+A</td>
+<td>快速移动到行首</td>
+</tr>
+<tr>
+<td>CTRL+E</td>
+<td>移动到行末</td>
+</tr>
+<tr>
+<td>CTRL+T</td>
+<td>交换最后两个字符</td>
+</tr>
+</tbody></table>
+<h1 id="重启命令："><a href="#重启命令：" class="headerlink" title="重启命令："></a>重启命令：</h1><ol>
+<li>reboot</li>
+<li>shutdown -r now 立刻重启(root用户使用)</li>
+<li>shutdown -r 10 过10分钟自动重启(root用户使用)</li>
+<li>shutdown -r 20:35 在时间为20:35时候重启(root用户使用)<br>如果是通过shutdown命令设置重启的话，可以用shutdown -c命令取消重启</li>
+</ol>
+<h1 id="关机命令："><a href="#关机命令：" class="headerlink" title="关机命令："></a>关机命令：</h1><ol>
+<li>halt   立刻关机</li>
+<li>poweroff 立刻关机</li>
+<li>shutdown -h now 立刻关机(root用户使用)</li>
+<li>shutdown -h 10 10分钟后自动关机</li>
+</ol>
+<h1 id="关机前准备"><a href="#关机前准备" class="headerlink" title="关机前准备"></a>关机前准备</h1><h1 id="who-查看谁在线"><a href="#who-查看谁在线" class="headerlink" title="who 查看谁在线"></a>who 查看谁在线</h1><h1 id="netstat-a-网络的联机状态"><a href="#netstat-a-网络的联机状态" class="headerlink" title="netstat -a 网络的联机状态"></a>netstat -a 网络的联机状态</h1><h1 id="ps-aux-后台的使用情况"><a href="#ps-aux-后台的使用情况" class="headerlink" title="ps -aux 后台的使用情况"></a>ps -aux 后台的使用情况</h1><h1 id="dmesg-查看内核信息"><a href="#dmesg-查看内核信息" class="headerlink" title="dmesg 查看内核信息"></a>dmesg 查看内核信息</h1><h1 id="查看电脑是否支持虚拟化技术"><a href="#查看电脑是否支持虚拟化技术" class="headerlink" title="查看电脑是否支持虚拟化技术"></a>查看电脑是否支持虚拟化技术</h1><h2 id="通过lscpu命令"><a href="#通过lscpu命令" class="headerlink" title="通过lscpu命令"></a>通过lscpu命令</h2><p>lscpu命令是一种提取有关CPU体系结构信息的常用方法。此命令从sysfs的&#x2F;pro &#x2F;cpuinfo文件中提取硬件信息。该信息包括处理器数量，CPU操作模式，套接字，内核，线程，型号名称和虚拟化信息等。</p>
+<h2 id="通过cpu-checker实用程序"><a href="#通过cpu-checker实用程序" class="headerlink" title="通过cpu-checker实用程序"></a>通过cpu-checker实用程序</h2><p> sudo apt-get install cpu-checker</p>
+<p> sudo kvm-ok</p>
+<h1 id="查看系统位数"><a href="#查看系统位数" class="headerlink" title="查看系统位数"></a>查看系统位数</h1><p> file &#x2F;bin&#x2F;ls</p>
+<h1 id="vmstat-命令功能说明：-命令报告关于内核线程、虚拟内存、磁盘、陷阱和-CPU-活动的统计信息"><a href="#vmstat-命令功能说明：-命令报告关于内核线程、虚拟内存、磁盘、陷阱和-CPU-活动的统计信息" class="headerlink" title="vmstat 命令功能说明： 命令报告关于内核线程、虚拟内存、磁盘、陷阱和 CPU 活动的统计信息"></a>vmstat 命令功能说明： 命令报告关于内核线程、虚拟内存、磁盘、陷阱和 CPU 活动的统计信息</h1><h1 id="du-disk-usage-命令功能说明：统计目录-或文件-所占磁盘空间的大小"><a href="#du-disk-usage-命令功能说明：统计目录-或文件-所占磁盘空间的大小" class="headerlink" title="du(disk usage) 命令功能说明：统计目录(或文件)所占磁盘空间的大小"></a>du(disk usage) 命令功能说明：统计目录(或文件)所占磁盘空间的大小</h1><p> qemu-kvm - 为 KVM 管理程序提供硬件模拟的软件程序<br>libvirt-daemon-system - 将 libvirt 守护程序作为系统服务运行的配置文件<br>libvirt-clients - 用来管理虚拟化平台的软件<br>bridge-utils - 用来配置网络桥接的命令行工具<br>virtinst - 用来创建虚拟机的命令行工具<br>virt-manager - 提供一个易用的图形界面，并且通过libvirt 支持用于管理虚拟机的命令行工具</p>
+<h1 id="查看电量"><a href="#查看电量" class="headerlink" title="查看电量"></a>查看电量</h1><p>sudo apt-get install acpi<br>使用acpi命令行工具<br>查看电池是否在充电，剩余电量百分比，具体剩余时间，使用命令acpi<br>[matrix@localhost ~]$ acpi<br>Battery 0: Discharging, 33%, 00:44:53 remaining<br>如果你要看更多的信息，如电池总容量、温度等信息，使用acpi -V命令</p>
+<p>使用IBAM检测电池用量<br>IBAM自称为“智能的电池监测器”</p>
+<p>upower –dump | grep –color&#x3D;never -E “state|to\ full|to\ empty|percentage”</p>
+<p> systemctl isolate multi-user.target</p>
+<p>  systemctl isolate graphical.target</p>
+<table>
+<thead>
+<tr>
+<th>目录</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>&#x2F;</td>
+<td>虚拟目录的根目录，万物起源。通常不会在这里存储文件</td>
+</tr>
+<tr>
+<td>&#x2F;bin</td>
+<td>二进制目录，存放许多用户级的GNU工具</td>
+</tr>
+<tr>
+<td>&#x2F;boot</td>
+<td>启动目录，包含Linux内核，存放启动文件</td>
+</tr>
+<tr>
+<td>&#x2F;boot&#x2F;grub&#x2F;grub.conf or menu.lst</td>
+<td>被用来配置启动加载程序</td>
+</tr>
+<tr>
+<td>&#x2F;boot&#x2F;vmlinuz</td>
+<td>Linux 内核</td>
+</tr>
+<tr>
+<td>&#x2F;dev</td>
+<td>设备目录，Linux在这里创建设备节点</td>
+</tr>
+<tr>
+<td>&#x2F;etc</td>
+<td>系统配置文件目录，也包含一系列的shell脚本</td>
+</tr>
+<tr>
+<td>&#x2F;etc&#x2F;crontab</td>
+<td>定义自动运行的任务</td>
+</tr>
+<tr>
+<td>&#x2F;etc&#x2F;fstab</td>
+<td>包含存储设备的列表，以及与他们相关的挂载点</td>
+</tr>
+<tr>
+<td>&#x2F;etc&#x2F;passwd</td>
+<td>包含用户帐号列表</td>
+</tr>
+<tr>
+<td>&#x2F;home</td>
+<td>主目录，Linux在这 里创建用户目录</td>
+</tr>
+<tr>
+<td>&#x2F;lib</td>
+<td>库目录，存放系统和应用程序的库文件</td>
+</tr>
+<tr>
+<td>&#x2F;media</td>
+<td>媒体目录，可移动媒体设备的常用挂载点</td>
+</tr>
+<tr>
+<td>&#x2F;mnt</td>
+<td>挂载目录，另一个可移动媒体设备的常用挂载点</td>
+</tr>
+<tr>
+<td>&#x2F;opt</td>
+<td>可选目录，常用于存放第三方软件包和数据文件</td>
+</tr>
+<tr>
+<td>&#x2F;proc</td>
+<td>进程目录，存放现有硬件及当前进程的相关信息</td>
+</tr>
+<tr>
+<td>&#x2F;root</td>
+<td>root用户的主目录</td>
+</tr>
+<tr>
+<td>&#x2F;sbin</td>
+<td>系统二进制目录，存放许多GNU管理员级工具</td>
+</tr>
+<tr>
+<td>&#x2F;run</td>
+<td>运行目录，存放系统运作时的运行时数据</td>
+</tr>
+<tr>
+<td>&#x2F;srv</td>
+<td>服务目录，存放本地服务的相关文件</td>
+</tr>
+<tr>
+<td>&#x2F;sys</td>
+<td>系统目录，存放系统硬件信息的相关文件</td>
+</tr>
+<tr>
+<td>&#x2F;tmp</td>
+<td>临时目录，可以在该目录中创建和删除临时工作文件</td>
+</tr>
+<tr>
+<td>&#x2F;usr</td>
+<td>用户二进制目录，大量用户级的GNU工具和数据文件都存储在这里，它可能是Linux系统中最大的一个</td>
+</tr>
+<tr>
+<td>&#x2F;usr&#x2F;bin</td>
+<td>包含系统安装的可执行程序，通常会包含许多程序</td>
+</tr>
+<tr>
+<td>&#x2F;usr&#x2F;lib</td>
+<td>包含由&#x2F;usr&#x2F;bin目录中的程序所用的共享库</td>
+</tr>
+<tr>
+<td>&#x2F;usr&#x2F;local</td>
+<td>非系统发行版自带却打算让系统使用的程序的安装目录</td>
+</tr>
+<tr>
+<td>&#x2F;usr&#x2F;sbin</td>
+<td>包含许多系统管理程序</td>
+</tr>
+<tr>
+<td>&#x2F;usr&#x2F;share</td>
+<td>包含许多由&#x2F;usr&#x2F;bin目录中的程序使用的共享数据，其中包括像默认的配置文件、图标、桌面背景、音频文件等等</td>
+</tr>
+<tr>
+<td>&#x2F;usr&#x2F;share&#x2F;doc</td>
+<td>大多数安装在系统中的软件包会包含一些文档</td>
+</tr>
+<tr>
+<td>&#x2F;var</td>
+<td>可变目录，用以存放经常变化的文件，比如日志文件</td>
+</tr>
+</tbody></table>
+<h1 id="常用的库"><a href="#常用的库" class="headerlink" title="常用的库"></a>常用的库</h1><p>GCC multilib主要是用于支持交叉编译（cross compiling），即编译出来的程序是用来在其他处理器平台上运行的。例如可以在x86 64位处理器上编译出x86 32位程序，运行在32位处理器上，或者在x86平台上编译出可以在ARM处理器上运行的程序</p>
+<p>build-essential<br>Ubuntu缺省情况下，并没有提供C&#x2F;C++的编译环境，因此还需要手动安装。但是如果单独安装gcc以及g++比较麻烦，幸运的是，Ubuntu提供了一个build-essential软件包。查看该软件包的依赖关系：</p>
+<p>libtool 是一个通用库支持脚本，将使用动态库的复杂性隐藏在统一、可移植的接口中，也就是说，你可以通过如下所示的标准方法，在不同平台上创建并调用动态库，我们 可以认为libtool是gcc的一个抽象，也就是说，它包装了gcc或者其他的任何编译器，用户无需知道细节，只要告诉libtool说我需要要编译哪 些库即可，并且，它只与libtool文件打交道，例如lo、la为后缀的文件。</p>
+]]></content>
+      <tags>
+        <tag>鸟哥的Linux私房菜</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Golang 语法</title>
+    <url>/2022/06/21/%E8%AF%AD%E6%B3%95%E7%9B%B8%E5%85%B3/Golang%20%E8%AF%AD%E6%B3%95/</url>
+    <content><![CDATA[<h1 id="语法关键点"><a href="#语法关键点" class="headerlink" title="语法关键点"></a>语法关键点</h1><p>defer关键字<br>defer和go一样都是Go语言提供的关键字。defer用于资源的释放，会在函数返回之前进行调用。一般采用如下模式：<br>defer是在return之前执行的。这个在 官方文档中是明确说明了的。要使用defer时不踩坑，最重要的一点就是要明白，return xxx这一条语句并不是一条原子指令!<br>函数返回的过程是这样的：先给返回值赋值，然后调用defer表达式，最后才是返回到调用函数中。<br>defer表达式可能会在设置函数返回值之后，在返回到调用函数之前，修改返回值，使最终的函数返回值与你想象的不一致。<br><a href="https://tiancaiamao.gitbooks.io/go-internals/content/zh/03.4.html">https://tiancaiamao.gitbooks.io/go-internals/content/zh/03.4.html</a></p>
+<p>make关键字<br>chan关键字</p>
+<p>反射机制</p>
+<p>多进程go机制</p>
+<h1 id="常用的框架"><a href="#常用的框架" class="headerlink" title="常用的框架"></a>常用的框架</h1><h2 id="gRPC"><a href="#gRPC" class="headerlink" title="gRPC"></a>gRPC</h2><h2 id="GORM"><a href="#GORM" class="headerlink" title="GORM"></a>GORM</h2><h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><p>[全面的golang教程]<a href="http://c.biancheng.net/golang/">http://c.biancheng.net/golang/</a><br>[defer关键字]<a href="https://tiancaiamao.gitbooks.io/go-internals/content/zh/03.4.html">https://tiancaiamao.gitbooks.io/go-internals/content/zh/03.4.html</a><br>[GORM docs]<a href="https://gorm.io/zh_CN/docs/index.html">https://gorm.io/zh_CN/docs/index.html</a></p>
+]]></content>
+      <tags>
+        <tag>语法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C++题目</title>
+    <url>/2022/03/19/%E9%9D%A2%E8%AF%95%E9%A2%98%E7%9B%AE/Cplusplus%E9%A2%98%E7%9B%AE/</url>
+    <content><![CDATA[<p>字节数目<br>64位机器<br>bool:		sizeof(1)<br>char:		sizeof(1)<br>int:		sizeof(4)<br>short:		sizeof(2)<br>short int:	sizeof(2)<br>long:		sizeof(4)<br>long int:	sizeof(4)<br>long long:	sizeof(8)<br>float:		sizeof(4)<br>double:		sizeof(8)</p>
+<pre><code>1. 结构体的第一个成员永远放在结构体起始位置偏移量为0的地址处。
+2. 第二个成员开始，总是放在偏移量为对齐数整数倍的地址处。
+对齐数 == 编译器默认的对齐数 与 变量自身大小的较小值 (vs的默认值为8)
+3. 结构体的总大小必须是各成员的对齐数中最大对齐数的整数倍。
+</code></pre>
+<ol>
+<li>将一个运算符重载为友元函数时，如果其参数表中只有一个参数，则说明该运算符是(    )。</li>
+</ol>
+<p>A、	后置一元运算符	<br>B、	前置一元运算符	<br>C、	其他选项都可能	<br>D、	二元运算符</p>
+<pre><code>前置一元运算符
+</code></pre>
+<ol start="3">
+<li>若用一个大小为8的数组来实现循环队列,且当前队尾Rear和队首Front的值分别为0和5,当从队列中删除一个元素,再加入三个元素后，Rear和Front的值分别为</li>
+</ol>
+<p>出队时，front&#x3D;(front+1)%MAXSIZE,rear不变，所以front&#x3D;6<br>入队时，rear&#x3D;(rear+1)%MAXSIZE,front不变，所以rear&#x3D;3;</p>
+<p>3和6</p>
+<ol start="4">
+<li><p>KMP算法模式串”abababcbcabcadaba”的next数组为（      ）</p>
+</li>
+<li><p>关于解决NPC问题的方法有（    ）</p>
+</li>
+</ol>
+<p>A、	启发式算法得到的解可以保证解的好坏	<br>B、	乱数算法在某些特定的情况下能够给快速求解	<br>C、	启发式算法在很很多时候能给产生理性的解	<br>D、	近似算法可以快速发现一定差距内的解</p>
+<p>ACD</p>
+<p>NPC问题及其解决方法（回溯法、动态规划、贪心法、深度优先遍历）</p>
+<p>NP问题(Non-deterministic Polynomial )：多项式复杂程度的非确定性问题，这些问题无法根据公式直接地计算出来。比如，找大质数的问题（有没有一个公式，你一套公式，就可以一步步推算出来，下一个质数应该是多少呢？这样的公式是没有的）；再比如，大的合数分解质因数的问题（有没有一个公式，把合数代进去，就直接可以算出，它的因子各自是多少？也没有这样的公式）。</p>
+<p>NPC问题(Non-deterministic Polynomial complete)：NP完全问题，可以这么认为，这种问题只有把解域里面的所有可能都穷举了之后才能得出答案，这样的问题是NP里面最难，但是这样算法的复杂程度，是指数关系。一般说来，如果要证明一个问题是NPC问题的话，可以拿已经是NPC问题的一个问题经过多项式时间的变化变成所需要证明的问题，那么所要证明的问题就是一个NPC问题了。NPC问题是一个问题族，如果里面任意一个问题有了多项式的解，即找到一个算法，那么所有的问题都可以有多项式的解。</p>
+<p>著名的NPC问题：</p>
+<p>背包问题（Knapsack problem）：01背包是在M件物品取出若干件放在空间为W的背包里，每件物品的体积为W1，W2……Wn，与之相对应的价值为V1,V2……Vn。求出获得最大价值的方案。</p>
+<p>旅行商问题（Traveling Saleman Problem，TSP），该问题是在寻求单一旅行者由起点出发，通过所有给定的需求点之后，最后再回到原点的最小路径成本。</p>
+<p>哈密顿路径问题（Hamiltonian path problem）与哈密顿环路问题（Hamiltonian cycle problem）为旅行推销员问题的特殊案例。哈密顿图：由指定的起点前往指定的终点，途中经过所有其他节点且只经过一次。</p>
+<p>欧拉回路（从图的某一个顶点出发，图中每条边走且仅走一次，最后回到出发点；如果这样的回路存在，则称之为欧拉回路。）与欧拉路径（从图的某一个顶点出发，图中每条边走且仅走一次，最后到达某一个点；如果这样的路径存在，则称之为欧拉路径。）</p>
+<p>无向图欧拉回路存在条件：所有顶点的度数均为偶数。<br>无向图欧拉路径存在条件：至多有两个顶点的度数为奇数，其他顶点的度数均为偶数。<br>有向图欧拉回路存在条件：所有顶点的入度和出度相等。<br>有向图欧拉路径存在条件：至多有两个顶点的入度和出度绝对值差1（若有两个这样的顶点，则必须其中一个出度大于入度，另一个入度大于出度）,其他顶点的入度与出度相等。</p>
+<ol start="6">
+<li>Peterson算法</li>
+</ol>
+<p>Peterson算法是一个实现互斥锁的并发程序设计算法，可以控制两个进程访问一个共享的单用户资源而不发生访问冲突。Gary L. Peterson于1981年提出此算法[1] </p>
+<h1 id="参考文献："><a href="#参考文献：" class="headerlink" title="参考文献："></a>参考文献：</h1><p><a href="https://blog.51cto.com/danlove/2049403">https://blog.51cto.com/danlove/2049403</a></p>
+<p>360的抽奖  <a href="https://wtaufpziv.github.io/2020/03/24/360%E7%9A%84%E6%8A%BD%E5%A5%96/">https://wtaufpziv.github.io/2020/03/24/360%E7%9A%84%E6%8A%BD%E5%A5%96/</a></p>
+]]></content>
+      <tags>
+        <tag>面试</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>数据结构</title>
+    <url>/2022/04/19/%E9%9D%A2%E8%AF%95%E9%A2%98%E7%9B%AE/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</url>
+    <content><![CDATA[]]></content>
+      <tags>
+        <tag>面试</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>python 语法</title>
+    <url>/2022/02/24/%E8%AF%AD%E6%B3%95%E7%9B%B8%E5%85%B3/python%20%E8%AF%AD%E6%B3%95/</url>
+    <content><![CDATA[<h1 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h1><h2 id="inf"><a href="#inf" class="headerlink" title="inf"></a>inf</h2><p>Python中可以用如下方式表示正负无穷</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">float(&quot;inf&quot;)  # 正无穷</span><br><span class="line">float(&quot;-inf&quot;)  # 负无穷</span><br></pre></td></tr></table></figure>
+<ol>
+<li>INF做加法、乘法等算数运算仍然会的到inf：</li>
+<li>除了 INF 外的其他数除以 INF ，会得到0：</li>
+<li>任何其他的数值除以 INF 都会得到 INF， 因为INF表示正无穷</li>
+<li>如果 INF 涉及到 &lt; 和 &gt; 不等式的问题，所有数都比 -inf 大，所有数都比 +inf 小就可以了。</li>
+</ol>
+<h1 id="Numpy"><a href="#Numpy" class="headerlink" title="Numpy"></a>Numpy</h1><h2 id="np-mean"><a href="#np-mean" class="headerlink" title="np.mean()"></a>np.mean()</h2><p>np.mean()函数功能：求取均值<br>经常操作的参数为axis，以m * n矩阵举例：<br>axis 不设置值，对 m<em>n 个数求均值，返回一个实数<br>axis &#x3D; 0：压缩行，对各列求均值，返回 1</em> n 矩阵<br>axis &#x3D;1 ：压缩列，对各行求均值，返回 m *1 矩阵</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">np.mean(num1,0)</span><br><span class="line">num1 = np.array([[1,2,3],[2,3,4],[3,4,5],[4,5,6]])</span><br><span class="line">num2 = np.mat(num1)</span><br><span class="line"></span><br><span class="line">ans = np.mean(num1,0)</span><br><span class="line">3.5</span><br><span class="line">ans = np.mean(num1,0) # 压缩行，对各列求均值</span><br><span class="line">matrix([[ 2.5,  3.5,  4.5]])</span><br><span class="line">ans = np.mean(num1,1) # 压缩列，对各行求均值</span><br><span class="line">matrix([[ 2.],</span><br><span class="line">        [ 3.],</span><br><span class="line">        [ 4.],</span><br><span class="line">        [ 5.]])</span><br></pre></td></tr></table></figure>
+
+<h2 id="np-fliplr"><a href="#np-fliplr" class="headerlink" title="np.fliplr()"></a>np.fliplr()</h2><p>将数组在左右方向上翻转</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">arr = np.array([[[0,1],[2,3]],[[4,5],[6,7]]], dtype=float)</span><br><span class="line">print(arr)</span><br><span class="line">print(np.fliplr(arr))</span><br><span class="line"></span><br><span class="line">[[[0,1], [2, 3]]</span><br><span class="line"> [[4,5], [6, 7]]]</span><br><span class="line"></span><br><span class="line">[[[2, 3], [0, 1]]</span><br><span class="line"> [[6, 7], [4, 5]] ]</span><br></pre></td></tr></table></figure>
+<pre><code>px, py = np.transpose(np.flipud(np.fliplr(path)))
+</code></pre>
+<h2 id="np-flipud"><a href="#np-flipud" class="headerlink" title="np.flipud()"></a>np.flipud()</h2><p>翻转列表，将矩阵进行上下翻转</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">arr=np.diag([1,2,3,4]) #diag用于声明对角矩阵</span><br><span class="line">print(arr)</span><br><span class="line">print(np.flipud(arr))</span><br><span class="line">[[1 0 0 0]</span><br><span class="line"> [0 2 0 0]</span><br><span class="line"> [0 0 3 0]</span><br><span class="line"> [0 0 0 4]]</span><br><span class="line"></span><br><span class="line">[[0, 0, 0, 4],</span><br><span class="line"> [0, 0, 3, 0],</span><br><span class="line"> [0, 2, 0, 0],</span><br><span class="line"> [1, 0, 0, 0]]</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="np-transpose"><a href="#np-transpose" class="headerlink" title="np.transpose()"></a>np.transpose()</h2><p>transpose在不指定参数是默认是矩阵转置</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">arr = np.arange(4).reshape((2,2))</span><br><span class="line">[[0, 1],</span><br><span class="line">[2, 3]]</span><br><span class="line"></span><br><span class="line">[[0, 2],</span><br><span class="line">[1, 3]]</span><br></pre></td></tr></table></figure>
+
+
+
+
+<h1 id="求维数，求长宽"><a href="#求维数，求长宽" class="headerlink" title="求维数，求长宽"></a>求维数，求长宽</h1><p>data &#x3D; np.array([<br>        [1,2,3],<br>        [4,5,6],<br>        [7,8,9],<br>        [0,0,0]<br>    ])</p>
+<p>print(data)<br>print(data.ndim)<br>print(data.shape) </p>
+<p>2<br>(4, 3)</p>
+<h1 id="Math"><a href="#Math" class="headerlink" title="Math"></a>Math</h1><h2 id="math-ceil"><a href="#math-ceil" class="headerlink" title="math.ceil()"></a>math.ceil()</h2><p>ceil() 向上取整</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ans = math.ceil(-45.17) : -45.0</span><br><span class="line">ans = math.ceil(100.12) :  101.0</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+]]></content>
+      <tags>
+        <tag>语法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>算法</title>
+    <url>/2022/04/19/%E9%9D%A2%E8%AF%95%E9%A2%98%E7%9B%AE/%E7%AE%97%E6%B3%95/</url>
+    <content><![CDATA[<p><a href="https://imgtu.com/i/LBSN8S"><img src="https://s1.ax1x.com/2022/04/19/LBSN8S.png" alt="不同算法的时间复杂度"></a></p>
+<p>前缀和</p>
+<p>一维前缀和</p>
+<p>二维前缀和</p>
+<p>第一题就是基本的读入字符串排序，忘记细节了。</p>
+<p>第二题是读入一01串，对应的下标为士兵的能力，0代表攻击士兵，1代表防守士兵，找到一个分割点，使得左侧攻击士兵和右侧防御士兵差的绝对值最小。这题直接用一个求和数组记录遍历就能过。</p>
+<p>第三题是给定一个数组，删掉下标不为质数的值，然后合并起来循环操作，求最后一个数。这题是能找到规律，在某个区间的答案会是一个定值。直接暴力解了。</p>
+<p>第四题是给多个环形链表的部分（可以重叠），把他们串起来然后切开形成最小字典序。这题主要是记录一下链表顺序，正逆比较一下就可以</p>
+<p>第五题买股票进阶版，给定本金，每天都可以买入卖出1笔，而且可以手里留存多笔股票，求最大利润。这题不太会做，暴力DFS做的只过了50，蹲个大佬</p>
+<p>做了4个半，最近一个月才开始补算法，难点的题就做不出来了，以及我是用python写的，可能时间复杂度要求和C++比会有些差别</p>
+<p>作者：Powter<br>链接：<a href="https://leetcode-cn.com/circle/discuss/aWwMc8/">https://leetcode-cn.com/circle/discuss/aWwMc8/</a><br>来源：力扣（LeetCode）<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
+<li><p><strong>前缀和</strong>  <a href="https://blog.csdn.net/m0_46201544/article/details/122371482">https://blog.csdn.net/m0_46201544/article/details/122371482</a></p>
+</li>
+<li><p><strong>前缀异或</strong> <a href="https://blog.csdn.net/weixin_50248461/article/details/117045421">https://blog.csdn.net/weixin_50248461/article/details/117045421</a></p>
+</li>
+<li><p><strong>Codeforces游玩攻略</strong> <a href="https://www.luogu.com.cn/blog/ezoixx130/codeforces-tutorial">https://www.luogu.com.cn/blog/ezoixx130/codeforces-tutorial</a></p>
+</li>
+<li><p><strong>Codeforces快速精通</strong> <a href="https://www.luogu.com.cn/blog/ezoixx130/codeforces-advanced-tutorial">https://www.luogu.com.cn/blog/ezoixx130/codeforces-advanced-tutorial</a></p>
+</li>
+<li><p><strong>ACM-高精度模板(综合篇)</strong> <a href="https://blog.csdn.net/u013615904/article/details/43373601">https://blog.csdn.net/u013615904/article/details/43373601</a></p>
+</li>
+<li><p><strong>C++ lambda表达式与函数对象</strong> <a href="https://www.jianshu.com/p/d686ad9de817">https://www.jianshu.com/p/d686ad9de817</a></p>
+</li>
+<li><p><a href="https://codeforces.com/blog/entry/66715">https://codeforces.com/blog/entry/66715</a></p>
+</li>
+<li><p><a href="https://codeforces.com/blog/entry/66909">https://codeforces.com/blog/entry/66909</a></p>
+</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>面试</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>设计模式题目</title>
+    <url>/2022/03/19/%E9%9D%A2%E8%AF%95%E9%A2%98%E7%9B%AE/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E9%A2%98%E7%9B%AE/</url>
+    <content><![CDATA[<ol start="2">
+<li>传输对象模式</li>
+</ol>
+<p>当我们要一次从客户端到服务器传递具有多个属性的数据时，使用此模式</p>
+<p>传输对象模式（Transfer Object Pattern）用于从客户端向服务器一次性传递带有多个属性的数据。<br>服务器端的业务类通常从数据库读取数据，然后填充 POJO，并把它发送到客户端或按值传递它。<br>对于客户端，传输对象是只读的。客户端可以创建自己的传输对象，并把它传递给服务器，以便一次性更新数据库中的数值。以下是这种设计模式的实体。</p>
+<p>业务对象（Business Object） - 为传输对象填充数据的业务服务。<br>传输对象（Transfer Object） - 简单的 POJO，只有设置&#x2F;获取属性的方法。<br>客户端（Client） - 客户端可以发送请求或者发送传输对象到业务对象。</p>
+<ol start="3">
+<li>以下哪种模式使用简单对象并采用逐步方法来构建复杂对象？  建造者模式<br>A、	桥接模式	<br>B、	建造者模式	<br>C、	过滤器模式	<br>D、	适配器模式</li>
+</ol>
+<h2 id="Adapter-class-x2F-object-适配器模式"><a href="#Adapter-class-x2F-object-适配器模式" class="headerlink" title="Adapter class&#x2F;object 适配器模式"></a>Adapter class&#x2F;object 适配器模式</h2><p><strong>可以进行接口转化</strong></p>
+<ul>
+<li>意图：<br>将一个类的接口转换成客户希望的另外一个接口。Adapter 模式使得原本由于接口不兼容而不能一起工作的那些类可以一起工作。</li>
+<li>适用性：<br>你想使用一个已经存在的类，而它的接口不符合你的需求。<br>你想创建一个可以复用的类，该类可以与其他不相关的类或不可预见的类（即那些接口可能不一定兼容的类）协同工作。<br>（仅适用于对象Adapter ）你想使用一些已经存在的子类，但是不可能对每一个都进行子类化以匹配它们的接口。对象适配器可以适配它的父类接口。</li>
+</ul>
+<p>类适配器和对象适配器</p>
+<p>这里列举一个c++ STL中的适配器例子，这是只是简单模型，想要深入请看STL源码剖析<br>这里target：Sequence<br>adaptee是：deque<br>而被实现的适配器是queue和stack</p>
+<h1 id="解释器模式（Interpreter-Pattern）"><a href="#解释器模式（Interpreter-Pattern）" class="headerlink" title="解释器模式（Interpreter Pattern）"></a>解释器模式（Interpreter Pattern）</h1><p>解释器模式（Interpreter Pattern）提供了评估语言的语法或表达式的方式，它属于行为型模式。这种模式实现了一个表达式接口，该接口解释一个特定的上下文。这种模式被用在 SQL 解析、符号处理引擎等。</p>
+<p>(1) 可以将一个需要解释执行的语言中的句子表示为一个抽象语法树。</p>
+<p>(2)  一些重复出现的问题可以用一种简单的语言来进行表达。</p>
+<p>(3) 一个语言的文法较为简单。</p>
+<p>(4) 执行效率不是关键问题。（注：高效的解释器通常不是通过直接解释抽象语法树来实现的，而是需要将它们转换成其他形式，使用解释器模式的执行效率并不高。</p>
+<h3 id="优点"><a href="#优点" class="headerlink" title="优点:"></a>优点:</h3><p>(1) 易于改变和扩展文法。由于在解释器模式中使用类来表示语言的文法规则，因此可以通过继承等机制来改变或扩展文法。</p>
+<p>(2) 每一条文法规则都可以表示为一个类，因此可以方便地实现一个简单的语言。</p>
+<p>(3) 实现文法较为容易。在抽象语法树中每一个表达式节点类的实现方式都是相似的，这些类的代码编写都不会特别复杂，还可以通过一些工具自动生成节点类代码。</p>
+<p>(4) 增加新的解释表达式较为方便。如果用户需要增加新的解释表达式只需要对应增加一个新的终结符表达式或非终结符表达式类，原有表达式类代码无须修改，符合“开闭原则”。</p>
+<h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点:"></a>缺点:</h3><p>(1) 对于复杂文法难以维护。在解释器模式中，每一条规则至少需要定义一个类，因此如果一个语言包含太多文法规则，类的个数将会急剧增加，导致系统难以管理和维护，此时可以考虑使用语法分析程序等方式来取代解释器模式。</p>
+<p>(2) 执行效率较低。由于在解释器模式中使用了大量的循环和递归调用，因此在解释较为复杂的句子时其速度很慢，而且代码的调试过程也比较麻烦</p>
+<p>实现： 尽量不要在重要模块中使用解释器模式，因为维护困难。在项目中，可以使用脚本语言来代替解释器模式。实现方式基本同Composite模式。<br>重构成本：高。</p>
+<h1 id="参考文献："><a href="#参考文献：" class="headerlink" title="参考文献："></a>参考文献：</h1><p><a href="https://blog.csdn.net/chenxun_2010/article/details/48383571">https://blog.csdn.net/chenxun_2010/article/details/48383571</a><br><a href="https://blog.csdn.net/llg070401046/article/details/73323934">https://blog.csdn.net/llg070401046/article/details/73323934</a></p>
+]]></content>
+      <tags>
+        <tag>面试</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>mudduo-ch01</title>
+    <url>/2022/05/25/Linux%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/%E9%99%88%E7%A1%95%E7%9A%84muduo%E5%BA%93/mudduo-ch01/</url>
+    <content><![CDATA[<p>仅仅只能在linux下运行</p>
+<h2 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h2><p>muduo采用CMake为build system<br>CMake的安装如下：（CMake最好不低于2.8版，CentOS 6自带的2.6版也能用，但是无法自动识别Protobuf库）</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt-get install cmake</span><br><span class="line">sudo apt-get install g++</span><br></pre></td></tr></table></figure>
+<h2 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h2><p>muduo依赖于Boost，Boost的安装如下</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt-get install libboost-dev libboost-test-dev</span><br></pre></td></tr></table></figure>
+<p>安装出现问题</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">E: Could not get lock /var/lib/dpkg/lock-frontend. It is held by process 5865 (unattended-upgr)</span><br><span class="line">N: Be aware that removing the lock file is not a solution and may break your system.</span><br><span class="line">E: Unable to acquire the dpkg frontend lock (/var/lib/dpkg/lock-frontend), is another process using it?</span><br></pre></td></tr></table></figure>
+<p>解决方法：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo rm /var/lib/dpkg/lock-frontend</span><br><span class="line">sudo rm /var/lib/dpkg/lock</span><br><span class="line">sudo rm /var/cache/apt/archives/lock</span><br></pre></td></tr></table></figure>
+<h2 id="第三步（可选）"><a href="#第三步（可选）" class="headerlink" title="第三步（可选）"></a>第三步（可选）</h2><p>muduo有三个非必须的依赖库（curl、c-ares DNS、Google Protobuf）如果安装了这三个库，cmake会自动多编译一些示例<br>安装方法如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt-get install libcurl4-openssl-dev libc-ares-dev</span><br><span class="line">sudo apt-get install protobuf-compiler libprotobuf-dev</span><br></pre></td></tr></table></figure>
+
+<h2 id="第四步：下载muduo源码包"><a href="#第四步：下载muduo源码包" class="headerlink" title="第四步：下载muduo源码包"></a>第四步：下载muduo源码包</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git clone https://github.com/chenshuo/muduo.git</span><br></pre></td></tr></table></figure>
+
+<h2 id="第五步：编译muduo"><a href="#第五步：编译muduo" class="headerlink" title="第五步：编译muduo"></a>第五步：编译muduo</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 下载完成之后进入muduo根目录</span><br><span class="line">cd muduo</span><br><span class="line"># 编译muduo库和它自带的例子</span><br><span class="line">./build.sh -j2</span><br></pre></td></tr></table></figure>
+<p>编译完成之后：<br>会在muduo源码根路径的上一级路径下生成一个build目录（下面全文我们以..&#x2F;build表示）<br>生成的可执行文件位于：..&#x2F;build&#x2F;release-cpp11&#x2F;bin<br>静态文件位于：..&#x2F;build&#x2F;release-cpp11&#x2F;lib</p>
+<h2 id="第六步：安装muduo库"><a href="#第六步：安装muduo库" class="headerlink" title="第六步：安装muduo库"></a>第六步：安装muduo库</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">./build.sh install</span><br></pre></td></tr></table></figure>
+<p>muduo头文件安装在..&#x2F;build&#x2F;release-install-cpp11&#x2F;include目录下<br>库文件安装在..&#x2F;build&#x2F;release-install-cpp11&#x2F;lib目录下<br>以便muduo-protorpc和muduo-udns等库使用</p>
+<h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><p>陈硕的博客 <a href="https://www.cnblogs.com/Solstice/archive/2011/02/02/1948814.html">https://www.cnblogs.com/Solstice/archive/2011/02/02/1948814.html</a><br>陈硕的csdn <a href="https://blog.csdn.net/Solstice?type=blog">https://blog.csdn.net/Solstice?type=blog</a><br>陈硕的课程主页 <a href="http://chenshuo.com/practical-network-programming/">http://chenshuo.com/practical-network-programming/</a><br>相关的代码仓库：<br><a href="http://github.com/chenshuo/muduo">http://github.com/chenshuo/muduo</a><br><a href="http://github.com/chenshuo/recipes">http://github.com/chenshuo/recipes</a><br><a href="http://github.com/chenshuo/muduo-protorpc">http://github.com/chenshuo/muduo-protorpc</a><br><a href="http://github.com/chenshuo/muduo-examples-in-go">http://github.com/chenshuo/muduo-examples-in-go</a><br>如何安装 <a href="https://www.365seal.com/y/elnWyG1GVr.html">https://www.365seal.com/y/elnWyG1GVr.html</a><br>make编译源码时-j的作用 <a href="https://blog.csdn.net/JeekMrc/article/details/118332252">https://blog.csdn.net/JeekMrc/article/details/118332252</a><br>安装boost的问题 <a href="https://zhuanlan.zhihu.com/p/126538251">https://zhuanlan.zhihu.com/p/126538251</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>day02-多进程多线程</title>
+    <url>/2022/04/02/Linux%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/%E9%BB%91%E9%A9%AC%E7%9A%84%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/day02-%E5%A4%9A%E8%BF%9B%E7%A8%8B%E5%A4%9A%E7%BA%BF%E7%A8%8B/</url>
+    <content><![CDATA[<p>掌握三次握手建立连接过程<br>掌握四次握手关闭连接的过程<br>掌握滑动窗口的概念<br>掌握错误处理函数封装<br>实现多进程并发服务器<br>实现多线程并发服务器</p>
+<p>函数封装的思想-处理异常情况<br>结合man-page和errno进行封装.<br>在封装的时候起名可以把第一个函数名的字母大写，如 socket可以封装成Socket,这样可以按shif+K进行搜索, shift+k搜索函数说明的时候不区分大小写,使用man page也可以查看, man page对大小写不区分.</p>
+<p>真正的程序，是看不到socket,bind,listen这种函数，一般都集成好了，一个函数能实现好几个功能</p>
+<p>像accept,read这样的能够引起阻塞的函数，若被信号打断，由于信号的优先级较高，会优先处理信号，信号处理完成后，会使accept或者read 解除阻塞，然后返回,此时返回值为-1，设置 errno&#x3D;EINTR;<br>errno&#x3D;ECONNABORTED表示连接被打断,异常.</p>
+<p>errno宏:<br>在&#x2F;usr&#x2F;include&#x2F;asm-generic&#x2F;errno.h 文件中包含了errno所有的宏和对应的错误描述信息.</p>
+<p>通过man errno查看</p>
+<h1 id="高并发服务器"><a href="#高并发服务器" class="headerlink" title="高并发服务器"></a>高并发服务器</h1><p>如何支持多个客户端—支持多并发的服务器<br>由于accept 和read函数都会阻塞，如当read的时候，不能调用accept接受新的连接，当accept阻塞等待的时候不能read读数据.<br>第一种方案:使用多进程，可以让父进程接受新连接，让子进程处理与客户端通信<br>思路:让父进程accept接受新连接，然后fork子进程，让子进程处理通信，子进程处理完成后退出，父进程使用SIGCHLD信号回收子进程.</p>
+<p>代码实现:<br>第二种方案:使用多线程，让主线程接受新连接，让子线程处理与客户端通信;使用多线程要将线程设置为分离属性，让线程在退出之后自己回收资源.</p>
+]]></content>
+      <tags>
+        <tag>Linux网络编程</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>day01-一个服务器</title>
+    <url>/2022/04/02/Linux%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/%E9%BB%91%E9%A9%AC%E7%9A%84%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/day01-%E4%B8%80%E4%B8%AA%E6%9C%8D%E5%8A%A1%E5%99%A8/</url>
+    <content><![CDATA[<p>熟练掌握TCP状态转换图<br>熟练掌握端口复用的方法<br>了解半关闭的概念和实现方式<br>了解多路I0转接模型<br>熟练掌握select函数的使用<br>熟练使用fd_set相关函数的使用<br>能够编写select多路IO转接模型的代码</p>
+]]></content>
+      <tags>
+        <tag>Linux网络编程</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>day05-线程池</title>
+    <url>/2022/04/02/Linux%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/%E9%BB%91%E9%A9%AC%E7%9A%84%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/day05-%E7%BA%BF%E7%A8%8B%E6%B1%A0/</url>
+    <content><![CDATA[<p>什么是线程池?<br>    是一个抽象的概念,若干个线程组合到一起,形成线程池.</p>
+<p>为什么需要线程池?<br>多线程版服务器一个客户端就需要创建一个线程!若客户端太多，显然不太合适.</p>
+<p>什么时候需要创建线程池呢?<br>简单的说，如果一个应用需要频繁的创建和销毁线程，而任务执行的时间又非常短，这样线程创建和销毁的带来的开销就不容忽视，这时也是线程池该出场的机会了。如果线程创建和销毁时间相比任务执行时间可以忽略不计，则没有必要使用线程池了。<br>实现的时候类似于生产者和消费者</p>
+<p>线程池和任务池:<br>任务池相当于共享资源，所以需要使用互斥锁，当任务池中没有任务的时候需要让线程阻塞，所以需要使用条件变量.</p>
+<p>线程相关函数:<br>1 pthread_create<br>2 pthread_detach<br>pthread_attr_t attr;<br>pthread_attr_init<br>pthread_attr_setdetachstate<br>3 pthread_exit</p>
+<p>涉及到共享资源:(主线程和各个子线程共享任务池)<br>互斥锁相关函数:<br>pthread_mutex_t mutex;<br>pthread_mutex_init<br>pthread_mutex_lock&#x2F;unlock<br>pthread_mutex_destroy</p>
+<p>能够是线程引起阻塞的函数:<br>若任务池已满,主线程应该阻塞等待子线程处理任务,此时主线程需要阻塞等待<br>若任务池空了，子线程应该阻塞等待,等待主线程往任务池中添加任务;<br>pthread_cond_wait<br>pthread_cond_signal</p>
+<p>子线程负责从任务池冲获取任务,每一个任务有一个回调函数每王个回调函数执行下同操作.</p>
+]]></content>
+      <tags>
+        <tag>Linux网络编程</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>day03-select函数</title>
+    <url>/2022/04/02/Linux%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/%E9%BB%91%E9%A9%AC%E7%9A%84%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/day03-select%E5%87%BD%E6%95%B0/</url>
+    <content><![CDATA[<p>熟练掌握TCP状态转换图<br>熟练掌握端口复用的方法<br>了解半关闭的概念和实现方式<br>了解多路I0转接模型<br>熟练掌握select函数的使用<br>熟练使用fd_set相关函数的使用<br>能够编写select多路IO转接模型的代码</p>
+<h1 id="端口复用"><a href="#端口复用" class="headerlink" title="端口复用"></a>端口复用</h1><p>解决端口复用的问题: bind error: Address already in use，发生这种情况是在服务端主动关闭连接以后，接着立刻启动就会报这种错误.<br> int setsockopt(int sockfd, int level, int optname,<br>                      const void *optval, socklen_t optlen);</p>
+<p>setsockopt(lfd, SOL_SOCKETPSO_REUSEADDR,&amp;opt, sizeof(int));<br>setsockopt(lfd , SOL_SOCKET,SO_REUSEPORT,&amp;opt, sizeof(int));</p>
+<p>UNIX高级环境编程<br>这个函数写在socket之后，bind前</p>
+<h1 id="高并发服务器模型–select"><a href="#高并发服务器模型–select" class="headerlink" title="高并发服务器模型–select"></a>高并发服务器模型–select</h1><p>一个进程支持多个客户端</p>
+<p> int select(int nfds, fd_set *readfds, fd_set *writefds,<br>                  fd_set *exceptfds, struct timeval *timeout);<br>函数作用:<br>委托内核监控可读,可写,异常事件</p>
+<p>函数参数:<br>nfds:，输入参数,告诉内核要监控文件描述符的范围,一般取值为最大文件描述符+1<br>readfds:<br>-输入参数:告诉内核要监控哪些文件描述符<br>-输出参数:内核告诉应用程序哪些文件描述符有变化<br>writefds:<br>-输入参数:告诉内核要监控哪些文件描述符<br>-输出参数:内核告诉应用程序哪些文件描述符有变化<br>Exceptfds:<br>输入输出参数,一般表示异常事件<br>Timeout:<br>超时时间:<br>NULL:表示永久阻塞,直到有事件发生<br>0:表示不阻塞,不管有没有事件发生,都会立刻返回</p>
+<blockquote>
+<p>0:表示阻塞的时长,若没有超过时长,则一直阻塞;<br>若在时长内,有事件发生,则立刻返回,<br>若超过时长,则立刻返回<br>返回值:<br>成功返回发生变化的文件描述符个数.</p>
+</blockquote>
+<p>fd_set set;<br>void FD_CLR(int fd, fd_set *set);<br>说明:从set集合中清除fd<br>int FD_ISSET(int fd, fd_set *set);<br>说明:判断fd是否在set集合中<br>void FD_SET(int fd, fd_set *set);<br>说明:将fd添加到set集合中<br>void FD_ZERO(fd_set *set);<br>说明:清空文件描述符集</p>
+<p>关于select的思考:<br>问题:如果有效的文件描述符比较少，会使循环的次数太多.<br>解决办法:可以将有效的文件描述符放到一个数组当中，这样遍历效率就高了.</p>
+<p>代码优化方向:<br>1将通信文件描述符保存到一个整形数组中，使用一个变量记录数组中最大元素的下标.<br>2如果数组中有无效的文件描述符，直接跳过</p>
+<p>select优点:<br>1一个进程可以支持多个客户端<br>2 select支持跨平台</p>
+<p>select缺点:<br>1代码编写困难<br>2会涉及到用户区到内核区的来回拷贝<br>3当客户端多个连接，但少数活跃的情况, select效率较低<br>例如:作为极端的一种情况,3-1023文件描述符全部打开，但是只有1023有发送数据, select就显得效率低下<br>4最大支持1024个客户端连接<br>select最大支持1024个客户端连接不是有文件描述符表最多可以支持1024个文件描述符限制的，需是由FD_SETSIZE&#x3D;1024限制的.</p>
+<p>FD_SETSIZE&#x3D;1024 fd_set使用了该宏，当然可以修改内核，然后再重新编译内核，一般不建议这么做.</p>
+<p>作业:<br>编写代码，让 select监控标准输入，监控网络，如果标准输入有数据就写入网络，如果网络有数据就读出网络数据，然后打印到标准输出.<br>注意: select不仅可以监控socket文件描述符，也可以监视标准输</p>
+]]></content>
+      <tags>
+        <tag>Linux网络编程</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>day06-libevent</title>
+    <url>/2022/04/03/Linux%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/%E9%BB%91%E9%A9%AC%E7%9A%84%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/day06-libevent/</url>
+    <content><![CDATA[<p>描述什么是 libevent并掌握如何安装<br>掌握event_base的作用和使用方法<br>熟练掌握libevent库中的事件循环<br>掌握event事件的使用方法<br>掌握bufferevent的工作方式<br>掌握使用libevent实现tcp服务器端流程<br>掌握使用Libevent实现tcp客户端流程</p>
+<p>libevent介绍<br>1事件驱动，高性能，轻量级，专注于网络，只能用于网络服务端开发<br>2源代码精炼，易读<br>3跨平台<br>4支持多种I&#x2F;o多路复用技术，如epoll select poll等<br>5支持I&#x2F;O和信号等事件</p>
+<p>登录官方网站: <a href="http://libevent.org,查看相关信息/">http://libevent.org，查看相关信息</a><br>libevent源码下载主要分2个大版本:</p>
+<ol>
+<li>1.4.x系列较为早期版本，适合源码学习</li>
+<li>2.x系列，较新的版本，代码量比1.4 版本多很多，功能也更完善。</li>
+</ol>
+<p>libevent的核心实现:<br>在linux上，其实质就是epoll.反应堆.<br>libevent,是事件驱动, epoll反应堆也是事件驱动，当要监测的事件发生的时候，就会调用事件对应的回调函数，执行相应操作．特别提醒:事件回调函数是由用户开发的，但是不是由用户显示去调用的，而是由libevent,去调用的.<br>回调函数是自己写的</p>
+]]></content>
+      <tags>
+        <tag>Linux网络编程</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>day04-epoll函数</title>
+    <url>/2022/04/02/Linux%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/%E9%BB%91%E9%A9%AC%E7%9A%84%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/day04-epoll%E5%87%BD%E6%95%B0/</url>
+    <content><![CDATA[<p>1了解poll函数<br>2熟练使用epoll多路IO模型<br>3了解epoll ET&#x2F;LT触发模式并实现<br>4理解epoll,边缘非阻塞模式并实现<br>5了解epoll反应堆模型设计思想<br>6能看懂epoll反应堆模型的实现代码</p>
+<h1 id="poll"><a href="#poll" class="headerlink" title="poll"></a>poll</h1><p>poll是介于select与epoll之间的模型，实际开发的过程中用的比较少<br>和select相比没有本质的改变</p>
+<p>linux下epoll<br>UNIX只能用select</p>
+<p> int poll(struct pollfd *fds, nfds_t nfds, int timeout);<br>函数说明:跟select类似，委托内核监控可读，可写，异常事件函数<br>参数:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">fds:一个struct pollfd结构体数组的首地址</span><br><span class="line">struct pollfd &#123;</span><br><span class="line">    int   fd;         //要监控的文件描述符，如果fd为-1表示内核不再监控</span><br><span class="line">    short events;     //输入参数，表示告诉内核要监控的事件，读事件，写事件,异常事件</span><br><span class="line">    short revents;    ;//输出参数，表示内核告诉应用程序有哪些文件描述符有事件发生</span><br><span class="line">&#125;;</span><br><span class="line">events/revents:</span><br><span class="line">    POLLIN:可读事件</span><br><span class="line">    POLLOUT:可写事件</span><br><span class="line">    POLLERR:异常事件</span><br><span class="line">nfds:告诉内核监控的范围，具体是:数组下标的最大值+1</span><br><span class="line">timedout:</span><br><span class="line">    =0:不阻塞，立刻返回</span><br><span class="line">    -1:表示一直阻塞,直到有事件发生</span><br><span class="line">    &gt;0:表示阻塞时长，在时长范围内若有事件发生会立刻返回;</span><br><span class="line">    如果超过了时长也会立刻返回</span><br><span class="line">函数返回值:</span><br><span class="line">    &gt;0:发生变化的文件描述符的个数</span><br><span class="line">    =0:没有文件描述符发生变化</span><br><span class="line">    -1:表示异常</span><br></pre></td></tr></table></figure>
+<p>说明:<br>1 当poll函数返回的时候，结构体当中的fd,和events没有发生变化，究竞有没有事件发生由revents.来判断，所以poll是请求和返回分离.<br>2 struct pollfd结构体中的fd成员若赋值为-1，则poll不会监控.<br>3相对于select, poll没有本质上的改变;但是poll可以突破1024的限制.<br>在&#x2F;proc&#x2F;svs&#x2F;fs&#x2F;file-max查看一个进程可以打开的socket描述符上限.<br>如果需要可以修改配置文件:&#x2F;etc&#x2F;security&#x2F;limits.conf<br>s<br>加入如下配置信息，然后重启终端即可生效.</p>
+<ul>
+<li>soft nofile 1024</li>
+<li>hard nofile 10000o<br>soft和 hard分别表示ulimit命令可以修改的最小限制和最大限制</li>
+</ul>
+<h1 id="多路I0-epoll"><a href="#多路I0-epoll" class="headerlink" title="多路I0-epoll"></a>多路I0-epoll</h1><p>将检测文件描述符的变化委托给内核去处理，然后内核将发生变化的文件描述符对应的事件返回给应用程序。<br>linux下编程，肯定用这个了<br>告诉有几个发生了变化，精准的告诉哪个有变化<br>epoll底层实现用的红黑二叉树，也就是平衡二叉树</p>
+<p> int epoll_create(int size);<br> 函数说明:<br> 创建一棵epoll树,返回一个树根节点<br> 函数参数:<br>size:必须传一个大于0的数<br>  返回值:<br>返回个文件描述符,这个文件描述符就表示epoll树的树根节点.</p>
+<p> int epoll_ctl(int epfd, int op, int fd, struct epoll_event *event);<br>函数说明:将fd上epoll树,从树上删除和修改<br>函数参数:<br>    epfd: epoll树的树根节点<br>    op:<br>        EPOLL_CTL_ADD:上树操作<br>        EPOLL_CTL_MOD:修改<br>        EPOLL_CTL_DEL:从树上删除节点<br>        fd:要操作的文件描述符<br>event:<br>    Event.exents:<br>    EPOLLIN:可读事件<br>    EPOLLOUT:可写事件<br>    EPOLLERR:异常事件</p>
+<pre><code>typedef union epoll_data &#123;
+    void        *ptr;
+    int          fd;
+    uint32_t     u32;
+    uint64_t     u64;
+&#125; epoll_data_t;
+
+struct epoll_event &#123;
+    uint32_t     events;      /* Epoll events */
+    epoll_data_t data;        /* User data variable */
+&#125;;
+</code></pre>
+<p> Struct epoll_exent ev;<br> ex.events &#x3D; EPOLLIN;<br> ex.data.fd &#x3D; fd;<br> epoll_ctl(epfd, EPOLL_CTL_ADD, fd,&amp;ey);</p>
+<p> int epoll_wait(int epfd, struct epoll_event *events,<br>                      int maxevents, int timeout);<br>有返回了，就说明一定有事件发生了</p>
+<p>函数说明:委托内核监控epoll树的事件节点<br>函数参数:<br>    epfd: epoll树根节点<br>    events:传出参数,结构体数组<br>    maxevents: events数组大小<br>    timeout:<br>        -1:表示阻塞<br>        0:表示不阻塞<br>        &gt;0:表示阻塞超时时长</p>
+<p>epoll_wait返回的数组中的事件节点的值不会修改,是当时上epoll树的时候设置的值.</p>
+<h1 id="进阶epoll"><a href="#进阶epoll" class="headerlink" title="进阶epoll"></a>进阶epoll</h1><p>介绍epoll的两种工作模式</p>
+<p>水平触发:高电平代表1<br>只要缓冲区中有数据，就一直通知<br>边缘触发:电平有变化就代表1<br>缓冲区中有数据只会通知一次，之后再有数据才会通知.()若是读数据的时候没有读完，则剩余的数据不会再通知，直到有新的数据到来<br>边缘非阻塞模式:提高效率</p>
+<p>epoll的LT和ET模式:<br>1 epoll默认情况下是LT模式，在这种模式下，若读数据一次性没有读完，<br>缓冲区中还有可读数据，则epoll_wait还会再次通知<br>2若将epoll设置为ET模式，若读数据的时候一次性没有读完，则epoll_wait不再通知,<br>直到下次有新的数据发来．</p>
+<p>思考:<br>1在ET模式下，如何在epoll_wait返回一次的情况下读完数据<br>循环读数据,直到读完数据,但是读完数据之后会阻塞.<br>2若能够一次性读完还需要设置什么?<br>将通信文件描述符设置为非阻塞模式</p>
+<h1 id="epoll反应堆"><a href="#epoll反应堆" class="headerlink" title="epoll反应堆"></a>epoll反应堆</h1><p>typedef union epoll_data {<br>    void        *ptr;<br>    int          fd;<br>    uint32_t     u32;<br>    uint64_t     u64;<br>} epoll_data_t;</p>
+<p>struct epoll_event {<br>    uint32_t     events;      &#x2F;* Epoll events <em>&#x2F;<br>    epoll_data_t data;        &#x2F;</em> User data variable *&#x2F;<br>};<br>触发了一个事件，产生了一连串的反应<br>epoll反应堆实际上是应用了c++的封装思想,—个事件的产生会触发一系列连锁反应,事件产生之后最终调用的是回调函数.<br>将数据和操作数据的方法封装到了一个类里面</p>
+]]></content>
+      <tags>
+        <tag>Linux网络编程</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>day07-项目</title>
+    <url>/2022/04/03/Linux%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/%E9%BB%91%E9%A9%AC%E7%9A%84%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/day07-%E9%A1%B9%E7%9B%AE/</url>
+    <content><![CDATA[<p>学习目标:<br>1介绍一下项目的整体功能<br>2介绍html语法<br>3介绍http协议–请求协议和响应协议<br>4介绍开发web服务器的整体流程<br>5根据开发流程编写初级版本的web服务器</p>
+<p>通过案例演示联想到的知识点:<br>1开发网络服务器:<br>多路IO复用技术:epoll select poll<br>多进程或者多线程<br>第三方库:libevent库<br>2熟悉http协议<br>请求协议<br>应答协议<br>3使用的协议有http协议+TCP协议<br>TCP协议:建立连接的三次握手，连接建立完成后接着是数据传输<br>web服务器:首先解析浏览器发来的请求数据，得到请求的文件名;</p>
+<p>若文件存在<br>    判断文件类型:若是普通文件，则发送文件内容给浏览器;<br>                若是目录文件，则发送文件列表|<br>若文件不存在，则发送一个错误页给浏览器;</p>
+]]></content>
+      <tags>
+        <tag>Linux网络编程</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>cmake 教程</title>
+    <url>/2022/02/21/%E6%95%99%E7%A8%8B/linux%E4%B8%8B%E7%9A%84%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/cmake%20%E6%95%99%E7%A8%8B/</url>
+    <content><![CDATA[<h1 id="PROJECT-指令的语法"><a href="#PROJECT-指令的语法" class="headerlink" title="PROJECT 指令的语法"></a>PROJECT 指令的语法</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">PROJECT(projectname [CXX] [C] [Java])</span><br><span class="line">PROJECT (HELLO)</span><br></pre></td></tr></table></figure>
+<p>定义了工程的名称为HELLO</p>
+<h1 id="SET-指令的语法"><a href="#SET-指令的语法" class="headerlink" title="SET 指令的语法"></a>SET 指令的语法</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SET(VAR [VALUE] [CACHE TYPE DOCSTRING [FORCE]])</span><br><span class="line">SET(SRC_LIST main.c t1.c t2.c)</span><br><span class="line">SET(SRC_LIST main.c)也可以写成 SET(SRC_LIST “main.c”)</span><br></pre></td></tr></table></figure>
+<p>SET 指令可以用来显式的定义变量即可</p>
+<h1 id="MESSAGE-指令的语法"><a href="#MESSAGE-指令的语法" class="headerlink" title="MESSAGE 指令的语法"></a>MESSAGE 指令的语法</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">MESSAGE([SEND_ERROR | STATUS | FATAL_ERROR] &quot;message to display&quot;</span><br><span class="line">...)</span><br><span class="line">MESSAGE(STATUS &quot;This is BINARY dir &quot; $&#123;HELLO_BINARY_DIR&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>由 PROJECT 指令定义的两个隐式变量HELLO_BINARY_DIR 和 HELLO_SOURCE_DIR。</p>
+<p><strong>SEND_ERROR，产生错误，生成过程被跳过<br>SATUS，输出前缀为—的信息<br>FATAL_ERROR，立即终止所有 cmake 过程</strong></p>
+<h1 id="ADD-EXECUTABLE-指令的语法"><a href="#ADD-EXECUTABLE-指令的语法" class="headerlink" title="ADD_EXECUTABLE 指令的语法"></a>ADD_EXECUTABLE 指令的语法</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ADD_EXECUTABLE(hello $&#123;SRC_LIST&#125;)</span><br></pre></td></tr></table></figure>
+<p>定义了这个工程会生成一个文件名为 hello 的可执行文件</p>
+<h1 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h1><p>${}来引用变量，这是 cmake 的变量引用方式<br>如在 IF 控制语句，变量是直接使用变量名引用，而不需要${}。</p>
+<h1 id="清理"><a href="#清理" class="headerlink" title="清理"></a>清理</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">make clean</span><br></pre></td></tr></table></figure>
+<p>cmake 并不支持 make distclean，无法清理构建过程产生的中间文件</p>
+]]></content>
+      <tags>
+        <tag>教程</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>makefile 教程</title>
+    <url>/2022/04/05/%E6%95%99%E7%A8%8B/linux%E4%B8%8B%E7%9A%84%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/makefile%20%E6%95%99%E7%A8%8B/</url>
+    <content><![CDATA[<table>
+<thead>
+<tr>
+<th>自动化变量</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$*</td>
+<td>表示目标文件的名称，不包含目标文件的扩展名</td>
+</tr>
+<tr>
+<td>$+</td>
+<td>也是所有依赖目标的集合,这些依赖文件用空格分开，按照出现的先后为顺序，只是它不去除重复的依赖目标</td>
+</tr>
+<tr>
+<td>$&lt;</td>
+<td>规则中的第一个相关文件名</td>
+</tr>
+<tr>
+<td>$?</td>
+<td>规则中日期新于目标的所有相关文件的列表，以空格分割</td>
+</tr>
+<tr>
+<td>$@</td>
+<td>规则的目标所对应的文件名</td>
+</tr>
+<tr>
+<td>$^</td>
+<td>规则中所有相关文件的列表，以空格分割</td>
+</tr>
+<tr>
+<td>$(@D)</td>
+<td>目标文件的目录部分</td>
+</tr>
+<tr>
+<td>$(@F)</td>
+<td>目标文件的文件名部分</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>常用变量</th>
+<th>说明</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>AR</td>
+<td>归档维护程序</td>
+<td>ar</td>
+</tr>
+<tr>
+<td>AS</td>
+<td>汇编程序</td>
+<td>as</td>
+</tr>
+<tr>
+<td>CPP</td>
+<td>c预处理程序</td>
+<td>cpp</td>
+</tr>
+<tr>
+<td>CC</td>
+<td>c编译程序</td>
+<td>cc</td>
+</tr>
+<tr>
+<td>CXX</td>
+<td>c++编译程序</td>
+<td>g++</td>
+</tr>
+<tr>
+<td>RM</td>
+<td>文件删除程序</td>
+<td>rm -f</td>
+</tr>
+<tr>
+<td>ARFLAGS</td>
+<td>传给归档维护程序的标志</td>
+<td>rv</td>
+</tr>
+<tr>
+<td>ASFLAGS</td>
+<td>传给汇编程序的标志</td>
+<td>无默认值</td>
+</tr>
+<tr>
+<td>CFLAGS</td>
+<td>传给c编译程序的标志</td>
+<td>无默认值</td>
+</tr>
+<tr>
+<td>CPPFLAGS</td>
+<td>传给c预处理程序的标志</td>
+<td>无默认值</td>
+</tr>
+<tr>
+<td>CXXFLAGS</td>
+<td>传给c++编译器的标志</td>
+<td>无默认值</td>
+</tr>
+<tr>
+<td>LDFLAGS</td>
+<td>传给链接程序（ld）的标志</td>
+<td>无默认值</td>
+</tr>
+</tbody></table>
+<p>模式规则中，至少在规则的目标定义中要包含”%”，否则，就是一般的规则。目标中的”%”定义表示对文件名的匹配，”%”表示长度任意的非空字符串。例如：”%.c”表示以”.c”结尾的文件名（文件名的长度至少为3），而”s.%.c”则表示以”s.”开头，”.c”结尾的文件名（文件名的长度至少为5）。</p>
+<p>如果”%”定义在目标中，那么，目标中的”%”的值决定了依赖目标中的”%”的值，也就是说，目标中的模式的”%”决定了依赖目标中”%”的样子。例如有一个模式规则如下：<br>    %.o : %.c </p>
+<p>markdown中的函数</p>
+<p>获取匹配模式的文件名 wildcard<br>src &#x3D; $(wildcard *.c)</p>
+<p>模式替换函数 patsubst</p>
+<p>循环函数 foreach</p>
+<h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><p><a href="https://blog.csdn.net/yi412/article/details/69941791">https://blog.csdn.net/yi412/article/details/69941791</a><br><a href="https://blog.csdn.net/marc07/article/details/62885868">https://blog.csdn.net/marc07/article/details/62885868</a></p>
+]]></content>
+      <tags>
+        <tag>教程</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>gcc 教程</title>
+    <url>/2022/03/11/%E6%95%99%E7%A8%8B/linux%E4%B8%8B%E7%9A%84%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/gcc%20%E6%95%99%E7%A8%8B/</url>
+    <content><![CDATA[<h1 id="GCC介绍"><a href="#GCC介绍" class="headerlink" title="GCC介绍"></a>GCC介绍</h1><ul>
+<li>GCC 原名为 GNU C语言编译器（GNU C Compiler）</li>
+<li>GCC（GNU Compiler Collection， GNU编译器套件）是由 GNU 开发的编程语言<br>译器。 GNU 编译器套件包括 C、 C++、 Objective-C、 Java、 Ada 和 Go 语言前<br>端，也包括了这些语言的库（如 libstdc++， libgcj等）</li>
+<li>GCC 不仅支持 C 的许多“方言”，也可以区别不同的 C 语言标准；可以使用命令行<br>选项来控制编译器在翻译源代码时应该遵循哪个 C 标准。例如，当使用命令行参数<br><code>-std=c99</code> 启动 GCC 时，编译器支持 C99 标准。</li>
+<li>安装命令 sudo apt install gcc g++ （版本 &gt; 4.8.5）</li>
+<li>查看版本 gcc&#x2F;g++ -v&#x2F;–version</li>
+</ul>
+<h1 id="语言流程"><a href="#语言流程" class="headerlink" title="语言流程"></a>语言流程</h1><p>高级语言<br>编译<br>汇编语言<br>汇编<br>机器语言<br>运行<br>计算机</p>
+<h1 id="GCC工作流程"><a href="#GCC工作流程" class="headerlink" title="GCC工作流程"></a>GCC工作流程</h1><p>源代码(预处理)-&gt;预处理后源代码(编译器)-&gt;汇编代码(汇编器)-&gt;目标代码(链接器)-&gt;可执行程序<br>.h.c.cpp<br>.i<br>.s<br>.exe.out</p>
+<h1 id="gcc-和-g-的区别"><a href="#gcc-和-g-的区别" class="headerlink" title="gcc 和 g++ 的区别"></a>gcc 和 g++ 的区别</h1><p>gcc 和 g++都是GNU(组织)的一个编译器</p>
+<ul>
+<li>误区一： gcc 只能编译 c 代码， g++ 只能编译 c++ 代码。两者都可以，请注意：</li>
+<li>误区二： gcc 不会定义 __cplusplus 宏，而 g++ 会</li>
+<li>误区三：编译只能用 gcc，链接只能用 g++</li>
+</ul>
+<h1 id="GCC常用参数选项"><a href="#GCC常用参数选项" class="headerlink" title="GCC常用参数选项"></a>GCC常用参数选项</h1><table>
+<thead>
+<tr>
+<th>输出</th>
+<th>说明</th>
+<th>文件名</th>
+</tr>
+</thead>
+<tbody><tr>
+<td></td>
+<td>没有指令</td>
+<td>a.out</td>
+</tr>
+<tr>
+<td>-E</td>
+<td>预处理指定的源文件，不进行编译</td>
+<td>被导入到标准输出流（也就是显示器）</br>gcc -E test.c -o 7.i</td>
+</tr>
+<tr>
+<td>-S</td>
+<td>编译指定的源文件，但是不进行汇编，生成汇编文件</td>
+<td>原文件名.s</td>
+</tr>
+<tr>
+<td>-c</td>
+<td>编译、汇编指定的源文件，生成目标文件，但是不进行链接</td>
+<td>原文件名.o</td>
+</tr>
+<tr>
+<td>-o [file1] [file2] [file2]</td>
+<td>将文件 file2 编译成可执行文件 file1</td>
+<td></td>
+</tr>
+<tr>
+<td>-o [file1]</td>
+<td>生成指定文件名file1</td>
+<td></td>
+</tr>
+</tbody></table>
+<p>将main.c和string.c编译成一个执行文件<br>gcc -o test mian.c string.c</p>
+<table>
+<thead>
+<tr>
+<th>指令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-I</td>
+<td>directory 指定 include 包含文件的搜索目录</td>
+</tr>
+<tr>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>-g</td>
+<td>在编译的时候，生成调试信息，该程序可以被调试器调试</td>
+</tr>
+<tr>
+<td>-D</td>
+<td>在程序编译的时候，指定一个宏</td>
+</tr>
+<tr>
+<td>-w</td>
+<td>不生成任何警告信息</td>
+</tr>
+<tr>
+<td>-Wall</td>
+<td>生成所有警告信息</td>
+</tr>
+<tr>
+<td>-O n</td>
+<td>n的取值范围： 0~3,编译器的优化选项的4个级别</br> -O 0表示没有优化， -O 1为缺省值， -O 3优化级别最高</td>
+</tr>
+<tr>
+<td>-l</td>
+<td>在程序编译的时候，指定使用的库</td>
+</tr>
+<tr>
+<td>-L</td>
+<td>指定编译的时候，搜索的库的路径。</td>
+</tr>
+<tr>
+<td>-fPIC&#x2F;fpic</td>
+<td>生成与位置无关的代码</td>
+</tr>
+<tr>
+<td>-shared</td>
+<td>生成共享目标文件，通常用在建立共享库时</td>
+</tr>
+<tr>
+<td>-std</td>
+<td>指定C方言，如:-std&#x3D;c++11， gcc默认的方言是GNU C</td>
+</tr>
+</tbody></table>
+<h1 id="库文件"><a href="#库文件" class="headerlink" title="库文件"></a>库文件</h1><ul>
+<li>库文件是计算机上的一类文件，可以简单的把库文件看成一种代码仓库，它提供给使用者一些可以直接拿来用的变量、函数或类。</li>
+<li>库是特殊的一种程序，编写库的程序和编写一般的程序区别不大，只是库不能单独运行。</li>
+<li>库文件有两种，静态库和动态库（共享库），区别是：静态库在程序的链接阶段被复制到了程序中；动态库在链接阶段没有被复制到程序中，而是程序在运行时由系统动态加载到内存中供程序调用。</li>
+<li>库的好处： 1.代码保密 2.方便部署和分发</li>
+</ul>
+<h1 id="静态库的制作"><a href="#静态库的制作" class="headerlink" title="静态库的制作"></a>静态库的制作</h1><ul>
+<li><p>命名规则：</p>
+<ul>
+<li>Linux : libxxx.a</li>
+<li>lib : 前缀（固定）</li>
+<li>xxx : 库的名字，自己起</li>
+<li>.a : 后缀（固定）</li>
+</ul>
+</li>
+<li><p>Windows : libxxx.lib</p>
+</li>
+<li><p>静态库的制作：</p>
+</li>
+<li><p>gcc 获得 .o 文件</p>
+</li>
+<li><p>将 .o 文件打包，使用 ar 工具（archive）</p>
+<ul>
+<li>ar rcs libxxx.a xxx.o xxx.o<ul>
+<li>r – 将文件插入备存文件中</li>
+<li>c – 建立备存文件</li>
+<li>s – 索引</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="参考资料："><a href="#参考资料：" class="headerlink" title="参考资料："></a>参考资料：</h1><p><a href="https://www.nowcoder.com/courses/cover/live/504">https://www.nowcoder.com/courses/cover/live/504</a></p>
+]]></content>
+      <tags>
+        <tag>教程</tag>
+      </tags>
+  </entry>
+</search>
