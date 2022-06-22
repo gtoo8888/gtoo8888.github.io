@@ -17,21 +17,21 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>day03-select函数 | Hexo</title>
-  <meta name="description" content="熟练掌握TCP状态转换图熟练掌握端口复用的方法了解半关闭的概念和实现方式了解多路I0转接模型熟练掌握select函数的使用熟练使用fd_set相关函数的使用能够编写select多路IO转接模型的代码 端口复用解决端口复用的问题: bind error: Address already in use，发生这种情况是在服务端主动关闭连接以后，接着立刻启动就会报这种错误. int setsockopt(">
+  <title>docker安装教程 | Hexo</title>
+  <meta name="description" content="在windows中安装docker desktop win11家庭版，没有开启hyper-v功能选项在桌面新建txt文件，复制下面代码，然后改名hyper-v.cmd，管理员方式执行 12345pushd &quot;%~dp0&quot;dir &#x2F;b %SystemRoot%\servicing\Packages\*Hyper-V*.mum &gt;hyper-v.txtfor &#x2F;f %%i i">
 <meta property="og:type" content="article">
-<meta property="og:title" content="day03-select函数">
-<meta property="og:url" content="http://example.com/2022/04/02/Linux%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/%E9%BB%91%E9%A9%AC%E7%9A%84%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/day03-select%E5%87%BD%E6%95%B0/index.html">
+<meta property="og:title" content="docker安装教程">
+<meta property="og:url" content="http://example.com/2022/06/22/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/docker%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/index.html">
 <meta property="og:site_name" content="gtoo8888">
-<meta property="og:description" content="熟练掌握TCP状态转换图熟练掌握端口复用的方法了解半关闭的概念和实现方式了解多路I0转接模型熟练掌握select函数的使用熟练使用fd_set相关函数的使用能够编写select多路IO转接模型的代码 端口复用解决端口复用的问题: bind error: Address already in use，发生这种情况是在服务端主动关闭连接以后，接着立刻启动就会报这种错误. int setsockopt(">
+<meta property="og:description" content="在windows中安装docker desktop win11家庭版，没有开启hyper-v功能选项在桌面新建txt文件，复制下面代码，然后改名hyper-v.cmd，管理员方式执行 12345pushd &quot;%~dp0&quot;dir &#x2F;b %SystemRoot%\servicing\Packages\*Hyper-V*.mum &gt;hyper-v.txtfor &#x2F;f %%i i">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-04-02T09:02:00.000Z">
-<meta property="article:modified_time" content="2022-04-07T06:49:26.212Z">
+<meta property="article:published_time" content="2022-06-22T15:16:36.000Z">
+<meta property="article:modified_time" content="2022-06-22T15:21:44.721Z">
 <meta property="article:author" content="Kuku De">
-<meta property="article:tag" content="Linux网络编程">
+<meta property="article:tag" content="环境配置">
 <meta name="twitter:card" content="summary">
   <!-- Canonical links -->
-  <link rel="canonical" href="http://example.com/2022/04/02/Linux%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/%E9%BB%91%E9%A9%AC%E7%9A%84%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/day03-select%E5%87%BD%E6%95%B0/index.html">
+  <link rel="canonical" href="http://example.com/2022/06/22/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/docker%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/index.html">
   
     <link rel="alternate" href="/atom.xml" title="gtoo8888" type="application/atom+xml">
   
@@ -315,14 +315,14 @@
   
 <main class="main" role="main">
   <div class="content">
-  <article id="post-Linux网络编程/黑马的网络编程/day03-select函数" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-环境配置/docker安装教程" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      day03-select函数
+      docker安装教程
     </h1>
   
 
@@ -330,15 +330,15 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/2022/04/02/Linux%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/%E9%BB%91%E9%A9%AC%E7%9A%84%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/day03-select%E5%87%BD%E6%95%B0/" class="article-date">
-	  <time datetime="2022-04-02T09:02:00.000Z" itemprop="datePublished">2022-04-02</time>
+	<a href="/2022/06/22/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/docker%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/" class="article-date">
+	  <time datetime="2022-06-22T15:16:36.000Z" itemprop="datePublished">2022-06-22</time>
 	</a>
 </span>
         
         
   <span class="article-tag">
     <i class="icon icon-tags"></i>
-	<a class="article-tag-link-link" href="/tags/Linux%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/" rel="tag">Linux网络编程</a>
+	<a class="article-tag-link-link" href="/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" rel="tag">环境配置</a>
   </span>
 
 
@@ -351,29 +351,17 @@
 	</span>
 
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2022/04/02/Linux%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/%E9%BB%91%E9%A9%AC%E7%9A%84%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/day03-select%E5%87%BD%E6%95%B0/#comments" class="article-comment-link">评论</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2022/06/22/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/docker%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/#comments" class="article-comment-link">评论</a></span>
         
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <p>熟练掌握TCP状态转换图<br>熟练掌握端口复用的方法<br>了解半关闭的概念和实现方式<br>了解多路I0转接模型<br>熟练掌握select函数的使用<br>熟练使用fd_set相关函数的使用<br>能够编写select多路IO转接模型的代码</p>
-<h1 id="端口复用"><a href="#端口复用" class="headerlink" title="端口复用"></a>端口复用</h1><p>解决端口复用的问题: bind error: Address already in use，发生这种情况是在服务端主动关闭连接以后，接着立刻启动就会报这种错误.<br> int setsockopt(int sockfd, int level, int optname,<br>                      const void *optval, socklen_t optlen);</p>
-<p>setsockopt(lfd, SOL_SOCKETPSO_REUSEADDR,&amp;opt, sizeof(int));<br>setsockopt(lfd , SOL_SOCKET,SO_REUSEPORT,&amp;opt, sizeof(int));</p>
-<p>UNIX高级环境编程<br>这个函数写在socket之后，bind前</p>
-<h1 id="高并发服务器模型–select"><a href="#高并发服务器模型–select" class="headerlink" title="高并发服务器模型–select"></a>高并发服务器模型–select</h1><p>一个进程支持多个客户端</p>
-<p> int select(int nfds, fd_set *readfds, fd_set *writefds,<br>                  fd_set *exceptfds, struct timeval *timeout);<br>函数作用:<br>委托内核监控可读,可写,异常事件</p>
-<p>函数参数:<br>nfds:，输入参数,告诉内核要监控文件描述符的范围,一般取值为最大文件描述符+1<br>readfds:<br>-输入参数:告诉内核要监控哪些文件描述符<br>-输出参数:内核告诉应用程序哪些文件描述符有变化<br>writefds:<br>-输入参数:告诉内核要监控哪些文件描述符<br>-输出参数:内核告诉应用程序哪些文件描述符有变化<br>Exceptfds:<br>输入输出参数,一般表示异常事件<br>Timeout:<br>超时时间:<br>NULL:表示永久阻塞,直到有事件发生<br>0:表示不阻塞,不管有没有事件发生,都会立刻返回</p>
-<blockquote>
-<p>0:表示阻塞的时长,若没有超过时长,则一直阻塞;<br>若在时长内,有事件发生,则立刻返回,<br>若超过时长,则立刻返回<br>返回值:<br>成功返回发生变化的文件描述符个数.</p>
-</blockquote>
-<p>fd_set set;<br>void FD_CLR(int fd, fd_set *set);<br>说明:从set集合中清除fd<br>int FD_ISSET(int fd, fd_set *set);<br>说明:判断fd是否在set集合中<br>void FD_SET(int fd, fd_set *set);<br>说明:将fd添加到set集合中<br>void FD_ZERO(fd_set *set);<br>说明:清空文件描述符集</p>
-<p>关于select的思考:<br>问题:如果有效的文件描述符比较少，会使循环的次数太多.<br>解决办法:可以将有效的文件描述符放到一个数组当中，这样遍历效率就高了.</p>
-<p>代码优化方向:<br>1将通信文件描述符保存到一个整形数组中，使用一个变量记录数组中最大元素的下标.<br>2如果数组中有无效的文件描述符，直接跳过</p>
-<p>select优点:<br>1一个进程可以支持多个客户端<br>2 select支持跨平台</p>
-<p>select缺点:<br>1代码编写困难<br>2会涉及到用户区到内核区的来回拷贝<br>3当客户端多个连接，但少数活跃的情况, select效率较低<br>例如:作为极端的一种情况,3-1023文件描述符全部打开，但是只有1023有发送数据, select就显得效率低下<br>4最大支持1024个客户端连接<br>select最大支持1024个客户端连接不是有文件描述符表最多可以支持1024个文件描述符限制的，需是由FD_SETSIZE&#x3D;1024限制的.</p>
-<p>FD_SETSIZE&#x3D;1024 fd_set使用了该宏，当然可以修改内核，然后再重新编译内核，一般不建议这么做.</p>
-<p>作业:<br>编写代码，让 select监控标准输入，监控网络，如果标准输入有数据就写入网络，如果网络有数据就读出网络数据，然后打印到标准输出.<br>注意: select不仅可以监控socket文件描述符，也可以监视标准输</p>
+        <p>在windows中安装docker desktop</p>
+<p>win11家庭版，没有开启hyper-v功能选项<br>在桌面新建txt文件，复制下面代码，然后改名hyper-v.cmd，<strong>管理员方式</strong>执行</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">pushd &quot;%~dp0&quot;</span><br><span class="line">dir /b %SystemRoot%\servicing\Packages\*Hyper-V*.mum &gt;hyper-v.txt</span><br><span class="line">for /f %%i in (&#x27;findstr /i . hyper-v.txt 2^&gt;nul&#x27;) do dism /online /norestart /add-package:&quot;%SystemRoot%\servicing\Packages\%%i&quot;</span><br><span class="line">del hyper-v.txt</span><br><span class="line">Dism /online /enable-feature /featurename:Microsoft-Hyper-V-All /LimitAccess /ALL</span><br></pre></td></tr></table></figure>
+<p>右键开始图标-&gt;应用和功能-&gt;左侧应用-&gt;可选功能-&gt;更多windows功能-&gt;hyper-v开启</p>
+<h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><p>[windwos11没有Hyper-V的解决方法]<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/96aa6eeacb56">https://www.jianshu.com/p/96aa6eeacb56</a></p>
 
       
     </div>
@@ -383,7 +371,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="http://example.com/2022/04/02/Linux%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/%E9%BB%91%E9%A9%AC%E7%9A%84%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/day03-select%E5%87%BD%E6%95%B0/" title="day03-select函数" target="_blank" rel="external">http://example.com/2022/04/02/Linux网络编程/黑马的网络编程/day03-select函数/</a>
+      <a href="http://example.com/2022/06/22/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/docker%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/" title="docker安装教程" target="_blank" rel="external">http://example.com/2022/06/22/环境配置/docker安装教程/</a>
     </li>
     
     <li class="post-copyright-license">
@@ -430,12 +418,12 @@
   <ul class="pager pull-left">
     
     <li class="prev">
-      <a href="/2022/04/02/Linux%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/%E9%BB%91%E9%A9%AC%E7%9A%84%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/day01-%E4%B8%80%E4%B8%AA%E6%9C%8D%E5%8A%A1%E5%99%A8/" title="day01-一个服务器"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+      <a href="/2022/06/22/%E5%85%B6%E4%BB%96/%E7%99%BE%E5%BA%A6%E5%92%8C%E8%B0%B7%E6%AD%8C%E7%9A%84%E6%AF%94%E8%BE%83/" title="百度和谷歌的比较"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
     </li>
     
     
     <li class="next">
-      <a href="/2022/04/02/Linux%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/%E9%BB%91%E9%A9%AC%E7%9A%84%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/day05-%E7%BA%BF%E7%A8%8B%E6%B1%A0/" title="day05-线程池"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="/2022/06/21/%E8%AF%AD%E6%B3%95%E7%9B%B8%E5%85%B3/Golang%20%E8%AF%AD%E6%B3%95/" title="Golang 语法"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     

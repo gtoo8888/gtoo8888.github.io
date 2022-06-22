@@ -156,7 +156,8 @@
 <li>改变字体颜色</li>
 <li>同一个页面下的多级目录</li>
 <li>左下角显示时间，访客</li>
-<li>可以被搜索到<br>分开统计每个页面浏览量<br>标签云添加颜色<br>图片点一下会放大</li>
+<li>可以被搜索到</li>
+<li>修改markdown样式<br>分开统计每个页面浏览量<br>标签云添加颜色<br>图片点一下会放大</li>
 </ol>
 ]]></content>
       <tags>
@@ -649,7 +650,7 @@ https://www.jianshu.com/p/280c6a6f2594
       </tags>
   </entry>
   <entry>
-    <title>install ubuntu20</title>
+    <title>物理机安装 ubuntu20</title>
     <url>/2022/02/12/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/install%20ubuntu20/</url>
     <content><![CDATA[]]></content>
       <tags>
@@ -2007,6 +2008,38 @@ struct epoll_event &#123;
 ]]></content>
       <tags>
         <tag>教程</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>百度和谷歌的比较</title>
+    <url>/2022/06/22/%E5%85%B6%E4%BB%96/%E7%99%BE%E5%BA%A6%E5%92%8C%E8%B0%B7%E6%AD%8C%E7%9A%84%E6%AF%94%E8%BE%83/</url>
+    <content><![CDATA[<p>很多人都觉得百度也将就能用，之前我也是这么觉得的，后来能用谷歌以后，才发现区别是这么大，特地开一篇文章来对比谷歌和百度的搜索结果。<br>以前四个页面搜索到为标准，如果还没有找到合适的答案，那么就选择正确的回回答</p>
+<h1 id="关键词：win11没有hyper-v"><a href="#关键词：win11没有hyper-v" class="headerlink" title="关键词：win11没有hyper-v"></a>关键词：win11没有hyper-v</h1><p>百度：<br><a href="https://imgtu.com/i/j9IRd1"><img src="https://s1.ax1x.com/2022/06/22/j9IRd1.png" alt="j9IRd1.png"></a></p>
+<p>百度回答1：<br>看起来是个可以用的回答，但是这个命令的格式有点问题，有中文符号在里面，作为一个小白的话，直接粘贴肯定是没有效果的<br><a href="https://imgtu.com/i/j9o00A"><img src="https://s1.ax1x.com/2022/06/22/j9o00A.png" alt="j9o00A.png"></a></p>
+<p>百度回答2：<br>怎么还是一样的回答，还是一样的错误格式<br><a href="https://imgtu.com/i/j9orkt"><img src="https://s1.ax1x.com/2022/06/22/j9orkt.png" alt="j9orkt.png"></a></p>
+<p>百度回答3：<br>还是一样的错误格式<br><a href="https://imgtu.com/i/j9o26g"><img src="https://s1.ax1x.com/2022/06/22/j9o26g.png" alt="j9o26g.png"></a></p>
+<p>百度回答3：<br>百度自家的内容，这种回答一般情况都是垃圾，这次也还是不知道哪里抄的回答，还是一样的格式错误<br><a href="https://imgtu.com/i/j9ostP"><img src="https://s1.ax1x.com/2022/06/22/j9ostP.png" alt="j9ostP.png"></a></p>
+<p>百度回答5：<br>终于有了一个靠谱的回答，可以粘贴了<br><a href="https://imgtu.com/i/j9oBTI"><img src="https://s1.ax1x.com/2022/06/22/j9oBTI.png" alt="j9oBTI.png"></a></p>
+<p>谷歌：<br><a href="https://imgtu.com/i/j9I2ZR"><img src="https://s1.ax1x.com/2022/06/22/j9I2ZR.png" alt="j9I2ZR.png"></a></p>
+<p>谷歌回答1：<br>第一个回答就直接是格式正确的，并且作者还附上了下载链接，不会用的直接下载就可以，第一个答案就直接解决了<br><a href="https://imgtu.com/i/j9oyff"><img src="https://s1.ax1x.com/2022/06/22/j9oyff.png" alt="j9oyff.png"></a></p>
+<p>谷歌回答2：<br>一个微软官方的回答，看起来比较靠谱，可以作为第一种无效的试一试的方案<br><a href="https://imgtu.com/i/j9ocp8"><img src="https://s1.ax1x.com/2022/06/22/j9ocp8.png" alt="j9ocp8.png"></a></p>
+<p>谷歌回答3：<br>又是一个正确的格式的回答，可以直接粘贴解决问题<br><a href="https://imgtu.com/i/j9og1S"><img src="https://s1.ax1x.com/2022/06/22/j9og1S.png" alt="j9og1S.png"></a></p>
+]]></content>
+      <tags>
+        <tag>其他</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>docker安装教程</title>
+    <url>/2022/06/22/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/docker%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/</url>
+    <content><![CDATA[<p>在windows中安装docker desktop</p>
+<p>win11家庭版，没有开启hyper-v功能选项<br>在桌面新建txt文件，复制下面代码，然后改名hyper-v.cmd，<strong>管理员方式</strong>执行</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pushd &quot;%~dp0&quot;</span><br><span class="line">dir /b %SystemRoot%\servicing\Packages\*Hyper-V*.mum &gt;hyper-v.txt</span><br><span class="line">for /f %%i in (&#x27;findstr /i . hyper-v.txt 2^&gt;nul&#x27;) do dism /online /norestart /add-package:&quot;%SystemRoot%\servicing\Packages\%%i&quot;</span><br><span class="line">del hyper-v.txt</span><br><span class="line">Dism /online /enable-feature /featurename:Microsoft-Hyper-V-All /LimitAccess /ALL</span><br></pre></td></tr></table></figure>
+<p>右键开始图标-&gt;应用和功能-&gt;左侧应用-&gt;可选功能-&gt;更多windows功能-&gt;hyper-v开启</p>
+<h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><p>[windwos11没有Hyper-V的解决方法]<a href="https://www.jianshu.com/p/96aa6eeacb56">https://www.jianshu.com/p/96aa6eeacb56</a></p>
+]]></content>
+      <tags>
+        <tag>环境配置</tag>
       </tags>
   </entry>
 </search>
