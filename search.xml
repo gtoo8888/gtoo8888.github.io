@@ -1,15 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>实习内容</title>
-    <url>/2022/06/19/%E5%AE%9E%E4%B9%A0%E5%86%85%E5%AE%B9/</url>
-    <content><![CDATA[<p>2022.6.13-6.19</p>
-<p>本周的工作内容，<br>周一安装环境，了解docker<br>周二了解docker，可以把docker的镜像跑起来<br>周三出现了巨大问题，程序一直没有弄明白，也没有问别人<br>周四还是在做周三做的事情，而且效率很底下<br>周五完成任务，得到了新的任务</p>
-<p>总结和反思：<br>1.当自己有问题解决不了的，分析问题的原因，来自自己，还是来自别人，接下来，我解决这个问题，需要寻求别人的帮助，还是自己去找方法解决<br>2.下午后半段的工作效率不高，在中午的时候，以3:00区分，规划一下下午的3点前后的任务。<br>在3:00的时候应该对自己当前的工作状况进行反思，看一下现在自己状态好不好，设计一下接下来干什么<br>3.当自己程序看不懂的时候，很大情况下是自己知识点的欠缺，需要去补足，先把东西学会，再去做东西，效率会更高<br>4.应该一直做同一个工作，不要总是换来换去</p>
-<p>需要加强的：<br>构建docker镜像的能力，只是会用docker命令，还是没有具体了解docker内部的情况</p>
-]]></content>
-  </entry>
-  <entry>
     <title>linux网络编程</title>
     <url>/2022/03/16/Linux%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/linux%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/</url>
     <content><![CDATA[<p>用man pthread没有相应的解释<br>sudo apt-get install glibc-doc</p>
@@ -107,18 +98,6 @@
 ]]></content>
   </entry>
   <entry>
-    <title>Lab1 Part1:PC bootstrap</title>
-    <url>/2022/03/12/MIT%206.828/Lab1-Part1-PC-bootstrap/</url>
-    <content><![CDATA[<p>安装环境</p>
-<p>sudo apt install ninja-build</p>
-<p>1h<br>3340&#x2F;9263</p>
-<p>21：41<br>4199&#x2F;9263</p>
-]]></content>
-      <tags>
-        <tag>MIT 6.828</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>hexo-Logs</title>
     <url>/2022/02/21/%E5%85%B6%E4%BB%96/hexo-Logs/</url>
     <content><![CDATA[<h2 id="2022-2-12"><a href="#2022-2-12" class="headerlink" title="2022-2-12"></a>2022-2-12</h2><ul>
@@ -158,6 +137,14 @@
 <li>左下角显示时间，访客</li>
 <li>可以被搜索到</li>
 <li>修改markdown样式<br>分开统计每个页面浏览量<br>标签云添加颜色<br>图片点一下会放大</li>
+</ol>
+<h1 id="文章中还没有添加的"><a href="#文章中还没有添加的" class="headerlink" title="文章中还没有添加的"></a>文章中还没有添加的</h1><ol>
+<li>厨房烧菜的内容</li>
+<li>vscode的linux环境的配置<br>写task.josn和lanch.json每个选项到底是怎么用的，还有怎么开始调试和配置、</li>
+<li>周会的记录，看看测试和产品干的内容写进来</li>
+<li>redis相关，mysql相关都没有总结</li>
+<li>TIDB的相关知识</li>
+<li>mysql面试问题</li>
 </ol>
 ]]></content>
       <tags>
@@ -478,7 +465,11 @@ https://www.jianshu.com/p/280c6a6f2594
 <li><p><code>git commit -m &quot;ch04&quot;</code><br>提交到远程仓库<br>git commit 规范指南<br>Commit message 的格式</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;type&gt;(&lt;scope&gt;): &lt;subject&gt;</span><br><span class="line">&lt;BLANK LINE&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;BLANK LINE&gt;</span><br><span class="line">&lt;footer&gt;</span><br></pre></td></tr></table></figure></li>
 </ol>
-<h3 id="type"><a href="#type" class="headerlink" title="type"></a>type</h3><p>用于说明 commit 的类别，只允许使用下面7个标识。<br>feat：新功能（feature）<br>fix：修补bug<br>docs：文档（documentation）<br>style： 格式（不影响代码运行的变动）<br>refactor：重构（即不是新增功能，也不是修改bug的代码变动）<br>test：增加测试<br>chore：构建过程或辅助工具的变动</p>
+<h3 id="type"><a href="#type" class="headerlink" title="type"></a>type</h3><p>用于说明 commit 的类别，只允许使用下面7个标识。<br>feat：新功能（feature）<br>fix&#x2F;to：修补bug</p>
+<ul>
+<li>fix：产生 diff 并自动修复此问题。适合于一次提交直接修复问题</li>
+<li>to：只产生 diff不 自动修复此问题。适合于多次提交。最终修复问题提交时使用 fix<br>docs：仅仅修改了文档（documentation）<br>style： 仅仅修改了空格、格式缩进、逗号等等，不改变代码逻辑<br>refactor：代码重构，没有加新功能或者修复 bug（即不是新增功能，也不是修改bug的代码变动）<br>test：增加测试<br>chore：改变构建流程、或者增加依赖库、工具等<br>revert：回滚到上一个版本<br>merge：代码合并<br>sync：同步主线或分支的Bug</li>
+</ul>
 <h3 id="scope"><a href="#scope" class="headerlink" title="scope"></a>scope</h3><p>scope用于说明 commit 影响的范围，比如数据层、控制层、视图层等等，视项目不同而不同。</p>
 <h3 id="subject"><a href="#subject" class="headerlink" title="subject"></a>subject</h3><p>subject是 commit 目的的简短描述，不超过50个字符。</p>
 <h3 id="Body"><a href="#Body" class="headerlink" title="Body"></a>Body</h3><p>Body 部分是对本次 commit 的详细描述，可以分成多行。下面是一个范例。</p>
@@ -501,11 +492,11 @@ https://www.jianshu.com/p/280c6a6f2594
 </ul>
 </li>
 <li><ul>
-<li>origin  <a href="mailto:&#103;&#105;&#x74;&#64;&#x67;&#x69;&#116;&#104;&#x75;&#x62;&#x2e;&#99;&#x6f;&#109;">&#103;&#105;&#x74;&#64;&#x67;&#x69;&#116;&#104;&#x75;&#x62;&#x2e;&#99;&#x6f;&#109;</a>:gtoo8888&#x2F;linux-network.git (fetch)</li>
+<li>origin  <a href="mailto:&#x67;&#105;&#116;&#64;&#x67;&#x69;&#x74;&#x68;&#x75;&#x62;&#x2e;&#99;&#111;&#109;">&#x67;&#105;&#116;&#64;&#x67;&#x69;&#x74;&#x68;&#x75;&#x62;&#x2e;&#99;&#111;&#109;</a>:gtoo8888&#x2F;linux-network.git (fetch)</li>
 </ul>
 </li>
 <li><ul>
-<li>origin  <a href="mailto:&#103;&#x69;&#116;&#x40;&#x67;&#x69;&#x74;&#x68;&#x75;&#98;&#46;&#x63;&#x6f;&#109;">&#103;&#x69;&#116;&#x40;&#x67;&#x69;&#x74;&#x68;&#x75;&#98;&#46;&#x63;&#x6f;&#109;</a>:gtoo8888&#x2F;linux-network.git (push)</li>
+<li>origin  <a href="mailto:&#103;&#105;&#116;&#x40;&#103;&#105;&#116;&#x68;&#x75;&#x62;&#x2e;&#x63;&#x6f;&#109;">&#103;&#105;&#116;&#x40;&#103;&#105;&#116;&#x68;&#x75;&#x62;&#x2e;&#x63;&#x6f;&#109;</a>:gtoo8888&#x2F;linux-network.git (push)</li>
 </ul>
 </li>
 <li><ol start="2">
@@ -517,7 +508,7 @@ https://www.jianshu.com/p/280c6a6f2594
 </ul>
 </li>
 <li><ol start="3">
-<li>git remote add origin <a href="mailto:&#103;&#x69;&#x74;&#x40;&#103;&#105;&#116;&#104;&#x75;&#98;&#46;&#99;&#x6f;&#x6d;">&#103;&#x69;&#x74;&#x40;&#103;&#105;&#116;&#104;&#x75;&#98;&#46;&#99;&#x6f;&#x6d;</a>:gtoo8888&#x2F;linux-network.git 再次使用指令</li>
+<li>git remote add origin <a href="mailto:&#x67;&#x69;&#x74;&#64;&#103;&#x69;&#116;&#x68;&#117;&#98;&#x2e;&#99;&#111;&#x6d;">&#x67;&#x69;&#x74;&#64;&#103;&#x69;&#116;&#x68;&#117;&#98;&#x2e;&#99;&#111;&#x6d;</a>:gtoo8888&#x2F;linux-network.git 再次使用指令</li>
 </ol>
 </li>
 </ul>
@@ -526,13 +517,13 @@ https://www.jianshu.com/p/280c6a6f2594
 </ol>
 <p>输出：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Enumerating objects: 9, done.</span><br><span class="line">Counting objects: 100% (9/9), done.</span><br><span class="line">Delta compression using up to 2 threads</span><br><span class="line">Compressing objects: 100% (8/8), done.</span><br><span class="line">Writing objects: 100% (9/9), 3.65 KiB | 1.21 MiB/s, done.</span><br><span class="line">Total 9 (delta 0), reused 0 (delta 0)</span><br><span class="line">remote:</span><br><span class="line">remote: Create a pull request for &#x27;master&#x27; on GitHub by visiting:</span><br><span class="line">remote:      https://github.com/gtoo8888/linux-network/pull/new/master</span><br><span class="line">remote:</span><br><span class="line">To github.com:gtoo8888/linux-network.git</span><br><span class="line"> * [new branch]      master -&gt; master</span><br></pre></td></tr></table></figure>
-<p>报错：<br>error: src refspec main does not match any<br>error: failed to push some refs to ‘<a href="mailto:&#103;&#105;&#116;&#x40;&#103;&#x69;&#x74;&#104;&#117;&#98;&#46;&#99;&#111;&#109;">&#103;&#105;&#116;&#x40;&#103;&#x69;&#x74;&#104;&#117;&#98;&#46;&#99;&#111;&#109;</a>:gtoo8888&#x2F;linux-network.git’<br>报错原因：<br>本地文件与github上的文件有冲突<br>本地需要提交的文件中存在空文件<br>本地的origin和remote origin&#x2F;master 没有建立关联<br>解决方法：<br>git push origin main<br>发现仓库中主要分支叫做master修改后就好了</p>
+<p>报错：<br>error: src refspec main does not match any<br>error: failed to push some refs to ‘<a href="mailto:&#x67;&#x69;&#x74;&#x40;&#x67;&#x69;&#x74;&#104;&#117;&#98;&#46;&#99;&#111;&#109;">&#x67;&#x69;&#x74;&#x40;&#x67;&#x69;&#x74;&#104;&#117;&#98;&#46;&#99;&#111;&#109;</a>:gtoo8888&#x2F;linux-network.git’<br>报错原因：<br>本地文件与github上的文件有冲突<br>本地需要提交的文件中存在空文件<br>本地的origin和remote origin&#x2F;master 没有建立关联<br>解决方法：<br>git push origin main<br>发现仓库中主要分支叫做master修改后就好了</p>
 <h1 id="生成ssh秘钥"><a href="#生成ssh秘钥" class="headerlink" title="生成ssh秘钥"></a>生成ssh秘钥</h1><h2 id="1-生成公钥："><a href="#1-生成公钥：" class="headerlink" title="1.生成公钥："></a>1.生成公钥：</h2><p>git命令：ssh-keygen  -m [密钥格式]  -t [密钥类型]  -C[密钥注解] </p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ssh-keygen -m PEM -t ed25519 -C &quot;your.email@example.com&quot; // 创建新的 SSH 私钥与公钥秘钥对，输入你的邮箱作为标签</span><br><span class="line">Enter file in which to save the key (/Users/you/.ssh/id_rsa): [Press enter] // 推荐使用默认地址</span><br><span class="line">Enter passphrase (empty for no passphrase): // 此处直接回车即可；若设置密码，则每次使用 SSH 方式推送代码时都会要求输入密码</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ssh-keygen -m PEM -t ed25519 -C &quot;ujm456@126.com&quot;</span><br><span class="line">ssh-keygen -m PEM -t ed25519 -C &quot;your.email@example.com&quot; // 创建新的 SSH 私钥与公钥秘钥对，输入你的邮箱作为标签</span><br><span class="line">Enter file in which to save the key (/Users/you/.ssh/id_rsa): [Press enter] // 推荐使用默认地址</span><br><span class="line">Enter passphrase (empty for no passphrase): // 此处直接回车即可；若设置密码，则每次使用 SSH 方式推送代码时都会要求输入密码</span><br></pre></td></tr></table></figure>
 <p>成功之后显示：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Your identification has been saved in /Users/you/.ssh/id_rsa.</span><br><span class="line"># Your public key has been saved in /Users/you/.ssh/id_rsa.pub.</span><br><span class="line"># The key fingerprint is:</span><br><span class="line"># 01:0f:f4:3b:ca:85:d6:17:a1:7d:f0:68:9d:f0:a2:db your.email@example.com</span><br></pre></td></tr></table></figure>
-<h2 id="2-添加公钥"><a href="#2-添加公钥" class="headerlink" title="2.添加公钥"></a>2.添加公钥</h2><p>windows地址为（C:\Users\you.ssh）<br>打开上文中生成的秘钥对的地址（默认地址通常为 ~&#x2F;.ssh&#x2F;）找到后缀为 pub 的公钥文件，使用 cat 命令输出所有内容并复制。</p>
-<h2 id="3-尝试使用ssh连接github"><a href="#3-尝试使用ssh连接github" class="headerlink" title="3.尝试使用ssh连接github"></a>3.尝试使用ssh连接github</h2><p>ssh -T <a href="mailto:&#x67;&#x69;&#116;&#64;&#x67;&#105;&#x74;&#104;&#117;&#98;&#x2e;&#99;&#x6f;&#x6d;">&#x67;&#x69;&#116;&#64;&#x67;&#105;&#x74;&#104;&#117;&#98;&#x2e;&#99;&#x6f;&#x6d;</a><br>ssh -T <a href="mailto:&#x67;&#x69;&#x74;&#64;&#101;&#x2e;&#x63;&#111;&#x64;&#x69;&#x6e;&#103;&#46;&#110;&#x65;&#116;">&#x67;&#x69;&#x74;&#64;&#101;&#x2e;&#x63;&#111;&#x64;&#x69;&#x6e;&#103;&#46;&#110;&#x65;&#116;</a></p>
+<h2 id="2-添加公钥"><a href="#2-添加公钥" class="headerlink" title="2.添加公钥"></a>2.添加公钥</h2><p>windows地址为（C:\Users\you.ssh）<br>linux地址为（&#x2F;home&#x2F;user&#x2F;.ssh&#x2F;id_ed25519）<br>linux地址为（&#x2F;root&#x2F;.ssh&#x2F;id_ed25519）<br>打开上文中生成的秘钥对的地址（默认地址通常为 ~&#x2F;.ssh&#x2F;）找到后缀为 pub 的公钥文件，使用 cat 命令输出所有内容并复制。</p>
+<h2 id="3-尝试使用ssh连接github"><a href="#3-尝试使用ssh连接github" class="headerlink" title="3.尝试使用ssh连接github"></a>3.尝试使用ssh连接github</h2><p>ssh -T <a href="mailto:&#x67;&#x69;&#116;&#x40;&#103;&#x69;&#x74;&#x68;&#x75;&#98;&#46;&#x63;&#x6f;&#x6d;">&#x67;&#x69;&#116;&#x40;&#103;&#x69;&#x74;&#x68;&#x75;&#98;&#46;&#x63;&#x6f;&#x6d;</a><br>ssh -T <a href="mailto:&#x67;&#105;&#x74;&#x40;&#x65;&#46;&#99;&#x6f;&#100;&#105;&#110;&#x67;&#x2e;&#x6e;&#101;&#116;">&#x67;&#105;&#x74;&#x40;&#x65;&#46;&#99;&#x6f;&#100;&#105;&#110;&#x67;&#x2e;&#x6e;&#101;&#116;</a></p>
 <h1 id="一些git的命令"><a href="#一些git的命令" class="headerlink" title="一些git的命令"></a>一些git的命令</h1><h2 id="git-LFS技术"><a href="#git-LFS技术" class="headerlink" title="git LFS技术"></a>git LFS技术</h2><p>可以用来存放大文件</p>
 <p>git lfs pull –all<br>git lfs pull</p>
 <h2 id="checkout"><a href="#checkout" class="headerlink" title="checkout"></a>checkout</h2><p>git checkout – bin&#x2F;test_tool.sh</p>
@@ -544,7 +535,7 @@ https://www.jianshu.com/p/280c6a6f2594
 <p>git config –global core.autocrlf input</p>
 <p>AutoCRLF<br>提交时转换为LF，检出时转换为CRLF<br>git config –global core.autocrlf true<br>提交时转换为LF，检出时不转换<br>git config –global core.autocrlf input<br>提交检出均不转换<br>如果下windows下下载的文件，需要映射到linux中去，不用总是手动改变编码</p>
 <h1 id="git-branch"><a href="#git-branch" class="headerlink" title="git branch"></a>git branch</h1><p>查看当前所在分支 </p>
-<h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><p><a href="https://blog.csdn.net/ajianyingxiaoqinghan/article/details/70544159">https://blog.csdn.net/ajianyingxiaoqinghan/article/details/70544159</a><br><a href="https://blog.csdn.net/u014361280/article/details/109703556">https://blog.csdn.net/u014361280/article/details/109703556</a><br>[git submodule]<a href="https://blog.csdn.net/weixin_44901565/article/details/123086226">https://blog.csdn.net/weixin_44901565/article/details/123086226</a><br>[git配置中的CRLF、LF、CR]<a href="https://blog.csdn.net/u013037336/article/details/121541008">https://blog.csdn.net/u013037336/article/details/121541008</a><br>[git commit -m需要参考的]<a href="https://www.conventionalcommits.org/zh-hans/v1.0.0/">https://www.conventionalcommits.org/zh-hans/v1.0.0/</a><br>[白色箭头]<a href="https://blog.csdn.net/bowenlaw/article/details/124594664">https://blog.csdn.net/bowenlaw/article/details/124594664</a><br>[git commit 规范指南]<a href="https://blog.csdn.net/qq_41662115/article/details/99759645">https://blog.csdn.net/qq_41662115/article/details/99759645</a></p>
+<h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><p><a href="https://blog.csdn.net/ajianyingxiaoqinghan/article/details/70544159">https://blog.csdn.net/ajianyingxiaoqinghan/article/details/70544159</a><br><a href="https://blog.csdn.net/u014361280/article/details/109703556">https://blog.csdn.net/u014361280/article/details/109703556</a><br>[git submodule]<a href="https://blog.csdn.net/weixin_44901565/article/details/123086226">https://blog.csdn.net/weixin_44901565/article/details/123086226</a><br>[git配置中的CRLF、LF、CR]<a href="https://blog.csdn.net/u013037336/article/details/121541008">https://blog.csdn.net/u013037336/article/details/121541008</a><br>[git commit -m约定式提交]<a href="https://www.conventionalcommits.org/zh-hans/v1.0.0/">https://www.conventionalcommits.org/zh-hans/v1.0.0/</a><br>[白色箭头]<a href="https://blog.csdn.net/bowenlaw/article/details/124594664">https://blog.csdn.net/bowenlaw/article/details/124594664</a><br>[git commit 规范指南]<a href="https://blog.csdn.net/qq_41662115/article/details/99759645">https://blog.csdn.net/qq_41662115/article/details/99759645</a><br>[.gitignore基础规则]<a href="https://www.cnblogs.com/kevingrace/p/5690241.html">https://www.cnblogs.com/kevingrace/p/5690241.html</a></p>
 ]]></content>
       <tags>
         <tag>教程</tag>
@@ -1356,6 +1347,10 @@ https://www.jianshu.com/p/280c6a6f2594
 <h1 id="常用的库"><a href="#常用的库" class="headerlink" title="常用的库"></a>常用的库</h1><p>GCC multilib主要是用于支持交叉编译（cross compiling），即编译出来的程序是用来在其他处理器平台上运行的。例如可以在x86 64位处理器上编译出x86 32位程序，运行在32位处理器上，或者在x86平台上编译出可以在ARM处理器上运行的程序</p>
 <p>build-essential<br>Ubuntu缺省情况下，并没有提供C&#x2F;C++的编译环境，因此还需要手动安装。但是如果单独安装gcc以及g++比较麻烦，幸运的是，Ubuntu提供了一个build-essential软件包。查看该软件包的依赖关系：</p>
 <p>libtool 是一个通用库支持脚本，将使用动态库的复杂性隐藏在统一、可移植的接口中，也就是说，你可以通过如下所示的标准方法，在不同平台上创建并调用动态库，我们 可以认为libtool是gcc的一个抽象，也就是说，它包装了gcc或者其他的任何编译器，用户无需知道细节，只要告诉libtool说我需要要编译哪 些库即可，并且，它只与libtool文件打交道，例如lo、la为后缀的文件。</p>
+<p>dpkg 包管理工具</p>
+<p>dpkg -l</p>
+<p>dpkg -l | grep mysql*<br>dpkg -l “mysql*”</p>
+<p>sudo dpkg -r vim<br>dpkg -l “<em>mysql</em>“</p>
 ]]></content>
       <tags>
         <tag>鸟哥的Linux私房菜</tag>
@@ -1364,11 +1359,18 @@ https://www.jianshu.com/p/280c6a6f2594
   <entry>
     <title>Golang 语法</title>
     <url>/2022/06/21/%E8%AF%AD%E6%B3%95%E7%9B%B8%E5%85%B3/Golang%20%E8%AF%AD%E6%B3%95/</url>
-    <content><![CDATA[<h1 id="语法关键点"><a href="#语法关键点" class="headerlink" title="语法关键点"></a>语法关键点</h1><p>defer关键字<br>defer和go一样都是Go语言提供的关键字。defer用于资源的释放，会在函数返回之前进行调用。一般采用如下模式：<br>defer是在return之前执行的。这个在 官方文档中是明确说明了的。要使用defer时不踩坑，最重要的一点就是要明白，return xxx这一条语句并不是一条原子指令!<br>函数返回的过程是这样的：先给返回值赋值，然后调用defer表达式，最后才是返回到调用函数中。<br>defer表达式可能会在设置函数返回值之后，在返回到调用函数之前，修改返回值，使最终的函数返回值与你想象的不一致。<br><a href="https://tiancaiamao.gitbooks.io/go-internals/content/zh/03.4.html">https://tiancaiamao.gitbooks.io/go-internals/content/zh/03.4.html</a></p>
-<p>make关键字<br>chan关键字</p>
-<p>反射机制</p>
-<p>多进程go机制</p>
-<h1 id="常用的框架"><a href="#常用的框架" class="headerlink" title="常用的框架"></a>常用的框架</h1><h2 id="gRPC"><a href="#gRPC" class="headerlink" title="gRPC"></a>gRPC</h2><h2 id="GORM"><a href="#GORM" class="headerlink" title="GORM"></a>GORM</h2><h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><p>[全面的golang教程]<a href="http://c.biancheng.net/golang/">http://c.biancheng.net/golang/</a><br>[defer关键字]<a href="https://tiancaiamao.gitbooks.io/go-internals/content/zh/03.4.html">https://tiancaiamao.gitbooks.io/go-internals/content/zh/03.4.html</a><br>[GORM docs]<a href="https://gorm.io/zh_CN/docs/index.html">https://gorm.io/zh_CN/docs/index.html</a></p>
+    <content><![CDATA[<h1 id="实习中用到的技术点"><a href="#实习中用到的技术点" class="headerlink" title="实习中用到的技术点"></a>实习中用到的技术点</h1><h1 id="常用的框架"><a href="#常用的框架" class="headerlink" title="常用的框架"></a>常用的框架</h1><h2 id="minio分布式存储"><a href="#minio分布式存储" class="headerlink" title="minio分布式存储"></a>minio分布式存储</h2><h2 id="gRPC"><a href="#gRPC" class="headerlink" title="gRPC"></a>gRPC</h2><h2 id="GORM"><a href="#GORM" class="headerlink" title="GORM"></a>GORM</h2><h1 id="context包"><a href="#context包" class="headerlink" title="context包"></a>context包</h1><p>context上下文包解析</p>
+<p>go 1.7以后才支持</p>
+<p>用在协程里面</p>
+<p>控制并发两种方式<br>    使用 WaitGroup<br>    使用Context</p>
+<p>通用场景，多个goroutine执行同一件事情</p>
+<p>主动通知停止<br>channel + select</p>
+<p>如果有多个goroutine,或者goroutine里面又有goroutine</p>
+<p>需要使用context控制</p>
+<p>client -&gt; server#1 -&gt; server#2<br>请求 req<br>应答 res</p>
+<p>用户中间中断请求，那么中间的资源全部浪费了，当用户切断的时候，能马上停止</p>
+<p>ctx :&#x3D; context.Backgroud()</p>
+<p>context.WithCancle(ctx)d</p>
 ]]></content>
       <tags>
         <tag>语法</tag>
@@ -1729,6 +1731,7 @@ struct epoll_event &#123;
 <h1 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h1><p>${}来引用变量，这是 cmake 的变量引用方式<br>如在 IF 控制语句，变量是直接使用变量名引用，而不需要${}。</p>
 <h1 id="清理"><a href="#清理" class="headerlink" title="清理"></a>清理</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">make clean</span><br></pre></td></tr></table></figure>
 <p>cmake 并不支持 make distclean，无法清理构建过程产生的中间文件</p>
+<h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><p>[find_package讲解]<a href="https://blog.csdn.net/zhanghm1995/article/details/105466372">https://blog.csdn.net/zhanghm1995/article/details/105466372</a><br>[C++连接mysql用cmake编译]<a href="https://blog.csdn.net/lbwanghr/article/details/111076593">https://blog.csdn.net/lbwanghr/article/details/111076593</a></p>
 ]]></content>
       <tags>
         <tag>教程</tag>
@@ -2014,7 +2017,7 @@ struct epoll_event &#123;
     <title>百度和谷歌的比较</title>
     <url>/2022/06/22/%E5%85%B6%E4%BB%96/%E7%99%BE%E5%BA%A6%E5%92%8C%E8%B0%B7%E6%AD%8C%E7%9A%84%E6%AF%94%E8%BE%83/</url>
     <content><![CDATA[<p>很多人都觉得百度也将就能用，之前我也是这么觉得的，后来能用谷歌以后，才发现区别是这么大，特地开一篇文章来对比谷歌和百度的搜索结果。<br>以前四个页面搜索到为标准，如果还没有找到合适的答案，那么就选择正确的回回答</p>
-<h1 id="关键词：win11没有hyper-v"><a href="#关键词：win11没有hyper-v" class="headerlink" title="关键词：win11没有hyper-v"></a>关键词：win11没有hyper-v</h1><p>百度：<br><a href="https://imgtu.com/i/j9IRd1"><img src="https://s1.ax1x.com/2022/06/22/j9IRd1.png" alt="j9IRd1.png"></a></p>
+<h1 id="一、关键词：win11没有hyper-v"><a href="#一、关键词：win11没有hyper-v" class="headerlink" title="一、关键词：win11没有hyper-v"></a>一、关键词：win11没有hyper-v</h1><p>百度：<br><a href="https://imgtu.com/i/j9IRd1"><img src="https://s1.ax1x.com/2022/06/22/j9IRd1.png" alt="j9IRd1.png"></a></p>
 <p>百度回答1：<br>看起来是个可以用的回答，但是这个命令的格式有点问题，有中文符号在里面，作为一个小白的话，直接粘贴肯定是没有效果的<br><a href="https://imgtu.com/i/j9o00A"><img src="https://s1.ax1x.com/2022/06/22/j9o00A.png" alt="j9o00A.png"></a></p>
 <p>百度回答2：<br>怎么还是一样的回答，还是一样的错误格式<br><a href="https://imgtu.com/i/j9orkt"><img src="https://s1.ax1x.com/2022/06/22/j9orkt.png" alt="j9orkt.png"></a></p>
 <p>百度回答3：<br>还是一样的错误格式<br><a href="https://imgtu.com/i/j9o26g"><img src="https://s1.ax1x.com/2022/06/22/j9o26g.png" alt="j9o26g.png"></a></p>
@@ -2041,5 +2044,89 @@ struct epoll_event &#123;
       <tags>
         <tag>环境配置</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>MySql教程</title>
+    <url>/2022/06/23/%E6%95%99%E7%A8%8B/MySql%E6%95%99%E7%A8%8B/</url>
+    <content><![CDATA[<h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><p><a href="https://blog.csdn.net/m0_67393039/article/details/123702111">https://blog.csdn.net/m0_67393039/article/details/123702111</a><br><a href="https://blog.csdn.net/m0_51889436/article/details/123227451">https://blog.csdn.net/m0_51889436/article/details/123227451</a></p>
+]]></content>
+      <tags>
+        <tag>教程</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Golang 面试</title>
+    <url>/2022/06/27/%E9%9D%A2%E8%AF%95%E9%A2%98%E7%9B%AE/Golang%20%E9%9D%A2%E8%AF%95/</url>
+    <content><![CDATA[<p>Go实现了两种并发形式<br>第一种是，多线程共享内存。就是C++中实现的并发模型，他们线程间通信都是通过共享内存的方式来进行的。在访问共享数据（例如数组、Map、或者某个结构体或对象）的时候，通过锁来访问。Go中也实现了传统的线程并发模型。<br>另外一种是Go语言特有的，也是Go语言推荐的：CSP（communicating sequential processes）并发模型。</p>
+<p>Go的CSP并发模型，是通过goroutine和channel来实现的。</p>
+<p>goroutine 是Go语言中并发的执行单位。有点抽象，其实就是和传统概念上的”线程“类似，可以理解为”线程“。<br>channel是Go语言中各个并发结构体(goroutine)之前的通信机制。 通俗的讲，就是各个goroutine之间通信的”管道“，有点类似于Linux中的管道。</p>
+<h1 id="GMP模型介绍一下"><a href="#GMP模型介绍一下" class="headerlink" title="GMP模型介绍一下"></a>GMP模型介绍一下</h1><p>go runtinue使用了一个MPG模型来实现<br>M指的是Machine，一个M直接关联了一个内核线程。所有的G(goroutine)任务最终都会在M上执行。<br>P指的是processor，代表了M所需的上下文环境，也是处理用户级代码逻辑的处理器。它负责衔接M和G的调度上下文，将等待执行的G与M对接。<br>1．代表一个处理器，每个运行的M都必须绑定一个P。P的个数是GOMAXPOCS，最大为256，在程序启动时固<br>定，一般不去修改。<br>2.GOMAXPOCS默认值是当前电脑的核心数，单核CPU就只能设置为1，如果设置&gt;1，在GOMAXPOCS函数中<br>也会被修改为1。<br>3.M和P的个数不一定一样多，M&gt;&#x3D;P，每一个P都会保存本地的G任务队列，另外还有一个全局的G任务队列。G<br>任务队列可以认为线程池中的线程队列。</p>
+<p>G指的是Goroutine，代表一个goroutine对象，每次go调用的时候都会创建一个G对象，其实本质上也是一种轻量级的线程。包括了调用栈，重要的调度信息，例如channel等。</p>
+<h1 id="go-rutine调度流程"><a href="#go-rutine调度流程" class="headerlink" title="go rutine调度流程"></a>go rutine调度流程</h1><ol>
+<li>启动一个goroutine<br>也就是创建一个G对象，然后加入到本地队列或者全局队列中</li>
+</ol>
+<p>goroutineฎ按照抢占式进⾏调度，一个goroutine最多执行10ms就会换下一个<br>2. 查找是否有空闲的P<br>如果没有就直接返回<br>如果有，就用系统API创建一个M(线程)<br>3. 由这个刚创建的M循环执行能找到的G任务<br>4. G任务执行的循序<br>先从本地队列找，本地没有找到就从全局队列找，如果还没有找到就去其他P中找<br>5. 所有的G任务的执行是按照go的调用顺序执行的<br>6. 如果一个系统调用或者G任务执行的时间太长，就会一直占用这个线程</p>
+<h1 id="slice-底层和扩容"><a href="#slice-底层和扩容" class="headerlink" title="slice 底层和扩容"></a>slice 底层和扩容</h1><h1 id="defer-应用和底层"><a href="#defer-应用和底层" class="headerlink" title="defer 应用和底层"></a>defer 应用和底层</h1><h1 id="内存管理"><a href="#内存管理" class="headerlink" title="内存管理"></a>内存管理</h1><h1 id="垃圾回收"><a href="#垃圾回收" class="headerlink" title="垃圾回收"></a>垃圾回收</h1><h1 id=""><a href="#" class="headerlink" title=""></a></h1><p>熟悉docker，k8s，了解两者基本原理，了解devops实施方案，CICD，服务发现，灰度发布等</p>
+<h1 id="语法关键点"><a href="#语法关键点" class="headerlink" title="语法关键点"></a>语法关键点</h1><p>defer关键字<br>defer和go一样都是Go语言提供的关键字。defer用于资源的释放，会在函数返回之前进行调用。一般采用如下模式：<br>defer是在return之前执行的。这个在 官方文档中是明确说明了的。要使用defer时不踩坑，最重要的一点就是要明白，return xxx这一条语句并不是一条原子指令!<br>函数返回的过程是这样的：先给返回值赋值，然后调用defer表达式，最后才是返回到调用函数中。<br>defer表达式可能会在设置函数返回值之后，在返回到调用函数之前，修改返回值，使最终的函数返回值与你想象的不一致。<br><a href="https://tiancaiamao.gitbooks.io/go-internals/content/zh/03.4.html">https://tiancaiamao.gitbooks.io/go-internals/content/zh/03.4.html</a></p>
+<p>make关键字<br>chan关键字</p>
+<p>反射机制</p>
+<p>多进程go机制</p>
+<h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><p>[全面的golang教程]<a href="http://c.biancheng.net/golang/">http://c.biancheng.net/golang/</a><br>[defer关键字]<a href="https://tiancaiamao.gitbooks.io/go-internals/content/zh/03.4.html">https://tiancaiamao.gitbooks.io/go-internals/content/zh/03.4.html</a><br>[GORM docs]<a href="https://gorm.io/zh_CN/docs/index.html">https://gorm.io/zh_CN/docs/index.html</a></p>
+]]></content>
+      <tags>
+        <tag>面试</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>webserver</title>
+    <url>/2022/07/25/%E9%A1%B9%E7%9B%AE/webserver/</url>
+    <content><![CDATA[<h2 id="2022-7-24"><a href="#2022-7-24" class="headerlink" title="2022-7-24"></a>2022-7-24</h2><ol>
+<li>task.josn和lanch.json可以跑起来了，可以用vscode远程连接调试</li>
+<li>使用cmake进行编译</li>
+<li>cmake编译中添加了mysql,可以操作数据库了</li>
+</ol>
+<h2 id="2022-7-25"><a href="#2022-7-25" class="headerlink" title="2022-7-25"></a>2022-7-25</h2><ol>
+<li>学习了namespace和share_ptr是怎么使用的</li>
+</ol>
+]]></content>
+  </entry>
+  <entry>
+    <title>实习内容</title>
+    <url>/2022/06/19/%E5%85%B6%E4%BB%96/%E5%AE%9E%E4%B9%A0%E5%86%85%E5%AE%B9/</url>
+    <content><![CDATA[<p>2022.6.13-6.19</p>
+<p>本周的工作内容，<br>周一安装环境，了解docker<br>周二了解docker，可以把docker的镜像跑起来<br>周三出现了巨大问题，程序一直没有弄明白，也没有问别人<br>周四还是在做周三做的事情，而且效率很底下<br>周五完成任务，得到了新的任务</p>
+<p>总结和反思：<br>1.当自己有问题解决不了的，分析问题的原因，来自自己，还是来自别人，接下来，我解决这个问题，需要寻求别人的帮助，还是自己去找方法解决<br>2.下午后半段的工作效率不高，在中午的时候，以3:00区分，规划一下下午的3点前后的任务。<br>在3:00的时候应该对自己当前的工作状况进行反思，看一下现在自己状态好不好，设计一下接下来干什么<br>3.当自己程序看不懂的时候，很大情况下是自己知识点的欠缺，需要去补足，先把东西学会，再去做东西，效率会更高<br>4.应该一直做同一个工作，不要总是换来换去</p>
+<p>需要加强的：<br>构建docker镜像的能力，只是会用docker命令，还是没有具体了解docker内部的情况</p>
+<p>202.6.20-6.24<br>本周内容：<br>周一熟悉gorm,gRPC，看代码，还没有跑起来<br>周二得到需求，分析需求，搭调试环境，学postman<br>周三实现导出名字和身份证<br>周四读取图片，不会连接轨迹服务器<br>周五花了一天的时间连接轨迹服务器，终于连上了</p>
+<p>不足的：<br>1.遇到业务上无法解决的问题，应该及时的提问<br>2.写业务的时候，可以先构思需要的函数的输入输出是什么，然后把每个子函数都写好，然后再去写内容（封装的思想）<br>3.对一个新语言的不熟悉，就是要手打代码段一点一点的多敲才能熟悉，不要总是粘贴<br>4.大佬写的代码总是能一气呵成，修改比较少，自己的代码就是需要反复的修改，所以特别慢，并且这次是新语言，新框架，而且要用数据库，所以写起来，试错的时间更加长了<br>5.总结一下：语法不熟悉、对业务的把控能力很弱、对代码的把控能力很弱（不知道要怎么开这些函数）</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>截图工具</title>
+    <url>/2022/07/25/%E9%A1%B9%E7%9B%AE/%E6%88%AA%E5%9B%BE%E5%B7%A5%E5%85%B7/</url>
+    <content><![CDATA[<h1 id="需求分析"><a href="#需求分析" class="headerlink" title="需求分析"></a>需求分析</h1><p>看看市面上的截图工具</p>
+<p>QQ截图独立版：<a href="https://bbs.pediy.com/thread-271332.htm">https://bbs.pediy.com/thread-271332.htm</a><br>Snipaste官网：<a href="https://zh.snipaste.com/">https://zh.snipaste.com/</a><br>eSearch官网：<a href="https://esearch.vercel.app/">https://esearch.vercel.app/</a><br>PicPick官网：<a href="https://picpick.app/zh/">https://picpick.app/zh/</a><br>FastStone Capture官网：<a href="https://www.faststone.org/FSCaptureDetail.htm">https://www.faststone.org/FSCaptureDetail.htm</a><br>ShareX官网：<a href="https://getsharex.com/">https://getsharex.com/</a></p>
+<p>自己想要什么功能</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>自己用到的脚本</title>
+    <url>/2022/07/25/%E9%B8%9F%E5%93%A5%E7%9A%84Linux%E7%A7%81%E6%88%BF%E8%8F%9C/%E8%87%AA%E5%B7%B1%E7%94%A8%E5%88%B0%E7%9A%84%E8%84%9A%E6%9C%AC/</url>
+    <content><![CDATA[<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">echo &quot;统计文件中代码行数&quot;</span><br><span class="line">c1=$(find -name &quot;*.cpp&quot;  | wc -l)</span><br><span class="line">h1=$(find -name &quot;*.h&quot;  | wc -l)</span><br><span class="line">echo &quot;文件个数：$(expr $&#123;c1&#125; + $&#123;h1&#125;),*.cpp:$&#123;c1&#125;,*.h:$&#123;h1&#125;&quot;</span><br><span class="line">c2=$(find -name &quot;*.cpp&quot;  | xargs cat | wc -l)</span><br><span class="line">h2=$(find -name &quot;*.cpp&quot;  | xargs cat | wc -l)</span><br><span class="line">echo &quot;总行数：$(expr $&#123;c2&#125; + $&#123;c2&#125;),*.cpp:$&#123;c2&#125;,*.h:$&#123;h2&#125;&quot;</span><br><span class="line">c3=$(find -name &quot;*.cpp&quot;  | xargs cat | grep -v ^$| wc -l)</span><br><span class="line">h3=$(find -name &quot;*.cpp&quot;  | xargs cat | grep -v ^$| wc -l)</span><br><span class="line">echo &quot;去掉空格行数：$(expr $&#123;c3&#125; + $&#123;c3&#125;),*.cpp:$&#123;c3&#125;,*.h:$&#123;h3&#125;&quot;</span><br></pre></td></tr></table></figure>
+]]></content>
+  </entry>
+  <entry>
+    <title>做饭相关</title>
+    <url>/2022/07/25/%E5%85%B6%E4%BB%96/%E5%81%9A%E9%A5%AD%E7%9B%B8%E5%85%B3/</url>
+    <content><![CDATA[<p>可乐鸡翅</p>
+<p>鱼香肉丝、糖醋排骨、锅包肉<br>紫菜皮蛋汤<br>虾仁炒蛋<br>青椒塞肉<br>炸茄子</p>
+<h3 id="可乐鸡翅的改进"><a href="#可乐鸡翅的改进" class="headerlink" title="可乐鸡翅的改进"></a>可乐鸡翅的改进</h3><p>步骤一：<br>生姜、料酒，浸泡20分钟<br>步骤二：<br>焯水<br>鸡翅切开<br>树叶、八角、葱，料酒放到水里面煮到没有泡沫出来<br>用冷水还是热水开始煮？？？<br>步骤三：<br>炒出糖色<br>放八角、树叶、料酒、蒜、大葱<br>炒到两面金黄，一直用大火<br>放生抽、老抽、盐（一点）<br>最后放入可乐，小火开始炖，可乐不要太多，要没过鸡翅就可以了，可乐可以分多次加<br>炖20分钟，汤汁烧干<br>汤汁烧干以后，打开锅盖，烧到出泡泡<br>装盘</p>
+<ol>
+<li>需要炒出糖色来</li>
+<li>没有粘稠的感觉，感觉像是汤</li>
+<li>可乐加的有点多</li>
+</ol>
+<h2 id="下周计划"><a href="#下周计划" class="headerlink" title="下周计划"></a>下周计划</h2><p>鱼香肉丝<br>茄子</p>
+]]></content>
   </entry>
 </search>
