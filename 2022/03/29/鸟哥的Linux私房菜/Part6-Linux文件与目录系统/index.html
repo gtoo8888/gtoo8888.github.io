@@ -26,7 +26,7 @@
 <meta property="og:description" content="6.5命令的文件与查找6.5.1脚本文件的查找whichwhich [-a] command选项或参数：-a ：将所有由 PATH 目录中可以找到的命令均列出，而不止第一个被找到的命令名称 which ifconfig 文件查找whereis在特定的目录中查找文件whereis [-bmsu] 文件或目录名    选项 含义    -b 只找 binary 格式的文件   -m 只找在说明档 ma">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-03-29T14:16:54.000Z">
-<meta property="article:modified_time" content="2022-03-31T14:38:32.412Z">
+<meta property="article:modified_time" content="2022-08-16T12:07:08.395Z">
 <meta property="article:author" content="Kuku De">
 <meta property="article:tag" content="鸟哥的Linux私房菜">
 <meta name="twitter:card" content="summary">
@@ -167,6 +167,8 @@
     	
         <li><a href="https://github.com/gtoo8888" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
         
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
     </ul>
 
     </nav>
@@ -215,7 +217,7 @@
   <div class="widget">
     <h3 class="widget-title">归档</h3>
     <div class="widget-body">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">八月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">七月 2022</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">六月 2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">五月 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">四月 2022</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">三月 2022</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">二月 2022</a><span class="archive-list-count">7</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">八月 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">七月 2022</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">六月 2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">五月 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">四月 2022</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">三月 2022</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">二月 2022</a><span class="archive-list-count">7</span></li></ul>
     </div>
   </div>
 
@@ -227,6 +229,21 @@
     <div class="widget-body">
       <ul class="recent-post-list list-unstyled no-thumbnail">
         
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2022/08/16/%E6%96%87%E7%AB%A0%E6%9A%82%E5%AD%98/" class="title">文章暂存</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-08-16T05:35:06.000Z" itemprop="datePublished">2022-08-16</time>
+              </p>
+            </div>
+          </li>
+          
           <li>
             
             <div class="item-inner">
@@ -283,21 +300,6 @@
               </p>
               <p class="item-date">
                 <time datetime="2022-07-24T16:44:29.000Z" itemprop="datePublished">2022-07-25</time>
-              </p>
-            </div>
-          </li>
-          
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category">
-                
-              </p>
-              <p class="item-title">
-                <a href="/2022/07/25/%E9%A1%B9%E7%9B%AE/webserver/" class="title">webserver</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2022-07-24T16:41:31.000Z" itemprop="datePublished">2022-07-25</time>
               </p>
             </div>
           </li>
@@ -407,7 +409,9 @@
 </li>
 <li><p>与使用者或群组名称有关的参数：<br>-uid n ：n 为数字，这个数字是使用者的帐号 ID，亦即 UID ，这个 UID 是记录在<br> &#x2F;etc&#x2F;passwd 里面与帐号名称对应的数字。这方面我们会在第四篇介绍。<br>-gid n ：n 为数字，这个数字是群组名称的 ID，亦即 GID，这个 GID 记录在<br> &#x2F;etc&#x2F;group，相关的介绍我们会第四篇说明～<br>-user name ：name 为使用者帐号名称喔！例如 dmtsai<br>-group name：name 为群组名称喔，例如 users ；<br>-nouser    ：寻找文件的拥有者不存在 &#x2F;etc&#x2F;passwd 的人！<br>-nogroup   ：寻找文件的拥有群组不存在於 &#x2F;etc&#x2F;group 的文件！<br>     当你自行安装软件时，很可能该软件的属性当中并没有文件拥有者，<br>     这是可能的！在这个时候，就可以使用 -nouser 与 -nogroup 搜寻。</p>
 </li>
-<li><p>与文件权限及名称有关的参数：<br>-name filename：搜寻文件名称为 filename 的文件；<br>-size [+-]SIZE：搜寻比 SIZE 还要大(+)或小(-)的文件。这个 SIZE 的规格有：<br>            c: 代表 byte， k: 代表 1024bytes。所以，要找比 50KB<br>            还要大的文件，就是『 -size +50k 』<br>-type TYPE    ：搜寻文件的类型为 TYPE 的，类型主要有：一般正规文件 (f),<br>            装置文件 (b, c), 目录 (d), 连结档 (l), socket (s),<br>            及 FIFO (p) 等属性。<br>-perm mode  ：搜寻文件权限『刚好等於』 mode 的文件，这个 mode 为类似 chmod<br>          的属性值，举例来说， -rwsr-xr-x 的属性为 4755 ！<br>-perm -mode ：搜寻文件权限『必须要全部囊括 mode 的权限』的文件，举例来说，<br>          我们要搜寻 -rwxr–r– ，亦即 0744 的文件，使用 -perm -0744，<br>          当一个文件的权限为 -rwsr-xr-x ，亦即 4755 时，也会被列出来，<br>          因为 -rwsr-xr-x 的属性已经囊括了 -rwxr–r– 的属性了。<br>-perm +mode ：搜寻文件权限『包含任一 mode 的权限』的文件，举例来说，我们搜寻<br>          -rwxr-xr-x ，亦即 -perm +755 时，但一个文件属性为 -rw——-<br>          也会被列出来，因为他有 -rw…. 的属性存在！</p>
+<li><p>与文件权限及名称有关的参数：<br>-name filename：搜寻文件名称为 filename 的文件；</p>
+<p>find . -name “*.log”</p>
+<p>-size [+-]SIZE：搜寻比 SIZE 还要大(+)或小(-)的文件。这个 SIZE 的规格有：<br>            c: 代表 byte， k: 代表 1024bytes。所以，要找比 50KB<br>            还要大的文件，就是『 -size +50k 』<br>-type TYPE    ：搜寻文件的类型为 TYPE 的，类型主要有：一般正规文件 (f),<br>            装置文件 (b, c), 目录 (d), 连结档 (l), socket (s),<br>            及 FIFO (p) 等属性。<br>-perm mode  ：搜寻文件权限『刚好等於』 mode 的文件，这个 mode 为类似 chmod<br>          的属性值，举例来说， -rwsr-xr-x 的属性为 4755 ！<br>-perm -mode ：搜寻文件权限『必须要全部囊括 mode 的权限』的文件，举例来说，<br>          我们要搜寻 -rwxr–r– ，亦即 0744 的文件，使用 -perm -0744，<br>          当一个文件的权限为 -rwsr-xr-x ，亦即 4755 时，也会被列出来，<br>          因为 -rwsr-xr-x 的属性已经囊括了 -rwxr–r– 的属性了。<br>-perm +mode ：搜寻文件权限『包含任一 mode 的权限』的文件，举例来说，我们搜寻<br>          -rwxr-xr-x ，亦即 -perm +755 时，但一个文件属性为 -rw——-<br>          也会被列出来，因为他有 -rw…. 的属性存在！</p>
 </li>
 <li><p>额外可进行的动作：<br>-exec command ：command 为其他命令，-exec 后面可再接额外的命令来处理搜寻到<br>            的结果。<br>-print        ：将结果列印到萤幕上，这个动作是默认动作！</p>
 </li>
@@ -499,6 +503,8 @@
     <ul class="social-links">
     	
         <li><a href="https://github.com/gtoo8888" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
         
     </ul>
 
