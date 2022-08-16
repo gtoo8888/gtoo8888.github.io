@@ -465,7 +465,7 @@
 <td>以那个区间 (field) 来进行排序的意思</td>
 </tr>
 </tbody></table>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">sort</span><br><span class="line">1</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">2</span><br><span class="line">20</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">sort -n # 如果不加n，就是用字典序排序了</span><br><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">20</span><br><span class="line">sort -rn    </span><br><span class="line">sort -t &#x27;:&#x27;  # 用冒号分割</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sort</span></span><br><span class="line">1</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">2</span><br><span class="line">20</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line"><span class="built_in">sort</span> -n <span class="comment"># 如果不加n，就是用字典序排序了</span></span><br><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">20</span><br><span class="line"><span class="built_in">sort</span> -rn    </span><br><span class="line"><span class="built_in">sort</span> -t <span class="string">&#x27;:&#x27;</span>  <span class="comment"># 用冒号分割</span></span><br></pre></td></tr></table></figure>
 
 <h3 id="uniq"><a href="#uniq" class="headerlink" title="uniq"></a>uniq</h3><p>将重复的数据列出一行显示<br>uniq [-ic]</p>
 <table>
@@ -484,7 +484,7 @@
 <td>进行计数</td>
 </tr>
 </tbody></table>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uniq -c | sort -rn | head -n 5  # 找到次数最多的几个</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">uniq</span> -c | <span class="built_in">sort</span> -rn | <span class="built_in">head</span> -n 5  <span class="comment"># 找到次数最多的几个</span></span><br></pre></td></tr></table></figure>
 
 <h3 id="wc"><a href="#wc" class="headerlink" title="wc"></a>wc</h3><p>wc [-lwm]</p>
 <table>
@@ -507,7 +507,7 @@
 <td>多少字符</td>
 </tr>
 </tbody></table>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/passwd | wc -l   # 目前你的账号文件中有多少个账号时</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> /etc/passwd | <span class="built_in">wc</span> -l   <span class="comment"># 目前你的账号文件中有多少个账号时</span></span><br></pre></td></tr></table></figure>
 
 
 

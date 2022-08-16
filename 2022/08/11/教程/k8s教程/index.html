@@ -18,15 +18,15 @@
   
   
   <title>k8s教程 | Hexo</title>
-  <meta name="description" content="kubectl get rs my-name -n dev -o -wide  -n 命名空间-o 查看pod节点详情 查看脚本文件是dos还是unix查看kubernetes的资源情况：kubectl get ns 查看kubernetes集群状态： kubectl get cs kubectl -n lookonce describe pods&#x2F;web-588rc查看pod的信息 E">
+  <meta name="description" content="kubectl get rs my-name -n dev -o -wide  -n 命名空间-o 查看pod节点详情 查看kubernetes的资源情况：kubectl get ns 查看kubernetes集群状态： kubectl get cs kubectl -n lookonce describe pods&#x2F;web-588rc查看pod的信息 Etcd 数据持久化和复制snap">
 <meta property="og:type" content="article">
 <meta property="og:title" content="k8s教程">
 <meta property="og:url" content="http://example.com/2022/08/11/%E6%95%99%E7%A8%8B/k8s%E6%95%99%E7%A8%8B/index.html">
 <meta property="og:site_name" content="gtoo8888">
-<meta property="og:description" content="kubectl get rs my-name -n dev -o -wide  -n 命名空间-o 查看pod节点详情 查看脚本文件是dos还是unix查看kubernetes的资源情况：kubectl get ns 查看kubernetes集群状态： kubectl get cs kubectl -n lookonce describe pods&#x2F;web-588rc查看pod的信息 E">
+<meta property="og:description" content="kubectl get rs my-name -n dev -o -wide  -n 命名空间-o 查看pod节点详情 查看kubernetes的资源情况：kubectl get ns 查看kubernetes集群状态： kubectl get cs kubectl -n lookonce describe pods&#x2F;web-588rc查看pod的信息 Etcd 数据持久化和复制snap">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-08-11T02:15:04.000Z">
-<meta property="article:modified_time" content="2022-08-16T12:07:23.267Z">
+<meta property="article:modified_time" content="2022-08-16T12:31:37.320Z">
 <meta property="article:author" content="Kuku De">
 <meta property="article:tag" content="教程">
 <meta name="twitter:card" content="summary">
@@ -361,7 +361,7 @@
       
         <p>kubectl get rs my-name -n dev -o -wide </p>
 <p>-n 命名空间<br>-o 查看pod节点详情</p>
-<h1 id="查看脚本文件是dos还是unix"><a href="#查看脚本文件是dos还是unix" class="headerlink" title="查看脚本文件是dos还是unix"></a>查看脚本文件是dos还是unix</h1><h1 id="查看kubernetes的资源情况："><a href="#查看kubernetes的资源情况：" class="headerlink" title="查看kubernetes的资源情况："></a>查看kubernetes的资源情况：</h1><p>kubectl get ns</p>
+<h1 id="查看kubernetes的资源情况："><a href="#查看kubernetes的资源情况：" class="headerlink" title="查看kubernetes的资源情况："></a>查看kubernetes的资源情况：</h1><p>kubectl get ns</p>
 <h1 id="查看kubernetes集群状态："><a href="#查看kubernetes集群状态：" class="headerlink" title="查看kubernetes集群状态："></a>查看kubernetes集群状态：</h1><p> kubectl get cs</p>
 <p>kubectl -n lookonce describe pods&#x2F;web-588rc<br>查看pod的信息</p>
 <h1 id="Etcd-数据持久化和复制"><a href="#Etcd-数据持久化和复制" class="headerlink" title="Etcd 数据持久化和复制"></a>Etcd 数据持久化和复制</h1><p>snap：用于存放快照数据。Etcd 为防止 WAL 文件过多会创建快照，snap 用于存储 Etcd 的快照数据状态。<br>wal：用于存放预写式日志，其最大的作用是记录整个数据变化的全部历程。在 Etcd 中，所有数据的修改在提交前，都要先写入 WAL 中。使用 WAL 进行数据的存储使得 Etcd 拥有故障快速回复和数据回滚这两个重要功能。</p>
