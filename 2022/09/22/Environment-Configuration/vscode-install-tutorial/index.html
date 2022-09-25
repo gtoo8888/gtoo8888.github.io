@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>VScode 环境安装 | Hexo</title>
+  <meta name="description" content="一、官网下载vscode二、安装安装的时候记得把将”通过 code打开”操作添加到 Windows资源管理器文件上下文菜单打钩 三、常用的扩展   扩展名 功能    通用的    Chinese (Simplified) (简体中文) 中文翻译   Code Runner 展开全部代码   Markdown Preview Enhanced Markdown查看   C++相关    C&amp;#x2">
+<meta property="og:type" content="article">
+<meta property="og:title" content="VScode 环境安装">
+<meta property="og:url" content="http://example.com/2022/09/22/Environment-Configuration/vscode-install-tutorial/index.html">
+<meta property="og:site_name" content="gtoo8888">
+<meta property="og:description" content="一、官网下载vscode二、安装安装的时候记得把将”通过 code打开”操作添加到 Windows资源管理器文件上下文菜单打钩 三、常用的扩展   扩展名 功能    通用的    Chinese (Simplified) (简体中文) 中文翻译   Code Runner 展开全部代码   Markdown Preview Enhanced Markdown查看   C++相关    C&amp;#x2">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-09-22T08:30:31.000Z">
+<meta property="article:modified_time" content="2022-09-25T13:31:31.362Z">
+<meta property="article:author" content="Kuku De">
+<meta property="article:tag" content="环境配置">
+<meta name="twitter:card" content="summary">
+  <!-- Canonical links -->
+  <link rel="canonical" href="http://example.com/2022/09/22/Environment-Configuration/vscode-install-tutorial/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="gtoo8888" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+    <link href="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.3.5/dist/jquery.fancybox.min.css" rel="stylesheet">
+  
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/gtoo8888" target="_blank">
+          <img class="img-circle img-rotate" src="/images/cat.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">gtoo8888</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">C++ Developer</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Luoyang, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav menu-highlight">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-source">
+          <a href="/source">
+            
+            <i class="icon icon-book-fill"></i>
+            
+            <span class="menu-title">资源</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">友链</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/gtoo8888" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>记录自己的学习过程，Linux网络编程冲啊</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/" rel="tag">Linux网络编程</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%B6%E4%BB%96/" rel="tag">其他</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%8D%E6%80%9D/" rel="tag">反思</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%99%E7%A8%8B/" rel="tag">教程</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" rel="tag">环境配置</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%AD%E6%B3%95/" rel="tag">语法</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%BE%E7%A8%8B/" rel="tag">课程</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A1%B9%E7%9B%AE/" rel="tag">项目</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%B8%9F%E5%93%A5%E7%9A%84Linux%E7%A7%81%E6%88%BF%E8%8F%9C/" rel="tag">鸟哥的Linux私房菜</a><span class="tag-list-count">4</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/Linux%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/" style="font-size: 13.8px;">Linux网络编程</a> <a href="/tags/%E5%85%B6%E4%BB%96/" style="font-size: 13.4px;">其他</a> <a href="/tags/%E5%8F%8D%E6%80%9D/" style="font-size: 13.2px;">反思</a> <a href="/tags/%E6%95%99%E7%A8%8B/" style="font-size: 14px;">教程</a> <a href="/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" style="font-size: 13.2px;">环境配置</a> <a href="/tags/%E8%AF%AD%E6%B3%95/" style="font-size: 13.2px;">语法</a> <a href="/tags/%E8%AF%BE%E7%A8%8B/" style="font-size: 13.6px;">课程</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 13.6px;">面试</a> <a href="/tags/%E9%A1%B9%E7%9B%AE/" style="font-size: 13px;">项目</a> <a href="/tags/%E9%B8%9F%E5%93%A5%E7%9A%84Linux%E7%A7%81%E6%88%BF%E8%8F%9C/" style="font-size: 13.4px;">鸟哥的Linux私房菜</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">九月 2022</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">八月 2022</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">七月 2022</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">六月 2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">五月 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">四月 2022</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">三月 2022</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">二月 2022</a><span class="archive-list-count">7</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2022/09/25/Course/k8s-commad/" class="title">k8s命令</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-09-25T12:26:56.000Z" itemprop="datePublished">2022-09-25</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2022/09/22/Environment-Configuration/vscode-install-tutorial/" class="title">VScode 环境安装</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-09-22T08:30:31.000Z" itemprop="datePublished">2022-09-22</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2022/09/19/Interview-Q&A/leetcode-programe/" class="title">leetcode题目分类</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-09-19T02:20:27.000Z" itemprop="datePublished">2022-09-19</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2022/09/16/Course/Machine_learning/" class="title">机器学习</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-09-16T08:23:50.000Z" itemprop="datePublished">2022-09-16</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2022/09/15/Reflection/%E5%AE%9E%E4%B9%A0%E7%9A%84%E6%84%9F%E5%8F%97/" class="title">实习的感受</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-09-15T13:59:20.000Z" itemprop="datePublished">2022-09-15</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-Environment-Configuration/vscode-install-tutorial" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      VScode 环境安装
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2022/09/22/Environment-Configuration/vscode-install-tutorial/" class="article-date">
+	  <time datetime="2022-09-22T08:30:31.000Z" itemprop="datePublished">2022-09-22</time>
+	</a>
+</span>
+        
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" rel="tag">环境配置</a>
+  </span>
+
+
+        
+	<span class="article-read hidden-xs">
+	    <i class="icon icon-eye-fill" aria-hidden="true"></i>
+	    <span id="busuanzi_container_page_pv">
+			<span id="busuanzi_value_page_pv">0</span>
+		</span>
+	</span>
+
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2022/09/22/Environment-Configuration/vscode-install-tutorial/#comments" class="article-comment-link">评论</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h1 id="一、官网下载vscode"><a href="#一、官网下载vscode" class="headerlink" title="一、官网下载vscode"></a>一、官网下载vscode</h1><h1 id="二、安装"><a href="#二、安装" class="headerlink" title="二、安装"></a>二、安装</h1><p>安装的时候记得把<br>将”通过 code打开”操作添加到 Windows资源管理器文件上下文菜单<br>打钩</p>
+<h1 id="三、常用的扩展"><a href="#三、常用的扩展" class="headerlink" title="三、常用的扩展"></a>三、常用的扩展</h1><table>
+<thead>
+<tr>
+<th>扩展名</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>通用的</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>Chinese (Simplified) (简体中文)</td>
+<td>中文翻译</td>
+</tr>
+<tr>
+<td>Code Runner</td>
+<td>展开全部代码</td>
+</tr>
+<tr>
+<td>Markdown Preview Enhanced</td>
+<td>Markdown查看</td>
+</tr>
+<tr>
+<td>C++相关</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>C&#x2F;C++</strong></td>
+<td>写C++代码</td>
+</tr>
+<tr>
+<td>C&#x2F;C++ Extension</td>
+<td></td>
+</tr>
+<tr>
+<td>CMake</td>
+<td></td>
+</tr>
+<tr>
+<td>CMake Tools</td>
+<td></td>
+</tr>
+<tr>
+<td>C&#x2F;C++ Extension Pack</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>HTML</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>Auto Rename Tag</td>
+<td>自动修改前后标签名</td>
+</tr>
+<tr>
+<td>open in browser</td>
+<td>在浏览器中打开</td>
+</tr>
+<tr>
+<td>CSS Peek</td>
+<td>追踪CSS样式</td>
+</tr>
+<tr>
+<td>HTML CSS Support</td>
+<td>HTML样式支持</td>
+</tr>
+<tr>
+<td><strong>Git</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>Git History</td>
+<td>查看git历史提交记录</td>
+</tr>
+<tr>
+<td>GitLens</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>GoLang</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>go</td>
+<td>语法支持</td>
+</tr>
+<tr>
+<td>vscode-proto3</td>
+<td>查看protobuf格式</td>
+</tr>
+<tr>
+<td><strong>Jinja2</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>Jinja</td>
+<td>jinja语法支持</td>
+</tr>
+<tr>
+<td><strong>Shell</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>shell-format</td>
+<td>格式化工具</td>
+</tr>
+<tr>
+<td>shellman</td>
+<td>代码提示工具</td>
+</tr>
+<tr>
+<td><strong>远程控制</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>Remote - SSH</td>
+<td>远程ssh连接</td>
+</tr>
+<tr>
+<td>Remote - Containers</td>
+<td></td>
+</tr>
+<tr>
+<td>Remote - SSH: Editing Configuration Files</td>
+<td></td>
+</tr>
+</tbody></table>
+<h1 id="五、配置c-x2F-c-环境"><a href="#五、配置c-x2F-c-环境" class="headerlink" title="五、配置c&#x2F;c++环境"></a>五、配置c&#x2F;c++环境</h1><ol>
+<li>安装mingw</li>
+<li>ctl+shift+P<br>C&#x2F;C++: Edit Configurations (UI)<br>编译器路径<br>D:\MinGW\bin\gcc.exe</li>
+</ol>
+<h2 id="c-调试的原理"><a href="#c-调试的原理" class="headerlink" title="c++调试的原理"></a>c++调试的原理</h2><ol>
+<li>先使用tasks.json来创建一个任务</li>
+</ol>
+<ul>
+<li>tasks.json文件可以对程序进行编译，对于C++来说，可以使用gcc,g++,make,cmake,shell脚本</li>
+<li>可以先测试task能否正常运行，这一步的测试就是测试程序是否能编译通过</li>
+</ul>
+<ol start="2">
+<li>通过launch.json调用想要使用的任务<br>这是启动vscode的调试功能<br>需要做一些配置<br>再启动gdb调试器来进行调试</li>
+<li>添加c_cpp_properties.json增加C++的语言支持</li>
+</ol>
+<h2 id="使用步骤"><a href="#使用步骤" class="headerlink" title="使用步骤"></a>使用步骤</h2><p>创建一个.vscode文件夹</p>
+<h3 id="1-tasks-json"><a href="#1-tasks-json" class="headerlink" title="1.tasks.json"></a>1.tasks.json</h3><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">    <span class="comment">// See https://go.microsoft.com/fwlink/?LinkId=733558 </span></span><br><span class="line">    <span class="comment">// for the documentation about the tasks.json format</span></span><br><span class="line">    <span class="attr">&quot;version&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2.0.0&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;tasks&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">        <span class="punctuation">&#123;</span></span><br><span class="line">            <span class="attr">&quot;label&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cplusplustest&quot;</span><span class="punctuation">,</span>   <span class="comment">//任务的名字，就是刚才在命令面板中选择的时候所看到的，可以自己设置</span></span><br><span class="line">            <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;shell&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="comment">// &quot;command&quot;: &quot;g++ ./123.cpp -o 123 -g -std=c++11&quot;, // 可以使用一行命令的方法，不需要下面添加参数</span></span><br><span class="line">            <span class="attr">&quot;command&quot;</span><span class="punctuation">:</span> <span class="string">&quot;g++&quot;</span><span class="punctuation">,</span>   <span class="comment">// 或者就只写g++,下面添加参数</span></span><br><span class="line">            <span class="comment">// &quot;args&quot;: [//编译时候的参数</span></span><br><span class="line">            <span class="comment">//     &quot;./123.cpp&quot;,    // 想要调试的文件，可以写相对路径也可以写绝对路径</span></span><br><span class="line">            <span class="comment">//     &quot;-o&quot;,           // 指定生成可执行文件的名称</span></span><br><span class="line">            <span class="comment">//     &quot;debug.exe&quot;,    // 如果不加后缀名，自动会添加.exe</span></span><br><span class="line">            <span class="comment">//     &quot;-g&quot;,           // 添加gdb调试选项</span></span><br><span class="line">            <span class="comment">//     &quot;-std=c++11&quot;    // 使用C++11标准</span></span><br><span class="line">            <span class="comment">// ],</span></span><br><span class="line">            <span class="attr">&quot;args&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">                <span class="string">&quot;-g&quot;</span><span class="punctuation">,</span></span><br><span class="line">                <span class="string">&quot;$&#123;file&#125;&quot;</span><span class="punctuation">,</span>   <span class="comment">// 自动查找当前执行的文件</span></span><br><span class="line">                <span class="string">&quot;-o&quot;</span><span class="punctuation">,</span></span><br><span class="line">                <span class="string">&quot;$&#123;fileDirname&#125;\\$&#123;fileBasenameNoExtension&#125;.exe&quot;</span><span class="punctuation">,</span>   <span class="comment">// 设置生成的文件名，可以为中文</span></span><br><span class="line">                <span class="string">&quot;-std=c++11&quot;</span><span class="punctuation">,</span></span><br><span class="line">                <span class="comment">// &quot;-fexec-charset=GBK&quot; //解决中文乱码问题,还没有遇到过</span></span><br><span class="line">            <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;problemMatcher&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">                <span class="comment">// &quot;owner&quot;: &quot;cpp&quot;,</span></span><br><span class="line">                <span class="comment">// &quot;fileLocation&quot;: [</span></span><br><span class="line">                <span class="comment">//     &quot;relative&quot;,</span></span><br><span class="line">                <span class="comment">//     &quot;$&#123;workspaceRoot&#125;&quot;</span></span><br><span class="line">                <span class="comment">// ],</span></span><br><span class="line">                <span class="comment">// &quot;pattern&quot;: &#123;</span></span><br><span class="line">                <span class="comment">//     &quot;regexp&quot;: &quot;^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$&quot;,</span></span><br><span class="line">                <span class="comment">//     &quot;file&quot;: 1,</span></span><br><span class="line">                <span class="comment">//     &quot;line&quot;: 2,</span></span><br><span class="line">                <span class="comment">//     &quot;column&quot;: 3,</span></span><br><span class="line">                <span class="comment">//     &quot;severity&quot;: 4,</span></span><br><span class="line">                <span class="comment">//     &quot;message&quot;: 5</span></span><br><span class="line">                <span class="comment">// &#125;</span></span><br><span class="line">            <span class="punctuation">&#125;</span><span class="punctuation">,</span>   <span class="comment">// 问题分析器,还不太会用</span></span><br><span class="line">            <span class="attr">&quot;group&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">                <span class="attr">&quot;kind&quot;</span><span class="punctuation">:</span> <span class="string">&quot;build&quot;</span><span class="punctuation">,</span></span><br><span class="line">                <span class="attr">&quot;isDefault&quot;</span><span class="punctuation">:</span> <span class="keyword">true</span>   <span class="comment">//表示快捷键Ctrl+Shift+B可以运行该任务</span></span><br><span class="line">            <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="punctuation">&#125;</span></span><br><span class="line">    <span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-launch-json"><a href="#2-launch-json" class="headerlink" title="2.launch.json"></a>2.launch.json</h3><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">    <span class="comment">// 使用 IntelliSense 了解相关属性。</span></span><br><span class="line">    <span class="comment">// 悬停以查看现有属性的描述。</span></span><br><span class="line">    <span class="comment">// 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387</span></span><br><span class="line">    <span class="attr">&quot;version&quot;</span><span class="punctuation">:</span> <span class="string">&quot;0.2.0&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;configurations&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">        <span class="punctuation">&#123;</span></span><br><span class="line">            <span class="attr">&quot;preLaunchTask&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cplusplustest&quot;</span><span class="punctuation">,</span> <span class="comment">//调试会话开始前执行的任务，一般为编译程序。与tasks.json的label相对应</span></span><br><span class="line">            <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;(gdb) Debug&quot;</span><span class="punctuation">,</span>       <span class="comment">//配置文件的名字，可以随便起</span></span><br><span class="line">            <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cppdbg&quot;</span><span class="punctuation">,</span>           <span class="comment">//调试的类型，Vscode现在支持很多，我这里主要是C，所以只能是cppdbg</span></span><br><span class="line">            <span class="attr">&quot;request&quot;</span><span class="punctuation">:</span> <span class="string">&quot;launch&quot;</span><span class="punctuation">,</span>        <span class="comment">//配置文件的请求类型，有launch和attach两种，具体看官方文档</span></span><br><span class="line">            <span class="attr">&quot;targetArchitecture&quot;</span><span class="punctuation">:</span> <span class="string">&quot;x64&quot;</span><span class="punctuation">,</span> <span class="comment">//硬件内核架构，为64bit，如图设置</span></span><br><span class="line">            <span class="comment">// &quot;program&quot;: &quot;$&#123;workspaceFolder&#125;/123.exe&quot;,   //可执行文件的路径和文件名称</span></span><br><span class="line">            <span class="attr">&quot;program&quot;</span><span class="punctuation">:</span> <span class="string">&quot;$&#123;fileDirname&#125;/$&#123;fileBasenameNoExtension&#125;.exe&quot;</span><span class="punctuation">,</span>   <span class="comment">//可执行文件的路径和文件名称</span></span><br><span class="line">            <span class="comment">// 整个路径名中，必须全部是是英文名称才可以进行调试</span></span><br><span class="line">            <span class="attr">&quot;args&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="punctuation">]</span><span class="punctuation">,</span>                 <span class="comment">//主函数调用时传入的参数</span></span><br><span class="line">            <span class="attr">&quot;stopAtEntry&quot;</span><span class="punctuation">:</span> <span class="keyword">false</span><span class="punctuation">,</span>       <span class="comment">//设为true时程序将暂停在程序入口处</span></span><br><span class="line">            <span class="attr">&quot;cwd&quot;</span><span class="punctuation">:</span> <span class="string">&quot;$&#123;workspaceFolder&#125;/1-Algorithm_test&quot;</span><span class="punctuation">,</span>    <span class="comment">//调试时的工作目录</span></span><br><span class="line">            <span class="attr">&quot;environment&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="punctuation">]</span><span class="punctuation">,</span>          <span class="comment">//不知道干嘛的</span></span><br><span class="line">            <span class="attr">&quot;internalConsoleOptions&quot;</span><span class="punctuation">:</span> <span class="string">&quot;openOnSessionStart&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;externalConsole&quot;</span><span class="punctuation">:</span> <span class="keyword">false</span><span class="punctuation">,</span>   <span class="comment">//调试时是否显示控制台窗口</span></span><br><span class="line">            <span class="attr">&quot;MIMode&quot;</span><span class="punctuation">:</span> <span class="string">&quot;gdb&quot;</span><span class="punctuation">,</span>            <span class="comment">//指定连接的调试器，可以省略不写</span></span><br><span class="line">            <span class="attr">&quot;miDebuggerPath&quot;</span><span class="punctuation">:</span> <span class="string">&quot;D:/Qt/Qt5.9.9/Tools/mingw530_32/bin/gdb.exe&quot;</span><span class="punctuation">,</span>    <span class="comment">// 在windows调试的时候，需要加上gdb的路径</span></span><br><span class="line">            <span class="attr">&quot;setupCommands&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">                <span class="punctuation">&#123;</span></span><br><span class="line">                    <span class="attr">&quot;description&quot;</span><span class="punctuation">:</span> <span class="string">&quot;为 gdb 启用整齐打印&quot;</span><span class="punctuation">,</span></span><br><span class="line">                    <span class="attr">&quot;text&quot;</span><span class="punctuation">:</span> <span class="string">&quot;-enable-pretty-printing&quot;</span><span class="punctuation">,</span></span><br><span class="line">                    <span class="attr">&quot;ignoreFailures&quot;</span><span class="punctuation">:</span> <span class="keyword">true</span></span><br><span class="line">                <span class="punctuation">&#125;</span></span><br><span class="line">            <span class="punctuation">]</span></span><br><span class="line">        <span class="punctuation">&#125;</span></span><br><span class="line">    <span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="3-c-cpp-properties-json"><a href="#3-c-cpp-properties-json" class="headerlink" title="3.c_cpp_properties.json"></a>3.c_cpp_properties.json</h3><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// https://code.visualstudio.com/docs/cpp/c-cpp-properties-schema-reference</span></span><br><span class="line"><span class="comment">//.vscode文件夹局部的配置c_cpp_properties.json</span></span><br><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;configurations&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">        <span class="punctuation">&#123;</span></span><br><span class="line">            <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Linux&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;includePath&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span>            <span class="comment">// 这个是使用头文件时候vscode查找的路径，如果路径没有包含进来，头文件会有红色波浪线</span></span><br><span class="line">                <span class="string">&quot;$&#123;workspaceFolder&#125;/**&quot;</span><span class="punctuation">,</span> <span class="comment">// 当前工作目录下包含的所有文件</span></span><br><span class="line">                <span class="string">&quot;/vcpkg/x64-linux/installed/x64-linux/include/**&quot;</span><span class="punctuation">,</span>  <span class="comment">// 路径错误或者不存在看起来可以运行</span></span><br><span class="line">                <span class="string">&quot;D:\\MinGW\\lib\\gcc\\mingw32\\9.2.0\\**&quot;</span></span><br><span class="line">            <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;defines&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="comment">// 这里定义的头文件在程序中使用的时候，#ifndef的内容不会灰色</span></span><br><span class="line">                <span class="string">&quot;F_OS_LINUX&quot;</span><span class="punctuation">,</span>         </span><br><span class="line">                <span class="string">&quot;_DEBUG&quot;</span><span class="punctuation">,</span></span><br><span class="line">                <span class="string">&quot;UNICODE&quot;</span><span class="punctuation">,</span></span><br><span class="line">                <span class="string">&quot;_UNICODE&quot;</span><span class="punctuation">,</span></span><br><span class="line">                <span class="string">&quot;LOCAL&quot;</span></span><br><span class="line">            <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;cStandard&quot;</span><span class="punctuation">:</span> <span class="string">&quot;c17&quot;</span><span class="punctuation">,</span>       <span class="comment">// 指定c语言使用的语法版本</span></span><br><span class="line">            <span class="attr">&quot;cppStandard&quot;</span><span class="punctuation">:</span> <span class="string">&quot;c++17&quot;</span><span class="punctuation">,</span>   <span class="comment">// 指定c++使用的语法版本</span></span><br><span class="line">            <span class="attr">&quot;intelliSenseMode&quot;</span><span class="punctuation">:</span> <span class="string">&quot;linux-gcc-x64&quot;</span><span class="punctuation">,</span> <span class="comment">// 使用智能感知模式(IntelliSense)，映射到特定的体系</span></span><br><span class="line">            <span class="comment">// &quot;intelliSenseMode&quot;: &quot;windows-gcc-x86&quot;,   // windows中使用的配置</span></span><br><span class="line">            <span class="attr">&quot;browse&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span> <span class="comment">// 浏览选项，主要用在转跳#include文件的时候，可以做一些模糊搜索</span></span><br><span class="line">                <span class="attr">&quot;path&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span>   <span class="comment">// 需要查找的路径</span></span><br><span class="line">                    <span class="string">&quot;$&#123;workspaceFolder&#125;&quot;</span><span class="punctuation">,</span></span><br><span class="line">                    <span class="string">&quot;D:\\MinGW\\lib\\gcc\\mingw32\\9.2.0\\**&quot;</span><span class="punctuation">,</span></span><br><span class="line">                <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">                <span class="attr">&quot;limitSymbolsToIncludedHeaders&quot;</span><span class="punctuation">:</span> <span class="keyword">true</span><span class="punctuation">,</span>  <span class="comment">// 如果为true,只解析$&#123;workspaceFolder&#125;中的文件，false还会解析browse中的文件，存疑</span></span><br><span class="line">                <span class="attr">&quot;databaseFilename&quot;</span><span class="punctuation">:</span> <span class="string">&quot;&quot;</span></span><br><span class="line">            <span class="punctuation">&#125;</span></span><br><span class="line">        <span class="punctuation">&#125;</span></span><br><span class="line">    <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;version&quot;</span><span class="punctuation">:</span> <span class="number">4</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="关于调试的一些疑问"><a href="#关于调试的一些疑问" class="headerlink" title="关于调试的一些疑问"></a>关于调试的一些疑问</h3><ol>
+<li>使用了C++11的语法，但是C++11的语句，比如auto还是会报错<br>c_cpp_properties.json中添加<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">&quot;cStandard&quot;</span><span class="punctuation">:</span> <span class="string">&quot;c17&quot;</span><span class="punctuation">,</span></span><br><span class="line"><span class="attr">&quot;cppStandard&quot;</span><span class="punctuation">:</span> <span class="string">&quot;c++17&quot;</span><span class="punctuation">,</span></span><br></pre></td></tr></table></figure></li>
+<li>使用了外部的库，比如opencv,QThread等库的时候，编译可以通过但是无法转跳<br>没有在include中增加包含库的路径</li>
+</ol>
+<h1 id="四、卸载"><a href="#四、卸载" class="headerlink" title="四、卸载"></a>四、卸载</h1><p>C:\Users$用户名.vscode<br>C:\Users$用户名\AppData\Roaming\Code【注】这里的“$用户名”根据自己的用户名而定。</p>
+<h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/LIJIH/p/12533926.html#:~:text=%E4%B8%80%E3%80%81%E5%AE%89%E8%A3%85mingw%E8%BD%AF%E4%BB%B6%201.%20%E8%BF%9B%E5%85%A5%E5%AE%98%E7%BD%91%20www.mingw.org%202.%E7%82%B9%E5%87%BB%E4%B8%8B%E8%BD%BDdownloads%203.%E7%82%B9%E5%87%BB%E4%B8%8B%E8%BD%BD%E5%9B%BE%E6%A0%87%204.%E7%82%B9%E5%87%BBinstall%20z,Changes%204.%E7%82%B9%E5%87%BBapply%E8%BF%9B%E8%A1%8C%E4%B8%8B%E8%BD%BD%205.%E7%AD%89%E5%BE%85%E4%B8%8B%E8%BD%BD%E5%AE%8C%E6%88%90%E5%90%8E%EF%BC%8C%E5%9C%A8%E7%82%B9%E5%87%BBclose%E5%85%B3%E9%97%AD%E8%BD%AF%E4%BB%B6%EF%BC%8C%E5%88%B0%E8%BF%99%E9%87%8Cmingw%E5%B0%B1%E5%AE%89%E8%A3%85%E5%AE%8C%E6%88%90%E4%BA%86%E3%80%82%20%E4%B8%8B%E9%9D%A2%E5%B0%B1%E6%98%AF%E9%85%8D%E7%BD%AE%20%E4%B8%89%E3%80%81%E9%85%8D%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%201%E9%80%89%E6%8B%A9%E6%88%91%E7%9A%84%E7%94%B5%E8%84%91%EF%BC%8C%E5%8F%B3%E9%94%AE%E9%80%89%E6%8B%A9%E5%B1%9E%E6%80%A7%202.%E9%80%89%E6%8B%A9%E9%AB%98%E7%BA%A7%E7%B3%BB%E7%BB%9F%E8%AE%BE%E7%BD%AE%203.%E9%80%89%E6%8B%A9%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F">mingw安装教程</a><br><a target="_blank" rel="noopener" href="https://geek-docs.com/vscode/vscode-tutorials/vscode-task-configuration-parameters-and-task-results-analysis.html#:~:text=%E4%BB%BB%E5%8A%A1%E8%BF%90%E8%A1%8C%E7%9A%84%E7%BB%93%E6%9E%9C%E6%98%AF%E7%94%B1%20tasks.json%20%E9%87%8C%E4%BB%BB%E5%8A%A1%E7%9A%84%E4%B8%80%E4%B8%AA%E5%B1%9E%E6%80%A7%20problemMatcher,%E6%9D%A5%E6%8E%A7%E5%88%B6%E7%9A%84%E3%80%82%20%E6%88%91%E4%BB%AC%E5%8F%AF%E4%BB%A5%E9%80%89%E6%8B%A9%20VS%20Code%20%E5%86%85%E7%BD%AE%E7%9A%84%EF%BC%8C%E6%88%96%E8%80%85%E5%85%B6%E4%BB%96%E6%8F%92%E4%BB%B6%E6%8F%90%E4%BE%9B%E7%9A%84%E7%BB%93%E6%9E%9C%E5%88%86%E6%9E%90%E5%99%A8%EF%BC%8C%E7%94%9A%E8%87%B3%E5%8F%AF%E4%BB%A5%E8%87%AA%E5%B7%B1%E4%B9%A6%E5%86%99%E7%BB%93%E6%9E%9C%E5%88%86%E6%9E%90%E5%99%A8%E6%9D%A5%E5%88%86%E6%9E%90%E4%BB%BB%E5%8A%A1%E8%BF%90%E8%A1%8C%E7%BB%93%E6%9E%9C%EF%BC%8C%E7%84%B6%E5%90%8E%E5%B0%86%E5%85%B6%E4%B8%AD%E5%87%BA%E7%8E%B0%E7%9A%84%E9%94%99%E8%AF%AF%E6%88%96%E8%80%85%E8%AD%A6%E5%91%8A%EF%BC%8C%E6%98%BE%E7%A4%BA%E5%9C%A8%E9%97%AE%E9%A2%98%E9%9D%A2%E6%9D%BF%E4%B8%AD%E3%80%82">VSCode 任务配置参数及任务结果分析-problemMatcher</a><br>[VSCode配置C&#x2F;C++环境]<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/87864677">https://zhuanlan.zhihu.com/p/87864677</a><br>[VScode配置c&#x2F;c++环境（无数试错版本）]<a target="_blank" rel="noopener" href="https://blog.csdn.net/Pretty_Anno/article/details/126978142">https://blog.csdn.net/Pretty_Anno/article/details/126978142</a><br>[windwos11没有Hyper-V的解决方法]<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/96aa6eeacb56">https://www.jianshu.com/p/96aa6eeacb56</a></p>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="http://example.com/2022/09/22/Environment-Configuration/vscode-install-tutorial/" title="VScode 环境安装" target="_blank" rel="external">http://example.com/2022/09/22/Environment-Configuration/vscode-install-tutorial/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/gtoo8888" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/cat.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/gtoo8888" target="_blank"><span class="text-dark">gtoo8888</span><small class="ml-1x">C++ Developer</small></a></h3>
+        <div>喜欢瞎搞</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+      <div id="vcomments"></div>
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/2022/09/25/Course/k8s-commad/" title="k8s命令"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/2022/09/19/Interview-Q&A/leetcode-programe/" title="leetcode题目分类"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/gtoo8888" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+
+
+
+   
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+   
+    
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine"></script>
+  <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: false,
+    notify: false,
+    appId: '',
+    appKey: '',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+  </script>
+
+     
+
+
+
+  <script src="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.3.5/dist/jquery.fancybox.min.js"></script>
+  <script>
+  //利用 FancyBox 实现点击图片放大
+  $(document).ready(function() {
+    $('article img').not('[hidden]').not('.panel-body img').each(function() {
+      var $image = $(this);
+      var imageCaption = $image.attr('alt');
+      var $imageWrapLink = $image.parent('a');
+      if ($imageWrapLink.length < 1) {
+        var src = this.getAttribute('src');
+        var idx = src.lastIndexOf('?');
+        if (idx != -1) {
+          src = src.substring(0, idx);
+        }
+        $imageWrapLink = $image.wrap('<a href="' + src + '"></a>').parent('a');
+      }
+      $imageWrapLink.attr('data-fancybox', 'images');
+      if (imageCaption) {
+        $imageWrapLink.attr('data-caption', imageCaption);
+      }
+    });
+    $().fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+    });
+  });
+  </script>
+
+
+
+
+
+</body>
+</html>

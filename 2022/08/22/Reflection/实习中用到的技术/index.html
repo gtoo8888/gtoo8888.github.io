@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>实习中学到的内容 | Hexo</title>
+  <meta name="description" content="实习中学到的新技术2022.3~2022.4 基于 Linux 的 TinyWebServer项目描述:该项目是为学习 Linux 网络编程知识，在 Linux 环境下使用 C++语言开发的轻量级多线程 HTTP服务器，服务器支持一定数量的客户端连接并及时响应，支持客户端访问服务器的图片、视频等资源。主要工作: 1、使用 Socket 实现不同主机之间的通信;2、使用 Epoll 技术实现 I&amp;#">
+<meta property="og:type" content="article">
+<meta property="og:title" content="实习中学到的内容">
+<meta property="og:url" content="http://example.com/2022/08/22/Reflection/%E5%AE%9E%E4%B9%A0%E4%B8%AD%E7%94%A8%E5%88%B0%E7%9A%84%E6%8A%80%E6%9C%AF/index.html">
+<meta property="og:site_name" content="gtoo8888">
+<meta property="og:description" content="实习中学到的新技术2022.3~2022.4 基于 Linux 的 TinyWebServer项目描述:该项目是为学习 Linux 网络编程知识，在 Linux 环境下使用 C++语言开发的轻量级多线程 HTTP服务器，服务器支持一定数量的客户端连接并及时响应，支持客户端访问服务器的图片、视频等资源。主要工作: 1、使用 Socket 实现不同主机之间的通信;2、使用 Epoll 技术实现 I&amp;#">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-08-22T12:02:55.000Z">
+<meta property="article:modified_time" content="2022-09-15T14:05:45.549Z">
+<meta property="article:author" content="Kuku De">
+<meta property="article:tag" content="反思">
+<meta name="twitter:card" content="summary">
+  <!-- Canonical links -->
+  <link rel="canonical" href="http://example.com/2022/08/22/Reflection/%E5%AE%9E%E4%B9%A0%E4%B8%AD%E7%94%A8%E5%88%B0%E7%9A%84%E6%8A%80%E6%9C%AF/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="gtoo8888" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+    <link href="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.3.5/dist/jquery.fancybox.min.css" rel="stylesheet">
+  
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/gtoo8888" target="_blank">
+          <img class="img-circle img-rotate" src="/images/cat.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">gtoo8888</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">C++ Developer</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Luoyang, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav menu-highlight">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-source">
+          <a href="/source">
+            
+            <i class="icon icon-book-fill"></i>
+            
+            <span class="menu-title">资源</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">友链</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/gtoo8888" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>记录自己的学习过程，Linux网络编程冲啊</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/" rel="tag">Linux网络编程</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%B6%E4%BB%96/" rel="tag">其他</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%8D%E6%80%9D/" rel="tag">反思</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%99%E7%A8%8B/" rel="tag">教程</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" rel="tag">环境配置</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%AD%E6%B3%95/" rel="tag">语法</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%BE%E7%A8%8B/" rel="tag">课程</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A1%B9%E7%9B%AE/" rel="tag">项目</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%B8%9F%E5%93%A5%E7%9A%84Linux%E7%A7%81%E6%88%BF%E8%8F%9C/" rel="tag">鸟哥的Linux私房菜</a><span class="tag-list-count">4</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/Linux%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/" style="font-size: 13.8px;">Linux网络编程</a> <a href="/tags/%E5%85%B6%E4%BB%96/" style="font-size: 13.4px;">其他</a> <a href="/tags/%E5%8F%8D%E6%80%9D/" style="font-size: 13.2px;">反思</a> <a href="/tags/%E6%95%99%E7%A8%8B/" style="font-size: 14px;">教程</a> <a href="/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" style="font-size: 13.2px;">环境配置</a> <a href="/tags/%E8%AF%AD%E6%B3%95/" style="font-size: 13.2px;">语法</a> <a href="/tags/%E8%AF%BE%E7%A8%8B/" style="font-size: 13.6px;">课程</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 13.6px;">面试</a> <a href="/tags/%E9%A1%B9%E7%9B%AE/" style="font-size: 13px;">项目</a> <a href="/tags/%E9%B8%9F%E5%93%A5%E7%9A%84Linux%E7%A7%81%E6%88%BF%E8%8F%9C/" style="font-size: 13.4px;">鸟哥的Linux私房菜</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">九月 2022</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">八月 2022</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">七月 2022</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">六月 2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">五月 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">四月 2022</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">三月 2022</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">二月 2022</a><span class="archive-list-count">7</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2022/09/25/Course/k8s-commad/" class="title">k8s命令</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-09-25T12:26:56.000Z" itemprop="datePublished">2022-09-25</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2022/09/22/Environment-Configuration/vscode-install-tutorial/" class="title">VScode 环境安装</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-09-22T08:30:31.000Z" itemprop="datePublished">2022-09-22</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2022/09/19/Interview-Q&A/leetcode-programe/" class="title">leetcode题目分类</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-09-19T02:20:27.000Z" itemprop="datePublished">2022-09-19</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2022/09/16/Course/Machine_learning/" class="title">机器学习</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-09-16T08:23:50.000Z" itemprop="datePublished">2022-09-16</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2022/09/15/Reflection/%E5%AE%9E%E4%B9%A0%E7%9A%84%E6%84%9F%E5%8F%97/" class="title">实习的感受</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-09-15T13:59:20.000Z" itemprop="datePublished">2022-09-15</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-Reflection/实习中用到的技术" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      实习中学到的内容
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2022/08/22/Reflection/%E5%AE%9E%E4%B9%A0%E4%B8%AD%E7%94%A8%E5%88%B0%E7%9A%84%E6%8A%80%E6%9C%AF/" class="article-date">
+	  <time datetime="2022-08-22T12:02:55.000Z" itemprop="datePublished">2022-08-22</time>
+	</a>
+</span>
+        
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/%E5%8F%8D%E6%80%9D/" rel="tag">反思</a>
+  </span>
+
+
+        
+	<span class="article-read hidden-xs">
+	    <i class="icon icon-eye-fill" aria-hidden="true"></i>
+	    <span id="busuanzi_container_page_pv">
+			<span id="busuanzi_value_page_pv">0</span>
+		</span>
+	</span>
+
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2022/08/22/Reflection/%E5%AE%9E%E4%B9%A0%E4%B8%AD%E7%94%A8%E5%88%B0%E7%9A%84%E6%8A%80%E6%9C%AF/#comments" class="article-comment-link">评论</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h1 id="实习中学到的新技术"><a href="#实习中学到的新技术" class="headerlink" title="实习中学到的新技术"></a>实习中学到的新技术</h1><p>2022.3~2022.4 基于 Linux 的 TinyWebServer<br>项目描述:该项目是为学习 Linux 网络编程知识，在 Linux 环境下使用 C++语言开发的轻量级多线程 HTTP<br>服务器，服务器支持一定数量的客户端连接并及时响应，支持客户端访问服务器的图片、视频等资源。<br>主要工作: 1、使用 Socket 实现不同主机之间的通信;<br>2、使用 Epoll 技术实现 I&#x2F;O 多路复用，提高效率;<br>3、使用有限状态机解析 HTTP 请求报文，对 GET 和 POST 请求进行处理4、利用多线程的机制，增加并行服务数量。<br>项目难点: 1、实现线程池，提高吞吐量;<br>2、编写主从状态机对 HTTP 报文进行解析;<br>个人收获: 1、在此项目中，使用 Makefile 进行编译，掌握一门全新的技术;<br>2、对 HTTP 的服务过程以及 TCP 三次握手有了更深的了解﹔<br>3、对于 Socket 通信以及 I&#x2F;0 复用有了一定的理解，对已有知识进行夯实</p>
+<p>2021.12~2022.1 杭州大数云智科技有限公司<br>1.通过学习 GitHub 上的开源项目 MotionPlanning，通过 python 实现一些路径规划的算法。。<br>2.使用 Vscode 通过 ssh 连接调试塔克机器人小车，通过 Ubuntu16.04 虚拟机搭载 ROS Melodic ，连接<br>小车，进行激光雷达、双目摄像头和深度相机的 SLAM 建模</p>
+<p>2022.6~2022.8 杭州后起智能科技有限公司</p>
+<p>1.加强了Git的各种使用方式</p>
+<p>自己的全面总结：<br>思想上：</p>
+<ol>
+<li>了解了公司的运行流程，互联网公司的组成模式<br>技术上：</li>
+<li>语言：</li>
+</ol>
+<p>5个go项目<br>4个c++项目,三个都和shell相关<br>3个数据库相关，MySQL<br>5个shell项目，两个重度shell<br>ansible,k8s,docker<br><del>wsl</del></p>
+<h1 id="新学的技术"><a href="#新学的技术" class="headerlink" title="新学的技术"></a>新学的技术</h1><p>docker<br>k8s<br>kubectl<br>grpc<br>git lfs<br>go语言</p>
+<p>Protocol Buffer<br>序列化及对象关系映射（Object Relational Mapping，简称 ORM）系统<br>结构体标签<br>workpool</p>
+<p>HTTP 消息首部MIME 类型<br>poc<br>gorm中的事务，redis中事务</p>
+<p>并发读写，并发锁sync.Map<br>redis-cli<br>数据库<br>    TIDB<br>    redis</p>
+<p>存储<br>    分布式存储GlusterFS<br>    TIKV<br>    minio</p>
+<p>linux的VFS内容<br>etcd数据库备份<br>Ansible<br>cfssl证书<br>jinja<br>crontab自动执行<br>原型软件axure<br>BloomRPC<br>C++技术<br>    Snowflake算法<br>    消息阻塞队列<br>    对象池<br>        CustomObjectPool<br>        ObjectPool</p>
+<h2 id="GoLang"><a href="#GoLang" class="headerlink" title="GoLang"></a>GoLang</h2><ul>
+<li>grpc</li>
+<li>grom</li>
+<li>prototobuf</li>
+<li>消息队列</li>
+<li>分布式追踪系统 – Opentracing<br>navicate mysqlGUI工具<br>nsqlookupd：高性能消息中间件 NSQ 解析<br>NSQ——订阅摘要和推送摘要，日志流中间件<br>消息队列</li>
+</ul>
+<h1 id="对一些内容的详细解释"><a href="#对一些内容的详细解释" class="headerlink" title="对一些内容的详细解释"></a>对一些内容的详细解释</h1><h2 id="k8s"><a href="#k8s" class="headerlink" title="k8s"></a>k8s</h2><pre><code>kubernetes
+IAAS——基础服务设施
+PAAS——平台服务设施
+    docker——paas的下一代标准
+    k8s解决集群问题，每个机器里面都有一个docker
+    容器的集群化，资源管理器
+    apache——MESOS
+        分布式资源管理框架
+        2019 twitter不用了
+        推特在用，现在在用k8s
+
+    docker swarm
+        docker母公司
+        swarm集群
+        2019-7
+            阿里云宣布 docker swarm剔除
+
+
+    kubernetes
+        goolgle
+            10年容器化基础架构
+            公司里面在用borg
+            现在用go写了一个borg
+
+        特点
+            轻量级，消耗的资源少
+            开源
+            弹性伸缩
+            负载均衡：IPVS框架
+
+
+    人群
+        软件工程师
+        测试、运维、产品经理
+        需要了解产品底层框架
+
+
+SAAS
+raft算法
+snap——
+wal——日志持久化存储
+</code></pre>
+<h2 id="分布式追踪系统-–-Opentracing"><a href="#分布式追踪系统-–-Opentracing" class="headerlink" title="分布式追踪系统 – Opentracing"></a>分布式追踪系统 – Opentracing</h2><pre><code>OpenTracing 于 2016 年 10 月加入 CNCF 基金会，是继 Kubernetes 和 Prometheus 之后，第三个加入 CNCF 的开源项目
+可方便开发者在自己的服务中集成一种或多种分布式追踪的实现
+Logging &amp; Metrics：可聚合的事件。例如分析某对象存储的 Nginx 日志，统计某段时间内
+GET、PUT、DELETE、OPTIONS 操作的总数。 Metrics &amp; Tracing：单个请求中的可计量数据。例如 SQL
+执行总时长、gRPC 调用总次数。 Tracing &amp; Logging：请求阶段的标签数据。例如在 Tracing
+的信息中标记详细的错误原因。
+Logging：ELK，近几年势头最猛的日志分析服务，无须多言。
+Metrics：Prometheus，第二个加入 CNCF 的开源项目，非常好用。
+Tracing：OpenTracing 和 Jaeger，Jaeger 是 Uber 开源的一个兼容 OpenTracing 标准的分布式追踪服务。目前 Jaeger 也加入了 CNCF。
+</code></pre>
+<h1 id="SaaS"><a href="#SaaS" class="headerlink" title="SaaS"></a>SaaS</h1><p>SaaS是Software-as-a-Service的缩写名称，意思为软件即服务<br>    Facebook，Twitter，  Instagram。 Google Apps, Dropbox, Salesforce, Cisco WebEx, Concur, GoToMeeting。</p>
+<p>PaaS：Platform-as-a-Service（平台即服务）提供给消费者的服务是把客户采用提供的开发语言和工具（例如Java，python, .Net等）开发的或收购的应用程序部署到供应商的云计算基础设施上去。<br>    MySQL，Mangodb，Java，Node.js</p>
+<p> IaaS： Infrastructure-as-a-Service（基础设施即服务）提供给消费者的服务是对所有计算基础设施的利用，包括处理CPU、内存、存储、网络和其它基本的计算资源，用户能够部署和运行任意软件，包括操作系统和应用程序。</p>
+<h1 id="NSQ"><a href="#NSQ" class="headerlink" title="NSQ"></a>NSQ</h1><p>NSQ——订阅摘要和推送摘要，日志流中间件<br>    NSQ是Go语言编写的一个开源的实时分布式内存消息队列，其性能十分优异。<br>    分布式实时消息平台<br>    NSQ 是实时的分布式消息处理平台，其设计的目的是用来大规模地处理每天数以十亿计级别的消息。它具有分布式和去中心化拓扑结构，该结构具有无单点故障、故障容错、高可用性以及能够保证消息的可靠传递的特征<br>    适合小型项目使用,用来学习消息队列实现原理、学习 golang channel知识以及如何用 go 来写分布式，为什么说适合小型小型项目使用因为，nsq 如果没有能力进行二次开发的情况存在的问题还是很多的。</p>
+<h1 id="档案导出的流程"><a href="#档案导出的流程" class="headerlink" title="档案导出的流程"></a>档案导出的流程</h1><!-- # 档案导入——增 -->
+
+<h1 id="档案查询——查"><a href="#档案查询——查" class="headerlink" title="档案查询——查"></a>档案查询——查</h1><p>大顶堆<br>优化mysql</p>
+<!-- 分库分表？ -->
+
+<p>查询的时候，每个项目的内容都非常的大，但是只需要用他们的一部分来排序<br>所以使用大顶堆来进行插入，插入的时候同时完成了排序<br>在需要使用的时候，直接将大顶堆读取出来就可以了</p>
+<h2 id="算法稳定性："><a href="#算法稳定性：" class="headerlink" title="算法稳定性："></a>算法稳定性：</h2><p>堆排序是一种不稳定的排序方法。<br>因为在堆的调整过程中，关键字进行比较和交换所走的是该结点到叶子结点的一条路径，<br>因此对于相同的关键字就可能出现排在后面的关键字被交换到前面来的情况</p>
+<p>但是不需要兼顾这个方面，因为出现频率相同的人，随便怎么排在一起都没有关系</p>
+<h1 id="档案导出——查"><a href="#档案导出——查" class="headerlink" title="档案导出——查"></a>档案导出——查</h1><p>多用户，多线程。上下文取消，广播进度，哈希表优化<br>minio</p>
+<h2 id="任务背景"><a href="#任务背景" class="headerlink" title="任务背景"></a>任务背景</h2><p>导出的命名格式为姓名-身份证<br>由于下载的内容十分繁重，总体逻辑，保证单用户只有一个下载任务<br>使用minio存储图片<br>下载的目标数量极大，1000-1W的数量级<br>档案中的人有1000个人，每个的档案，如果被布控的到，会有1-2K照片，每个照片20KB，jpg模式<br>下载的内容分为，档案图，人脸图，场景图</p>
+<h2 id="档案导出主函数"><a href="#档案导出主函数" class="headerlink" title="档案导出主函数"></a>档案导出主函数</h2><p>0.0 数据库初始化，在整个服务初始化的时候完成<br>0.1 获取上下文，打印日志，填写requestid<br>0.2 定义导出需要用到的接口<br>    - 导出主程序接口<br>    - 查询导出任务进度<br>    - 删除导出任务<br>1.验证用户输入是否正确</p>
+<p>2.先查询当前任务状态，如果已经有任务在执行，那么直接返回<br>    – 获取的下载目标，在数据库中无法存放数组，用字符串代替<br>    – 如果不是运行中，可能是任务未开始、任务失败、任务成功，都删除一下当前任务</p>
+<p>3.在数据库库中插入本次下载的记录<br>4.串联上下文，将上下文信息传递到协程里面，</p>
+<p>5.返回开始任务，进度为0%，接口运行结束</p>
+<h1 id="调试方法"><a href="#调试方法" class="headerlink" title="调试方法"></a>调试方法</h1><p>1.postman进行本地接口传入参数调试<br>2.直接放到服务器上的k8s中进行运行，打印日志进行调试</p>
+<h1 id="协程中的内容"><a href="#协程中的内容" class="headerlink" title="协程中的内容"></a>协程中的内容</h1><ol start="0">
+<li>运行的过程中不停的更新进度的状态，进行进度广播</li>
+<li>使用线程池加速下载，线程池里面开线程池？？不可以？？<br> 8核下载全部轨迹，从135s-&gt;20s</li>
+<li>错误处理</li>
+<li>使用哈希表，减少摄像头信息的存储</li>
+<li>获取想要导出的目标的信息<br>目标的，姓名-身份证<br>如果需要导出的目标是空的，那还是建立一个空文件夹<br>有时候，需要下载的内容过于庞大了，超过了gRPC单次传输的上限，所以就用分页的方法来获取数据，（获取数据调用的别的微服务，那个接口支持分页）</li>
+<li>在本地建立需要导出目标的文件夹<br>目录为，随机uuid<ul>
+<li>找到可执行目录</li>
+<li>生成uuid</li>
+<li>uuid&#x2F;export&#x2F;建立业务文件夹<br>导出的图片是存在minio里面的，从网上下载下来，放在目录里面，压缩打包再上传</li>
+</ul>
+</li>
+<li>对需要下载的每个目标进行下载<br>更具业务需求，分情况讨论<br>下载的过程中，使用base64对图片地址进行解密<br>由于每个目标是独立的任务，所以可以使用线程池进行加速<ul>
+<li>需要调用其他的微服务，还获取图片数据</li>
+</ul>
+</li>
+<li>对生成的文件进行zip压缩</li>
+</ol>
+<ul>
+<li>使用defer删除建立的临时压缩报</li>
+<li>filepath.Walk来遍历文件压缩进去</li>
+</ul>
+<ol start="5">
+<li>将压缩包上传到minio，将minio的地址存到数据库中<ul>
+<li>上传中修改了minio存储的ContentDisposition,修改了http下载时候的文件名</li>
+</ul>
+</li>
+</ol>
+<h1 id="档案删除——删"><a href="#档案删除——删" class="headerlink" title="档案删除——删"></a>档案删除——删</h1><p>查了redis</p>
+<p>删除任务中，遇到了无法删除数据库内容的问题<br>查找后发现，删除的时候使用了事务，这个事务里面需要同时删除三个数据库中的数据，但是在有一个删除操作中，删除的量过大的，导致删除终止，整个事务回滚，删除失败<br>需要一次删除25w条数据，每条数据大概4000byte,<br>25W条数据是极限了<br>有一些10W条以下的小数据，删除成功了，但是之前使用的gorm的软删除，改为了直接删除</p>
+<p>解决方法：先查询需要删除的数量，如果大于一定数量，就不使用事务，自己分批次删除</p>
+<p>这个删除使用了代理模式，分为proxy，work,store三个层次<br>proxy处理一些简单的外部响应，先删除外部的数据库<br>真正的删除放在内部的store中，删除图片，redis,tidb</p>
+<p>tidb中有一个库的常用键值没有加索引，导致搜索的十分缓慢，所以加上了索引</p>
+<h3 id="定时任务"><a href="#定时任务" class="headerlink" title="定时任务"></a>定时任务</h3><p>使用管道和协程回调函数，来实现一个定时任务<br>对两天前的老数据进行清理</p>
+<h1 id="为什么要用redis"><a href="#为什么要用redis" class="headerlink" title="为什么要用redis"></a>为什么要用redis</h1><p>检测到的人的特征放在redis里面<br>由于需要监控的人非常多，而且人需要存储的特征也非常多，并且总是需要使用到人的特征，所以放到redis里面<br>需要保存轨迹点的数据，内容量很大，并且读写频率很高</p>
+<p>[消息队列浅析]<a target="_blank" rel="noopener" href="https://developer.aliyun.com/article/988780?spm=a2c6h.12873639.article-detail.40.167b2eefaMJqaj&amp;scm=20140722.ID_community@@article@@988780._.ID_community@@article@@988780-OR_rec-V_1">https://developer.aliyun.com/article/988780?spm=a2c6h.12873639.article-detail.40.167b2eefaMJqaj&amp;scm=20140722.ID_community@@article@@988780._.ID_community@@article@@988780-OR_rec-V_1</a><br>[OpenTracing]<a target="_blank" rel="noopener" href="https://blog.csdn.net/eight_eyes/article/details/117330608">https://blog.csdn.net/eight_eyes/article/details/117330608</a></p>
+<p>[数据结构 - 堆的应用场景]<a target="_blank" rel="noopener" href="https://blog.csdn.net/it_lihongmin/article/details/114528779?spm=1001.2101.3001.6650.1&amp;utm_medium=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~Rate-1-114528779-blog-79371735.pc_relevant_multi_platform_featuressortv2dupreplace&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~Rate-1-114528779-blog-79371735.pc_relevant_multi_platform_featuressortv2dupreplace&amp;utm_relevant_index=2">https://blog.csdn.net/it_lihongmin/article/details/114528779?spm=1001.2101.3001.6650.1&amp;utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1-114528779-blog-79371735.pc_relevant_multi_platform_featuressortv2dupreplace&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1-114528779-blog-79371735.pc_relevant_multi_platform_featuressortv2dupreplace&amp;utm_relevant_index=2</a><br>[堆及堆的具体使用场景]<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/e8e267879b61">https://www.jianshu.com/p/e8e267879b61</a></p>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="http://example.com/2022/08/22/Reflection/%E5%AE%9E%E4%B9%A0%E4%B8%AD%E7%94%A8%E5%88%B0%E7%9A%84%E6%8A%80%E6%9C%AF/" title="实习中学到的内容" target="_blank" rel="external">http://example.com/2022/08/22/Reflection/实习中用到的技术/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/gtoo8888" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/cat.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/gtoo8888" target="_blank"><span class="text-dark">gtoo8888</span><small class="ml-1x">C++ Developer</small></a></h3>
+        <div>喜欢瞎搞</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+      <div id="vcomments"></div>
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/2022/08/23/Tutorial/small_tool/" title="小工具的使用"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/2022/08/16/Article-tmp-storage/" title="文章暂存"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/gtoo8888" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+
+
+
+   
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+   
+    
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine"></script>
+  <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: false,
+    notify: false,
+    appId: '',
+    appKey: '',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+  </script>
+
+     
+
+
+
+  <script src="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.3.5/dist/jquery.fancybox.min.js"></script>
+  <script>
+  //利用 FancyBox 实现点击图片放大
+  $(document).ready(function() {
+    $('article img').not('[hidden]').not('.panel-body img').each(function() {
+      var $image = $(this);
+      var imageCaption = $image.attr('alt');
+      var $imageWrapLink = $image.parent('a');
+      if ($imageWrapLink.length < 1) {
+        var src = this.getAttribute('src');
+        var idx = src.lastIndexOf('?');
+        if (idx != -1) {
+          src = src.substring(0, idx);
+        }
+        $imageWrapLink = $image.wrap('<a href="' + src + '"></a>').parent('a');
+      }
+      $imageWrapLink.attr('data-fancybox', 'images');
+      if (imageCaption) {
+        $imageWrapLink.attr('data-caption', imageCaption);
+      }
+    });
+    $().fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+    });
+  });
+  </script>
+
+
+
+
+
+</body>
+</html>
