@@ -914,12 +914,13 @@
 <ol start="2">
 <li>在pycharm中配置<br>file-&gt;setting-&gt;Project: Complete Coverage Pat…-&gt;Python Interpreter</li>
 </ol>
+<p>安装过程增加环境变量<br>E:\Anaconda<br>E:\Anaconda\Scripts<br>E:\Anaconda\Library\mingw-w64\bin<br>E:\Anaconda\Library\usr\bin<br>E:\Anaconda\Library\bin</p>
 <p>conda update -n base conda</p>
 <p>conda install –yes –file requirements.txt</p>
 <p>conda config –remove-key channels<br>conda config –show # 查看conda的配置，确认channels<br>conda config –show-sources # 仅查看所有镜像</p>
 <p>查看已经添加的channels</p>
 <p>conda config –get channels<br>conda config –show channels</p>
-<p>channels:</p>
+<h2 id="修改文件"><a href="#修改文件" class="headerlink" title="修改文件"></a>修改文件</h2><p>在C:\Users{username} 文件夹下面修改.condarc<br>channels:</p>
 <ul>
 <li>defaults<br>show_channel_urls: true<br>default_channels:</li>
 <li><a href="https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main">https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main</a></li>
@@ -935,47 +936,34 @@
 <li>python的编译过程</li>
 </ol>
 <p>没有二进制文件，直接编译成字节码了</p>
-<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p>[anaconda启动非常慢，一直卡在Initializing(看起来没什么用，FQ马上打开了)]<a href="https://blog.csdn.net/qq_40051406/article/details/121365478">https://blog.csdn.net/qq_40051406/article/details/121365478</a><br>[Anaconda超详细安装教程（Windows环境下）]<a href="https://blog.csdn.net/fan18317517352/article/details/123035625">https://blog.csdn.net/fan18317517352/article/details/123035625</a><br>[新手教程一：Anaconda新建开发环境]<a href="https://blog.csdn.net/qq_42573052/article/details/113770662">https://blog.csdn.net/qq_42573052/article/details/113770662</a><br>[Python命名规范-大小写]<a href="https://blog.csdn.net/quietbxj/article/details/107188786">https://blog.csdn.net/quietbxj/article/details/107188786</a><br>[Solving environment: failed with initial frozen solve. Retrying with flexible solve的解决]<a href="https://blog.csdn.net/Brookekitty/article/details/106226285">https://blog.csdn.net/Brookekitty/article/details/106226285</a><br>[Python使用conda安装requirement.txt的扩展包]<a href="https://blog.csdn.net/weixin_45092662/article/details/106906719">https://blog.csdn.net/weixin_45092662/article/details/106906719</a><br>[安装PyTorch详细过程]<a href="https://blog.csdn.net/MCYZSF/article/details/116525159">https://blog.csdn.net/MCYZSF/article/details/116525159</a><br>[清华大学开源软件镜像站]<a href="https://mirrors.tuna.tsinghua.edu.cn/">https://mirrors.tuna.tsinghua.edu.cn/</a><br>[Pytorch教程（一）：Pytorch安装教程-使用pip在conda里面装上了]<a href="https://zhuanlan.zhihu.com/p/88903659">https://zhuanlan.zhihu.com/p/88903659</a><br>[基于pytorch的yolov5运行报错warnings.warn(‘User provided device_type of ‘cuda‘, but CUDA is not available)]<a href="https://blog.csdn.net/weixin_50813961/article/details/122587255">https://blog.csdn.net/weixin_50813961/article/details/122587255</a><br>[CUDA 11.7无法安装pytorch的GPU版本]<a href="https://blog.csdn.net/qq_46037444/article/details/125991109">https://blog.csdn.net/qq_46037444/article/details/125991109</a><br>[pytorch官网]<a href="https://pytorch.org/get-started/locally/">https://pytorch.org/get-started/locally/</a><br>[__pycache__文件夹是什么东西？]<a href="https://zhuanlan.zhihu.com/p/476772186">https://zhuanlan.zhihu.com/p/476772186</a></p>
+<p>pip3 install paddlepaddle -i <a href="https://mirror.baidu.com/pypi/simple/">https://mirror.baidu.com/pypi/simple/</a></p>
+<p>pip3 install eiseg -i <a href="https://mirror.baidu.com/pypi/simple/">https://mirror.baidu.com/pypi/simple/</a></p>
+<h1 id="anaconda导出环境"><a href="#anaconda导出环境" class="headerlink" title="anaconda导出环境"></a>anaconda导出环境</h1><p>conda env export &gt; environment.yaml</p>
+<p>导入环境<br>conda env create -f environment.yaml</p>
+<h1 id="安装anaconda环境"><a href="#安装anaconda环境" class="headerlink" title="安装anaconda环境"></a>安装anaconda环境</h1><h1 id="pip3"><a href="#pip3" class="headerlink" title="pip3"></a>pip3</h1><p>pip3 安装在&#x2F;usr&#x2F;lib&#x2F;python3&#x2F;dist-packages<br>pip3 freeze # 查看安装了什么包<br>pip3 show <package_name><br>pip3 list -v # 列出所有已安装包的位置<br>pip3 –version 查看 pip3 的默认安装位置</p>
+<h1 id="Linux下安装Django"><a href="#Linux下安装Django" class="headerlink" title="Linux下安装Django"></a>Linux下安装Django</h1><p>使用在线安装<br>sudo pip3 install django&#x3D;&#x3D;2.2.28</p>
+<p>使用离线安装包安装</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">apt-get install python3-setuptools -y  # setup.py中的依赖项</span><br><span class="line">apt-get install python3-pip -y</span><br><span class="line">tar -xvf Django-2.2.28.tar.gz </span><br><span class="line">cd Django-2.2.28/</span><br><span class="line">python3 setup.py install</span><br><span class="line">pip3 freeze |grep Django # 查看是否安装成功</span><br></pre></td></tr></table></figure>
+
+
+
+
+<h1 id="vscode调试python单个文件"><a href="#vscode调试python单个文件" class="headerlink" title="vscode调试python单个文件"></a>vscode调试python单个文件</h1><p>只需要直接F5，自动生成的就可以了</p>
+<h1 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h1><p>python3 manage.py runserver # 启动服务<br>python3 manage.py startapp # 创建应用<br>python3 manage.py migrate # 数据库迁移<br>python3 manage.py  # 列出所有Django子命令</p>
+<h1 id="项目结构"><a href="#项目结构" class="headerlink" title="项目结构"></a>项目结构</h1><p>_init : Python包的初始化文件<br>wsgi.py : WEB服务网关的配置文件– Django正式启动时，需要用到<br>urls.py :项目的主路由配置- HTTP请求进入Django时，优先调用该文件<br>settings.py:项目的配置文件–包含项目启动时需要的配置</p>
+<h1 id="搭建第一个Django程序"><a href="#搭建第一个Django程序" class="headerlink" title="搭建第一个Django程序"></a>搭建第一个Django程序</h1><ol>
+<li>安装环境</li>
+<li>django-admin startproject mysite1</li>
+<li>需要在setting中改为，ALLOWED_HOSTS &#x3D; [“192.168.1.19”]</li>
+<li>python3 manage.py runserver 0.0.0.0:8000 # 将所有IP的请求都接入进来</li>
+<li>成功连接</li>
+</ol>
+<p>常见修改<br>LANGUAGE_CODE &#x3D; ‘zh-Hans’</p>
+<p>TIME_ZONE &#x3D; ‘Asia&#x2F;Shanghai’</p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p>[anaconda启动非常慢，一直卡在Initializing(看起来没什么用，FQ马上打开了)]<a href="https://blog.csdn.net/qq_40051406/article/details/121365478">https://blog.csdn.net/qq_40051406/article/details/121365478</a><br>[Anaconda超详细安装教程（Windows环境下）]<a href="https://blog.csdn.net/fan18317517352/article/details/123035625">https://blog.csdn.net/fan18317517352/article/details/123035625</a><br>[新手教程一：Anaconda新建开发环境]<a href="https://blog.csdn.net/qq_42573052/article/details/113770662">https://blog.csdn.net/qq_42573052/article/details/113770662</a><br><a href="https://blog.csdn.net/jasneik/article/details/114227716">anaconda 换清华镜像源 windows</a><br>[Python命名规范-大小写]<a href="https://blog.csdn.net/quietbxj/article/details/107188786">https://blog.csdn.net/quietbxj/article/details/107188786</a><br>[Solving environment: failed with initial frozen solve. Retrying with flexible solve的解决]<a href="https://blog.csdn.net/Brookekitty/article/details/106226285">https://blog.csdn.net/Brookekitty/article/details/106226285</a><br>[Python使用conda安装requirement.txt的扩展包]<a href="https://blog.csdn.net/weixin_45092662/article/details/106906719">https://blog.csdn.net/weixin_45092662/article/details/106906719</a><br>[安装PyTorch详细过程]<a href="https://blog.csdn.net/MCYZSF/article/details/116525159">https://blog.csdn.net/MCYZSF/article/details/116525159</a><br>[清华大学开源软件镜像站]<a href="https://mirrors.tuna.tsinghua.edu.cn/">https://mirrors.tuna.tsinghua.edu.cn/</a><br>[Pytorch教程（一）：Pytorch安装教程-使用pip在conda里面装上了]<a href="https://zhuanlan.zhihu.com/p/88903659">https://zhuanlan.zhihu.com/p/88903659</a><br>[基于pytorch的yolov5运行报错warnings.warn(‘User provided device_type of ‘cuda‘, but CUDA is not available)]<a href="https://blog.csdn.net/weixin_50813961/article/details/122587255">https://blog.csdn.net/weixin_50813961/article/details/122587255</a><br>[CUDA 11.7无法安装pytorch的GPU版本]<a href="https://blog.csdn.net/qq_46037444/article/details/125991109">https://blog.csdn.net/qq_46037444/article/details/125991109</a><br>[pytorch官网]<a href="https://pytorch.org/get-started/locally/">https://pytorch.org/get-started/locally/</a><br>[__pycache__文件夹是什么东西？]<a href="https://zhuanlan.zhihu.com/p/476772186">https://zhuanlan.zhihu.com/p/476772186</a><br><a href="https://blog.csdn.net/qq_43382635/article/details/127124980">Anaconda之导出&#x2F;导出配置好的虚拟环境</a><br>[EISeg工具对应博文]<a href="https://blog.csdn.net/qq_37541097/article/details/120154543">https://blog.csdn.net/qq_37541097/article/details/120154543</a></p>
 ]]></content>
       <tags>
         <tag>语法</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>算法</title>
-    <url>/2022/04/19/Interview-Q&amp;A/Algorithm/</url>
-    <content><![CDATA[<p><a href="https://imgtu.com/i/LBSN8S"><img src="https://s1.ax1x.com/2022/04/19/LBSN8S.png" alt="不同算法的时间复杂度"></a></p>
-<p>前缀和</p>
-<p>一维前缀和</p>
-<p>二维前缀和</p>
-<p>第一题就是基本的读入字符串排序，忘记细节了。</p>
-<p>第二题是读入一01串，对应的下标为士兵的能力，0代表攻击士兵，1代表防守士兵，找到一个分割点，使得左侧攻击士兵和右侧防御士兵差的绝对值最小。这题直接用一个求和数组记录遍历就能过。</p>
-<p>第三题是给定一个数组，删掉下标不为质数的值，然后合并起来循环操作，求最后一个数。这题是能找到规律，在某个区间的答案会是一个定值。直接暴力解了。</p>
-<p>第四题是给多个环形链表的部分（可以重叠），把他们串起来然后切开形成最小字典序。这题主要是记录一下链表顺序，正逆比较一下就可以</p>
-<p>第五题买股票进阶版，给定本金，每天都可以买入卖出1笔，而且可以手里留存多笔股票，求最大利润。这题不太会做，暴力DFS做的只过了50，蹲个大佬</p>
-<p>做了4个半，最近一个月才开始补算法，难点的题就做不出来了，以及我是用python写的，可能时间复杂度要求和C++比会有些差别</p>
-<p>作者：Powter<br>链接：<a href="https://leetcode-cn.com/circle/discuss/aWwMc8/">https://leetcode-cn.com/circle/discuss/aWwMc8/</a><br>来源：力扣（LeetCode）<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
-<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
-<li><p><strong>前缀和</strong>  <a href="https://blog.csdn.net/m0_46201544/article/details/122371482">https://blog.csdn.net/m0_46201544/article/details/122371482</a></p>
-</li>
-<li><p><strong>前缀异或</strong> <a href="https://blog.csdn.net/weixin_50248461/article/details/117045421">https://blog.csdn.net/weixin_50248461/article/details/117045421</a></p>
-</li>
-<li><p><strong>Codeforces游玩攻略</strong> <a href="https://www.luogu.com.cn/blog/ezoixx130/codeforces-tutorial">https://www.luogu.com.cn/blog/ezoixx130/codeforces-tutorial</a></p>
-</li>
-<li><p><strong>Codeforces快速精通</strong> <a href="https://www.luogu.com.cn/blog/ezoixx130/codeforces-advanced-tutorial">https://www.luogu.com.cn/blog/ezoixx130/codeforces-advanced-tutorial</a></p>
-</li>
-<li><p><strong>ACM-高精度模板(综合篇)</strong> <a href="https://blog.csdn.net/u013615904/article/details/43373601">https://blog.csdn.net/u013615904/article/details/43373601</a></p>
-</li>
-<li><p><strong>C++ lambda表达式与函数对象</strong> <a href="https://www.jianshu.com/p/d686ad9de817">https://www.jianshu.com/p/d686ad9de817</a></p>
-</li>
-<li><p><a href="https://codeforces.com/blog/entry/66715">https://codeforces.com/blog/entry/66715</a></p>
-</li>
-<li><p><a href="https://codeforces.com/blog/entry/66909">https://codeforces.com/blog/entry/66909</a></p>
-</li>
-</ul>
-]]></content>
-      <tags>
-        <tag>面试</tag>
       </tags>
   </entry>
   <entry>
@@ -1068,6 +1056,8 @@
 <li>公平分发饼干</li>
 </ol>
 <p>思路：<br>1.回溯前的准备<br>2.要回溯什么<br>回溯函数内<br>3.终止条件<br>4.进入和退出怎么搞</p>
+<h2 id="递推"><a href="#递推" class="headerlink" title="递推"></a>递推</h2><h2 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h2><p>使用递归树的方法来判断问题</p>
+<p>回溯-》记忆化搜索-》动态规划</p>
 <h2 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h2><p>思路：</p>
 <ol>
 <li>确定dp数组以及下标的含义</li>
@@ -1077,11 +1067,39 @@
 </ol>
 <p>写代码顺序：</p>
 <ol start="0">
-<li>边界条件（最后考虑）</li>
-<li>初始化</li>
-<li>遍历</li>
-<li>递推公式</li>
-<li>返回</li>
+<li><p>边界条件（最后考虑）</p>
+</li>
+<li><p>初始化</p>
+</li>
+<li><p>遍历</p>
+</li>
+<li><p>递推公式</p>
+</li>
+<li><p>返回</p>
+</li>
+<li><p>记忆化搜索</p>
+<ol>
+<li>Leetcode 140 单词拆分 II<!-- 2. Leetcode 329 矩阵中的最长递增路径 --></li>
+<li>Leetcode 472 连接词</li>
+<li>10题正则表达式匹配</li>
+<li>第37题解数独<!-- 6. 397. 整数替换 --></li>
+</ol>
+</li>
+<li><p>区间dp</p>
+<ol>
+<li>当问题可以分解为若干个子区间，并且子区间之间有一定的联系或者约束时，可以考虑用区间dp来求解</li>
+<li>合并、匹配、划分</li>
+<li>石子合并、括号匹配、回文串、邮局建设</li>
+<li><ol start="1000">
+<li>合并石头的最低成本</li>
+</ol>
+</li>
+<li>而状态转移方程一般是枚举区间内的一个分割点<ol>
+<li>如dp [i] [j] &#x3D; min {dp [i] [k]+dp [k+1] [j]+cost}</li>
+</ol>
+</li>
+</ol>
+</li>
 </ol>
 <p>能解决的问题：</p>
 <h2 id="1-求最大值-x2F-最小值"><a href="#1-求最大值-x2F-最小值" class="headerlink" title="1.求最大值&#x2F;最小值"></a>1.求最大值&#x2F;最小值</h2><ol start="1014">
@@ -1106,7 +1124,19 @@
 <li>跳跃游戏 II</li>
 </ol>
 <h2 id="测试用例的设计"><a href="#测试用例的设计" class="headerlink" title="测试用例的设计"></a>测试用例的设计</h2><h3 id="边界条件的测试"><a href="#边界条件的测试" class="headerlink" title="边界条件的测试"></a>边界条件的测试</h3><p>0<br>最大值</p>
-<h3 id="功能测试"><a href="#功能测试" class="headerlink" title="功能测试"></a>功能测试</h3><h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p>[详解前缀树「TrieTree 汇总级别整理 🔥🔥🔥」]<a href="https://leetcode.cn/problems/sum-of-prefix-scores-of-strings/solution/by-lfool-w82u/">https://leetcode.cn/problems/sum-of-prefix-scores-of-strings/solution/by-lfool-w82u/</a></p>
+<h3 id="功能测试"><a href="#功能测试" class="headerlink" title="功能测试"></a>功能测试</h3><p><a href="https://imgtu.com/i/LBSN8S"><img src="https://s1.ax1x.com/2022/04/19/LBSN8S.png" alt="不同算法的时间复杂度"></a></p>
+<p>前缀和</p>
+<p>一维前缀和</p>
+<p>二维前缀和</p>
+<p>第一题就是基本的读入字符串排序，忘记细节了。</p>
+<p>第二题是读入一01串，对应的下标为士兵的能力，0代表攻击士兵，1代表防守士兵，找到一个分割点，使得左侧攻击士兵和右侧防御士兵差的绝对值最小。这题直接用一个求和数组记录遍历就能过。</p>
+<p>第三题是给定一个数组，删掉下标不为质数的值，然后合并起来循环操作，求最后一个数。这题是能找到规律，在某个区间的答案会是一个定值。直接暴力解了。</p>
+<p>第四题是给多个环形链表的部分（可以重叠），把他们串起来然后切开形成最小字典序。这题主要是记录一下链表顺序，正逆比较一下就可以</p>
+<p>第五题买股票进阶版，给定本金，每天都可以买入卖出1笔，而且可以手里留存多笔股票，求最大利润。这题不太会做，暴力DFS做的只过了50，蹲个大佬</p>
+<p>做了4个半，最近一个月才开始补算法，难点的题就做不出来了，以及我是用python写的，可能时间复杂度要求和C++比会有些差别</p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p>[详解前缀树「TrieTree 汇总级别整理 🔥🔥🔥」]<a href="https://leetcode.cn/problems/sum-of-prefix-scores-of-strings/solution/by-lfool-w82u/">https://leetcode.cn/problems/sum-of-prefix-scores-of-strings/solution/by-lfool-w82u/</a><br><a href="https://blog.csdn.net/m0_46201544/article/details/122371482">前缀和 </a><br><a href="https://blog.csdn.net/weixin_50248461/article/details/117045421">前缀异或</a><br><a href="https://www.luogu.com.cn/blog/ezoixx130/codeforces-tutorial">Codeforces游玩攻略</a><br><a href="https://www.luogu.com.cn/blog/ezoixx130/codeforces-advanced-tutorial">Codeforces快速精通</a><br><a href="https://blog.csdn.net/u013615904/article/details/43373601">ACM-高精度模板(综合篇)</a><br><a href="https://www.jianshu.com/p/d686ad9de817">C++ lambda表达式与函数对象</a><br><a href="https://codeforces.com/blog/entry/66715">https://codeforces.com/blog/entry/66715</a><br><a href="https://codeforces.com/blog/entry/66909">https://codeforces.com/blog/entry/66909</a></p>
+<h1 id="区间dp"><a href="#区间dp" class="headerlink" title="区间dp"></a>区间dp</h1><p><a href="https://leetcode.cn/circle/article/BO520a/">(区间dp) 力扣区间dp 题集记录</a><br><a href="https://zhuanlan.zhihu.com/p/126546914">[力扣] DP问题分类汇总</a><br><a href="https://blog.csdn.net/qq_43472263/article/details/98337401">区间dp入门——总结+习题+解析</a><br><a href="https://oi-wiki.org/dp/interval/">OI Wiki</a></p>
+<h1 id="记忆化搜索"><a href="#记忆化搜索" class="headerlink" title="记忆化搜索"></a>记忆化搜索</h1><p><a href="https://blog.csdn.net/qq_43472263/article/details/98337401">LeetCode刷题总结 — 记忆化搜索框架</a></p>
 ]]></content>
       <tags>
         <tag>面试</tag>
@@ -1945,6 +1975,339 @@ Effective MySQL
     file)  only  after  all  outstanding data in the channel has been con‐
     sumed.
 </code></pre>
+<p>如果你想写一个高性能的C++服务器，以下是一些建议：</p>
+<ol>
+<li>选择正确的框架：选择一个高性能的框架，例如Boost.Asio、libevent或者libuv。这些框架可以帮助你管理网络连接、事件处理和多线程。</li>
+<li>使用异步IO：异步IO可以提高服务器的响应速度和吞吐量。使用异步IO可以避免线程阻塞，提高服务器的效率。优化内存管理：使用内存池和对象池可以减少内存分配和释放的开销。另外，避免使用过多的动态内存分配，因为它们会导致内存碎片和性能下降。</li>
+<li>多线程：使用多线程可以充分利用多核CPU的性能。但是，要注意避免线程间的竞争条件，例如锁等待和死锁。</li>
+<li>优化算法：使用高效的算法可以减少CPU的负载，提高服务器的性能。例如，使用哈希表代替线性搜索可以提高查询速度。</li>
+<li>代码优化：使用编译器优化和代码优化技术可以提高代码的执行效率。例如，使用内联函数可以避免函数调用的开销。</li>
+<li>测试和性能优化：使用性能分析工具和压力测试工具可以发现性能瓶颈和优化点。使用这些工具可以帮助你优化服务器的性能，提高用户体验。</li>
+</ol>
+<p>大体的高性能C++服务器的框架通常包括以下组件：</p>
+<ol>
+<li>网络层：负责处理网络连接和数据传输。常用的网络库包括Boost.Asio、libevent和libuv等。</li>
+<li>多线程管理：负责管理多线程和线程池。多线程可以提高服务器的并发处理能力，但是需要注意避免线程间的竞争条件。</li>
+<li>协议处理：负责解析和处理客户端发送的协议。常用的协议包括HTTP、WebSocket、TCP和UDP等。</li>
+<li>数据库访问：负责与数据库交互，包括查询、插入、更新和删除等操作。常用的数据库包括MySQL、PostgreSQL和MongoDB等。</li>
+<li>缓存管理：负责管理缓存，例如Redis、Memcached等。缓存可以提高服务器的读取速度和响应速度。</li>
+<li>日志管理：负责记录服务器的运行日志，包括错误日志、访问日志等。</li>
+<li>安全管理：负责保障服务器的安全性，包括防止DDoS攻击、SQL注入等。</li>
+</ol>
+<p>以上组件可以根据具体业务需求进行选择和定制。同时，高性能C++服务器的框架需要考虑以下因素：</p>
+<ol>
+<li>高并发：需要支持高并发的处理能力，避免线程阻塞和死锁。</li>
+<li>高效率：需要尽可能地利用CPU和内存资源，避免资源浪费。</li>
+<li>可扩展性：需要支持水平和垂直扩展，以应对不同的业务需求。</li>
+<li>可靠性：需要具备高可靠性和容错能力，避免因为单点故障导致整个服务不可用。</li>
+<li>易用性：需要具备易用性和易维护性，方便开发人员进行开发和维护。</li>
+</ol>
+<p>防止DDoS攻击是一个复杂的话题，需要综合考虑许多因素，包括网络安全、服务器性能、负载均衡等。以下是一些基本的防御措施，您可以在C++服务器中实现它们：</p>
+<ol>
+<li>限制连接速率：通过限制每个IP地址的连接速率来减轻服务器的负载。可以使用令牌桶算法或漏桶算法来实现这个功能。</li>
+<li>IP黑名单：通过检测攻击流量的来源IP地址并将它们添加到黑名单中来减轻服务器的负载。</li>
+<li>限制请求大小：通过限制每个请求的大小来防止攻击者发送大量的请求，从而导致服务器负载过高。</li>
+<li>使用CDN：使用内容分发网络（CDN）可以将流量分散到多个地理位置的服务器，从而减轻攻击的影响。</li>
+<li>负载均衡：通过使用负载均衡技术，可以将流量分散到多个服务器上，从而减轻攻击的影响。</li>
+<li>DDoS防护软件：使用专门的DDoS防护软件，可以自动检测和过滤攻击流量。<br>请注意，这些措施只是一些基本的防御措施，无法完全保护服务器免受DDoS攻击。因此，建议您与网络安全专家合作，制定更全面的防御策略。</li>
+</ol>
+<p>令牌桶算法是一种常用的限流算法，可以用于限制每个IP地址的连接速率。以下是一个简单的C++实现令牌桶算法的例子：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;chrono&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;thread&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;mutex&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;condition_variable&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std::chrono;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">TokenBucket</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">TokenBucket</span>(<span class="type">int</span> capacity, <span class="type">int</span> rate) : <span class="built_in">capacity_</span>(capacity), <span class="built_in">rate_</span>(rate), <span class="built_in">tokens_</span>(<span class="number">0</span>) &#123;</span><br><span class="line">        last_refill_time_ = steady_clock::<span class="built_in">now</span>();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">TryConsume</span><span class="params">(<span class="type">int</span> tokens)</span> </span>&#123;</span><br><span class="line">        <span class="function">std::unique_lock&lt;std::mutex&gt; <span class="title">lock</span><span class="params">(mutex_)</span></span>; </span><br><span class="line"></span><br><span class="line">        <span class="built_in">Refill</span>();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (tokens_ &gt;= tokens) &#123;</span><br><span class="line">            tokens_ -= tokens;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">Refill</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">auto</span> now = steady_clock::<span class="built_in">now</span>();</span><br><span class="line">        <span class="keyword">auto</span> time_since_last_refill = now - last_refill_time_;</span><br><span class="line">        last_refill_time_ = now;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> tokens_to_add = <span class="built_in">duration_cast</span>&lt;milliseconds&gt;(time_since_last_refill).<span class="built_in">count</span>() * rate_ / <span class="number">1000</span>;</span><br><span class="line">        tokens_ = std::<span class="built_in">min</span>(tokens_ + tokens_to_add, capacity_);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> capacity_;</span><br><span class="line">    <span class="type">int</span> rate_;</span><br><span class="line">    <span class="type">int</span> tokens_;</span><br><span class="line">    std::mutex mutex_;</span><br><span class="line">    std::condition_variable cv_;</span><br><span class="line">    std::chrono::steady_clock::time_point last_refill_time_;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="function">TokenBucket <span class="title">bucket</span><span class="params">(<span class="number">10</span>, <span class="number">2</span>)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">20</span>; i++) &#123;</span><br><span class="line">        std::this_thread::<span class="built_in">sleep_for</span>(<span class="built_in">milliseconds</span>(<span class="number">500</span>));</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (bucket.<span class="built_in">TryConsume</span>(<span class="number">1</span>)) &#123;</span><br><span class="line">            std::cout &lt;&lt; <span class="string">&quot;Request &quot;</span> &lt;&lt; i &lt;&lt; <span class="string">&quot; accepted.&quot;</span> &lt;&lt; std::endl;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            std::cout &lt;&lt; <span class="string">&quot;Request &quot;</span> &lt;&lt; i &lt;&lt; <span class="string">&quot; rejected.&quot;</span> &lt;&lt; std::endl;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在这个例子中，<code>TokenBucket</code>类维护了桶的容量、速率和当前的令牌数量。当一个请求到达时，它将尝试从桶中消耗指定数量的令牌。如果桶中有足够的令牌，请求将被接受，否则请求将被拒绝。</p>
+<p>在<code>TryConsume</code>方法中，首先调用<code>Refill</code>方法以确保桶中有足够的令牌。然后，如果桶中有足够的令牌，它将扣除指定数量的令牌并返回<code>true</code>，否则它将返回<code>false</code>。</p>
+<p>在<code>Refill</code>方法中，它计算从上次刷新以来的时间，并根据速率计算应该添加的令牌数量。然后，它将令牌数量限制在桶的容量内。</p>
+<p>在<code>main</code>函数中，我们创建一个容量为10，速率为2的<code>TokenBucket</code>对象，并模拟20个请求，每500毫秒到达一个请求。如果请求被接受，它将输出“Request i accepted.”，否则它将输出“Request i rejected.”。</p>
+<p>这个例子只是一个简单的演示，您可以根据自己的需求进行修改和扩展。</p>
+<p>防止SQL注入攻击是编写安全的数据库应用程序的重要方面。以下是一个使用参数化查询防止SQL注入攻击的C++示例：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;mysql/mysql.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    MYSQL mysql;</span><br><span class="line">    <span class="built_in">mysql_init</span>(&amp;mysql);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (!<span class="built_in">mysql_real_connect</span>(&amp;mysql, <span class="string">&quot;localhost&quot;</span>, <span class="string">&quot;username&quot;</span>, <span class="string">&quot;password&quot;</span>, <span class="string">&quot;database&quot;</span>, <span class="number">0</span>, <span class="literal">NULL</span>, <span class="number">0</span>)) &#123;</span><br><span class="line">        std::cerr &lt;&lt; <span class="string">&quot;Failed to connect to database: &quot;</span> &lt;&lt; <span class="built_in">mysql_error</span>(&amp;mysql) &lt;&lt; std::endl;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    std::string username = <span class="string">&quot;Alice&quot;</span>;</span><br><span class="line">    std::string password = <span class="string">&quot;pass123&quot;</span>;</span><br><span class="line"></span><br><span class="line">    MYSQL_STMT *stmt;</span><br><span class="line">    MYSQL_BIND params[<span class="number">2</span>];</span><br><span class="line"></span><br><span class="line">    stmt = <span class="built_in">mysql_stmt_init</span>(&amp;mysql);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (!stmt) &#123;</span><br><span class="line">        std::cerr &lt;&lt; <span class="string">&quot;Failed to initialize statement: &quot;</span> &lt;&lt; <span class="built_in">mysql_error</span>(&amp;mysql) &lt;&lt; std::endl;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">mysql_stmt_prepare</span>(stmt, <span class="string">&quot;SELECT * FROM users WHERE username = ? AND password = ?&quot;</span>, <span class="number">-1</span>) != <span class="number">0</span>) &#123;</span><br><span class="line">        std::cerr &lt;&lt; <span class="string">&quot;Failed to prepare statement: &quot;</span> &lt;&lt; <span class="built_in">mysql_stmt_error</span>(stmt) &lt;&lt; std::endl;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">memset</span>(params, <span class="number">0</span>, <span class="built_in">sizeof</span>(params));</span><br><span class="line"></span><br><span class="line">    params[<span class="number">0</span>].buffer_type = MYSQL_TYPE_STRING;</span><br><span class="line">    params[<span class="number">0</span>].buffer = (<span class="type">void</span> *)username.<span class="built_in">c_str</span>();</span><br><span class="line">    params[<span class="number">0</span>].buffer_length = username.<span class="built_in">length</span>();</span><br><span class="line"></span><br><span class="line">    params[<span class="number">1</span>].buffer_type = MYSQL_TYPE_STRING;</span><br><span class="line">    params[<span class="number">1</span>].buffer = (<span class="type">void</span> *)password.<span class="built_in">c_str</span>();</span><br><span class="line">    params[<span class="number">1</span>].buffer_length = password.<span class="built_in">length</span>();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">mysql_stmt_bind_param</span>(stmt, params) != <span class="number">0</span>) &#123;</span><br><span class="line">        std::cerr &lt;&lt; <span class="string">&quot;Failed to bind parameters: &quot;</span> &lt;&lt; <span class="built_in">mysql_stmt_error</span>(stmt) &lt;&lt; std::endl;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">mysql_stmt_execute</span>(stmt) != <span class="number">0</span>) &#123;</span><br><span class="line">        std::cerr &lt;&lt; <span class="string">&quot;Failed to execute statement: &quot;</span> &lt;&lt; <span class="built_in">mysql_stmt_error</span>(stmt) &lt;&lt; std::endl;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    MYSQL_RES *result = <span class="built_in">mysql_stmt_result_metadata</span>(stmt);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (result) &#123;</span><br><span class="line">        <span class="type">int</span> num_fields = <span class="built_in">mysql_num_fields</span>(result);</span><br><span class="line">        MYSQL_FIELD *fields = <span class="built_in">mysql_fetch_fields</span>(result);</span><br><span class="line"></span><br><span class="line">        MYSQL_BIND bind[num_fields];</span><br><span class="line">        <span class="built_in">memset</span>(bind, <span class="number">0</span>, <span class="built_in">sizeof</span>(bind));</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; num_fields; i++) &#123;</span><br><span class="line">            bind[i].buffer_type = fields[i].type;</span><br><span class="line">            bind[i].buffer = <span class="built_in">malloc</span>(fields[i].length);</span><br><span class="line">            bind[i].buffer_length = fields[i].length;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">mysql_stmt_bind_result</span>(stmt, bind) != <span class="number">0</span>) &#123;</span><br><span class="line">            std::cerr &lt;&lt; <span class="string">&quot;Failed to bind result: &quot;</span> &lt;&lt; <span class="built_in">mysql_stmt_error</span>(stmt) &lt;&lt; std::endl;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">mysql_stmt_store_result</span>(stmt) != <span class="number">0</span>) &#123;</span><br><span class="line">            std::cerr &lt;&lt; <span class="string">&quot;Failed to store result: &quot;</span> &lt;&lt; <span class="built_in">mysql_stmt_error</span>(stmt) &lt;&lt; std::endl;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (<span class="built_in">mysql_stmt_fetch</span>(stmt) == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; num_fields; i++) &#123;</span><br><span class="line">                std::cout &lt;&lt; fields[i].name &lt;&lt; <span class="string">&quot;: &quot;</span>;</span><br><span class="line"></span><br><span class="line">                <span class="keyword">switch</span> (bind[i].buffer_type) &#123;</span><br><span class="line">                    <span class="keyword">case</span> MYSQL_TYPE_LONG:</span><br><span class="line">                        std::cout &lt;&lt; *((<span class="type">int</span> *)bind[i].buffer);</span><br><span class="line">                        <span class="keyword">break</span>;</span><br><span class="line">                    <span class="keyword">case</span> MYSQL_TYPE_STRING:</span><br><span class="line">                        std::cout &lt;&lt; (<span class="type">char</span> *)bind[i].buffer;</span><br><span class="line">                        <span class="keyword">break</span>;</span><br><span class="line">                    <span class="keyword">default</span>:</span><br><span class="line">                        std::cout &lt;&lt; <span class="string">&quot;unknown type&quot;</span>;</span><br><span class="line">                        <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                std::cout &lt;&lt; std::endl;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">mysql_free_result</span>(result);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; num_fields; i++) &#123;</span><br><span class="line">            <span class="built_in">free</span>(bind[i].buffer);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">mysql_stmt_close</span>(stmt);</span><br><span class="line">    <span class="built_in">mysql_close</span>(&amp;mysql);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在这个例子中，我们使用MySQL C API连接到数据库。我们将用户名和密码作为参数传递给查询，以防止SQL注入攻击。我们使用<code>mysql_stmt_prepare</code>函数准备查询并使用<code>mysql_stmt_bind_param</code>函数绑定参数。</p>
+<p>我们使用<code>MYSQL_BIND</code>结构体来表示绑定参数和结果集。我们使用<code>memset</code>函数将其初始化为零，并设置每个参数的类型、缓冲区和缓冲区长度。</p>
+<p>我们使用<code>mysql_stmt_execute</code>函数执行查询，并使用<code>mysql_stmt_result_metadata</code>函数获取结果集的元数据。如果结果集不为空，我们使用<code>mysql_fetch_fields</code>函数获取每个字段的元数据，并使用<code>mysql_stmt_bind_result</code>函数将结果绑定到<code>MYSQL_BIND</code>结构体中。</p>
+<p>我们使用<code>mysql_stmt_fetch</code>函数获取每一行的结果，并将它们输出到控制台上。</p>
+<p>最后，我们释放绑定缓冲区和关闭语句和数据库连接。</p>
+<p>通过使用参数化查询，我们可以防止SQL注入攻击。</p>
+<p>如果你想开始学习FFmpeg，以下是一些步骤：</p>
+<ol>
+<li><p>了解FFmpeg的基本概念和术语，例如：编解码器、格式、滤镜、muxer、demuxer等等。</p>
+</li>
+<li><p>下载FFmpeg的源代码或预编译版本。你可以从FFmpeg官方网站或其他可靠的下载站点获取。</p>
+</li>
+<li><p>安装FFmpeg。如果你下载的是源代码，你需要编译和安装它。如果你下载的是预编译版本，则可以直接解压缩并安装。</p>
+</li>
+<li><p>学习如何使用FFmpeg。你可以从官方文档、教程、博客、视频教程等资源中获取信息。</p>
+</li>
+<li><p>练习使用FFmpeg。尝试使用不同的命令行选项和参数，以及不同的输入和输出格式。你可以使用一些示例文件进行测试。</p>
+</li>
+<li><p>加入FFmpeg社区。你可以参与FFmpeg的邮件列表、IRC频道、论坛等社区，与其他用户交流和分享经验。</p>
+</li>
+</ol>
+<p>总之，学习FFmpeg需要耐心和实践，如果你坚持下去，你会逐渐掌握它的技能并成为一个专业的视频处理人员。</p>
+<p>以下是一些学习FFmpeg的参考资料：</p>
+<ol>
+<li><p>FFmpeg官方文档：<a href="https://ffmpeg.org/documentation.html">https://ffmpeg.org/documentation.html</a></p>
+</li>
+<li><p>FFmpeg官方wiki：<a href="https://trac.ffmpeg.org/wiki">https://trac.ffmpeg.org/wiki</a></p>
+</li>
+<li><p>FFmpeg命令行参数手册：<a href="https://ffmpeg.org/ffmpeg.html">https://ffmpeg.org/ffmpeg.html</a></p>
+</li>
+<li><p>FFmpeg格式和编解码器支持列表：<a href="https://ffmpeg.org/general.html#Supported-File-Formats-Codecs-and-Protocols">https://ffmpeg.org/general.html#Supported-File-Formats-Codecs-and-Protocols</a></p>
+</li>
+<li><p>FFmpeg滤镜手册：<a href="https://ffmpeg.org/ffmpeg-filters.html">https://ffmpeg.org/ffmpeg-filters.html</a></p>
+</li>
+<li><p>FFmpeg教程和示例代码：<a href="https://www.ffmpeg.org/documentation.html#Examples">https://www.ffmpeg.org/documentation.html#Examples</a></p>
+</li>
+<li><p>FFmpeg中文文档：<a href="https://www.ffmpeg.org.cn/">https://www.ffmpeg.org.cn/</a></p>
+</li>
+<li><p>FFmpeg视频处理实战：<a href="https://github.com/leandromoreira/ffmpeg-libav-tutorial">https://github.com/leandromoreira/ffmpeg-libav-tutorial</a></p>
+</li>
+<li><p>FFmpeg常见问题解答：<a href="https://trac.ffmpeg.org/wiki/FAQ">https://trac.ffmpeg.org/wiki/FAQ</a></p>
+</li>
+</ol>
+<p>希望这些资料对你有所帮助，祝学习愉快！</p>
+<p>如果你想阅读 FFmpeg 的源代码，可以按照以下步骤开始：</p>
+<ol>
+<li><p>先从官方网站下载最新的 FFmpeg 源代码。</p>
+</li>
+<li><p>阅读 FFmpeg 的文档，了解 FFmpeg 的基本概念、编译方式、命令行参数等。</p>
+</li>
+<li><p>阅读 FFmpeg 的主要源文件，包括 libavcodec、libavformat、libavutil 等。</p>
+</li>
+<li><p>学习 FFmpeg 的 API，了解如何使用 FFmpeg 的库函数来实现音视频的编解码、格式转换等功能。</p>
+</li>
+<li><p>阅读 FFmpeg 的示例代码，了解如何使用 FFmpeg 的 API 来实现常见的音视频处理任务。</p>
+</li>
+<li><p>参考 FFmpeg 的开发文档，了解如何贡献代码、提交补丁等。</p>
+</li>
+</ol>
+<p>总之，要深入理解 FFmpeg 的源代码，需要花费大量的时间和精力，需要掌握 C 语言、音视频编解码、多媒体格式等多个领域的知识。</p>
+<p>libavcodec是FFmpeg中的一个库，它是一个编解码器库，提供了对各种音视频编码和解码的支持。它包含了多种音视频编解码器，如H.264、MPEG-4、MPEG-2、VP9、AAC、MP3等。在FFmpeg中，libavcodec是非常重要的一部分，它提供了FFmpeg的核心功能之一，即音视频的编解码功能。</p>
+<p>libavcodec可以将各种不同格式的音视频数据解码成FFmpeg内部的统一格式，也可以将FFmpeg内部的统一格式编码成各种不同格式的音视频数据，支持多种音视频编解码标准，同时具有高度的可扩展性和灵活性。此外，libavcodec还提供了一些优化的编解码实现，可以提高音视频编解码的效率。</p>
+<p>在使用libavcodec时，我们可以通过调用其提供的API来完成音视频的编解码工作，同时也可以进行一些高级的音视频处理，如滤波、裁剪、缩放、色彩空间转换等。总之，libavcodec是FFmpeg中非常重要的一部分，它为FFmpeg提供了强大的音视频编解码能力，是众多音视频应用的重要基础。</p>
+<p>libavcodec中有很多重要的函数，以下是一些主要的函数：</p>
+<ol>
+<li><p>avcodec_find_decoder()：根据编码器ID查找解码器。</p>
+</li>
+<li><p>avcodec_find_encoder()：根据编码器ID查找编码器。</p>
+</li>
+<li><p>avcodec_open2()：打开解码器或编码器。</p>
+</li>
+<li><p>avcodec_close()：关闭解码器或编码器。</p>
+</li>
+<li><p>avcodec_send_packet()：将待解码或编码的数据包发送给解码器或编码器。</p>
+</li>
+<li><p>avcodec_receive_frame()：从解码器中获取解码后的视频帧或音频样本。</p>
+</li>
+<li><p>avcodec_send_frame()：将待编码的视频帧或音频样本发送给编码器。</p>
+</li>
+<li><p>avcodec_receive_packet()：从编码器中获取编码后的数据包。</p>
+</li>
+<li><p>avcodec_parameters_to_context()：将音视频参数填充到解码器或编码器上下文中。</p>
+</li>
+<li><p>avcodec_alloc_frame()：分配一个AVFrame对象。</p>
+</li>
+</ol>
+<p>以上是一些主要的函数，还有很多其他的函数，可以根据自己的需要选择使用。</p>
+<p>有很多业务可以让您的MySQL存储更多的数据，以下是一些想法：</p>
+<ol>
+<li><p>用户注册和信息管理：除了用户名和密码，您可以让用户输入更多的信息，例如电子邮件，电话号码，地址等等。这些信息可以存储在MySQL数据库中，以便您可以随时检索和更新。</p>
+</li>
+<li><p>商品管理：如果您有一个在线商店，您可以创建一个MySQL表来存储您的商品信息，例如名称，描述，价格，库存等等。</p>
+</li>
+<li><p>订单管理：如果您有一个在线商店，您可以创建一个MySQL表来存储您的订单信息，例如订单号，客户信息，商品信息，数量，总价等等。</p>
+</li>
+<li><p>日志管理：您可以创建一个MySQL表来存储您的应用程序日志，例如错误消息，警告消息和其他重要事件。</p>
+</li>
+<li><p>聊天记录：如果您有一个聊天应用程序，您可以创建一个MySQL表来存储聊天记录，以便您可以随时检索和查看以前的聊天记录。</p>
+</li>
+</ol>
+<p>这些只是一些想法，您可以根据自己的业务需求来扩展MySQL的内容。</p>
+<p>如果您想要做一个视频播放网站，以下是一些您可能需要存储在MySQL中的业务信息：</p>
+<ol>
+<li><p>视频信息：您可以创建一个MySQL表来存储您的视频信息，例如名称，描述，时长，上传日期，标签等等。</p>
+</li>
+<li><p>用户信息：您可以创建一个MySQL表来存储您的用户信息，例如用户名，密码，电子邮件，个人资料等等。</p>
+</li>
+<li><p>视频分类：您可以创建一个MySQL表来存储您的视频分类信息，例如电影，电视剧，综艺节目等等。</p>
+</li>
+<li><p>视频评论：您可以创建一个MySQL表来存储您的视频评论信息，例如评论内容，评论日期，用户信息等等。</p>
+</li>
+<li><p>视频收藏：您可以创建一个MySQL表来存储您的用户收藏视频信息，例如用户ID，视频ID，收藏日期等等。</p>
+</li>
+<li><p>视频播放记录：您可以创建一个MySQL表来存储您的用户播放视频记录，例如用户ID，视频ID，播放进度，播放日期等等。</p>
+</li>
+</ol>
+<p>这些只是一些想法，您可以根据自己的业务需求来扩展MySQL的内容。</p>
+<p>如果您想要使用更现代的方式来处理CGI，以下是一些您可以参考的方式：</p>
+<ol>
+<li><p>FastCGI：FastCGI是一种快速且高效的CGI处理方式，它可以在Web服务器和CGI应用程序之间建立一个持久连接，从而提高性能和吞吐量。FastCGI支持多个并发请求，可以在同一个进程中处理多个请求。</p>
+</li>
+<li><p>SCGI：SCGI也是一种快速和高效的CGI处理方式，它可以在Web服务器和CGI应用程序之间建立一个持久连接，从而提高性能和吞吐量。与FastCGI不同的是，SCGI是一种更简单的协议，易于实现和维护。</p>
+</li>
+<li><p>uWSGI：uWSGI是一个Web服务器和应用程序服务器，支持多种语言和多种协议，包括CGI，FastCGI和SCGI。它可以高效地处理大量的并发请求，提供可靠的性能和可扩展性。</p>
+</li>
+<li><p>CGI++：CGI++是一个基于C++的CGI框架，提供了一组高级API，可以帮助您更轻松地开发和维护CGI应用程序。它支持多线程和多进程，并提供了内存池和线程池等高级功能，以提高性能和可靠性。</p>
+</li>
+</ol>
+<p>这些都是一些比较好的CGI处理方式，您可以根据自己的需求选择其中的一种或多种。</p>
+<p>当然，以下是一些您可以参考的C++ CGI处理仓库：</p>
+<ol>
+<li><p>CGI++：CGI++是一个基于C++的CGI框架，提供了一组高级API，可以帮助您更轻松地开发和维护CGI应用程序。它支持多线程和多进程，并提供了内存池和线程池等高级功能，以提高性能和可靠性。</p>
+</li>
+<li><p>CppCMS：CppCMS是一个高性能的Web开发框架，支持CGI，FastCGI和HTTP协议。它基于C++11标准，提供了许多高级功能，例如会话管理，缓存，模板引擎等等。</p>
+</li>
+<li><p>Wt：Wt是一个开源的Web开发框架，支持C++，JavaScript和CSS。它提供了一个基于组件的架构，可以帮助您更轻松地开发Web应用程序。Wt支持CGI，FastCGI和HTTP协议，并提供了一组高级API，以提高性能和可靠性。</p>
+</li>
+<li><p>Crow：Crow是一个微型C++ Web框架，支持CGI，FastCGI和HTTP协议。它基于C++11标准，提供了一组简单而强大的API，可以帮助您更轻松地开发Web应用程序。</p>
+</li>
+</ol>
+<p>这些都是一些比较好的C++ CGI处理仓库，您可以根据自己的需求选择其中的一种或多种。</p>
+<p>好的，如果您要做一个视频播放的网站，以下是一些设计建议和功能建议：</p>
+<p>设计建议：</p>
+<ol>
+<li><p>界面美观：一个好的视频播放网站应该有一个美观的界面，吸引用户的注意力。</p>
+</li>
+<li><p>响应式设计：由于用户可能会在不同的设备上访问您的网站，因此您应该设计一个响应式的界面，可以适应不同的设备屏幕大小。</p>
+</li>
+<li><p>用户友好：您的网站应该易于使用和导航，用户应该可以轻松地找到他们想要的内容。</p>
+</li>
+<li><p>快速加载：视频需要大量的带宽和资源，因此您的网站应该快速加载，以提供更好的用户体验。</p>
+</li>
+</ol>
+<p>功能建议：</p>
+<ol>
+<li><p>视频搜索：用户应该可以使用关键字搜索您的视频库中的视频。</p>
+</li>
+<li><p>视频分类：您的网站应该将视频按照不同的类别进行分类，例如电影，电视节目，音乐视频等。</p>
+</li>
+<li><p>视频播放：您的网站应该提供一个视频播放器，可以播放不同格式的视频，例如MP4，AVI等。</p>
+</li>
+<li><p>视频上传：您的网站应该允许用户上传他们自己的视频，以增加您的视频库。</p>
+</li>
+<li><p>评论和评级：您的网站应该允许用户对视频进行评论和评级，以帮助其他用户找到高质量的视频。</p>
+</li>
+<li><p>用户账户：您的网站应该提供一个用户账户系统，用户可以在其中创建和管理他们自己的个人资料和视频列表。</p>
+</li>
+<li><p>推荐系统：您的网站应该提供一个推荐系统，可以向用户推荐他们可能感兴趣的视频。</p>
+</li>
+</ol>
+<p>希望这些建议可以帮助您设计和实现一个成功的视频播放网站。</p>
+<p>当然，以下是一些好的视频播放网站的例子，您可以参考：</p>
+<ol>
+<li><p>YouTube：YouTube是全球最大的视频分享网站之一，支持用户上传、分享和观看视频。它提供了一个强大的搜索引擎和推荐系统，使用户可以轻松地找到他们喜欢的视频。</p>
+</li>
+<li><p>Vimeo：Vimeo是另一个受欢迎的视频分享网站，它更加注重高质量的视频内容和创意。它提供了一个类似于YouTube的界面，但更加专业和艺术化。</p>
+</li>
+<li><p>Netflix：Netflix是一个流媒体视频服务，提供了大量的电影和电视节目。它的界面非常简洁和易于使用，用户可以轻松地搜索和浏览不同的视频内容。</p>
+</li>
+<li><p>Hulu：Hulu是另一个流媒体视频服务，提供了大量的电影和电视节目。它的界面类似于一个电视机顶盒的界面，用户可以轻松地选择他们想要观看的内容。</p>
+</li>
+<li><p>Dailymotion：Dailymotion是一个视频分享网站，类似于YouTube。它提供了一个简单和易于使用的界面，用户可以上传、分享和观看视频。</p>
+</li>
+</ol>
+<p>这些都是一些非常成功的视频播放网站，您可以从中学习他们的设计和功能，以帮助您设计和实现自己的视频播放网站。</p>
+<p>如果您用C++搭建视频播放网站的后台，以下是一些核心功能和需要学习的知识：</p>
+<p>核心功能：</p>
+<ol>
+<li><p>视频编解码：视频需要进行编解码以便于存储和播放，您需要学习有关视频编解码的知识，例如H.264，HEVC等。</p>
+</li>
+<li><p>视频存储：您需要学习有关数据库和文件系统的知识，以便于存储和管理大量的视频文件。</p>
+</li>
+<li><p>视频传输：您需要学习有关网络传输和协议的知识，以便于将视频流传输到用户的设备上。</p>
+</li>
+<li><p>视频播放器：您需要实现一个视频播放器，可以解码和播放不同格式的视频，例如MP4，AVI等。</p>
+</li>
+<li><p>用户认证和授权：您需要实现一个用户认证和授权系统，可以管理用户的访问权限和保护视频内容。</p>
+</li>
+</ol>
+<p>开发一个视频播放网站的时间取决于很多因素，例如网站的规模、功能、设计复杂度等等。因此，我无法给出确切的时间估计。但是，以下是一个大致的开发进度安排，供您参考：</p>
+<p>第一周（4.13-4.19）：</p>
+<ol>
+<li>规划网站功能和设计，制定开发计划。</li>
+<li>学习有关视频编解码、数据库和网络编程的知识。</li>
+<li>搭建基础框架，实现用户认证和授权功能。</li>
+</ol>
+<p>第二周（4.20-4.26）：</p>
+<ol>
+<li>学习有关视频存储和传输的知识。</li>
+<li>实现视频上传和存储功能。</li>
+<li>实现视频播放器，可以解码和播放不同格式的视频。</li>
+</ol>
+<p>第三周（4.27-5.3）：</p>
+<ol>
+<li>学习有关多线程编程和并发控制的知识。</li>
+<li>实现视频编解码和传输功能，保证视频流畅播放。</li>
+<li>完善网站的用户界面和功能。</li>
+</ol>
+<p>第四周（5.4-5.10）：</p>
+<ol>
+<li>学习有关安全和加密的知识。</li>
+<li>实现安全和加密功能，保护视频内容和用户隐私。</li>
+<li>进行网站测试和调试，修复漏洞和bug。</li>
+</ol>
+<p>第五周（5.11-5.17）：</p>
+<ol>
+<li>上线网站，发布测试版。</li>
+<li>收集用户反馈和意见，优化网站设计和功能。</li>
+<li>准备正式发布，宣传和推广网站。</li>
+</ol>
+<p>以上是一个大致的开发进度安排，具体时间取决于您的开发经验和技能、项目复杂度等因素。在开发过程中，及时调整进度安排，根据实际情况进行优化和改进，以保证项目的成功开发和上线。</p>
+<p>实现一个比Bilibili和YouTube更好的视频网站是一项非常具有挑战性的任务。以下是一些可能的亮点功能：</p>
+<ol>
+<li><p>强大的视频推荐算法：使用机器学习和人工智能技术，为用户提供个性化的视频推荐服务，更好地满足用户需求。</p>
+</li>
+<li><p>优质内容的筛选和审核：通过对视频内容的严格审核和筛选，保证网站上的内容质量，提高用户体验。</p>
+</li>
+<li><p>社交功能的增强：除了基本的评论和点赞功能外，还可以增加更多的社交功能，例如私信、关注、分享等，让用户更好地互动和交流。</p>
+</li>
+<li><p>更好的视频播放体验：提供更快的视频加载速度、更流畅的播放体验和更高的画质，让用户享受更好的观看体验。</p>
+</li>
+<li><p>多语言支持和跨平台兼容性：支持多种语言和跨平台兼容性，使更多的用户可以轻松访问和使用网站。</p>
+</li>
+<li><p>创新的商业模式：除了广告和会员等传统的商业模式外，可以尝试一些新的商业模式，例如增值服务、虚拟商品等，创造更多的商业价值。</p>
+</li>
+</ol>
+<p>以上是一些可能的亮点功能，当然还有很多其他的创新点和亮点可以探索和尝试。重要的是要不断地了解用户需求和市场变化，不断优化和改进网站的功能和服务。</p>
+<p>这些运维技能都可以帮助你更好地搭建、部署和管理视频播放网站。以下是一些可能的搭配运用方式：</p>
+<ol>
+<li><p>使用Nginx作为反向代理服务器，实现负载均衡和高可用性。Nginx可以将请求分发到多个服务器上，提高网站的访问速度和可靠性。</p>
+</li>
+<li><p>使用Docker将应用程序和依赖项打包成容器，方便部署和管理。Docker可以快速创建和销毁容器，避免了环境配置和依赖项问题，提高了开发效率。</p>
+</li>
+<li><p>使用Kubernetes（K8s）进行容器编排和管理，实现自动扩展和负载均衡。K8s可以自动调整容器数量，根据流量自动扩展和缩减容器，提高了网站的可伸缩性和弹性。</p>
+</li>
+<li><p>使用Jenkins进行持续集成和持续部署（CI&#x2F;CD），实现自动化构建、测试和部署。Jenkins可以自动化执行构建、测试和部署任务，减少了手动操作，提高了开发效率和质量。</p>
+</li>
+<li><p>进行日志分析和监控，使用ELK（Elasticsearch、Logstash和Kibana）等工具进行日志分析和监控。ELK可以对网站的日志进行收集、分析和可视化，帮助你快速定位和解决问题，提高了网站的可靠性和稳定性。</p>
+</li>
+</ol>
+<p>以上是一些可能的搭配运用方式，具体的应用场景和运用方式需要根据你的具体需求和情况来选择和决定。</p>
+<p>有很多优秀的前端页面模板可以参考，以下是一些比较好的学生管理系统前端页面模板：</p>
+<ol>
+<li><p>AdminLTE：一个开源的后台管理模板，提供了丰富的UI组件、表格、图表等功能，适合用于学生管理系统的后台管理页面。</p>
+</li>
+<li><p>Material Dashboard：一个基于Google Material Design的模板，提供了漂亮的UI设计和丰富的组件，适合用于学生管理系统的前台页面。</p>
+</li>
+<li><p>Metronic：一个功能强大的后台管理模板，提供了多种布局和主题，适合用于学生管理系统的后台管理页面。</p>
+</li>
+<li><p>SB Admin 2：一个简洁美观的后台管理模板，提供了响应式设计和多种组件，适合用于学生管理系统的后台管理页面。</p>
+</li>
+<li><p>Bootstrap Admin Template：一个基于Bootstrap的后台管理模板，提供了丰富的UI组件和布局，适合用于学生管理系统的后台管理页面。</p>
+</li>
+</ol>
+<p>以上模板都可以在Github上找到源码和使用文档，可以根据自己的需求进行定制和修改。</p>
+<p>以下是一些比较好的ffmpeg和C++结合的视频播放器的Github仓库：</p>
+<ol>
+<li><p>mpv-player&#x2F;mpv：一个基于FFmpeg和OpenGL的视频播放器，支持多种视频格式和音频格式，可以在Linux、Windows和macOS系统上运行。</p>
+</li>
+<li><p>VideoLAN&#x2F;VLC：一个开源的跨平台媒体播放器，支持各种视频和音频格式，可以在Windows、Linux、macOS、Android和iOS等平台上运行。</p>
+</li>
+<li><p>Bilibili&#x2F;ijkplayer：一个基于FFmpeg的Android&#x2F;iOS视频播放器，支持多种视频格式和音频格式，提供了丰富的API和示例代码。</p>
+</li>
+<li><p>FFmpegPlayer&#x2F;FFmpegPlayer：一个基于FFmpeg和SDL的视频播放器，支持多种视频格式和音频格式，提供了简单易用的API和示例代码。</p>
+</li>
+</ol>
+<p>这些仓库都提供了丰富的文档、示例代码和API，可以根据自己的需求进行定制和修改。</p>
 <h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><p>[日志系统]<a href="https://mp.weixin.qq.com/s?__biz=MzI3NzE0NjcwMg==&amp;mid=2650122657&amp;idx=1&amp;sn=c5ce1d8059c40e4cd6deb42a34f8fe49&amp;chksm=f36bb480c41c3d96f69a9fbbc8e7e1515b8bbec87742f76fa3dfda0019a7b58aa282c3ef9bde&amp;scene=21#wechat_redirect">https://mp.weixin.qq.com/s?__biz=MzI3NzE0NjcwMg==&amp;mid=2650122657&amp;idx=1&amp;sn=c5ce1d8059c40e4cd6deb42a34f8fe49&amp;chksm=f36bb480c41c3d96f69a9fbbc8e7e1515b8bbec87742f76fa3dfda0019a7b58aa282c3ef9bde&amp;scene=21#wechat_redirect</a><br>[Reactor模型和Proactor模型]<a href="https://cloud.tencent.com/developer/article/1488120">https://cloud.tencent.com/developer/article/1488120</a><br>[Reactor模型]<a href="https://www.cnblogs.com/CodeBear/p/12567022.html">https://www.cnblogs.com/CodeBear/p/12567022.html</a><br>[epoll 事件之 EPOLLRDHUP]<a href="https://yangwenbo.com/articles/epoll-event-epollrdhup.html">https://yangwenbo.com/articles/epoll-event-epollrdhup.html</a></p>
 ]]></content>
       <tags>
@@ -3030,7 +3393,7 @@ Tracing：OpenTracing 和 Jaeger，Jaeger 是 Uber 开源的一个兼容 OpenTra
     <title>语义分割</title>
     <url>/2022/10/11/Course/ML/Semantic_segmentation/</url>
     <content><![CDATA[<p>语义分割(semantic segmentation)FCN<br>实例分割( Instance segmentation)Mask R-CNN<br>全景分割(Panoramic segmentation) Panoptic FPN</p>
-<h1 id="采集数据的注意点"><a href="#采集数据的注意点" class="headerlink" title="采集数据的注意点"></a>采集数据的注意点</h1><ol>
+<h1 id="3-13采集数据的注意点"><a href="#3-13采集数据的注意点" class="headerlink" title="3-13采集数据的注意点"></a>3-13采集数据的注意点</h1><ol>
 <li>不要迎着光拍摄</li>
 <li>最好有云台支持<!-- 3. 采集的图片，虽然分文件夹，但是文件名还是得处理，不然重名了 --></li>
 <li>需要增加人站着的识别<ol>
@@ -3040,6 +3403,9 @@ Tracing：OpenTracing 和 Jaeger，Jaeger 是 Uber 开源的一个兼容 OpenTra
 </li>
 <li>要考虑拍照的时间，白天还是下午，看起来最好是早上，阴天</li>
 <li>需要考虑照相机摆放的位置</li>
+</ol>
+<h1 id="3-22采集数据的注意点"><a href="#3-22采集数据的注意点" class="headerlink" title="3-22采集数据的注意点"></a>3-22采集数据的注意点</h1><ol>
+<li>可以拍摄不同角度的，比如竖着的也拍摄一点</li>
 </ol>
 <p>3.15下次拍照需要注意的：</p>
 <p>脏数据的影响</p>
@@ -3051,8 +3417,11 @@ Tracing：OpenTracing 和 Jaeger，Jaeger 是 Uber 开源的一个兼容 OpenTra
 <li>数据集标注问题：数据集标注问题也可能导致 IoU 变成 NaN。比如，在数据集标注过程中出现了错误的标注，可能导致 IoU 计算错误。</li>
 </ol>
 <p>出现了脏数据</p>
-<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p>[机器学习开篇之机器学习的分类]<a href="https://blog.csdn.net/Lion_Dreams/article/details/125269215">https://blog.csdn.net/Lion_Dreams/article/details/125269215</a><br>[计算机视觉 - 语义分割 （semantic segmentation）]<a href="https://blog.csdn.net/baidu_41617231/article/details/107739897">https://blog.csdn.net/baidu_41617231/article/details/107739897</a><br>[机器学习：mAP评价指标]<a href="https://blog.csdn.net/qq_40765537/article/details/106394103">https://blog.csdn.net/qq_40765537/article/details/106394103</a><br>[PASCAL VOC2012数据集介绍]<a href="https://blog.csdn.net/qq_37541097/article/details/115787033">https://blog.csdn.net/qq_37541097/article/details/115787033</a><br>[损失函数（loss function）]<a href="https://blog.csdn.net/EmilyHoward/article/details/118367495">https://blog.csdn.net/EmilyHoward/article/details/118367495</a><br>[标注工具的使用]<a href="https://www.bilibili.com/video/BV1ev411P7dR/?spm_id_from=333.999.0.0&amp;vd_source=76dff3ae3b42b00d067c0921bf6859ca">https://www.bilibili.com/video/BV1ev411P7dR/?spm_id_from=333.999.0.0&amp;vd_source=76dff3ae3b42b00d067c0921bf6859ca</a><br>[Labelme工具对应博文]<a href="https://blog.csdn.net/qq_37541097/article/details/120162702">https://blog.csdn.net/qq_37541097/article/details/120162702</a><br>[安装labelme教程]<a href="https://blog.csdn.net/weixin_43427721/article/details/107122775">https://blog.csdn.net/weixin_43427721/article/details/107122775</a><br>[EISeg工具对应博文]<a href="https://blog.csdn.net/qq_37541097/article/details/120154543">https://blog.csdn.net/qq_37541097/article/details/120154543</a><br>[batch size设置技巧]<a href="https://blog.csdn.net/zqx951102/article/details/88918948">https://blog.csdn.net/zqx951102/article/details/88918948</a></p>
-<p>[Azure Kinect DK 深度相机]<a href="https://blog.csdn.net/denkywu/article/details/103177559">https://blog.csdn.net/denkywu/article/details/103177559</a></p>
+<h1 id="语义分割评价指标"><a href="#语义分割评价指标" class="headerlink" title="语义分割评价指标"></a>语义分割评价指标</h1><h2 id="混淆矩阵"><a href="#混淆矩阵" class="headerlink" title="混淆矩阵"></a>混淆矩阵</h2><p>TP（True Positive）：真正例，模型预测为正例，实际是正例（模型预测为类别1，实际是类别1）<br>FP（False Positive）：假正例，模型预测为正例，实际是反例 （模型预测为类别1，实际是类别2）<br>FN（False Negative）：假反例，模型预测为反例，实际是正例 （模型预测为类别2，实际是类别1）<br>TN（True Negative）：真反例，模型预测为反例，实际是反例 （模型预测为类别2，实际是类别2）</p>
+<h2 id="交并比（Intersection-over-Union，IoU）"><a href="#交并比（Intersection-over-Union，IoU）" class="headerlink" title="交并比（Intersection over Union，IoU）"></a>交并比（Intersection over Union，IoU）</h2><p>含义：模型对某一类别预测结果和真实值的交集与并集的比值</p>
+<h2 id="平均交并比（Mean-Intersection-over-Union，MIoU）"><a href="#平均交并比（Mean-Intersection-over-Union，MIoU）" class="headerlink" title="平均交并比（Mean Intersection over Union，MIoU）"></a>平均交并比（Mean Intersection over Union，MIoU）</h2><p>含义：模型对每一类预测的结果和真实值的交集与并集的比值，求和再平均的结果<br>只有一个数值，对于每个类的IoU取平均</p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p>[机器学习开篇之机器学习的分类]<a href="https://blog.csdn.net/Lion_Dreams/article/details/125269215">https://blog.csdn.net/Lion_Dreams/article/details/125269215</a><br>[计算机视觉 - 语义分割 （semantic segmentation）]<a href="https://blog.csdn.net/baidu_41617231/article/details/107739897">https://blog.csdn.net/baidu_41617231/article/details/107739897</a><br>[机器学习：mAP评价指标]<a href="https://blog.csdn.net/qq_40765537/article/details/106394103">https://blog.csdn.net/qq_40765537/article/details/106394103</a><br>[PASCAL VOC2012数据集介绍]<a href="https://blog.csdn.net/qq_37541097/article/details/115787033">https://blog.csdn.net/qq_37541097/article/details/115787033</a><br>[损失函数（loss function）]<a href="https://blog.csdn.net/EmilyHoward/article/details/118367495">https://blog.csdn.net/EmilyHoward/article/details/118367495</a><br>[标注工具的使用]<a href="https://www.bilibili.com/video/BV1ev411P7dR/?spm_id_from=333.999.0.0&amp;vd_source=76dff3ae3b42b00d067c0921bf6859ca">https://www.bilibili.com/video/BV1ev411P7dR/?spm_id_from=333.999.0.0&amp;vd_source=76dff3ae3b42b00d067c0921bf6859ca</a><br>[Labelme工具对应博文]<a href="https://blog.csdn.net/qq_37541097/article/details/120162702">https://blog.csdn.net/qq_37541097/article/details/120162702</a><br>[安装labelme教程]<a href="https://blog.csdn.net/weixin_43427721/article/details/107122775">https://blog.csdn.net/weixin_43427721/article/details/107122775</a><br>[EISeg工具对应博文]<a href="https://blog.csdn.net/qq_37541097/article/details/120154543">https://blog.csdn.net/qq_37541097/article/details/120154543</a><br>[batch size设置技巧]<a href="https://blog.csdn.net/zqx951102/article/details/88918948">https://blog.csdn.net/zqx951102/article/details/88918948</a><br>[Azure Kinect DK 深度相机]<a href="https://blog.csdn.net/denkywu/article/details/103177559">https://blog.csdn.net/denkywu/article/details/103177559</a><br><a href="https://blog.csdn.net/sinat_29047129/article/details/103642140">【语义分割】评价指标：PA、CPA、MPA、IoU、MIoU详细总结和代码实现</a><br><a href="https://groups.csail.mit.edu/vision/datasets/ADE20K/">ADE20K</a></p>
+<h2 id="图像标定"><a href="#图像标定" class="headerlink" title="图像标定"></a>图像标定</h2><p><a href="https://zhuanlan.zhihu.com/p/136827980">张正友标定法-完整学习笔记-从原理到实战</a><br><a href="https://calib.io/pages/camera-calibration-pattern-generator">生成标定纸</a></p>
 ]]></content>
       <tags>
         <tag>课程</tag>
@@ -3652,5 +4021,162 @@ Tracing：OpenTracing 和 Jaeger，Jaeger 是 Uber 开源的一个兼容 OpenTra
       <tags>
         <tag>项目</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>EIseg环境安装</title>
+    <url>/2023/03/23/Environment-Configuration/EIseg_install/</url>
+    <content><![CDATA[<h1 id="1-安装python"><a href="#1-安装python" class="headerlink" title="1. 安装python"></a>1. 安装python</h1><p>勾选安装环境变量</p>
+<h1 id="2-安装anaconda"><a href="#2-安装anaconda" class="headerlink" title="2. 安装anaconda"></a>2. 安装anaconda</h1><ol>
+<li><p>不要勾选安装环境变量</p>
+</li>
+<li><p>安装后增加环境变量<br>E:\Anaconda<br>E:\Anaconda\Scripts<br>E:\Anaconda\Library\mingw-w64\bin<br>E:\Anaconda\Library\usr\bin<br>E:\Anaconda\Library\bin</p>
+</li>
+</ol>
+<p>测试是否安装成功</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">conda --version</span><br></pre></td></tr></table></figure>
+<ol>
+<li><p>anaconda换源</p>
+<ol>
+<li>先打开第一次anaconda，会创建.condarc</li>
+<li>在C:\Users{username} 文件夹下面修改.condarc</li>
+</ol>
+</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">channels:</span><br><span class="line">  - defaults</span><br><span class="line">show_channel_urls: <span class="literal">true</span></span><br><span class="line">default_channels:</span><br><span class="line">  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main</span><br><span class="line">  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/r</span><br><span class="line">  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/msys2</span><br><span class="line">custom_channels:</span><br><span class="line">  conda-forge: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span><br><span class="line">  msys2: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span><br><span class="line">  bioconda: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span><br><span class="line">  menpo: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span><br><span class="line">  pytorch: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span><br><span class="line">  pytorch-lts: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span><br><span class="line">  simpleitk: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li><p>conda clean -i</p>
+</li>
+<li><p>检测是否换源成功</p>
+</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">conda config --show-sources <span class="comment"># 仅查看所有镜像</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="3-安装EIseg"><a href="#3-安装EIseg" class="headerlink" title="3. 安装EIseg"></a>3. 安装EIseg</h1><ol>
+<li>创建自己的环境</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 环境所用的python版本需要在后面指定，如果不指定默认Anaconda自带python版本</span></span><br><span class="line"><span class="comment"># doccano 是环境名称，可根据自己命名区分不同自己的环境</span></span><br><span class="line">conda create -n eiseg_env python=3.10</span><br><span class="line"><span class="comment"># 激活自己的环境</span></span><br><span class="line">conda activate ant</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><p>切换到新创建的环境中，打开open Terminal</p>
+</li>
+<li><p>安装PaddlePaddle，是依赖环境</p>
+</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pip3 install paddlepaddle -i https://mirror.baidu.com/pypi/simple</span><br></pre></td></tr></table></figure>
+
+
+<ol start="4">
+<li><p>安装EIseg</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pip3 install eiseg -i https://mirror.baidu.com/pypi/simple</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>启动<br>直接在命令行中输入eiseg</p>
+</li>
+</ol>
+<h1 id="配置EIseg"><a href="#配置EIseg" class="headerlink" title="配置EIseg"></a>配置EIseg</h1><ol>
+<li>只保存彩色图片</li>
+<li>编辑快捷键<ol>
+<li>前后移动</li>
+<li>自动保存</li>
+<li>删除所有多边形</li>
+</ol>
+</li>
+<li>保存路径不能有中文</li>
+</ol>
+<h1 id="基础操作"><a href="#基础操作" class="headerlink" title="基础操作"></a>基础操作</h1><ol>
+<li>正负样本点</li>
+<li>转化为矩形，拖动</li>
+<li>删除矩形</li>
+</ol>
+<h1 id="标注时候需要注意"><a href="#标注时候需要注意" class="headerlink" title="标注时候需要注意"></a>标注时候需要注意</h1><h1 id="每次打开操作"><a href="#每次打开操作" class="headerlink" title="每次打开操作"></a>每次打开操作</h1><ol>
+<li>选择保存类型，只保留伪彩色，coco格式</li>
+<li>加载模型</li>
+<li>打开文件夹</li>
+<li>载入标签</li>
+<li>标注</li>
+<li>空格，转化为矩形</li>
+<li>下一张</li>
+</ol>
+<h1 id="anaconda常用指令"><a href="#anaconda常用指令" class="headerlink" title="anaconda常用指令"></a>anaconda常用指令</h1><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">conda config --show <span class="comment"># 查看conda的配置，确认channels</span></span><br><span class="line">conda config --show-sources <span class="comment"># 仅查看所有镜像</span></span><br><span class="line">conda config --get channels <span class="comment"># 查看已经添加的channels</span></span><br><span class="line">conda config --show channels <span class="comment"># 查看已经添加的channels</span></span><br><span class="line">conda list <span class="comment"># 当前安装的包列表</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 未查看</span></span><br><span class="line">conda update -n base conda</span><br><span class="line">conda install --<span class="built_in">yes</span> --file requirements.txt</span><br><span class="line">conda config --remove-key channels</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p>[Anaconda超详细安装教程（Windows环境下）]<a href="https://blog.csdn.net/fan18317517352/article/details/123035625">https://blog.csdn.net/fan18317517352/article/details/123035625</a> <br/><br>[新手教程一：Anaconda新建开发环境]<a href="https://blog.csdn.net/qq_42573052/article/details/113770662">https://blog.csdn.net/qq_42573052/article/details/113770662</a> <br/><br><a href="https://blog.csdn.net/jasneik/article/details/114227716">anaconda 换清华镜像源 windows</a> <br/><br><a href="https://mirrors.tuna.tsinghua.edu.cn/">清华大学开源软件镜像站</a> <br/><br><a href="https://blog.csdn.net/qq_43382635/article/details/127124980">Anaconda之导出&#x2F;导出配置好的虚拟环境</a> <br/><br><a href="https://blog.csdn.net/qq_37541097/article/details/120154543">EISeg工具对应博文</a> <br/><br><a href="https://github.com/PaddlePaddle/PaddleSeg/blob/release/2.7/README_CN.md">EIseg官方安装说明</a> <br/><br><a href="https://www.paddlepaddle.org.cn/documentation/docs/zh/install/index_cn.html">飞桨安装参考文档</a> <br/></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>ffmpeg</title>
+    <url>/2023/04/14/Project/ffmpeg/</url>
+    <content><![CDATA[<p>.&#x2F;configure –prefix&#x3D;&#x2F;usr&#x2F;local&#x2F;ffmpeg –enable-shared –disable-static –disable-doc  –enable-gpl –enable-libx264</p>
+<p>fmpeg-master-latest-win64-gpl-shared.zip</p>
+<p>avcodec.lib;avdevice.lib;avfilter.lib;avformat.lib;avutil.lib;swresample.lib;swscale.lib;postproc.lib</p>
+<figure class="highlight gcode"><table><tr><td class="code"><pre><span class="line">MSBuild属性宏:</span><br><span class="line">- $<span class="comment">(OutDir)</span>：输出目录，用于存放生成的可执行文件或库文件。</span><br><span class="line">- $<span class="comment">(ProjectName)</span>：项目名称，通常与项目文件名相同。</span><br><span class="line">- $<span class="comment">(Configuration)</span>：当前项目配置，例如Debug或Release。</span><br><span class="line">- $<span class="comment">(Platform)</span>：当前项目平台，例如Wi<span class="symbol">n32</span>或x<span class="number">64</span>。</span><br><span class="line">- $<span class="comment">(SolutionDir)</span>：解决方案目录，包含解决方案文件所在的路径。</span><br><span class="line">- $<span class="comment">(ProjectDir)</span>：项目目录，包含项目文件所在的路径。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">$<span class="comment">(SolutionDir)</span></span><br><span class="line">$<span class="comment">(SolutionExt)</span></span><br><span class="line">$<span class="comment">(SolutionFileName)</span></span><br><span class="line">$<span class="comment">(SolutionName)</span></span><br><span class="line">$<span class="comment">(SolutionPath)</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>FFmpeg一共包含8个库：<br><strong>avcodec：编解码（最重要的库）。</strong><br><strong>avformat：封装格式处理。</strong><br>avfilter：滤镜特效处理。<br>avdevice：各种设备的输入输出。<br><strong>avutil：工具库（大部分库都需要这个库的支持）。</strong><br>postproc：后加工。<br>swresample：音频采样数据格式转换。<br><strong>swscale：视频像素数据格式转换。</strong><br>其中加粗的库为本课程涉及到的库。</p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://ffmpeg.org/">ffmpeg官网</a></p>
+<h2 id="linux"><a href="#linux" class="headerlink" title="linux"></a>linux</h2><p><a href="https://blog.csdn.net/TracelessLe/article/details/107362505">Ubuntu上安装ffmpeg</a><br><a href="https://blog.csdn.net/TracelessLe/article/details/107522845">Ubuntu下x264库编译安装</a><br><a href="https://blog.csdn.net/qq_44054791/article/details/127861823">编译ffmpeg错误：ERROR: x264 not found using pkg-config</a><br><a href="https://www.lixian.fun/4237.html">编译安装libx264库遇到Found no assembler Minimum version is nasm-</a><br><a href="https://www.nasm.us/">nasm官网</a><br><a href="https://www.nasm.us/pub/nasm/releasebuilds/">nasm下载链接</a></p>
+<h2 id="windows"><a href="#windows" class="headerlink" title="windows"></a>windows</h2><p><a href="https://github.com/BtbN/FFmpeg-Builds/releases">ffmpeg windows下载地址</a><br><a href="https://blog.csdn.net/ustc_sse_shenzhang/article/details/102546753">FFmpeg三种版本（static、shared、dev）和实际操作举例</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>app总结</title>
+    <url>/2023/04/16/Others/app/</url>
+    <content><![CDATA[<p>对于前端开发知识的一些总结</p>
+<p>大前端——泛GUI交互<br>    HTML<br>    CSS<br>    javascript<br>    TypeScript<br>    nodejs<br>    原生app开发<br>        开发adroid ios<br>        facebook<br>            React native</p>
+<pre><code>    google
+        dart
+        flutter
+
+
+webapp开发
+    Vue
+    React
+
+混合开发HybirdAPP
+    微信公众号
+    小程序
+    Electron
+        H5页面嵌入到桌面段应用
+</code></pre>
+<p>ES6<br>React<br>Promise<br>html5<br>Css3<br>Axios<br>Jquery<br>Vue Router<br>Node.js<br>AJAX</p>
+<p>webpack、rollup、vite</p>
+<h1 id="原生开发"><a href="#原生开发" class="headerlink" title="原生开发"></a>原生开发</h1><ol>
+<li>Android Studio<ol>
+<li>JAVA</li>
+<li>Kotlin</li>
+</ol>
+</li>
+</ol>
+<h1 id="跨端开发"><a href="#跨端开发" class="headerlink" title="跨端开发"></a>跨端开发</h1><ol>
+<li>uniapp<ol>
+<li>HBuildX</li>
+</ol>
+</li>
+<li>Flutter<ol>
+<li>dart </li>
+<li>Google 公司开发的一款跨平台的 UI 框架</li>
+</ol>
+</li>
+<li>Taro <ol>
+<li>京东</li>
+</ol>
+</li>
+</ol>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://flutter.cn/">Flutter官网</a><br><a href="https://www.dcloud.io/">uni-app官网</a><br><a href="https://developer.android.google.cn/?hl=zh-cn">Android Studio</a><br><a href="https://blog.csdn.net/SherlockStark/article/details/129298768?ydreferer=aHR0cHM6Ly9jbi5iaW5nLmNvbS8=">Android Studio 2022.1.1版本 保姆级安装教程</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>google test</title>
+    <url>/2023/04/14/Project/google-test/</url>
+    <content><![CDATA[<h1 id="1-安装教程"><a href="#1-安装教程" class="headerlink" title="1.安装教程"></a>1.安装教程</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git clone git@github.com:google/googletest.git</span><br><span class="line">mkdir build &amp;&amp; cd build</span><br><span class="line">make -j all</span><br><span class="line">find . -name &quot;*.a&quot; # 查看静态链接库是否生成</span><br><span class="line">make insatll</span><br><span class="line">ls -l /user/local/ # 查看是否安装过去了</span><br></pre></td></tr></table></figure>
+
+<h1 id="2-demo测试"><a href="#2-demo测试" class="headerlink" title="2. demo测试"></a>2. demo测试</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cd googletests/samples</span><br><span class="line">g++ ../src/gtest_main.cc sample1.cc sample1_unittest.cc -o sample1 -lgtest -lgmock -lpthread -std=c++14 # 一定要使用C++11以上，C++14或者C++17才能编译通过</span><br></pre></td></tr></table></figure>
+<p>样例分析：<br>gtest_main.cc: 测试主程序的入口<br>sample1.cc：等待测试的源码<br>sample1_unittest.cc: 测试用例</p>
+<h1 id="3-写一个自己的测试用例"><a href="#3-写一个自己的测试用例" class="headerlink" title="3.写一个自己的测试用例"></a>3.写一个自己的测试用例</h1><p>1.有一个包含GTEST_API_的主函数，引入testing::InitGoogleTest<br>2.包含头文件gtest&#x2F;gtest.h<br>3.使用TEST宏定义，第一个参数是test suite的名字，第二个参数是test case的名字，写自己的测试函数<br>4.在测试函数中使用EXPECT_EQ,EXPECT_NE,EXPECT_LT,EXPECT_LE,EXPECT_GT,EXPECT_GE<br>5.在主函数中调用RUN_ALL_TESTS()，返回值是0表示成功，非0表示失败<br>6.编译，链接gtest库，运行</p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://google.github.io/googletest/">官方文档</a><br><a href="https://github.com/google/googletest">github仓库</a><br><a href="https://blog.csdn.net/wdcyf15/article/details/108855960">Google Test(GTEST)使用入门（1）- 下载编译安装执行</a><br><a href="https://blog.csdn.net/qq_34525916/article/details/113752768">Ubuntu 16.04安装gtest遇坑，成功安装及使用记录</a></p>
+]]></content>
   </entry>
 </search>
