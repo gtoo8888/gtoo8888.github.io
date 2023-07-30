@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>libtorch 安装教程 | Hexo</title>
+  <meta name="description" content="1 需要安装的东西1.1 NVIDIA驱动让显卡可以正确识别和配置的名称一般都是：NVIDIA-Linux-x86_64-535.54.03.run在官网上可以查看到对应的版本，并且下载https:&#x2F;&#x2F;www.nvidia.com&#x2F;Download&#x2F;index.aspx 1.2 CUDA ToolkitCUDA Toolkit是由NVIDIA开发的一套用于并行计算的工具集名称一般都是：cuda_1">
+<meta property="og:type" content="article">
+<meta property="og:title" content="libtorch 安装教程">
+<meta property="og:url" content="http://example.com/2023/07/30/Environment-Configuration/libtorch_install/index.html">
+<meta property="og:site_name" content="gtoo8888">
+<meta property="og:description" content="1 需要安装的东西1.1 NVIDIA驱动让显卡可以正确识别和配置的名称一般都是：NVIDIA-Linux-x86_64-535.54.03.run在官网上可以查看到对应的版本，并且下载https:&#x2F;&#x2F;www.nvidia.com&#x2F;Download&#x2F;index.aspx 1.2 CUDA ToolkitCUDA Toolkit是由NVIDIA开发的一套用于并行计算的工具集名称一般都是：cuda_1">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-07-30T15:29:09.000Z">
+<meta property="article:modified_time" content="2023-07-30T15:29:19.003Z">
+<meta property="article:author" content="Kuku De">
+<meta property="article:tag" content="环境配置">
+<meta name="twitter:card" content="summary">
+  <!-- Canonical links -->
+  <link rel="canonical" href="http://example.com/2023/07/30/Environment-Configuration/libtorch_install/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="gtoo8888" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+    <link href="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.3.5/dist/jquery.fancybox.min.css" rel="stylesheet">
+  
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/gtoo8888" target="_blank">
+          <img class="img-circle img-rotate" src="/images/cat.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">gtoo8888</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">C++ Developer</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Luoyang, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav menu-highlight">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-source">
+          <a href="/source">
+            
+            <i class="icon icon-book-fill"></i>
+            
+            <span class="menu-title">资源</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">友链</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/gtoo8888" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>记录自己的学习过程，Linux网络编程冲啊</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/" rel="tag">Linux网络编程</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%B6%E4%BB%96/" rel="tag">其他</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%8D%E6%80%9D/" rel="tag">反思</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%99%E7%A8%8B/" rel="tag">教程</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" rel="tag">环境配置</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%AD%E6%B3%95/" rel="tag">语法</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%BE%E7%A8%8B/" rel="tag">课程</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A1%B9%E7%9B%AE/" rel="tag">项目</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%B8%9F%E5%93%A5%E7%9A%84Linux%E7%A7%81%E6%88%BF%E8%8F%9C/" rel="tag">鸟哥的Linux私房菜</a><span class="tag-list-count">7</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/Linux%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/" style="font-size: 13.8px;">Linux网络编程</a> <a href="/tags/%E5%85%B6%E4%BB%96/" style="font-size: 13.4px;">其他</a> <a href="/tags/%E5%8F%8D%E6%80%9D/" style="font-size: 13px;">反思</a> <a href="/tags/%E6%95%99%E7%A8%8B/" style="font-size: 14px;">教程</a> <a href="/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" style="font-size: 13.4px;">环境配置</a> <a href="/tags/%E8%AF%AD%E6%B3%95/" style="font-size: 13px;">语法</a> <a href="/tags/%E8%AF%BE%E7%A8%8B/" style="font-size: 13.6px;">课程</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 13.2px;">面试</a> <a href="/tags/%E9%A1%B9%E7%9B%AE/" style="font-size: 13.2px;">项目</a> <a href="/tags/%E9%B8%9F%E5%93%A5%E7%9A%84Linux%E7%A7%81%E6%88%BF%E8%8F%9C/" style="font-size: 13.4px;">鸟哥的Linux私房菜</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">七月 2023</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">六月 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/04/">四月 2023</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">三月 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/01/">一月 2023</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">十二月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">十一月 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">十月 2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">九月 2022</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">八月 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">七月 2022</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">六月 2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">五月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">四月 2022</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">三月 2022</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">二月 2022</a><span class="archive-list-count">7</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2023/07/30/Environment-Configuration/libtorch_install/" class="title">libtorch 安装教程</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2023-07-30T15:29:09.000Z" itemprop="datePublished">2023-07-30</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2023/07/23/Brids-Linux-private-kitchen/Part17-Package-Management-Tools/" class="title">Part17 包管理工具</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2023-07-23T13:33:32.000Z" itemprop="datePublished">2023-07-23</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2023/07/23/Brids-Linux-private-kitchen/Part16-Process-Management/" class="title">Part16 进程管理</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2023-07-23T12:54:00.000Z" itemprop="datePublished">2023-07-23</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2023/07/18/Tutorial/ros-tutorial/" class="title">ROS教程</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2023-07-18T09:19:28.000Z" itemprop="datePublished">2023-07-18</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2023/07/15/Environment-Configuration/ORB_SLAM_install/" class="title">ORB_SLAM</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2023-07-15T06:23:09.000Z" itemprop="datePublished">2023-07-15</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-Environment-Configuration/libtorch_install" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      libtorch 安装教程
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2023/07/30/Environment-Configuration/libtorch_install/" class="article-date">
+	  <time datetime="2023-07-30T15:29:09.000Z" itemprop="datePublished">2023-07-30</time>
+	</a>
+</span>
+        
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" rel="tag">环境配置</a>
+  </span>
+
+
+        
+	<span class="article-read hidden-xs">
+	    <i class="icon icon-eye-fill" aria-hidden="true"></i>
+	    <span id="busuanzi_container_page_pv">
+			<span id="busuanzi_value_page_pv">0</span>
+		</span>
+	</span>
+
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2023/07/30/Environment-Configuration/libtorch_install/#comments" class="article-comment-link">评论</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h2 id="1-需要安装的东西"><a href="#1-需要安装的东西" class="headerlink" title="1 需要安装的东西"></a>1 需要安装的东西</h2><h3 id="1-1-NVIDIA驱动"><a href="#1-1-NVIDIA驱动" class="headerlink" title="1.1 NVIDIA驱动"></a>1.1 NVIDIA驱动</h3><p>让显卡可以正确识别和配置的<br>名称一般都是：<br>NVIDIA-Linux-x86_64-535.54.03.run<br>在官网上可以查看到对应的版本，并且下载<br><a target="_blank" rel="noopener" href="https://www.nvidia.com/Download/index.aspx">https://www.nvidia.com/Download/index.aspx</a></p>
+<h3 id="1-2-CUDA-Toolkit"><a href="#1-2-CUDA-Toolkit" class="headerlink" title="1.2 CUDA Toolkit"></a>1.2 CUDA Toolkit</h3><p>CUDA Toolkit是由NVIDIA开发的一套用于并行计算的工具集<br>名称一般都是：<br>cuda_11.1.0_455.23.05_linux.run*<br>在cuda的网站进行下载<br><a target="_blank" rel="noopener" href="https://developer.nvidia.com/cuda-downloads">https://developer.nvidia.com/cuda-downloads</a><br>下面有<br>Archive of Previous CUDA Releases<br>可以查看更多版本的</p>
+<p>CUDA Toolkit包含的内容<br>CUDA驱动程序（CUDA Driver）<br>CUDA Runtime API：<br>CUDA编译器（nvcc）：nvcc是CUDA的编译器，<br>CUDA Math库（cuMath）<br>CUDA示例和工具</p>
+<h3 id="1-3-cuDNN-CUDA-Deep-Neural-Network-library"><a href="#1-3-cuDNN-CUDA-Deep-Neural-Network-library" class="headerlink" title="1.3 cuDNN (CUDA Deep Neural Network library)"></a>1.3 cuDNN (CUDA Deep Neural Network library)</h3><p>是CUDA Toolkit中的一个部分</p>
+<p>是NVIDIA专门为深度学习而开发的一个高性能库。它是CUDA Toolkit的一部分，但是需要单独下载和安装。cuDNN提供了一系列的深度学习算法和函数，如卷积、池化、激活函数等，以及一些优化技术，如自动调整算法、半精度计算等，用于加速深度学习模型的训练和推理。</p>
+<h3 id="1-4-nvcc"><a href="#1-4-nvcc" class="headerlink" title="1.4 nvcc"></a>1.4 nvcc</h3><p>nvcc是CUDA的编译器</p>
+<h3 id="1-5-libtorch"><a href="#1-5-libtorch" class="headerlink" title="1.5 libtorch"></a>1.5 libtorch</h3><p>pytorch的C++接口，使用了cuDNN提供的高性能深度学习算法和优化技术</p>
+<h3 id="1-6-总结需要安装的"><a href="#1-6-总结需要安装的" class="headerlink" title="1.6 总结需要安装的"></a>1.6 总结需要安装的</h3><ul>
+<li>NVIDIA驱动：显卡能正常工作</li>
+<li>CUDA Toolkit：能进行cuda开发，提供了cuDNN，nvcc</li>
+<li>libtorch：使用pytorch的C++接口</li>
+</ul>
+<p>问题：<br>如果使用自动安装NVIDIA驱动，装好以后会自动装上nvcc,cuDNN，所以最好手动一个一个安装</p>
+<h2 id="2-安装教程"><a href="#2-安装教程" class="headerlink" title="2. 安装教程"></a>2. 安装教程</h2><p>安装的总体思路：</p>
+<ol>
+<li>安装NVIDIA驱动<ol>
+<li>标志是nvidia-smi通过</li>
+</ol>
+</li>
+<li>安装cuda,也就是cuda toolkit<ol>
+<li>标志是执行.sh以后不报错</li>
+</ol>
+</li>
+<li>安装cuDNN,这个是cuda中用于神经网络的库<ol>
+<li>标志是nvcc -V有版本显示，并且是正确的</li>
+</ol>
+</li>
+<li>安装libtorch<ol>
+<li>标志是#include &lt;torch&#x2F;torch.h&gt;并且使用cmake编译没有报错</li>
+<li>如果前面安装的有问题，那么中间会报错没有cuda,没有cuDNN</li>
+</ol>
+</li>
+</ol>
+<h3 id="2-0-卸载"><a href="#2-0-卸载" class="headerlink" title="2.0 卸载"></a>2.0 卸载</h3><p>如果之前是用系统自带的安装的，需要先线束<br>删除cuda</p>
+<p>sudo apt-get purge –auto-remove nvidia-cuda-toolkit</p>
+<h3 id="2-1-安装NVIDIA驱动"><a href="#2-1-安装NVIDIA驱动" class="headerlink" title="2.1 安装NVIDIA驱动"></a>2.1 安装NVIDIA驱动</h3><h4 id="2-1-1-禁用-Nouveau-驱动"><a href="#2-1-1-禁用-Nouveau-驱动" class="headerlink" title="2.1.1 禁用 Nouveau 驱动"></a>2.1.1 禁用 Nouveau 驱动</h4><p>安装之前报错<br>ERROR: The Nouveau kernel driver is currently in use by your system. This driver is incompatible with the NVIDIA driver……<br>解决方法：<br>禁用 Nouveau 驱动</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 检查 nouveau是否使用</span></span><br><span class="line">lspci | grep nouveau</span><br><span class="line"><span class="comment"># 禁用nouveau</span></span><br><span class="line">sudo vim /etc/modprobe.d/blacklist-nvidia-nouveau.conf</span><br><span class="line"><span class="comment"># 添加</span></span><br><span class="line">blacklist nouveau </span><br><span class="line">options nouveau modeset=0</span><br><span class="line"></span><br><span class="line">lspci | grep nouveau</span><br></pre></td></tr></table></figure>
+<h4 id="2-1-2-安装NVIDIA驱动"><a href="#2-1-2-安装NVIDIA驱动" class="headerlink" title="2.1.2 安装NVIDIA驱动"></a>2.1.2 安装NVIDIA驱动</h4><p><a target="_blank" rel="noopener" href="https://www.nvidia.com/Download/index.aspx">NVIDIA显卡驱动官网</a><br>搜索关键词为：<strong>NVIDIA显卡驱动</strong><br><strong>NVIDIA-Linux-x86_64-535.54.03.run</strong><br>去官网下载自己显卡对应的驱动型号,然后安装驱动</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 添加可执行权限</span></span><br><span class="line">sudo <span class="built_in">chmod</span> a+x NVIDIA-Linux-x86_64-535.54.03.run</span><br><span class="line">sudo ./NVIDIA-Linux-x86_64-535.54.03.run</span><br><span class="line"><span class="comment"># 查看是否安装成功</span></span><br><span class="line">nvidia-smi</span><br></pre></td></tr></table></figure>
+<p>这个时候安装的cuda版本是12.2的是最新的版本的，待会需要重新安装适合自己的cuda版本</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">+---------------------------------------------------------------------------------------+</span><br><span class="line">| NVIDIA-SMI 535.86.05              Driver Version: 535.86.05    CUDA Version: 12.2     |</span><br><span class="line">|-----------------------------------------+----------------------+----------------------+</span><br><span class="line">| GPU  Name                 Persistence-M | Bus-Id        Disp.A | Volatile Uncorr. ECC |</span><br><span class="line">| Fan  Temp   Perf          Pwr:Usage/Cap |         Memory-Usage | GPU-Util  Compute M. |</span><br><span class="line">|                                         |                      |               MIG M. |</span><br><span class="line">|=========================================+======================+======================|</span><br><span class="line">|   0  NVIDIA GeForce RTX 3060 ...    Off | 00000000:01:00.0  On |                  N/A |</span><br><span class="line">| N/A   41C    P8              15W /  80W |   1024MiB /  6144MiB |     20%      Default |</span><br><span class="line">|                                         |                      |                  N/A |</span><br><span class="line">+-----------------------------------------+----------------------+----------------------+</span><br><span class="line">                                                                                         </span><br><span class="line">+---------------------------------------------------------------------------------------+</span><br><span class="line">| Processes:                                                                            |</span><br><span class="line">|  GPU   GI   CI        PID   Type   Process name                            GPU Memory |</span><br><span class="line">|        ID   ID                                                             Usage      |</span><br><span class="line">|=======================================================================================|</span><br><span class="line">|    0   N/A  N/A      1310      G   /usr/lib/xorg/Xorg                           42MiB |</span><br><span class="line">|    0   N/A  N/A      1404      G   /usr/bin/gnome-shell                        115MiB |</span><br><span class="line">|    0   N/A  N/A      1619      G   /usr/lib/xorg/Xorg                          489MiB |</span><br><span class="line">|    0   N/A  N/A      1744      G   /usr/bin/gnome-shell                         70MiB |</span><br><span class="line">|    0   N/A  N/A      2794      G   ...sion,SpareRendererForSitePerProcess      137MiB |</span><br><span class="line">|    0   N/A  N/A     23307      G   /usr/lib/firefox/firefox                    145MiB |</span><br><span class="line">+---------------------------------------------------------------------------------------+</span><br></pre></td></tr></table></figure>
+<h4 id="2-1-3-nvidia-smi显示的cuda版本的思考"><a href="#2-1-3-nvidia-smi显示的cuda版本的思考" class="headerlink" title="2.1.3 nvidia-smi显示的cuda版本的思考"></a>2.1.3 nvidia-smi显示的cuda版本的思考</h4><p>根据参考资料2的推断，ubuntu中安装的cuda是可以有两个版本的：</p>
+<ol>
+<li>驱动电脑显示屏显示，通过nvidia-smi中的cuda版本显示</li>
+<li>用来编写程序，进行cuda加速计算的，可以再安装一个自己的版本</li>
+</ol>
+<p>实测得到，nvidia-smi中读取得到的cuda版本来自于以下的路径，如果删除以下路径这些.so文件，会造成nvidia-smi中cuda版本显示为N&#x2F;A</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">/usr/lib/i386-linux-gnu/libcuda.so.1</span><br><span class="line">/usr/lib/i386-linux-gnu/libcuda.so</span><br><span class="line">/usr/lib/i386-linux-gnu/libcuda.so.535.86.05</span><br><span class="line"></span><br><span class="line">/usr/lib/x86_64-linux-gnu/libcuda.so.470.182.03</span><br><span class="line">/usr/lib/x86_64-linux-gnu/libcuda.so</span><br><span class="line">/usr/lib/x86_64-linux-gnu/libcuda.so.535.86.05</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-2-安装cuda"><a href="#2-2-安装cuda" class="headerlink" title="2.2 安装cuda"></a>2.2 安装cuda</h3><p>所安装的cuda其实只是一个简写，其实是安装的CUDA Toolkit<br><a target="_blank" rel="noopener" href="https://developer.nvidia.com/cuda-downloads">CUDA Toolkit官网</a><br>搜索关键词为：<strong>CUDA Toolkit</strong><br><strong>cuda_11.1.0_455.23.05_linux.run</strong><br>下载自己想要的cuda版本，这个版本需要和之后的libtorch版本对应</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">chmod</span> a+x cuda_11.1.0_455.23.05_linux.run</span><br><span class="line">sudo ./cuda_11.1.0_455.23.05_linux.run  </span><br></pre></td></tr></table></figure>
+<p>等待的时间比较长，之后会显示一个图形界面<br>accept<br>Install<br>一般就可以安装完成了，安装失败：<br>Installation failed. See log at &#x2F;var&#x2F;log&#x2F;cuda-installer.log for details.<br>只要能正常的显示输出，那就是安装成功了<br>可以去&#x2F;usr&#x2F;local&#x2F;目录下面看，没有有自己cuda版本对应的文件夹<br>我的目录结构是这样的<br>local&#x2F;<br>├── cuda -&gt; &#x2F;usr&#x2F;local&#x2F;cuda-11.1&#x2F;<br>└── cuda-11.1</p>
+<h4 id="2-2-1-报错解决"><a href="#2-2-1-报错解决" class="headerlink" title="2.2.1 报错解决"></a>2.2.1 报错解决</h4><h5 id="报错1"><a href="#报错1" class="headerlink" title="报错1"></a>报错1</h5><p>│ Existing package manager installation of the driver found. It is strongly<br>│ recommended that you remove this before continuing<br>报错原因：<br>有多个cuda，直接不允许继续安装了，我这边的尝试，只要继续安装一直是无法安装成功的<br>这个报错出现在使用系统自带的软件安装cuda,<br>解决方法：</p>
+<ol>
+<li>卸载安装的cuda，再次尝试是否可以安装，我这边的尝试是不行的<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查找方法1</span></span><br><span class="line">apt list --installed | grep <span class="string">&quot;cuda&quot;</span> <span class="comment"># 查找安装的cuda包</span></span><br><span class="line"><span class="comment"># 查找方法2</span></span><br><span class="line">dpkg -l <span class="string">&quot;*cuda*&quot;</span> <span class="comment"># 使用dpkg自带的搜索，不使用grep过滤</span></span><br><span class="line"><span class="comment"># 连带依赖一起删除</span></span><br><span class="line">sudo apt-get --purge remove <span class="string">&quot;cuda*&quot;</span> <span class="comment"># 把这些cuda相关的包都删除，--purge表示依赖关系也都删除</span></span><br><span class="line"><span class="comment"># 查看是否删除干净</span></span><br><span class="line">apt list --installed | grep <span class="string">&quot;cuda&quot;</span></span><br></pre></td></tr></table></figure></li>
+<li>卸载nvidia驱动，不使用系统安装的nvidia驱动，自己手动从官网下载安装<br>如果有是用独显做双屏显示的，记得先只显示一个屏幕<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查找nvidia驱动有哪些</span></span><br><span class="line">apt list --installed | grep <span class="string">&quot;nvidia&quot;</span></span><br><span class="line"><span class="comment"># 连带依赖一起删除</span></span><br><span class="line">sudo apt-get --purge remove <span class="string">&quot;nvidia*&quot;</span> </span><br><span class="line">sudo apt-get --purge remove <span class="string">&quot;libnvidia*&quot;</span> </span><br><span class="line"><span class="comment"># 查看是否删除干净</span></span><br><span class="line">apt list --installed | grep <span class="string">&quot;cuda&quot;</span></span><br><span class="line"><span class="comment"># 重启</span></span><br><span class="line">reboot</span><br><span class="line"><span class="comment"># 重启后使用nvidia-smi，提示找不到指令，说明卸载到了，从安装显卡驱动那一步开始安装</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<h5 id="报错2"><a href="#报错2" class="headerlink" title="报错2"></a>报错2</h5><p>Installation failed. See log at &#x2F;var&#x2F;log&#x2F;cuda-installer.log for details.<br>参考下面的解决方法<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_49223002/article/details/120509776">最终解决cuda安装问题的资料，去掉cuda driver</a><br>报错原因：<br>已经有一个cuda了，但是但是继续安装报错<br>解决方法：<br>在安装的过程中，Driver CUDA去掉<br>解决原理：<br>原有的cuda库是用于显示器驱动的，这个驱动的cuda库只能安装一个，只要不安装驱动类型的cuda，仅仅安装其余的，就可以解决报错</p>
+<h3 id="2-3-安装cnDNN"><a href="#2-3-安装cnDNN" class="headerlink" title="2.3 安装cnDNN"></a>2.3 安装cnDNN</h3><h4 id="2-3-1-安装"><a href="#2-3-1-安装" class="headerlink" title="2.3.1 安装"></a>2.3.1 安装</h4><p>去官网或者别的渠道下载一个安装包，我下载的是<br>cudnn-11.1-linux-x64-v8.0.5.39.zip</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 解压</span></span><br><span class="line">unzip cudnn-11.1-linux-x64-v8.0.5.39.zip</span><br><span class="line"><span class="built_in">cd</span> cudnn-11.1-linux-x64-v8.0.5.39/cuda</span><br><span class="line"><span class="comment"># 安装，实际上是把这些文件粘贴到cuda的路径下</span></span><br><span class="line"><span class="comment"># 如果前一步cuda安装失败，或者用的是系统安装cuda的方式，在/usr/local/文件夹下是没有cuda-XX.X文件夹的</span></span><br><span class="line">sudo <span class="built_in">cp</span> include/cudnn.h /usr/local/cuda-11.1/include/</span><br><span class="line">sudo <span class="built_in">cp</span> include/cudnn_version.h /usr/local/cuda-11.1/include/</span><br><span class="line">sudo <span class="built_in">cp</span> lib64/libcudnn* /usr/local/cuda-11.1/lib64/</span><br><span class="line">sudo <span class="built_in">chmod</span> a+r /usr/local/cuda-11.1/include/cudnn.h</span><br><span class="line">sudo <span class="built_in">chmod</span> a+r /usr/local/cuda-11.1/lib64/libcudnn*</span><br></pre></td></tr></table></figure>
+<h4 id="2-3-2-添加环境变量"><a href="#2-3-2-添加环境变量" class="headerlink" title="2.3.2 添加环境变量"></a>2.3.2 添加环境变量</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">vim ~/.bashrc</span><br><span class="line"><span class="comment"># 添加以下内容，保证cuDNN可以被找到</span></span><br><span class="line"><span class="built_in">export</span> CUDA_HOME=/usr/local/cuda</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:<span class="variable">$CUDA_HOME</span>/bin</span><br><span class="line"><span class="built_in">export</span> LD_LIBRARY_PATH=/usr/local/cuda-11.1/lib64<span class="variable">$&#123;LD_LIBRARY_PATH:+:<span class="variable">$&#123;LD_LIBRARY_PATH&#125;</span>&#125;</span> </span><br><span class="line"><span class="built_in">source</span> ~/.bashrc</span><br></pre></td></tr></table></figure>
+<h4 id="2-3-3-测试版本"><a href="#2-3-3-测试版本" class="headerlink" title="2.3.3 测试版本"></a>2.3.3 测试版本</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看安装的cnDNN版本</span></span><br><span class="line"><span class="comment"># 新版的版本信息放在了cudnn_version.h里面</span></span><br><span class="line"><span class="built_in">cat</span> /usr/local/cuda/include/cudnn_version.h | grep CUDNN_MAJOR -A 2</span><br><span class="line"><span class="comment"># 测试是否安装成功</span></span><br><span class="line">nvcc -V</span><br><span class="line"><span class="comment"># 观察下面的版本，现在nvcc中对应的cuda版本是自己安装的11.1</span></span><br><span class="line"><span class="comment"># 如果是用nvidia-smi输出，此时还是12.2也就是现在安装了两个cuda版本</span></span><br><span class="line">nvcc: NVIDIA (R) Cuda compiler driver</span><br><span class="line">Copyright (c) 2005-2020 NVIDIA Corporation</span><br><span class="line">Built on Tue_Sep_15_19:10:02_PDT_2020</span><br><span class="line">Cuda compilation tools, release 11.1, V11.1.74</span><br><span class="line">Build cuda_11.1.TC455_06.29069683_0</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="2-4-安装libtorch"><a href="#2-4-安装libtorch" class="headerlink" title="2.4 安装libtorch"></a>2.4 安装libtorch</h3><h4 id="2-4-1-安装"><a href="#2-4-1-安装" class="headerlink" title="2.4.1 安装"></a>2.4.1 安装</h4><p>官网只有最新版本的，从这个地址下载了需要的libtorch安装包<br>我下载的是这个版本<br>ibtorch-cxx11-abi-shared-with-deps-1.9.0+cu111.zip<br>libtorch里面提供了.so的动态库文件，还有.h文件，不需要安装，只需要制定路径就可以使用</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 制定文件夹解压</span></span><br><span class="line">unzip -d ~/tools ibtorch-cxx11-abi-shared-with-deps-1.9.0+cu111.zip</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-4-2-例子测试"><a href="#2-4-2-例子测试" class="headerlink" title="2.4.2 例子测试"></a>2.4.2 例子测试</h4><p>参考如下，写一个简单的例子<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/LconLu/article/details/128171775">LibTorch简单的使用教程</a></p>
+<p>C++测试文件</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;torch/torch.h&gt;</span> <span class="comment">// 头文件导入成功，说明上面的所有都安装成功了</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  torch::Tensor tensor = torch::<span class="built_in">rand</span>(&#123;<span class="number">2</span>, <span class="number">3</span>&#125;); <span class="comment">//生成大小为2*3的随机数矩阵</span></span><br><span class="line">  std::cout &lt;&lt; tensor &lt;&lt; std::endl;           <span class="comment">//标准输出流打印至屏幕</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>cmake文件</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cmake_minimum_required</span>(VERSION <span class="number">3.0</span> FATAL_ERROR)</span><br><span class="line"><span class="built_in">project</span>(example-app)</span><br><span class="line"> </span><br><span class="line"><span class="built_in">find_package</span>(Torch REQUIRED)</span><br><span class="line"><span class="built_in">set</span>(CMAKE_CXX_FLAGS <span class="string">&quot;$&#123;CMAKE_CXX_FLAGS&#125; $&#123;TORCH_CXX_FLAGS&#125;&quot;</span>)</span><br><span class="line"> </span><br><span class="line"><span class="built_in">add_executable</span>(example-app example-app.cpp)</span><br><span class="line"><span class="built_in">target_link_libraries</span>(example-app <span class="string">&quot;$&#123;TORCH_LIBRARIES&#125;&quot;</span>)</span><br><span class="line"><span class="built_in">set_property</span>(TARGET example-app PROPERTY CXX_STANDARD <span class="number">14</span>)</span><br></pre></td></tr></table></figure>
+<p>编译过程</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$mkdir</span> build</span><br><span class="line"><span class="variable">$cd</span> build</span><br><span class="line"><span class="variable">$cmake</span> -DCMAKE_PREFIX_PATH=~/tools/libtorch ..</span><br><span class="line"><span class="variable">$make</span></span><br></pre></td></tr></table></figure>
+<p>编译成功，就说明上面的都安装成功了</p>
+<h4 id="2-4-3-报错解决"><a href="#2-4-3-报错解决" class="headerlink" title="2.4.3 报错解决"></a>2.4.3 报错解决</h4><h5 id="报错1-1"><a href="#报错1-1" class="headerlink" title="报错1"></a>报错1</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">CMake Error at CMakeLists.txt:6 (find_package):</span><br><span class="line">  By not providing <span class="string">&quot;FindTorch.cmake&quot;</span> <span class="keyword">in</span> CMAKE_MODULE_PATH this project has</span><br><span class="line">  asked CMake to find a package configuration file provided by <span class="string">&quot;Torch&quot;</span>, but</span><br><span class="line">  CMake did not find one.</span><br><span class="line"></span><br><span class="line">  Could not find a package configuration file provided by <span class="string">&quot;Torch&quot;</span> with any of</span><br><span class="line">  the following names:</span><br><span class="line"></span><br><span class="line">    TorchConfig.cmake</span><br><span class="line">    torch-config.cmake</span><br></pre></td></tr></table></figure>
+<p>报错原因：<br>没有找到libtorch文件的路径<br>解决方法：<br>需要使用cmake -DCMAKE_PREFIX_PATH&#x3D;~&#x2F;tools&#x2F;libtorch ..编译，看下自己的路径，是不是指定的正确</p>
+<h5 id="报错2-1"><a href="#报错2-1" class="headerlink" title="报错2"></a>报错2</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">CMake Error at cmake/public/cuda.cmake:318 (message):</span><br><span class="line">  CUDA 9.1 is not compatible with std::tuple from GCC version &gt;= 6.  Please</span><br><span class="line">  upgrade to CUDA 9.2 or use the following option to use another version (<span class="keyword">for</span></span><br><span class="line">  example):</span><br><span class="line">    -DCUDA_HOST_COMPILER=/usr/bin/gcc-5</span><br></pre></td></tr></table></figure>
+<p>报错原因：</p>
+<ol>
+<li>通过报错信息的提示看到，是cuda版本的过低产生的，于是通过apt list –installed | grep “cuda”</li>
+<li>可以看到安装的nvidia-cuda-toolkit版本仅仅是9.1，同时查看&#x2F;usr&#x2F;bin&#x2F;里面没有gcc-5,只有gcc-6还有gcc-7</li>
+<li>报错的根本原因是cuda版本过低导致的，需要卸载cuda toolkit重新安装才能解决<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 方法1：使用列出软件的所有来源</span></span><br><span class="line">apt-cache madison nvidia-cuda-toolkit </span><br><span class="line"><span class="comment"># 方法2：使用列出软件的所有来源</span></span><br><span class="line">apt-cache policy nvidia-cuda-toolkit </span><br><span class="line"><span class="comment"># 使用apt-cache showpkg列出软件的所有来源</span></span><br><span class="line">apt-cache showpkg nvidia-cuda-toolkit </span><br><span class="line"><span class="comment"># 模拟安装软件</span></span><br><span class="line">apt-get install -s  nvidia-cuda-toolkit </span><br><span class="line"><span class="comment"># 列出软件所有版本，并查看是否已经安装</span></span><br><span class="line">apt-get install apt-show-versions</span><br><span class="line">apt-show-versions -a nvidia-cuda-toolkit </span><br><span class="line"><span class="comment"># 可以看到我使用的源，只有9.1这个版本，没有更高的了，所以需要手动安装</span></span><br><span class="line"><span class="comment"># 只要自己使用apt的方式安装nvidia-cuda-toolkit是始终无法解决这个问题的</span></span><br><span class="line">nvidia-cuda-toolkit | 9.1.85-3ubuntu1 | https://mirrors.ustc.edu.cn/ubuntu bionic/multiverse amd64 Packages</span><br><span class="line"><span class="comment"># 通过apt-get安装指定版本软件</span></span><br><span class="line">apt-get install package=version</span><br></pre></td></tr></table></figure></li>
+<li>我最开始安装cuda的方式，是使用系统自带的Software &amp; Updates选择推荐型号进行安装的，所以安装时候安装附带的nvidia-cuda-toolkit就使用源中的这个版本，导致出现了版本过低的问题<br>解决方法：<br>我的解决方式是，一直从2.1开始，删除cuda,删除nvidia显卡驱动，最终解决</li>
+</ol>
+<h3 id="报错3"><a href="#报错3" class="headerlink" title="报错3"></a>报错3</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Found cuDNN: v?</span><br></pre></td></tr></table></figure>
+<p>报错原因：<br>新版本cudnn的版本信息包含在cudnn_version.h中，而不是cudnn.h中<br>解决方法：<br>修改：libtorch&#x2F;share&#x2F;cmake&#x2F;Caffe2&#x2F;public&#x2F;cuda.cmake，148行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">file(READ <span class="variable">$&#123;CUDNN_INCLUDE_PATH&#125;</span>/cudnn.h CUDNN_HEADER_CONTENTS) <span class="comment"># 替换前</span></span><br><span class="line">file(READ <span class="variable">$&#123;CUDNN_INCLUDE_PATH&#125;</span>/cudnn_version.h CUDNN_HEADER_CONTENTS)  <span class="comment"># 替换后</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><h2 id="各种安装包官网的下载地址"><a href="#各种安装包官网的下载地址" class="headerlink" title="各种安装包官网的下载地址"></a>各种安装包官网的下载地址</h2><p><a target="_blank" rel="noopener" href="https://www.nvidia.com/Download/index.aspx">NVIDIA显卡驱动官网</a><br><a target="_blank" rel="noopener" href="https://developer.nvidia.com/cuda-downloads">CUDA Toolkit官网</a><br><a target="_blank" rel="noopener" href="https://developer.nvidia.com/rdp/cudnn-archive">cuDNN官网下载地址-需要登录</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43742643/article/details/114156298">[LibTorch &amp; Linux] 各版本 LibTorch 下载</a></p>
+<h2 id="参考资料-1"><a href="#参考资料-1" class="headerlink" title="参考资料"></a>参考资料</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/wohu1104/article/details/107032493">Ubuntu 安装 NVIDIA 显卡驱动详细步骤</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_49223002/article/details/120509776">最终解决cuda安装问题的资料，去掉cuda driver</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/LconLu/article/details/128171775">LibTorch简单的使用教程</a><br>[Found cuDNN: v?解决]<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/370192639">https://zhuanlan.zhihu.com/p/370192639</a><br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/544370871">各版本CUDA toolkit和cuDNN官方下载地址-无需登录</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/yjk13703623757/article/details/78945576">使用apt-get查询安装指定版本的软件</a></p>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="http://example.com/2023/07/30/Environment-Configuration/libtorch_install/" title="libtorch 安装教程" target="_blank" rel="external">http://example.com/2023/07/30/Environment-Configuration/libtorch_install/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/gtoo8888" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/cat.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/gtoo8888" target="_blank"><span class="text-dark">gtoo8888</span><small class="ml-1x">C++ Developer</small></a></h3>
+        <div>喜欢Linux高并发服务器开发，喜欢探究代码的底层原理，热爱开源，乐于分享</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+      <div id="vcomments"></div>
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    
+    <li class="next">
+      <a href="/2023/07/23/Brids-Linux-private-kitchen/Part17-Package-Management-Tools/" title="Part17 包管理工具"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/gtoo8888" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+
+
+
+   
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+   
+    
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine"></script>
+  <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: false,
+    notify: false,
+    appId: '',
+    appKey: '',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+  </script>
+
+     
+
+
+
+  <script src="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.3.5/dist/jquery.fancybox.min.js"></script>
+  <script>
+  //利用 FancyBox 实现点击图片放大
+  $(document).ready(function() {
+    $('article img').not('[hidden]').not('.panel-body img').each(function() {
+      var $image = $(this);
+      var imageCaption = $image.attr('alt');
+      var $imageWrapLink = $image.parent('a');
+      if ($imageWrapLink.length < 1) {
+        var src = this.getAttribute('src');
+        var idx = src.lastIndexOf('?');
+        if (idx != -1) {
+          src = src.substring(0, idx);
+        }
+        $imageWrapLink = $image.wrap('<a href="' + src + '"></a>').parent('a');
+      }
+      $imageWrapLink.attr('data-fancybox', 'images');
+      if (imageCaption) {
+        $imageWrapLink.attr('data-caption', imageCaption);
+      }
+    });
+    $().fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+    });
+  });
+  </script>
+
+
+
+
+
+</body>
+</html>

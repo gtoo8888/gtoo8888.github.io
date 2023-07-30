@@ -17,16 +17,16 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>cmake 教程 | Hexo</title>
-  <meta name="description" content="PROJECT 指令的语法12PROJECT(projectname [CXX] [C] [Java])PROJECT (HELLO) 定义了工程的名称为HELLO SET 指令的语法123SET(VAR [VALUE] [CACHE TYPE DOCSTRING [FORCE]])SET(SRC_LIST main.c t1.c t2.c)SET(SRC_LIST main.c)也可以写成 SE">
+  <title>CMake教程 | Hexo</title>
+  <meta name="description" content="CMake例子最简单的CMake文件123cmake_minimum_required(VERSION 3.0) # 设置最低的 CMake 版本要求project(SimpleProject) # 设置项目名称add_executable(main main.cpp) # 添加可执行文件 12cmake -S . -B buildcmake --build build 添加动态库，静态库，生成动">
 <meta property="og:type" content="article">
-<meta property="og:title" content="cmake 教程">
+<meta property="og:title" content="CMake教程">
 <meta property="og:url" content="http://example.com/2022/02/21/Tutorial/linux-dev-env/cmake-tutorial/index.html">
 <meta property="og:site_name" content="gtoo8888">
-<meta property="og:description" content="PROJECT 指令的语法12PROJECT(projectname [CXX] [C] [Java])PROJECT (HELLO) 定义了工程的名称为HELLO SET 指令的语法123SET(VAR [VALUE] [CACHE TYPE DOCSTRING [FORCE]])SET(SRC_LIST main.c t1.c t2.c)SET(SRC_LIST main.c)也可以写成 SE">
+<meta property="og:description" content="CMake例子最简单的CMake文件123cmake_minimum_required(VERSION 3.0) # 设置最低的 CMake 版本要求project(SimpleProject) # 设置项目名称add_executable(main main.cpp) # 添加可执行文件 12cmake -S . -B buildcmake --build build 添加动态库，静态库，生成动">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-02-21T09:40:18.000Z">
-<meta property="article:modified_time" content="2023-03-02T13:19:20.920Z">
+<meta property="article:modified_time" content="2023-07-30T15:26:58.913Z">
 <meta property="article:author" content="Kuku De">
 <meta property="article:tag" content="教程">
 <meta name="twitter:card" content="summary">
@@ -198,7 +198,7 @@
   <div class="widget">
     <h3 class="widget-title">标签</h3>
     <div class="widget-body">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/" rel="tag">Linux网络编程</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%B6%E4%BB%96/" rel="tag">其他</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%8D%E6%80%9D/" rel="tag">反思</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%99%E7%A8%8B/" rel="tag">教程</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" rel="tag">环境配置</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%AD%E6%B3%95/" rel="tag">语法</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%BE%E7%A8%8B/" rel="tag">课程</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A1%B9%E7%9B%AE/" rel="tag">项目</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%B8%9F%E5%93%A5%E7%9A%84Linux%E7%A7%81%E6%88%BF%E8%8F%9C/" rel="tag">鸟哥的Linux私房菜</a><span class="tag-list-count">7</span></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/" rel="tag">Linux网络编程</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%B6%E4%BB%96/" rel="tag">其他</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%8D%E6%80%9D/" rel="tag">反思</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%99%E7%A8%8B/" rel="tag">教程</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" rel="tag">环境配置</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%AD%E6%B3%95/" rel="tag">语法</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%BE%E7%A8%8B/" rel="tag">课程</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A1%B9%E7%9B%AE/" rel="tag">项目</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%B8%9F%E5%93%A5%E7%9A%84Linux%E7%A7%81%E6%88%BF%E8%8F%9C/" rel="tag">鸟哥的Linux私房菜</a><span class="tag-list-count">7</span></li></ul>
     </div>
   </div>
 
@@ -208,7 +208,7 @@
   <div class="widget">
     <h3 class="widget-title">标签云</h3>
     <div class="widget-body tagcloud">
-      <a href="/tags/Linux%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/" style="font-size: 13.83px;">Linux网络编程</a> <a href="/tags/%E5%85%B6%E4%BB%96/" style="font-size: 13.5px;">其他</a> <a href="/tags/%E5%8F%8D%E6%80%9D/" style="font-size: 13px;">反思</a> <a href="/tags/%E6%95%99%E7%A8%8B/" style="font-size: 14px;">教程</a> <a href="/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" style="font-size: 13.33px;">环境配置</a> <a href="/tags/%E8%AF%AD%E6%B3%95/" style="font-size: 13px;">语法</a> <a href="/tags/%E8%AF%BE%E7%A8%8B/" style="font-size: 13.67px;">课程</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 13.17px;">面试</a> <a href="/tags/%E9%A1%B9%E7%9B%AE/" style="font-size: 13.17px;">项目</a> <a href="/tags/%E9%B8%9F%E5%93%A5%E7%9A%84Linux%E7%A7%81%E6%88%BF%E8%8F%9C/" style="font-size: 13.5px;">鸟哥的Linux私房菜</a>
+      <a href="/tags/Linux%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/" style="font-size: 13.8px;">Linux网络编程</a> <a href="/tags/%E5%85%B6%E4%BB%96/" style="font-size: 13.4px;">其他</a> <a href="/tags/%E5%8F%8D%E6%80%9D/" style="font-size: 13px;">反思</a> <a href="/tags/%E6%95%99%E7%A8%8B/" style="font-size: 14px;">教程</a> <a href="/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" style="font-size: 13.4px;">环境配置</a> <a href="/tags/%E8%AF%AD%E6%B3%95/" style="font-size: 13px;">语法</a> <a href="/tags/%E8%AF%BE%E7%A8%8B/" style="font-size: 13.6px;">课程</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 13.2px;">面试</a> <a href="/tags/%E9%A1%B9%E7%9B%AE/" style="font-size: 13.2px;">项目</a> <a href="/tags/%E9%B8%9F%E5%93%A5%E7%9A%84Linux%E7%A7%81%E6%88%BF%E8%8F%9C/" style="font-size: 13.4px;">鸟哥的Linux私房菜</a>
     </div>
   </div>
 
@@ -217,7 +217,7 @@
   <div class="widget">
     <h3 class="widget-title">归档</h3>
     <div class="widget-body">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">七月 2023</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">六月 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/04/">四月 2023</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">三月 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/01/">一月 2023</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">十二月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">十一月 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">十月 2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">九月 2022</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">八月 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">七月 2022</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">六月 2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">五月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">四月 2022</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">三月 2022</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">二月 2022</a><span class="archive-list-count">7</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">七月 2023</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">六月 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/04/">四月 2023</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">三月 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/01/">一月 2023</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">十二月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">十一月 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">十月 2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">九月 2022</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">八月 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">七月 2022</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">六月 2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">五月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">四月 2022</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">三月 2022</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">二月 2022</a><span class="archive-list-count">7</span></li></ul>
     </div>
   </div>
 
@@ -229,6 +229,21 @@
     <div class="widget-body">
       <ul class="recent-post-list list-unstyled no-thumbnail">
         
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2023/07/30/Environment-Configuration/libtorch_install/" class="title">libtorch 安装教程</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2023-07-30T15:29:09.000Z" itemprop="datePublished">2023-07-30</time>
+              </p>
+            </div>
+          </li>
+          
           <li>
             
             <div class="item-inner">
@@ -289,21 +304,6 @@
             </div>
           </li>
           
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category">
-                
-              </p>
-              <p class="item-title">
-                <a href="/2023/06/07/Tutorial/Origin2022/" class="title">Origin2022</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2023-06-07T09:19:28.000Z" itemprop="datePublished">2023-06-07</time>
-              </p>
-            </div>
-          </li>
-          
       </ul>
     </div>
   </div>
@@ -324,7 +324,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      cmake 教程
+      CMake教程
     </h1>
   
 
@@ -359,18 +359,27 @@
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h1 id="PROJECT-指令的语法"><a href="#PROJECT-指令的语法" class="headerlink" title="PROJECT 指令的语法"></a>PROJECT 指令的语法</h1><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">PROJECT(projectname <span class="selector-attr">[CXX]</span> <span class="selector-attr">[C]</span> <span class="selector-attr">[Java]</span>)</span><br><span class="line">PROJECT (HELLO)</span><br></pre></td></tr></table></figure>
+        <h1 id="CMake例子"><a href="#CMake例子" class="headerlink" title="CMake例子"></a>CMake例子</h1><h2 id="最简单的CMake文件"><a href="#最简单的CMake文件" class="headerlink" title="最简单的CMake文件"></a>最简单的CMake文件</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cmake_minimum_required</span>(VERSION <span class="number">3.0</span>) # 设置最低的 CMake 版本要求</span><br><span class="line"><span class="built_in">project</span>(SimpleProject) # 设置项目名称</span><br><span class="line"><span class="built_in">add_executable</span>(main main.cpp) # 添加可执行文件</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cmake -S . -B build</span><br><span class="line">cmake --build build</span><br></pre></td></tr></table></figure>
+<h2 id="添加动态库，静态库，生成动态库静态库，可执行文件"><a href="#添加动态库，静态库，生成动态库静态库，可执行文件" class="headerlink" title="添加动态库，静态库，生成动态库静态库，可执行文件"></a>添加动态库，静态库，生成动态库静态库，可执行文件</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cmake_minimum_required</span>(VERSION <span class="number">3.0</span>) # 设置最低的 CMake 版本要求</span><br><span class="line"><span class="built_in">project</span>(MyProject) # 设置项目名称</span><br><span class="line"></span><br><span class="line"><span class="built_in">add_subdirectory</span>(src) # 添加源文件目录</span><br><span class="line"><span class="built_in">include_directories</span>(include) # 添加头文件目录</span><br><span class="line"></span><br><span class="line"><span class="built_in">add_library</span>(MyLibrary SHARED src/add.cpp) # 生成动态库</span><br><span class="line"><span class="built_in">add_library</span>(MyStaticLibrary STATIC src/add.cpp) # 生成静态库</span><br><span class="line"></span><br><span class="line"><span class="built_in">add_executable</span>(MyExecutable src/main.cpp) # 添加可执行文件</span><br><span class="line"><span class="built_in">target_link_libraries</span>(MyExecutable MyLibrary) # 链接动态库到可执行文件 </span><br><span class="line"><span class="built_in">target_link_libraries</span>(MyExecutable MyStaticLibrary) # 链接静态库到可执行文件</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cmake -S . -B build</span><br><span class="line">cmake --build build</span><br></pre></td></tr></table></figure>
+<h2 id="添加CMake-test"><a href="#添加CMake-test" class="headerlink" title="添加CMake test"></a>添加CMake test</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cmake_minimum_required</span>(VERSION <span class="number">3.0</span>) # 设置最低的 CMake 版本要求</span><br><span class="line"><span class="built_in">project</span>(MyProject) # 设置项目名称</span><br><span class="line"></span><br><span class="line"><span class="built_in">add_subdirectory</span>(src) # 添加源文件目录</span><br><span class="line"><span class="built_in">include_directories</span>(include) # 添加头文件目录</span><br><span class="line"></span><br><span class="line"><span class="built_in">add_library</span>(MyLibrary SHARED src/add.cpp) # 生成动态库</span><br><span class="line"><span class="built_in">add_library</span>(MyStaticLibrary STATIC src/add.cpp) # 生成静态库</span><br><span class="line"></span><br><span class="line"><span class="built_in">add_executable</span>(MyExecutable src/main.cpp) # 添加可执行文件</span><br><span class="line"><span class="built_in">target_link_libraries</span>(MyExecutable MyLibrary) # 链接动态库到可执行文件 </span><br><span class="line"><span class="built_in">target_link_libraries</span>(MyExecutable MyStaticLibrary) # 链接静态库到可执行文件</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">enable_testing</span>() # 添加测试</span><br><span class="line"><span class="built_in">add_executable</span>(TestExecutable src/test.cpp) # 添加测试用例</span><br><span class="line"><span class="built_in">target_link_libraries</span>(TestExecutable MyLibrary)</span><br><span class="line"><span class="built_in">add_test</span>(NAME MyTest COMMAND TestExecutable) # 添加测试到 CTest</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cmake -S . -B build</span><br><span class="line">cmake --build build</span><br><span class="line"><span class="built_in">cd</span> build</span><br><span class="line">ctest</span><br></pre></td></tr></table></figure>
+
+<h2 id="CMake常见指令"><a href="#CMake常见指令" class="headerlink" title="CMake常见指令"></a>CMake常见指令</h2><h3 id="cmake-minimum-required"><a href="#cmake-minimum-required" class="headerlink" title="cmake_minimum_required"></a>cmake_minimum_required</h3><h3 id="project"><a href="#project" class="headerlink" title="project"></a>project</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">PROJECT</span>(projectname [CXX] [C] [Java])</span><br><span class="line"><span class="built_in">PROJECT</span> (HELLO)</span><br></pre></td></tr></table></figure>
 <p>定义了工程的名称为HELLO</p>
-<h1 id="SET-指令的语法"><a href="#SET-指令的语法" class="headerlink" title="SET 指令的语法"></a>SET 指令的语法</h1><figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="constructor">SET(VAR [VALUE] [CACHE TYPE DOCSTRING [FORCE]])</span></span><br><span class="line"><span class="constructor">SET(SRC_LIST <span class="params">main</span>.<span class="params">c</span> <span class="params">t1</span>.<span class="params">c</span> <span class="params">t2</span>.<span class="params">c</span>)</span></span><br><span class="line"><span class="constructor">SET(SRC_LIST <span class="params">main</span>.<span class="params">c</span>)</span>也可以写成 <span class="constructor">SET(SRC_LIST “<span class="params">main</span>.<span class="params">c</span>”)</span></span><br></pre></td></tr></table></figure>
+<h1 id="SET-指令的语法"><a href="#SET-指令的语法" class="headerlink" title="SET 指令的语法"></a>SET 指令的语法</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">SET</span>(VAR [VALUE] [CACHE TYPE DOCSTRING [FORCE]])</span><br><span class="line"><span class="built_in">SET</span>(SRC_LIST main.c t1.c t2.c)</span><br><span class="line"><span class="built_in">SET</span>(SRC_LIST main.c)也可以写成 <span class="built_in">SET</span>(SRC_LIST “main.c”)</span><br></pre></td></tr></table></figure>
 <p>SET 指令可以用来显式的定义变量即可</p>
-<h1 id="MESSAGE-指令的语法"><a href="#MESSAGE-指令的语法" class="headerlink" title="MESSAGE 指令的语法"></a>MESSAGE 指令的语法</h1><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">MESSAGE</span>(<span class="selector-attr">[SEND_ERROR | STATUS | FATAL_ERROR]</span> <span class="string">&quot;message to display&quot;</span></span><br><span class="line">...)</span><br><span class="line"><span class="function"><span class="title">MESSAGE</span><span class="params">(STATUS <span class="string">&quot;This is BINARY dir &quot;</span> $&#123;HELLO_BINARY_DIR&#125;)</span></span></span><br></pre></td></tr></table></figure>
+<h1 id="MESSAGE-指令的语法"><a href="#MESSAGE-指令的语法" class="headerlink" title="MESSAGE 指令的语法"></a>MESSAGE 指令的语法</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">MESSAGE</span>([SEND_ERROR | STATUS | FATAL_ERROR] <span class="string">&quot;message to display&quot;</span></span><br><span class="line">...)</span><br><span class="line"><span class="built_in">MESSAGE</span>(STATUS <span class="string">&quot;This is BINARY dir &quot;</span> $&#123;HELLO_BINARY_DIR&#125;)</span><br></pre></td></tr></table></figure>
 
 <p>由 PROJECT 指令定义的两个隐式变量HELLO_BINARY_DIR 和 HELLO_SOURCE_DIR。</p>
 <p><strong>SEND_ERROR，产生错误，生成过程被跳过<br>SATUS，输出前缀为—的信息<br>FATAL_ERROR，立即终止所有 cmake 过程</strong></p>
-<h1 id="ADD-EXECUTABLE-指令的语法"><a href="#ADD-EXECUTABLE-指令的语法" class="headerlink" title="ADD_EXECUTABLE 指令的语法"></a>ADD_EXECUTABLE 指令的语法</h1><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">ADD_EXECUTABLE</span><span class="params">(hello $&#123;SRC_LIST&#125;)</span></span></span><br></pre></td></tr></table></figure>
+<h1 id="ADD-EXECUTABLE-指令的语法"><a href="#ADD-EXECUTABLE-指令的语法" class="headerlink" title="ADD_EXECUTABLE 指令的语法"></a>ADD_EXECUTABLE 指令的语法</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ADD_EXECUTABLE</span>(hello $&#123;SRC_LIST&#125;)</span><br></pre></td></tr></table></figure>
 <p>定义了这个工程会生成一个文件名为 hello 的可执行文件</p>
 <h1 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h1><p>${}来引用变量，这是 cmake 的变量引用方式<br>如在 IF 控制语句，变量是直接使用变量名引用，而不需要${}。</p>
-<h1 id="清理"><a href="#清理" class="headerlink" title="清理"></a>清理</h1><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">make clean</span></span><br></pre></td></tr></table></figure>
+<h1 id="清理"><a href="#清理" class="headerlink" title="清理"></a>清理</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make clean</span><br></pre></td></tr></table></figure>
 <p>cmake 并不支持 make distclean，无法清理构建过程产生的中间文件</p>
 <h1 id="cmake使用时候的命名"><a href="#cmake使用时候的命名" class="headerlink" title="cmake使用时候的命名"></a>cmake使用时候的命名</h1><p>cmake .. -DCMAKE_BUILD_TYPE&#x3D;Debug</p>
 <p>CMAKE_BUILD_TYPE<br>可选值包括：<br>Debug：用于在没有优化的情况下，使用带有调试符号构建库或可执行文件<br>Release：用于构建的优化的库或可执行文件，不包含调试符号<br>RelWithDebInfo：由于构建较少的优化库或可执行文件，包含调试符号<br>MinSizeRel：用于不增加目标代码大小的优化方式，来构建或可执行文件</p>
@@ -390,7 +399,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="http://example.com/2022/02/21/Tutorial/linux-dev-env/cmake-tutorial/" title="cmake 教程" target="_blank" rel="external">http://example.com/2022/02/21/Tutorial/linux-dev-env/cmake-tutorial/</a>
+      <a href="http://example.com/2022/02/21/Tutorial/linux-dev-env/cmake-tutorial/" title="CMake教程" target="_blank" rel="external">http://example.com/2022/02/21/Tutorial/linux-dev-env/cmake-tutorial/</a>
     </li>
     
     <li class="post-copyright-license">
