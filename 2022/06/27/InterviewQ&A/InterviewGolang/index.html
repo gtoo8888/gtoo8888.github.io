@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>Golang 面试 | Hexo</title>
+  <meta name="description" content="Go实现了两种并发形式第一种是，多线程共享内存。就是C++中实现的并发模型，他们线程间通信都是通过共享内存的方式来进行的。在访问共享数据（例如数组、Map、或者某个结构体或对象）的时候，通过锁来访问。Go中也实现了传统的线程并发模型。另外一种是Go语言特有的，也是Go语言推荐的：CSP（communicating sequential processes）并发模型。 Go的CSP并发模型，是通过g">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Golang 面试">
+<meta property="og:url" content="http://example.com/2022/06/27/InterviewQ&A/InterviewGolang/index.html">
+<meta property="og:site_name" content="gtoo8888">
+<meta property="og:description" content="Go实现了两种并发形式第一种是，多线程共享内存。就是C++中实现的并发模型，他们线程间通信都是通过共享内存的方式来进行的。在访问共享数据（例如数组、Map、或者某个结构体或对象）的时候，通过锁来访问。Go中也实现了传统的线程并发模型。另外一种是Go语言特有的，也是Go语言推荐的：CSP（communicating sequential processes）并发模型。 Go的CSP并发模型，是通过g">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-06-27T15:29:24.000Z">
+<meta property="article:modified_time" content="2022-08-17T14:42:38.022Z">
+<meta property="article:author" content="Kuku De">
+<meta property="article:tag" content="面试">
+<meta name="twitter:card" content="summary">
+  <!-- Canonical links -->
+  <link rel="canonical" href="http://example.com/2022/06/27/InterviewQ&A/InterviewGolang/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="gtoo8888" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+    <link href="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.3.5/dist/jquery.fancybox.min.css" rel="stylesheet">
+  
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/gtoo8888" target="_blank">
+          <img class="img-circle img-rotate" src="/images/cat.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">gtoo8888</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">C++ Developer</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Luoyang, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav menu-highlight">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-source">
+          <a href="/source">
+            
+            <i class="icon icon-book-fill"></i>
+            
+            <span class="menu-title">资源</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">友链</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/gtoo8888" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>记录自己的学习过程，Linux网络编程冲啊</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/" rel="tag">Linux网络编程</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%B6%E4%BB%96/" rel="tag">其他</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%8D%E6%80%9D/" rel="tag">反思</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%99%E7%A8%8B/" rel="tag">教程</a><span class="tag-list-count">16</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" rel="tag">环境配置</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%AD%E6%B3%95/" rel="tag">语法</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%BE%E7%A8%8B/" rel="tag">课程</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A1%B9%E7%9B%AE/" rel="tag">项目</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%B8%9F%E5%93%A5%E7%9A%84Linux%E7%A7%81%E6%88%BF%E8%8F%9C/" rel="tag">鸟哥的Linux私房菜</a><span class="tag-list-count">7</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/Linux%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/" style="font-size: 13.57px;">Linux网络编程</a> <a href="/tags/%E5%85%B6%E4%BB%96/" style="font-size: 13.71px;">其他</a> <a href="/tags/%E5%8F%8D%E6%80%9D/" style="font-size: 13px;">反思</a> <a href="/tags/%E6%95%99%E7%A8%8B/" style="font-size: 14px;">教程</a> <a href="/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" style="font-size: 13.43px;">环境配置</a> <a href="/tags/%E8%AF%AD%E6%B3%95/" style="font-size: 13.14px;">语法</a> <a href="/tags/%E8%AF%BE%E7%A8%8B/" style="font-size: 13.86px;">课程</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 13.29px;">面试</a> <a href="/tags/%E9%A1%B9%E7%9B%AE/" style="font-size: 13.43px;">项目</a> <a href="/tags/%E9%B8%9F%E5%93%A5%E7%9A%84Linux%E7%A7%81%E6%88%BF%E8%8F%9C/" style="font-size: 13.43px;">鸟哥的Linux私房菜</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">十二月 2023</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">十月 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/09/">九月 2023</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">七月 2023</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">六月 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/04/">四月 2023</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">三月 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/01/">一月 2023</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">十二月 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">十一月 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">十月 2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">九月 2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">八月 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">七月 2022</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">六月 2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">五月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">四月 2022</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">三月 2022</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">二月 2022</a><span class="archive-list-count">7</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2023/12/18/Others/Stormgate/" class="title">猜想一下风暴之门的服务器设计以及RollBack机制</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2023-12-18T09:08:39.000Z" itemprop="datePublished">2023-12-18</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2023/12/10/Course/CourseUML/" class="title">UML教程</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2023-12-10T13:28:56.000Z" itemprop="datePublished">2023-12-10</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2023/10/28/Project/GtooPlayer/GtooPlayer/" class="title">GtooPlayer</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2023-10-28T12:59:04.000Z" itemprop="datePublished">2023-10-28</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2023/09/09/Course/ML/MMsegment/" class="title">mmsegment</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2023-09-09T06:43:15.000Z" itemprop="datePublished">2023-09-09</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2023/09/05/Course/ML/ISAT/" class="title">ISAT</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2023-09-05T02:28:23.000Z" itemprop="datePublished">2023-09-05</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-InterviewQ&amp;A/InterviewGolang" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Golang 面试
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2022/06/27/InterviewQ&A/InterviewGolang/" class="article-date">
+	  <time datetime="2022-06-27T15:29:24.000Z" itemprop="datePublished">2022-06-27</time>
+	</a>
+</span>
+        
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a>
+  </span>
+
+
+        
+	<span class="article-read hidden-xs">
+	    <i class="icon icon-eye-fill" aria-hidden="true"></i>
+	    <span id="busuanzi_container_page_pv">
+			<span id="busuanzi_value_page_pv">0</span>
+		</span>
+	</span>
+
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2022/06/27/InterviewQ&A/InterviewGolang/#comments" class="article-comment-link">评论</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <p>Go实现了两种并发形式<br>第一种是，多线程共享内存。就是C++中实现的并发模型，他们线程间通信都是通过共享内存的方式来进行的。在访问共享数据（例如数组、Map、或者某个结构体或对象）的时候，通过锁来访问。Go中也实现了传统的线程并发模型。<br>另外一种是Go语言特有的，也是Go语言推荐的：CSP（communicating sequential processes）并发模型。</p>
+<p>Go的CSP并发模型，是通过goroutine和channel来实现的。</p>
+<p>goroutine 是Go语言中并发的执行单位。有点抽象，其实就是和传统概念上的”线程“类似，可以理解为”线程“。<br>channel是Go语言中各个并发结构体(goroutine)之前的通信机制。 通俗的讲，就是各个goroutine之间通信的”管道“，有点类似于Linux中的管道。</p>
+<h1 id="GMP模型介绍一下"><a href="#GMP模型介绍一下" class="headerlink" title="GMP模型介绍一下"></a>GMP模型介绍一下</h1><p>go runtinue使用了一个MPG模型来实现<br>M指的是Machine，一个M直接关联了一个内核线程。所有的G(goroutine)任务最终都会在M上执行。<br>P指的是processor，代表了M所需的上下文环境，也是处理用户级代码逻辑的处理器。它负责衔接M和G的调度上下文，将等待执行的G与M对接。<br>1．代表一个处理器，每个运行的M都必须绑定一个P。P的个数是GOMAXPOCS，最大为256，在程序启动时固<br>定，一般不去修改。<br>2.GOMAXPOCS默认值是当前电脑的核心数，单核CPU就只能设置为1，如果设置&gt;1，在GOMAXPOCS函数中<br>也会被修改为1。<br>3.M和P的个数不一定一样多，M&gt;&#x3D;P，每一个P都会保存本地的G任务队列，另外还有一个全局的G任务队列。G<br>任务队列可以认为线程池中的线程队列。</p>
+<p>G指的是Goroutine，代表一个goroutine对象，每次go调用的时候都会创建一个G对象，其实本质上也是一种轻量级的线程。包括了调用栈，重要的调度信息，例如channel等。</p>
+<h1 id="go-rutine调度流程"><a href="#go-rutine调度流程" class="headerlink" title="go rutine调度流程"></a>go rutine调度流程</h1><ol>
+<li>启动一个goroutine<br>也就是创建一个G对象，然后加入到本地队列或者全局队列中</li>
+</ol>
+<p>goroutineฎ按照抢占式进⾏调度，一个goroutine最多执行10ms就会换下一个<br>2. 查找是否有空闲的P<br>如果没有就直接返回<br>如果有，就用系统API创建一个M(线程)<br>3. 由这个刚创建的M循环执行能找到的G任务<br>4. G任务执行的循序<br>先从本地队列找，本地没有找到就从全局队列找，如果还没有找到就去其他P中找<br>5. 所有的G任务的执行是按照go的调用顺序执行的<br>6. 如果一个系统调用或者G任务执行的时间太长，就会一直占用这个线程</p>
+<h1 id="slice-底层和扩容"><a href="#slice-底层和扩容" class="headerlink" title="slice 底层和扩容"></a>slice 底层和扩容</h1><h1 id="defer-应用和底层"><a href="#defer-应用和底层" class="headerlink" title="defer 应用和底层"></a>defer 应用和底层</h1><h1 id="内存管理"><a href="#内存管理" class="headerlink" title="内存管理"></a>内存管理</h1><h1 id="垃圾回收"><a href="#垃圾回收" class="headerlink" title="垃圾回收"></a>垃圾回收</h1><h1 id=""><a href="#" class="headerlink" title=""></a></h1><p>熟悉docker，k8s，了解两者基本原理，了解devops实施方案，CICD，服务发现，灰度发布等</p>
+<h1 id="语法关键点"><a href="#语法关键点" class="headerlink" title="语法关键点"></a>语法关键点</h1><p>defer关键字<br>defer和go一样都是Go语言提供的关键字。defer用于资源的释放，会在函数返回之前进行调用。一般采用如下模式：<br>defer是在return之前执行的。这个在 官方文档中是明确说明了的。要使用defer时不踩坑，最重要的一点就是要明白，return xxx这一条语句并不是一条原子指令!<br>函数返回的过程是这样的：先给返回值赋值，然后调用defer表达式，最后才是返回到调用函数中。<br>defer表达式可能会在设置函数返回值之后，在返回到调用函数之前，修改返回值，使最终的函数返回值与你想象的不一致。<br><a target="_blank" rel="noopener" href="https://tiancaiamao.gitbooks.io/go-internals/content/zh/03.4.html">https://tiancaiamao.gitbooks.io/go-internals/content/zh/03.4.html</a></p>
+<p>make关键字<br>chan关键字</p>
+<p>反射机制</p>
+<p>多进程go机制</p>
+<h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><p>[全面的golang教程]<a target="_blank" rel="noopener" href="http://c.biancheng.net/golang/">http://c.biancheng.net/golang/</a><br>[defer关键字]<a target="_blank" rel="noopener" href="https://tiancaiamao.gitbooks.io/go-internals/content/zh/03.4.html">https://tiancaiamao.gitbooks.io/go-internals/content/zh/03.4.html</a><br>[GORM docs]<a target="_blank" rel="noopener" href="https://gorm.io/zh_CN/docs/index.html">https://gorm.io/zh_CN/docs/index.html</a></p>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="http://example.com/2022/06/27/InterviewQ&A/InterviewGolang/" title="Golang 面试" target="_blank" rel="external">http://example.com/2022/06/27/InterviewQ&A/InterviewGolang/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/gtoo8888" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/cat.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/gtoo8888" target="_blank"><span class="text-dark">gtoo8888</span><small class="ml-1x">C++ Developer</small></a></h3>
+        <div>喜欢Linux高并发服务器开发，喜欢探究代码的底层原理，热爱开源，乐于分享</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+      <div id="vcomments"></div>
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/2022/07/25/Project/Webserver/" title="webserver"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/2022/06/22/Others/Comparison-of-Baidu-and-Google/" title="百度和谷歌的比较"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/gtoo8888" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+
+
+
+   
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+   
+    
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine"></script>
+  <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: false,
+    notify: false,
+    appId: '',
+    appKey: '',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+  </script>
+
+     
+
+
+
+  <script src="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.3.5/dist/jquery.fancybox.min.js"></script>
+  <script>
+  //利用 FancyBox 实现点击图片放大
+  $(document).ready(function() {
+    $('article img').not('[hidden]').not('.panel-body img').each(function() {
+      var $image = $(this);
+      var imageCaption = $image.attr('alt');
+      var $imageWrapLink = $image.parent('a');
+      if ($imageWrapLink.length < 1) {
+        var src = this.getAttribute('src');
+        var idx = src.lastIndexOf('?');
+        if (idx != -1) {
+          src = src.substring(0, idx);
+        }
+        $imageWrapLink = $image.wrap('<a href="' + src + '"></a>').parent('a');
+      }
+      $imageWrapLink.attr('data-fancybox', 'images');
+      if (imageCaption) {
+        $imageWrapLink.attr('data-caption', imageCaption);
+      }
+    });
+    $().fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+    });
+  });
+  </script>
+
+
+
+
+
+</body>
+</html>

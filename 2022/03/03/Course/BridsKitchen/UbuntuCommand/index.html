@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>ubuntu command | Hexo</title>
+  <meta name="description" content="查看脚本文件是dos还是unix查看脚本文件是dos格式还是unix格式，dos格式的文件行尾为^M$ ，unix格式的文件行尾为$cat -A filename把dos格式的文件转换为unix格式的文件dos2unix filename [ -d DIR ] 如果 FILE 存在且是一个目录则为真。[ -z STRING ] 如果STRING的长度为零则为真 ，即判断是否为空，空即是真； 二、文">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ubuntu command">
+<meta property="og:url" content="http://example.com/2022/03/03/Course/BridsKitchen/UbuntuCommand/index.html">
+<meta property="og:site_name" content="gtoo8888">
+<meta property="og:description" content="查看脚本文件是dos还是unix查看脚本文件是dos格式还是unix格式，dos格式的文件行尾为^M$ ，unix格式的文件行尾为$cat -A filename把dos格式的文件转换为unix格式的文件dos2unix filename [ -d DIR ] 如果 FILE 存在且是一个目录则为真。[ -z STRING ] 如果STRING的长度为零则为真 ，即判断是否为空，空即是真； 二、文">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-03-03T14:03:11.000Z">
+<meta property="article:modified_time" content="2023-07-23T14:23:39.239Z">
+<meta property="article:author" content="Kuku De">
+<meta property="article:tag" content="鸟哥的Linux私房菜">
+<meta name="twitter:card" content="summary">
+  <!-- Canonical links -->
+  <link rel="canonical" href="http://example.com/2022/03/03/Course/BridsKitchen/UbuntuCommand/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="gtoo8888" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+    <link href="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.3.5/dist/jquery.fancybox.min.css" rel="stylesheet">
+  
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/gtoo8888" target="_blank">
+          <img class="img-circle img-rotate" src="/images/cat.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">gtoo8888</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">C++ Developer</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Luoyang, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav menu-highlight">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-source">
+          <a href="/source">
+            
+            <i class="icon icon-book-fill"></i>
+            
+            <span class="menu-title">资源</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">友链</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/gtoo8888" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>记录自己的学习过程，Linux网络编程冲啊</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/" rel="tag">Linux网络编程</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%B6%E4%BB%96/" rel="tag">其他</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%8D%E6%80%9D/" rel="tag">反思</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%99%E7%A8%8B/" rel="tag">教程</a><span class="tag-list-count">16</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" rel="tag">环境配置</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%AD%E6%B3%95/" rel="tag">语法</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%BE%E7%A8%8B/" rel="tag">课程</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A1%B9%E7%9B%AE/" rel="tag">项目</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%B8%9F%E5%93%A5%E7%9A%84Linux%E7%A7%81%E6%88%BF%E8%8F%9C/" rel="tag">鸟哥的Linux私房菜</a><span class="tag-list-count">7</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/Linux%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/" style="font-size: 13.57px;">Linux网络编程</a> <a href="/tags/%E5%85%B6%E4%BB%96/" style="font-size: 13.71px;">其他</a> <a href="/tags/%E5%8F%8D%E6%80%9D/" style="font-size: 13px;">反思</a> <a href="/tags/%E6%95%99%E7%A8%8B/" style="font-size: 14px;">教程</a> <a href="/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" style="font-size: 13.43px;">环境配置</a> <a href="/tags/%E8%AF%AD%E6%B3%95/" style="font-size: 13.14px;">语法</a> <a href="/tags/%E8%AF%BE%E7%A8%8B/" style="font-size: 13.86px;">课程</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 13.29px;">面试</a> <a href="/tags/%E9%A1%B9%E7%9B%AE/" style="font-size: 13.43px;">项目</a> <a href="/tags/%E9%B8%9F%E5%93%A5%E7%9A%84Linux%E7%A7%81%E6%88%BF%E8%8F%9C/" style="font-size: 13.43px;">鸟哥的Linux私房菜</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">十二月 2023</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">十月 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/09/">九月 2023</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">七月 2023</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">六月 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/04/">四月 2023</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">三月 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/01/">一月 2023</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">十二月 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">十一月 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">十月 2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">九月 2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">八月 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">七月 2022</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">六月 2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">五月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">四月 2022</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">三月 2022</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">二月 2022</a><span class="archive-list-count">7</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2023/12/18/Others/Stormgate/" class="title">猜想一下风暴之门的服务器设计以及RollBack机制</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2023-12-18T09:08:39.000Z" itemprop="datePublished">2023-12-18</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2023/12/10/Course/CourseUML/" class="title">UML教程</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2023-12-10T13:28:56.000Z" itemprop="datePublished">2023-12-10</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2023/10/28/Project/GtooPlayer/GtooPlayer/" class="title">GtooPlayer</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2023-10-28T12:59:04.000Z" itemprop="datePublished">2023-10-28</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2023/09/09/Course/ML/MMsegment/" class="title">mmsegment</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2023-09-09T06:43:15.000Z" itemprop="datePublished">2023-09-09</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2023/09/05/Course/ML/ISAT/" class="title">ISAT</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2023-09-05T02:28:23.000Z" itemprop="datePublished">2023-09-05</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-Course/BridsKitchen/UbuntuCommand" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      ubuntu command
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2022/03/03/Course/BridsKitchen/UbuntuCommand/" class="article-date">
+	  <time datetime="2022-03-03T14:03:11.000Z" itemprop="datePublished">2022-03-03</time>
+	</a>
+</span>
+        
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/%E9%B8%9F%E5%93%A5%E7%9A%84Linux%E7%A7%81%E6%88%BF%E8%8F%9C/" rel="tag">鸟哥的Linux私房菜</a>
+  </span>
+
+
+        
+	<span class="article-read hidden-xs">
+	    <i class="icon icon-eye-fill" aria-hidden="true"></i>
+	    <span id="busuanzi_container_page_pv">
+			<span id="busuanzi_value_page_pv">0</span>
+		</span>
+	</span>
+
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2022/03/03/Course/BridsKitchen/UbuntuCommand/#comments" class="article-comment-link">评论</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h1 id="查看脚本文件是dos还是unix"><a href="#查看脚本文件是dos还是unix" class="headerlink" title="查看脚本文件是dos还是unix"></a>查看脚本文件是dos还是unix</h1><p>查看脚本文件是dos格式还是unix格式，dos格式的文件行尾为^M$ ，unix格式的文件行尾为$<br>cat -A filename<br>把dos格式的文件转换为unix格式的文件<br>dos2unix filename</p>
+<p>[ -d DIR ] 如果 FILE 存在且是一个目录则为真。<br>[ -z STRING ] 如果STRING的长度为零则为真 ，即判断是否为空，空即是真；</p>
+<p>二、文件&#x2F;文件夹(目录)判断</p>
+<p>[ -b FILE ] 如果 FILE 存在且是一个块特殊文件则为真。<br>[ -c FILE ] 如果 FILE 存在且是一个字特殊文件则为真。<br>[ -d DIR ] 如果 FILE 存在且是一个目录则为真。<br>[ -e FILE ] 如果 FILE 存在则为真。<br>[ -f FILE ] 如果 FILE 存在且是一个普通文件则为真。<br>[ -g FILE ] 如果 FILE 存在且已经设置了SGID则为真。<br>[ -k FILE ] 如果 FILE 存在且已经设置了粘制位则为真。<br>[ -p FILE ] 如果 FILE 存在且是一个名字管道(F如果O)则为真。<br>[ -r FILE ] 如果 FILE 存在且是可读的则为真。<br>[ -s FILE ] 如果 FILE 存在且大小不为0则为真。<br>[ -t FD ] 如果文件描述符 FD 打开且指向一个终端则为真。<br>[ -u FILE ] 如果 FILE 存在且设置了SUID (set user ID)则为真。<br>[ -w FILE ] 如果 FILE存在且是可写的则为真。<br>[ -x FILE ] 如果 FILE 存在且是可执行的则为真。<br>[ -O FILE ] 如果 FILE 存在且属有效用户ID则为真。<br>[ -G FILE ] 如果 FILE 存在且属有效用户组则为真。<br>[ -L FILE ] 如果 FILE 存在且是一个符号连接则为真。<br>[ -N FILE ] 如果 FILE 存在 and has been mod如果ied since it was last read则为真。<br>[ -S FILE ] 如果 FILE 存在且是一个套接字则为真。<br>[ FILE1 -nt FILE2 ] 如果 FILE1 has been changed more recently than FILE2, or 如果 FILE1 exists and FILE2 does not则为真。<br>[ FILE1 -ot FILE2 ] 如果 FILE1 比 FILE2 要老, 或者 FILE2 存在且 FILE1 不存在则为真。<br>[ FILE1 -ef FILE2 ] 如果 FILE1 和 FILE2 指向相同的设备和节点号则为真。</p>
+<p>三、字符串判断</p>
+<p>[ -z STRING ] 如果STRING的长度为零则为真 ，即判断是否为空，空即是真；<br>[ -n STRING ] 如果STRING的长度非零则为真 ，即判断是否为非空，非空即是真；<br>[ STRING1 &#x3D; STRING2 ] 如果两个字符串相同则为真 ；<br>[ STRING1 !&#x3D; STRING2 ] 如果字符串不相同则为真 ；<br>[ STRING1 ]　 如果字符串不为空则为真,与-n类似</p>
+<h1 id="开启摄像头"><a href="#开启摄像头" class="headerlink" title="开启摄像头"></a>开启摄像头</h1><p>cheese</p>
+<h1 id="显示系统进程"><a href="#显示系统进程" class="headerlink" title="显示系统进程"></a>显示系统进程</h1><p>显示系统进程 top</p>
+<p>杀死这个进程号的进程 sudo kill pid</p>
+<h1 id="获取最高用户权限"><a href="#获取最高用户权限" class="headerlink" title="获取最高用户权限"></a>获取最高用户权限</h1><p>sudo -i</p>
+<h1 id="挂载和弹出U盘"><a href="#挂载和弹出U盘" class="headerlink" title="挂载和弹出U盘"></a>挂载和弹出U盘</h1><p>查看挂载情况<br>df -h</p>
+<h2 id="挂载"><a href="#挂载" class="headerlink" title="挂载"></a>挂载</h2><p>查看系统磁盘设备信息，并找到待U盘的目录(Linux系统中所有设备均被视为文件)<br>fdisk -l<br>#&#x2F;dev&#x2F;sdb1<br>将U盘挂载到系统某个位置<br>mount &#x2F;dev&#x2F;sdb1 &#x2F;mnt<br>现在U盘所有文件被挂载到了&#x2F;mnt目录中，进入U盘目录查看内容<br>cd &#x2F;mnt</p>
+<h2 id="弹出"><a href="#弹出" class="headerlink" title="弹出"></a>弹出</h2><p>df 查看一下有没有usb设备在挂载使用<br>umount &#x2F;dev&#x2F;sdb1</p>
+<h1 id="export-添加环境变量"><a href="#export-添加环境变量" class="headerlink" title="export  添加环境变量"></a>export  添加环境变量</h1><h1 id="last-显示最近使用者的登录列表"><a href="#last-显示最近使用者的登录列表" class="headerlink" title="last 显示最近使用者的登录列表"></a>last 显示最近使用者的登录列表</h1><h1 id="set-观察bash下的所有环境变量"><a href="#set-观察bash下的所有环境变量" class="headerlink" title="set 观察bash下的所有环境变量"></a>set 观察bash下的所有环境变量</h1><h1 id="id-vvv-查询是不是有这个用户"><a href="#id-vvv-查询是不是有这个用户" class="headerlink" title="id vvv 查询是不是有这个用户"></a>id vvv 查询是不是有这个用户</h1><h1 id="alias-设置永久的alias别名"><a href="#alias-设置永久的alias别名" class="headerlink" title="alias 设置永久的alias别名"></a>alias 设置永久的alias别名</h1><h1 id="更改-x2F-bashrc配置"><a href="#更改-x2F-bashrc配置" class="headerlink" title="更改.&#x2F;.bashrc配置"></a>更改.&#x2F;.bashrc配置</h1><p>vim .&#x2F;.bashrc<br>source .&#x2F;.bashrc</p>
+<h1 id="批量改权限"><a href="#批量改权限" class="headerlink" title="批量改权限"></a>批量改权限</h1><p>sudo chmod +x ~&#x2F;bin&#x2F;*</p>
+<h1 id="bash快捷键"><a href="#bash快捷键" class="headerlink" title="bash快捷键"></a>bash快捷键</h1><table>
+<thead>
+<tr>
+<th>按键</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ALT+B</td>
+<td>光标移动到所在单词词首</td>
+</tr>
+<tr>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>CTRL+C</td>
+<td>停止当前运行的命令</td>
+</tr>
+<tr>
+<td>CTRL+L</td>
+<td>清空屏幕并重新显示当前行</td>
+</tr>
+<tr>
+<td>CTRL+U</td>
+<td>删除光标前的所有字符</td>
+</tr>
+<tr>
+<td>CTRL+K</td>
+<td>删除光标后的所有字符</td>
+</tr>
+<tr>
+<td>CTRL+A</td>
+<td>快速移动到行首</td>
+</tr>
+<tr>
+<td>CTRL+E</td>
+<td>移动到行末</td>
+</tr>
+<tr>
+<td>CTRL+T</td>
+<td>交换最后两个字符</td>
+</tr>
+</tbody></table>
+<h1 id="重启命令："><a href="#重启命令：" class="headerlink" title="重启命令："></a>重启命令：</h1><ol>
+<li>reboot</li>
+<li>shutdown -r now 立刻重启(root用户使用)</li>
+<li>shutdown -r 10 过10分钟自动重启(root用户使用)</li>
+<li>shutdown -r 20:35 在时间为20:35时候重启(root用户使用)<br>如果是通过shutdown命令设置重启的话，可以用shutdown -c命令取消重启</li>
+</ol>
+<h1 id="关机命令："><a href="#关机命令：" class="headerlink" title="关机命令："></a>关机命令：</h1><ol>
+<li>halt   立刻关机</li>
+<li>poweroff 立刻关机</li>
+<li>shutdown -h now 立刻关机(root用户使用)</li>
+<li>shutdown -h 10 10分钟后自动关机</li>
+</ol>
+<h1 id="关机前准备"><a href="#关机前准备" class="headerlink" title="关机前准备"></a>关机前准备</h1><h1 id="who-查看谁在线"><a href="#who-查看谁在线" class="headerlink" title="who 查看谁在线"></a>who 查看谁在线</h1><h1 id="netstat-a-网络的联机状态"><a href="#netstat-a-网络的联机状态" class="headerlink" title="netstat -a 网络的联机状态"></a>netstat -a 网络的联机状态</h1><h1 id="dmesg-查看内核信息"><a href="#dmesg-查看内核信息" class="headerlink" title="dmesg 查看内核信息"></a>dmesg 查看内核信息</h1><h2 id="通过cpu-checker实用程序"><a href="#通过cpu-checker实用程序" class="headerlink" title="通过cpu-checker实用程序"></a>通过cpu-checker实用程序</h2><p> sudo apt-get install cpu-checker</p>
+<p> sudo kvm-ok</p>
+<h1 id="查看系统位数"><a href="#查看系统位数" class="headerlink" title="查看系统位数"></a>查看系统位数</h1><p> file &#x2F;bin&#x2F;ls</p>
+<h1 id="vmstat-命令功能说明：-命令报告关于内核线程、虚拟内存、磁盘、陷阱和-CPU-活动的统计信息"><a href="#vmstat-命令功能说明：-命令报告关于内核线程、虚拟内存、磁盘、陷阱和-CPU-活动的统计信息" class="headerlink" title="vmstat 命令功能说明： 命令报告关于内核线程、虚拟内存、磁盘、陷阱和 CPU 活动的统计信息"></a>vmstat 命令功能说明： 命令报告关于内核线程、虚拟内存、磁盘、陷阱和 CPU 活动的统计信息</h1><h1 id="du-disk-usage-命令功能说明：统计目录-或文件-所占磁盘空间的大小"><a href="#du-disk-usage-命令功能说明：统计目录-或文件-所占磁盘空间的大小" class="headerlink" title="du(disk usage) 命令功能说明：统计目录(或文件)所占磁盘空间的大小"></a>du(disk usage) 命令功能说明：统计目录(或文件)所占磁盘空间的大小</h1><p> qemu-kvm - 为 KVM 管理程序提供硬件模拟的软件程序<br>libvirt-daemon-system - 将 libvirt 守护程序作为系统服务运行的配置文件<br>libvirt-clients - 用来管理虚拟化平台的软件<br>bridge-utils - 用来配置网络桥接的命令行工具<br>virtinst - 用来创建虚拟机的命令行工具<br>virt-manager - 提供一个易用的图形界面，并且通过libvirt 支持用于管理虚拟机的命令行工具</p>
+<h1 id="查看电量"><a href="#查看电量" class="headerlink" title="查看电量"></a>查看电量</h1><p>sudo apt-get install acpi<br>使用acpi命令行工具<br>查看电池是否在充电，剩余电量百分比，具体剩余时间，使用命令acpi<br>[matrix@localhost ~]$ acpi<br>Battery 0: Discharging, 33%, 00:44:53 remaining<br>如果你要看更多的信息，如电池总容量、温度等信息，使用acpi -V命令</p>
+<p>使用IBAM检测电池用量<br>IBAM自称为“智能的电池监测器”</p>
+<p>upower –dump | grep –color&#x3D;never -E “state|to\ full|to\ empty|percentage”</p>
+<p> systemctl isolate multi-user.target</p>
+<p>  systemctl isolate graphical.target</p>
+<table>
+<thead>
+<tr>
+<th>目录</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>&#x2F;</td>
+<td>虚拟目录的根目录，万物起源。通常不会在这里存储文件</td>
+</tr>
+<tr>
+<td>&#x2F;bin</td>
+<td>二进制目录，存放许多用户级的GNU工具</td>
+</tr>
+<tr>
+<td>&#x2F;boot</td>
+<td>启动目录，包含Linux内核，存放启动文件</td>
+</tr>
+<tr>
+<td>&#x2F;boot&#x2F;grub&#x2F;grub.conf or menu.lst</td>
+<td>被用来配置启动加载程序</td>
+</tr>
+<tr>
+<td>&#x2F;boot&#x2F;vmlinuz</td>
+<td>Linux 内核</td>
+</tr>
+<tr>
+<td>&#x2F;dev</td>
+<td>设备目录，Linux在这里创建设备节点</td>
+</tr>
+<tr>
+<td>&#x2F;etc</td>
+<td>系统配置文件目录，也包含一系列的shell脚本</td>
+</tr>
+<tr>
+<td>&#x2F;etc&#x2F;crontab</td>
+<td>定义自动运行的任务</td>
+</tr>
+<tr>
+<td>&#x2F;etc&#x2F;fstab</td>
+<td>包含存储设备的列表，以及与他们相关的挂载点</td>
+</tr>
+<tr>
+<td>&#x2F;etc&#x2F;passwd</td>
+<td>包含用户帐号列表</td>
+</tr>
+<tr>
+<td>&#x2F;home</td>
+<td>主目录，Linux在这 里创建用户目录</td>
+</tr>
+<tr>
+<td>&#x2F;lib</td>
+<td>库目录，存放系统和应用程序的库文件</td>
+</tr>
+<tr>
+<td>&#x2F;media</td>
+<td>媒体目录，可移动媒体设备的常用挂载点</td>
+</tr>
+<tr>
+<td>&#x2F;mnt</td>
+<td>挂载目录，另一个可移动媒体设备的常用挂载点</td>
+</tr>
+<tr>
+<td>&#x2F;opt</td>
+<td>可选目录，常用于存放第三方软件包和数据文件</td>
+</tr>
+<tr>
+<td>&#x2F;proc</td>
+<td>进程目录，存放现有硬件及当前进程的相关信息</td>
+</tr>
+<tr>
+<td>&#x2F;root</td>
+<td>root用户的主目录</td>
+</tr>
+<tr>
+<td>&#x2F;sbin</td>
+<td>系统二进制目录，存放许多GNU管理员级工具</td>
+</tr>
+<tr>
+<td>&#x2F;run</td>
+<td>运行目录，存放系统运作时的运行时数据</td>
+</tr>
+<tr>
+<td>&#x2F;srv</td>
+<td>服务目录，存放本地服务的相关文件</td>
+</tr>
+<tr>
+<td>&#x2F;sys</td>
+<td>系统目录，存放系统硬件信息的相关文件</td>
+</tr>
+<tr>
+<td>&#x2F;tmp</td>
+<td>临时目录，可以在该目录中创建和删除临时工作文件</td>
+</tr>
+<tr>
+<td>&#x2F;usr</td>
+<td>用户二进制目录，大量用户级的GNU工具和数据文件都存储在这里，它可能是Linux系统中最大的一个</td>
+</tr>
+<tr>
+<td>&#x2F;usr&#x2F;bin</td>
+<td>包含系统安装的可执行程序，通常会包含许多程序</td>
+</tr>
+<tr>
+<td>&#x2F;usr&#x2F;lib</td>
+<td>包含由&#x2F;usr&#x2F;bin目录中的程序所用的共享库</td>
+</tr>
+<tr>
+<td>&#x2F;usr&#x2F;local</td>
+<td>非系统发行版自带却打算让系统使用的程序的安装目录</td>
+</tr>
+<tr>
+<td>&#x2F;usr&#x2F;sbin</td>
+<td>包含许多系统管理程序</td>
+</tr>
+<tr>
+<td>&#x2F;usr&#x2F;share</td>
+<td>包含许多由&#x2F;usr&#x2F;bin目录中的程序使用的共享数据，其中包括像默认的配置文件、图标、桌面背景、音频文件等等</td>
+</tr>
+<tr>
+<td>&#x2F;usr&#x2F;share&#x2F;doc</td>
+<td>大多数安装在系统中的软件包会包含一些文档</td>
+</tr>
+<tr>
+<td>&#x2F;var</td>
+<td>可变目录，用以存放经常变化的文件，比如日志文件</td>
+</tr>
+</tbody></table>
+<h1 id="常用的库"><a href="#常用的库" class="headerlink" title="常用的库"></a>常用的库</h1><p>GCC multilib主要是用于支持交叉编译（cross compiling），即编译出来的程序是用来在其他处理器平台上运行的。例如可以在x86 64位处理器上编译出x86 32位程序，运行在32位处理器上，或者在x86平台上编译出可以在ARM处理器上运行的程序</p>
+<p>build-essential<br>Ubuntu缺省情况下，并没有提供C&#x2F;C++的编译环境，因此还需要手动安装。但是如果单独安装gcc以及g++比较麻烦，幸运的是，Ubuntu提供了一个build-essential软件包。查看该软件包的依赖关系：</p>
+<p>libtool 是一个通用库支持脚本，将使用动态库的复杂性隐藏在统一、可移植的接口中，也就是说，你可以通过如下所示的标准方法，在不同平台上创建并调用动态库，我们 可以认为libtool是gcc的一个抽象，也就是说，它包装了gcc或者其他的任何编译器，用户无需知道细节，只要告诉libtool说我需要要编译哪 些库即可，并且，它只与libtool文件打交道，例如lo、la为后缀的文件。</p>
+<h1 id="第二种方法：使用mount命令"><a href="#第二种方法：使用mount命令" class="headerlink" title="第二种方法：使用mount命令"></a>第二种方法：使用mount命令</h1><h1 id="mount-l"><a href="#mount-l" class="headerlink" title="mount -l"></a>mount -l</h1><h1 id="第三种方法：查看文件-x2F-etc-x2F-mtab。"><a href="#第三种方法：查看文件-x2F-etc-x2F-mtab。" class="headerlink" title="第三种方法：查看文件&#x2F;etc&#x2F;mtab。"></a>第三种方法：查看文件&#x2F;etc&#x2F;mtab。</h1><h1 id="cat-x2F-etc-x2F-mtab"><a href="#cat-x2F-etc-x2F-mtab" class="headerlink" title="cat &#x2F;etc&#x2F;mtab"></a>cat &#x2F;etc&#x2F;mtab</h1><h1 id="第四种方法：使用lsblk命令查看"><a href="#第四种方法：使用lsblk命令查看" class="headerlink" title="第四种方法：使用lsblk命令查看"></a>第四种方法：使用lsblk命令查看</h1><h1 id="lsblk-P"><a href="#lsblk-P" class="headerlink" title="lsblk -P"></a>lsblk -P</h1><h1 id="查看端口号"><a href="#查看端口号" class="headerlink" title="查看端口号"></a>查看端口号</h1><p>netstat -tunpl | grep 端口号</p>
+<h1 id="chrony"><a href="#chrony" class="headerlink" title="chrony"></a>chrony</h1><p>Chrony是一个开源自由的网络时间协议 NTP 的客户端和服务器软软件。它能让计算机保持系统时钟与时钟服务器（NTP）同步，因此让你的计算机保持精确的时间，Chrony也可以作为服务端软件为其他计算机提供时间同步服务。</p>
+<h1 id="modprobe"><a href="#modprobe" class="headerlink" title="modprobe"></a>modprobe</h1><p>modprobe命令用于智能地向内核中加载模块或者从内核中移除模块。</p>
+<p>modprobe -V<br>kmod version 27<br>+XZ -ZLIB +LIBCRYPTO -EXPERIMENTAL</p>
+<p>加载模型<br>modprobe sysrq<br>都从这个路径下加载<br>&#x2F;lib&#x2F;modules&#x2F;<br>error:<br>modprobe: FATAL: Module sysrq not found in directory &#x2F;lib&#x2F;modules&#x2F;5.10.16.3-microsoft-standard-WSL2</p>
+<h1 id="lsmod"><a href="#lsmod" class="headerlink" title="lsmod"></a>lsmod</h1><p>查看已加载的内核模块信息</p>
+<p>sudo insmod hello.ko  &#x2F;&#x2F;插入模块<br>sudo rmmode hello &#x2F;&#x2F; 卸载模块<br>modinfo hello.ko &#x2F;&#x2F; 查看模块信息<br>lsmod &#x2F;&#x2F;查看系统模块<br>dmesg &#x2F;&#x2F; 查看系统日志信息</p>
+<h1 id="systemctl"><a href="#systemctl" class="headerlink" title="systemctl"></a>systemctl</h1><p>-p 从指定文件夹加载<br>sysctl -p &#x2F;etc&#x2F;sysctl.d&#x2F;my-default.conf</p>
+<p>which systmd<br>查看状态<br>sysctl docker status</p>
+<p>wget <a target="_blank" rel="noopener" href="https://github.com/microsoft/WSL2-Linux-Kernel/archive/refs/tags/linux-msft-5.4.72.tar.gz">https://github.com/microsoft/WSL2-Linux-Kernel/archive/refs/tags/linux-msft-5.4.72.tar.gz</a></p>
+<h1 id="modprobe-br-netfilter"><a href="#modprobe-br-netfilter" class="headerlink" title="modprobe br_netfilter"></a>modprobe br_netfilter</h1><p>linux透明防火墙–br_netfilter</p>
+<h1 id="更新内核"><a href="#更新内核" class="headerlink" title="更新内核"></a>更新内核</h1><p>查看内核是否存在<br>apt-cache search linux | grep “linux-buildinfo-5.4.0-122-generic”<br>寻找内核是否存在<br>apt search ‘linux-image-5.4.0-122-generic’</p>
+<p>apt install ‘linux-image-5.4.0-122-generic’<br>sudo update-initramfs -u -k all<br>sudo update-grub</p>
+<p>sudo update-initramfs -u -k all</p>
+<h1 id="lsof"><a href="#lsof" class="headerlink" title="lsof"></a>lsof</h1><h1 id="swapoff"><a href="#swapoff" class="headerlink" title="swapoff"></a>swapoff</h1><p>Linux swapoff命令用于关闭系统交换区(swap area)。<br>-a 将&#x2F;etc&#x2F;fstab文件中所有设置为swap的设备关闭<br>-h 帮助信息<br>-V 版本信息</p>
+<p>sudo -i 切换用户身份到root.</p>
+<h1 id="mount"><a href="#mount" class="headerlink" title="mount"></a>mount</h1><p>mount命令是经常会使用到的命令，它用于挂载Linux系统外的文件。<br>-t：指定档案系统的型态，通常不必指定。mount 会自动选择正确的型态。<br> mount -t glusterfs</p>
+<h1 id="cp"><a href="#cp" class="headerlink" title="\cp"></a>\cp</h1><p>不会询问是否覆盖<br>\cp &#x2F;app&#x2F;WEB-INF&#x2F;com&#x2F;cfg.properties &#x2F;app_bak&#x2F;WEB-INF&#x2F;com&#x2F;cfg.properties </p>
+<h1 id="crontab-是用来定期执行程序的命令"><a href="#crontab-是用来定期执行程序的命令" class="headerlink" title="crontab 是用来定期执行程序的命令"></a>crontab 是用来定期执行程序的命令</h1><p>crontab 命令<br>crontab 命令需要 crond 服务支持<br>crond 是 Linux 下用来周期地执行某种任务或等待处理某些事件的一个守护进程，和 Windows 中的计划任务有些类似。</p>
+<p>当安装完成操作系统之后，默认便会启动此任务调度命令。</p>
+<p>crond 命令每分钟会定期检查是否有要执行的工作，如果有要执行的工作便会自动执行该工作。</p>
+<p>注意：新创建的 cron 任务，不会马上执行，至少要过 2 分钟后才可以，当然你可以重启 cron 来马上执行。</p>
+<p>而 linux 任务调度的工作主要分为以下两类：</p>
+<p>1、系统执行的工作：系统周期性所要执行的工作，如备份系统数据、清理缓存<br>2、个人执行的工作：某个用户定期要做的工作，例如每隔 10 分钟检查邮件服务器是否有新信，这些工作可由每个用户自行设置</p>
+<p>apt-get install cron 安装<br>crontab -l 列出目前的时程表，检查是否安装成功<br>cat &#x2F;etc&#x2F;crontab 输出使用说明<br>service crond status查看服务状态</p>
+<p>ubuntu上的crond名称为cron没有d<br>星号（*）：代表所有可能的值，如month字段为星号，则表示在满足其它字段的制约条件后每月都执行该命令操作。<br>逗号（,）：可以用逗号隔开的值指定一个列表范围，例如，“1,2,5,7,8,9”<br>中杠（-）：可以用整数之间的中杠表示一个整数范围，例如“2-6”表示“2,3,4,5,6”<br>正斜线（&#x2F;）：可以用正斜线指定时间的间隔频率，例如“0-23&#x2F;2”表示每两小时执行一次。</p>
+<h1 id="查看ubuntu下都开启了哪些服务"><a href="#查看ubuntu下都开启了哪些服务" class="headerlink" title="查看ubuntu下都开启了哪些服务"></a>查看ubuntu下都开启了哪些服务</h1><p>service –status-all</p>
+<p>systemctl</p>
+<p>pstree</p>
+<h1 id="列出当前目录的隐藏权限"><a href="#列出当前目录的隐藏权限" class="headerlink" title="列出当前目录的隐藏权限"></a>列出当前目录的隐藏权限</h1><p>lsattr </p>
+<p>date +%Y%m%d_%H%M%S</p>
+<h1 id="轮循任务"><a href="#轮循任务" class="headerlink" title="轮循任务"></a>轮循任务</h1><h1 id="readlink"><a href="#readlink" class="headerlink" title="readlink"></a>readlink</h1><p>readlink是Linux系统中一个常用工具，主要用来找出符号链接所指向的位置。</p>
+<p>echo “shell脚本本身的名字: $0”<br>echo “传给shell的第一个参数: $1”<br>echo “传给shell的第二个参数: $2”</p>
+<p>一、dirname命令<br>dirname命令去除文件名中的非目录部分，仅显示与目录有关的内容。dirname命令读取指定路径名保留最后一个&#x2F;及其后面的字符，删除其他部分，并写结果到标准输出。如果最后一个&#x2F;后无字符，dirname 命令使用倒数第二个&#x2F;，并忽略其后的所有字符。dirname 和 basename 通常在 shell 内部命令替换使用，以指定一个与指定输入文件名略有差异的输出文件名。</p>
+<h1 id="sed"><a href="#sed" class="headerlink" title="sed"></a>sed</h1><p>选项</p>
+<p>-e是编辑命令，用于sed执行多个编辑任务的情况下。在下一行开始编辑前，所有的编辑动作将应用到模式缓冲区中的行上。</p>
+<p>sed -e ‘1,10d’ -e ‘s&#x2F;My&#x2F;Your&#x2F;g’ datafile</p>
+<p>#选项-e用于进行多重编辑。第一重编辑删除第1-3行。第二重编辑将出现的所有My替换为Your。因为是逐行进行这两项编辑（即这两个命令都在模式空间的当前行上执行），所以编辑命令的顺序会影响结果。</p>
+<p>ls -t $DIR&#x2F;*_timedata.db | sed -e ‘1,10d’ | xargs rm<br>按时间排序，1-10行删除掉</p>
+<h1 id="wget"><a href="#wget" class="headerlink" title="wget"></a>wget</h1><h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><p>[查看linux用户密码]<a target="_blank" rel="noopener" href="https://blog.csdn.net/feikillyou/article/details/109129870">https://blog.csdn.net/feikillyou/article/details/109129870</a><br>[chrony]<a target="_blank" rel="noopener" href="https://www.cnblogs.com/my-show-time/p/14658895.html">https://www.cnblogs.com/my-show-time/p/14658895.html</a><br>[linux kernel文档]<a target="_blank" rel="noopener" href="https://www.kernel.org/doc/html/v5.4/admin-guide/sysctl/kernel.html">https://www.kernel.org/doc/html/v5.4/admin-guide/sysctl/kernel.html</a><br>[lsof]<a target="_blank" rel="noopener" href="https://www.cnblogs.com/bangerlee/archive/2012/05/03/2464495.html">https://www.cnblogs.com/bangerlee/archive/2012/05/03/2464495.html</a><br>[strace]<a target="_blank" rel="noopener" href="https://www.cnblogs.com/ggjucheng/archive/2012/01/08/2316692.html">https://www.cnblogs.com/ggjucheng/archive/2012/01/08/2316692.html</a><br>[Linux crontab命令详解-博客]<a target="_blank" rel="noopener" href="https://www.cnblogs.com/ftl1012/p/crontab.html">https://www.cnblogs.com/ftl1012/p/crontab.html</a><br>[Linux Crontab定时任务-菜鸟教程]<a target="_blank" rel="noopener" href="https://www.runoob.com/w3cnote/linux-crontab-tasks.html">https://www.runoob.com/w3cnote/linux-crontab-tasks.html</a><br>[systemd]<a target="_blank" rel="noopener" href="https://www.ruanyifeng.com/blog/2016/03/systemd-tutorial-commands.html">https://www.ruanyifeng.com/blog/2016/03/systemd-tutorial-commands.html</a><br>[linux下计划任务学习记录 ]<a target="_blank" rel="noopener" href="https://blog.51cto.com/u_15060465/4164796">https://blog.51cto.com/u_15060465/4164796</a><br>[xargs]<a target="_blank" rel="noopener" href="https://ruanyifeng.com/blog/2019/08/xargs-tutorial.html">https://ruanyifeng.com/blog/2019/08/xargs-tutorial.html</a><br>[用history查看历史命令]<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_34243930/article/details/107007654">https://blog.csdn.net/qq_34243930/article/details/107007654</a><br>[让 history 命令显示日期和时间]<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/99818664">https://zhuanlan.zhihu.com/p/99818664</a><br>[环境变量HISTCONTROL命令及对快捷键Ctrl+o命令的影响]<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_30723433/article/details/96641179">https://blog.csdn.net/weixin_30723433/article/details/96641179</a></p>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="http://example.com/2022/03/03/Course/BridsKitchen/UbuntuCommand/" title="ubuntu command" target="_blank" rel="external">http://example.com/2022/03/03/Course/BridsKitchen/UbuntuCommand/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/gtoo8888" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/cat.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/gtoo8888" target="_blank"><span class="text-dark">gtoo8888</span><small class="ml-1x">C++ Developer</small></a></h3>
+        <div>喜欢Linux高并发服务器开发，喜欢探究代码的底层原理，热爱开源，乐于分享</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+      <div id="vcomments"></div>
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/2022/03/04/Tutorial/LinuxDevEnv/TutVim/" title="vim 教程"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/2022/02/25/Others/How-to-read-the-source-code/" title="如何阅读源码"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/gtoo8888" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+
+
+
+   
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+   
+    
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine"></script>
+  <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: false,
+    notify: false,
+    appId: '',
+    appKey: '',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+  </script>
+
+     
+
+
+
+  <script src="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.3.5/dist/jquery.fancybox.min.js"></script>
+  <script>
+  //利用 FancyBox 实现点击图片放大
+  $(document).ready(function() {
+    $('article img').not('[hidden]').not('.panel-body img').each(function() {
+      var $image = $(this);
+      var imageCaption = $image.attr('alt');
+      var $imageWrapLink = $image.parent('a');
+      if ($imageWrapLink.length < 1) {
+        var src = this.getAttribute('src');
+        var idx = src.lastIndexOf('?');
+        if (idx != -1) {
+          src = src.substring(0, idx);
+        }
+        $imageWrapLink = $image.wrap('<a href="' + src + '"></a>').parent('a');
+      }
+      $imageWrapLink.attr('data-fancybox', 'images');
+      if (imageCaption) {
+        $imageWrapLink.attr('data-caption', imageCaption);
+      }
+    });
+    $().fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+    });
+  });
+  </script>
+
+
+
+
+
+</body>
+</html>

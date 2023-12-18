@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>设计模式学习 | Hexo</title>
+  <meta name="description" content="面向对象的设计原则，五个SOLID指代了面向对象编程和面向对象设计的五个基本原则    名称 缩写 全称 解释    单一职责原则 SRP Single Responsibility Principle 每个类的职责单一   开闭原则 OCP Open Closed Principle 类的改动，增加代码是好的，修改源代码是不好的   里氏替换原则 LSP Liskov Substitution">
+<meta property="og:type" content="article">
+<meta property="og:title" content="设计模式学习">
+<meta property="og:url" content="http://example.com/2022/05/15/Course/DesignPatterns/index.html">
+<meta property="og:site_name" content="gtoo8888">
+<meta property="og:description" content="面向对象的设计原则，五个SOLID指代了面向对象编程和面向对象设计的五个基本原则    名称 缩写 全称 解释    单一职责原则 SRP Single Responsibility Principle 每个类的职责单一   开闭原则 OCP Open Closed Principle 类的改动，增加代码是好的，修改源代码是不好的   里氏替换原则 LSP Liskov Substitution">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-05-15T07:08:04.000Z">
+<meta property="article:modified_time" content="2023-12-04T08:18:02.923Z">
+<meta property="article:author" content="Kuku De">
+<meta property="article:tag" content="课程">
+<meta name="twitter:card" content="summary">
+  <!-- Canonical links -->
+  <link rel="canonical" href="http://example.com/2022/05/15/Course/DesignPatterns/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="gtoo8888" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+    <link href="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.3.5/dist/jquery.fancybox.min.css" rel="stylesheet">
+  
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/gtoo8888" target="_blank">
+          <img class="img-circle img-rotate" src="/images/cat.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">gtoo8888</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">C++ Developer</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Luoyang, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav menu-highlight">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-source">
+          <a href="/source">
+            
+            <i class="icon icon-book-fill"></i>
+            
+            <span class="menu-title">资源</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">友链</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/gtoo8888" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>记录自己的学习过程，Linux网络编程冲啊</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/" rel="tag">Linux网络编程</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%B6%E4%BB%96/" rel="tag">其他</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%8D%E6%80%9D/" rel="tag">反思</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%99%E7%A8%8B/" rel="tag">教程</a><span class="tag-list-count">16</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" rel="tag">环境配置</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%AD%E6%B3%95/" rel="tag">语法</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%BE%E7%A8%8B/" rel="tag">课程</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A1%B9%E7%9B%AE/" rel="tag">项目</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%B8%9F%E5%93%A5%E7%9A%84Linux%E7%A7%81%E6%88%BF%E8%8F%9C/" rel="tag">鸟哥的Linux私房菜</a><span class="tag-list-count">7</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/Linux%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/" style="font-size: 13.57px;">Linux网络编程</a> <a href="/tags/%E5%85%B6%E4%BB%96/" style="font-size: 13.71px;">其他</a> <a href="/tags/%E5%8F%8D%E6%80%9D/" style="font-size: 13px;">反思</a> <a href="/tags/%E6%95%99%E7%A8%8B/" style="font-size: 14px;">教程</a> <a href="/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" style="font-size: 13.43px;">环境配置</a> <a href="/tags/%E8%AF%AD%E6%B3%95/" style="font-size: 13.14px;">语法</a> <a href="/tags/%E8%AF%BE%E7%A8%8B/" style="font-size: 13.86px;">课程</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 13.29px;">面试</a> <a href="/tags/%E9%A1%B9%E7%9B%AE/" style="font-size: 13.43px;">项目</a> <a href="/tags/%E9%B8%9F%E5%93%A5%E7%9A%84Linux%E7%A7%81%E6%88%BF%E8%8F%9C/" style="font-size: 13.43px;">鸟哥的Linux私房菜</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">十二月 2023</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">十月 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/09/">九月 2023</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">七月 2023</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">六月 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/04/">四月 2023</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">三月 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/01/">一月 2023</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">十二月 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">十一月 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">十月 2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">九月 2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">八月 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">七月 2022</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">六月 2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">五月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">四月 2022</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">三月 2022</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">二月 2022</a><span class="archive-list-count">7</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2023/12/18/Others/Stormgate/" class="title">猜想一下风暴之门的服务器设计以及RollBack机制</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2023-12-18T09:08:39.000Z" itemprop="datePublished">2023-12-18</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2023/12/10/Course/CourseUML/" class="title">UML教程</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2023-12-10T13:28:56.000Z" itemprop="datePublished">2023-12-10</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2023/10/28/Project/GtooPlayer/GtooPlayer/" class="title">GtooPlayer</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2023-10-28T12:59:04.000Z" itemprop="datePublished">2023-10-28</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2023/09/09/Course/ML/MMsegment/" class="title">mmsegment</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2023-09-09T06:43:15.000Z" itemprop="datePublished">2023-09-09</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2023/09/05/Course/ML/ISAT/" class="title">ISAT</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2023-09-05T02:28:23.000Z" itemprop="datePublished">2023-09-05</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-Course/DesignPatterns" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      设计模式学习
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2022/05/15/Course/DesignPatterns/" class="article-date">
+	  <time datetime="2022-05-15T07:08:04.000Z" itemprop="datePublished">2022-05-15</time>
+	</a>
+</span>
+        
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/%E8%AF%BE%E7%A8%8B/" rel="tag">课程</a>
+  </span>
+
+
+        
+	<span class="article-read hidden-xs">
+	    <i class="icon icon-eye-fill" aria-hidden="true"></i>
+	    <span id="busuanzi_container_page_pv">
+			<span id="busuanzi_value_page_pv">0</span>
+		</span>
+	</span>
+
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2022/05/15/Course/DesignPatterns/#comments" class="article-comment-link">评论</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h1 id="面向对象的设计原则，五个"><a href="#面向对象的设计原则，五个" class="headerlink" title="面向对象的设计原则，五个"></a>面向对象的设计原则，五个</h1><p>SOLID指代了<strong>面向对象编程</strong>和<strong>面向对象设计</strong>的五个基本原则</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>缩写</th>
+<th>全称</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>单一职责原则</td>
+<td>SRP</td>
+<td>Single Responsibility Principle</td>
+<td>每个类的职责单一</td>
+</tr>
+<tr>
+<td><strong>开闭原则</strong></td>
+<td>OCP</td>
+<td>Open Closed Principle</td>
+<td>类的改动，增加代码是好的，修改源代码是不好的</td>
+</tr>
+<tr>
+<td>里氏替换原则</td>
+<td>LSP</td>
+<td>Liskov Substitution Principle</td>
+<td>多态</td>
+</tr>
+<tr>
+<td>接口隔离原则</td>
+<td>ISP</td>
+<td>Interface Segregation Principle</td>
+<td>接口隔离</td>
+</tr>
+<tr>
+<td><strong>依赖倒置原则</strong></td>
+<td>DIP</td>
+<td>Dependence Inversion Principle</td>
+<td>依赖抽象接口</td>
+</tr>
+<tr>
+<td>——</td>
+<td>——</td>
+<td>——</td>
+<td>——</td>
+</tr>
+<tr>
+<td>迪米特法则</td>
+<td>LoD</td>
+<td>Law of Demeter</td>
+<td>一个对象应当对其他对象少了解</td>
+</tr>
+<tr>
+<td>组合&#x2F;聚合复用原则</td>
+<td>CRP</td>
+<td>Composite&#x2F;Aggregate Reuse Principle</td>
+<td>继承不好，组合好的</td>
+</tr>
+</tbody></table>
+<p>总体原则：高聚合，低耦合</p>
+<h1 id="6-迪米特法则"><a href="#6-迪米特法则" class="headerlink" title="6.迪米特法则"></a>6.迪米特法则</h1><p>解释：<br>去公司找人修电脑，不应该去找某个具体的小李、小张来修，应该抽象出一个接口类，IT部门，找IT部门修，用抽象接口再去对接实际的类，不然找小张解决不了问题，找小李解决不了问题。<br>结论：迪米特法则强调了类之间的松耦合关系，类之间的耦合越松，越有利于复用。</p>
+<h1 id="简单工厂模式"><a href="#简单工厂模式" class="headerlink" title="简单工厂模式"></a>简单工厂模式</h1><h2 id="概述："><a href="#概述：" class="headerlink" title="概述："></a>概述：</h2><p>本来每个类都需要new出来，现在是通过一个工厂来创建</p>
+<h2 id="优点："><a href="#优点：" class="headerlink" title="优点："></a>优点：</h2><p>1.客户端和具体实现类解耦<br>2.对于某些对象创建过程比较复杂情况，我们不用考虑这些了</p>
+<h2 id="缺点："><a href="#缺点：" class="headerlink" title="缺点："></a>缺点：</h2><p>1.简单工厂模式，增加新的功能是通过修改源代码实现，不符合开闭原则<br>2.这个类职责过重，这个类发生问题，会影响很多实用这个工厂的模块</p>
+<h2 id="使用场景："><a href="#使用场景：" class="headerlink" title="使用场景："></a>使用场景：</h2><p>1.工厂类负责创建的对象比较少，由于创建的对象较少，不会造成工厂方法中个的业务逻辑太过复杂。<br>2.客户端只知道传入工厂类的参数，对于如何创建对象并不关心。<br><strong>解释</strong>：用在不需要关心创建过程，读取什么文件，什么什么的，就想要用这个类<br>比如创建过程很复杂，但是我只是想用这个类，那我就用这个简单工厂创建一下就行，具体的创建过程都放在工厂里面</p>
+<h1 id="工厂模式"><a href="#工厂模式" class="headerlink" title="工厂模式"></a>工厂模式</h1><h2 id="概述：-1"><a href="#概述：-1" class="headerlink" title="概述："></a>概述：</h2><p>对于每一个类，都对应一个具体创建的工厂类，然后再定义一个抽象工厂作为接口<br>简单工厂模式 + “开闭原则” &#x3D; 工厂方法模式</p>
+<h2 id="优点：-1"><a href="#优点：-1" class="headerlink" title="优点："></a>优点：</h2><p>1.不需要记住具体类名，甚至连具体参数都不用记忆（因为用的是抽象的工厂接口）<br>2.实现了对象创建和使用的分离。<br>3.系统的可扩展性也就变得非常好，无需修改接口和原类。（符合开闭原则）</p>
+<h2 id="缺点：-1"><a href="#缺点：-1" class="headerlink" title="缺点："></a>缺点：</h2><p>1.增加系统中类的个数，复杂度和理解度增加。<br>2.增加了系统的抽象性和理解难度。</p>
+<h2 id="适用场景"><a href="#适用场景" class="headerlink" title="适用场景"></a>适用场景</h2><p>1.客户端不知道它所需要的对象的类。<br>2.抽象工厂类通过其子类来指定创建哪个对象。</p>
+<p>工厂在这里面起的作用，就是隐藏了创建过程的复杂度，以配合InterfaceA对那一百个子类的复杂度进行隐藏，这样B只要知道上转型之后的InterfaceA即可，简单清晰。</p>
+<h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_42636062/category_11313224.html?spm=1001.2014.3001.5482">https://blog.csdn.net/weixin_42636062/category_11313224.html?spm=1001.2014.3001.5482</a></p>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="http://example.com/2022/05/15/Course/DesignPatterns/" title="设计模式学习" target="_blank" rel="external">http://example.com/2022/05/15/Course/DesignPatterns/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/gtoo8888" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/cat.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/gtoo8888" target="_blank"><span class="text-dark">gtoo8888</span><small class="ml-1x">C++ Developer</small></a></h3>
+        <div>喜欢Linux高并发服务器开发，喜欢探究代码的底层原理，热爱开源，乐于分享</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+      <div id="vcomments"></div>
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/2022/06/19/Tutorial/TutDocker/" title="docker 教程"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/2022/04/23/Others/PPT-production-points/" title="PPT制作要点"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/gtoo8888" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+
+
+
+   
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+   
+    
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine"></script>
+  <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: false,
+    notify: false,
+    appId: '',
+    appKey: '',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+  </script>
+
+     
+
+
+
+  <script src="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.3.5/dist/jquery.fancybox.min.js"></script>
+  <script>
+  //利用 FancyBox 实现点击图片放大
+  $(document).ready(function() {
+    $('article img').not('[hidden]').not('.panel-body img').each(function() {
+      var $image = $(this);
+      var imageCaption = $image.attr('alt');
+      var $imageWrapLink = $image.parent('a');
+      if ($imageWrapLink.length < 1) {
+        var src = this.getAttribute('src');
+        var idx = src.lastIndexOf('?');
+        if (idx != -1) {
+          src = src.substring(0, idx);
+        }
+        $imageWrapLink = $image.wrap('<a href="' + src + '"></a>').parent('a');
+      }
+      $imageWrapLink.attr('data-fancybox', 'images');
+      if (imageCaption) {
+        $imageWrapLink.attr('data-caption', imageCaption);
+      }
+    });
+    $().fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+    });
+  });
+  </script>
+
+
+
+
+
+</body>
+</html>

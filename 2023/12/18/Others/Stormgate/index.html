@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>猜想一下风暴之门的服务器设计以及RollBack机制 | Hexo</title>
+  <meta name="description" content="1.开端看了昨天二老风暴之门的解说，提到了使用了一个回滚机制可以消除消除游戏中的延迟，一直想不明白是怎么回事，自己本身对服务器通讯方面比较感兴趣，于是去找资料去了解了下。后来发现他们为了增加玩家的服务器连接能力，还做了别的工作，下面依次介绍一下。由于本人水平不是很高，有说错的地方，还请好兄弟们指正。 目录 SnowPlay引擎 服务器搭建 RollBack机制  2. SnowPlay引擎主要来自">
+<meta property="og:type" content="article">
+<meta property="og:title" content="猜想一下风暴之门的服务器设计以及RollBack机制">
+<meta property="og:url" content="http://example.com/2023/12/18/Others/Stormgate/index.html">
+<meta property="og:site_name" content="gtoo8888">
+<meta property="og:description" content="1.开端看了昨天二老风暴之门的解说，提到了使用了一个回滚机制可以消除消除游戏中的延迟，一直想不明白是怎么回事，自己本身对服务器通讯方面比较感兴趣，于是去找资料去了解了下。后来发现他们为了增加玩家的服务器连接能力，还做了别的工作，下面依次介绍一下。由于本人水平不是很高，有说错的地方，还请好兄弟们指正。 目录 SnowPlay引擎 服务器搭建 RollBack机制  2. SnowPlay引擎主要来自">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s11.ax1x.com/2023/12/18/piIezND.png">
+<meta property="og:image" content="https://s11.ax1x.com/2023/12/18/piIeXB6.jpg">
+<meta property="og:image" content="https://s11.ax1x.com/2023/12/18/piIm99H.png">
+<meta property="og:image" content="https://s11.ax1x.com/2023/12/18/piIexAO.png">
+<meta property="og:image" content="https://s11.ax1x.com/2023/12/18/piIejHK.png">
+<meta property="og:image" content="https://s11.ax1x.com/2023/12/18/piImS4e.png">
+<meta property="og:image" content="https://s11.ax1x.com/2023/12/18/piImC3d.png">
+<meta property="article:published_time" content="2023-12-18T09:08:39.000Z">
+<meta property="article:modified_time" content="2023-12-18T09:33:42.711Z">
+<meta property="article:author" content="Kuku De">
+<meta property="article:tag" content="其他">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s11.ax1x.com/2023/12/18/piIezND.png">
+  <!-- Canonical links -->
+  <link rel="canonical" href="http://example.com/2023/12/18/Others/Stormgate/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="gtoo8888" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+    <link href="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.3.5/dist/jquery.fancybox.min.css" rel="stylesheet">
+  
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/gtoo8888" target="_blank">
+          <img class="img-circle img-rotate" src="/images/cat.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">gtoo8888</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">C++ Developer</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Luoyang, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav menu-highlight">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-source">
+          <a href="/source">
+            
+            <i class="icon icon-book-fill"></i>
+            
+            <span class="menu-title">资源</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">友链</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/gtoo8888" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>记录自己的学习过程，Linux网络编程冲啊</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/" rel="tag">Linux网络编程</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%B6%E4%BB%96/" rel="tag">其他</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%8D%E6%80%9D/" rel="tag">反思</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%99%E7%A8%8B/" rel="tag">教程</a><span class="tag-list-count">16</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" rel="tag">环境配置</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%AD%E6%B3%95/" rel="tag">语法</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%BE%E7%A8%8B/" rel="tag">课程</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A1%B9%E7%9B%AE/" rel="tag">项目</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%B8%9F%E5%93%A5%E7%9A%84Linux%E7%A7%81%E6%88%BF%E8%8F%9C/" rel="tag">鸟哥的Linux私房菜</a><span class="tag-list-count">7</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/Linux%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/" style="font-size: 13.57px;">Linux网络编程</a> <a href="/tags/%E5%85%B6%E4%BB%96/" style="font-size: 13.71px;">其他</a> <a href="/tags/%E5%8F%8D%E6%80%9D/" style="font-size: 13px;">反思</a> <a href="/tags/%E6%95%99%E7%A8%8B/" style="font-size: 14px;">教程</a> <a href="/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" style="font-size: 13.43px;">环境配置</a> <a href="/tags/%E8%AF%AD%E6%B3%95/" style="font-size: 13.14px;">语法</a> <a href="/tags/%E8%AF%BE%E7%A8%8B/" style="font-size: 13.86px;">课程</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 13.29px;">面试</a> <a href="/tags/%E9%A1%B9%E7%9B%AE/" style="font-size: 13.43px;">项目</a> <a href="/tags/%E9%B8%9F%E5%93%A5%E7%9A%84Linux%E7%A7%81%E6%88%BF%E8%8F%9C/" style="font-size: 13.43px;">鸟哥的Linux私房菜</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">十二月 2023</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">十月 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/09/">九月 2023</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">七月 2023</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">六月 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/04/">四月 2023</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">三月 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/01/">一月 2023</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">十二月 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">十一月 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">十月 2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">九月 2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">八月 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">七月 2022</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">六月 2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">五月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">四月 2022</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">三月 2022</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">二月 2022</a><span class="archive-list-count">7</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2023/12/18/Others/Stormgate/" class="title">猜想一下风暴之门的服务器设计以及RollBack机制</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2023-12-18T09:08:39.000Z" itemprop="datePublished">2023-12-18</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2023/12/10/Course/CourseUML/" class="title">UML教程</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2023-12-10T13:28:56.000Z" itemprop="datePublished">2023-12-10</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2023/10/28/Project/GtooPlayer/GtooPlayer/" class="title">GtooPlayer</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2023-10-28T12:59:04.000Z" itemprop="datePublished">2023-10-28</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2023/09/09/Course/ML/MMsegment/" class="title">mmsegment</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2023-09-09T06:43:15.000Z" itemprop="datePublished">2023-09-09</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2023/09/05/Course/ML/ISAT/" class="title">ISAT</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2023-09-05T02:28:23.000Z" itemprop="datePublished">2023-09-05</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-Others/Stormgate" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      猜想一下风暴之门的服务器设计以及RollBack机制
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2023/12/18/Others/Stormgate/" class="article-date">
+	  <time datetime="2023-12-18T09:08:39.000Z" itemprop="datePublished">2023-12-18</time>
+	</a>
+</span>
+        
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/%E5%85%B6%E4%BB%96/" rel="tag">其他</a>
+  </span>
+
+
+        
+	<span class="article-read hidden-xs">
+	    <i class="icon icon-eye-fill" aria-hidden="true"></i>
+	    <span id="busuanzi_container_page_pv">
+			<span id="busuanzi_value_page_pv">0</span>
+		</span>
+	</span>
+
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2023/12/18/Others/Stormgate/#comments" class="article-comment-link">评论</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h1 id="1-开端"><a href="#1-开端" class="headerlink" title="1.开端"></a>1.开端</h1><p>看了昨天二老风暴之门的解说，提到了使用了一个回滚机制可以消除消除游戏中的延迟，一直想不明白是怎么回事，自己本身对服务器通讯方面比较感兴趣，于是去找资料去了解了下。<br>后来发现他们为了增加玩家的服务器连接能力，还做了别的工作，下面依次介绍一下。<br>由于本人水平不是很高，有说错的地方，还请好兄弟们指正。</p>
+<h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><ol>
+<li>SnowPlay引擎</li>
+<li>服务器搭建</li>
+<li>RollBack机制</li>
+</ol>
+<h1 id="2-SnowPlay引擎"><a href="#2-SnowPlay引擎" class="headerlink" title="2. SnowPlay引擎"></a>2. SnowPlay引擎</h1><p>主要来自参考资料1，嘉宾提到游戏逻辑的运行速度是远低于画面渲染速度的，在星际争霸2发售时，默认游戏逻辑的处理速度是22.4Hz ，但是有的逻辑处理速度仅仅是8Hz，而且在最开始时候星际争霸2中的战争迷雾的逻辑处理速度只有4Hz。<br>现在风暴之门的所有游戏逻辑的处理渲染频率都是64Hz，包括战争迷雾也是，也就是每一次处理时间从44ms缩短到了16ms。</p>
+<table>
+<thead>
+<tr>
+<th>游戏名称</th>
+<th>星际争霸2</th>
+<th>风暴之门</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>渲染频率</td>
+<td>22.4Hz</td>
+<td>64Hz</td>
+</tr>
+<tr>
+<td>处理时间</td>
+<td>44Ms</td>
+<td>16Ms</td>
+</tr>
+</tbody></table>
+<p>在RTS游戏中，选手的APM从50-350不等，假如选手的APM是350，换算一下1s中操作6次左右，也就是平均每次操作的间隔是166ms，现在风暴之门的游戏逻辑处理比星际2更快了。James Anhalt原话是”By increasing the game loop rate the game needs to handle fewer actions， which reduces the chances to experience network jitter.”(通过提高游戏循环速率，游戏需要处理的操作就会减少，从而降低出现网络抖动的几率)（这一段我不太明白我理解的是，循环速度变快了，在每次循环中，处理选手的操作数更少了。比如星际2每次执行游戏逻辑，需要处理选手2-3次操作，但是风暴之门每次执行游戏逻辑时候，只需要处理选手1次操作就可以了，如果数据丢包了，就丢了一次操作，这边有不对的欢迎大佬指正）</p>
+<p>SnowPlay引擎不会像传统的引擎一样，不停和其他计算机同步，而是根据自己计算机的CPU、GPU和网络条件，以各自最大努力运行，减少延迟，每台机器和用户都应该从各自的设置中榨取更多的性能。</p>
+<p>还有这个引擎别的方面的优化，比如寻路机制，它使用的内存比星际2少，同时支持复杂度是其两倍的地图；还有游戏逻辑完全独立于视觉处理，采用了多核优化还有等等更新，可以自己看参考资料2</p>
+<h1 id="3-服务器搭建"><a href="#3-服务器搭建" class="headerlink" title="3. 服务器搭建"></a>3. 服务器搭建</h1><p>从参考资料4看到，风暴之门在考虑混合匹配方法，使用一个全球玩家池，但在全球排行榜之上有区域阶梯和排行榜，仍保留某种天梯和排行榜的区域 MMR。但是由于睡眠时间的问题，不同大洲的人们依然会按照自然时间分组，比如中国的玩家总是会匹配到中国的玩家，美国人总是匹配到美国人。</p>
+<p>他们提到，他们为他们的服务器搭建使用自动扩容功能，主要是和一个跨国企业Hathora云平台合作，就是服务器这块主要就是靠Hathora这个公司了。Hathora主要也是用了k8s那套东西，可以对应流量的扩缩容，说是比如应对玩家激增的情况，可以快速扩容服务器。</p>
+<p><a target="_blank" rel="noopener" href="https://imgse.com/i/piIezND"><img src="https://s11.ax1x.com/2023/12/18/piIezND.png" alt="Fig1.Hathora"></a></p>
+<p>去Hathora的官网看了下，Hathora就是主要给游戏服务器提供扩容服务，可以看到他们在日本和新加坡有节点。前几天老仙他们试玩的时候，用了日本代理，那应该就是用的Hathora的那个节点。国内的情况的话，看起来得代理谈下来再说了，不知道到时候能不能玩的流畅。</p>
+<h1 id="4-RollBack机制"><a href="#4-RollBack机制" class="headerlink" title="4. RollBack机制"></a>4. RollBack机制</h1><p>RollBack机制主要是针对于网络中延迟问题，比如我们玩星际的时候，总是由于一个人的网卡，导致都整体游戏变卡了。<br>它的工作原理是预测玩家会做什么并把它显示出来，如果系统的预测是正确的，那么它就会继续原样，但如果系统不正确，它会很快回滚（因此得名）并显示实际发生的事情。该系统可以非常快速地回滚，这意味着无论它是否正确，玩家都将在整个过程中体验到流畅的游戏体验。</p>
+<p><a target="_blank" rel="noopener" href="https://imgse.com/i/piIeXB6"><img src="https://s11.ax1x.com/2023/12/18/piIeXB6.jpg" alt="Fig2.PartinG"></a><br>从参考资料9可以看到，他们在10月份对风暴之门的RollBack机制进行了Alpha测试，各个职业选手表示运行的很好。被黄哥打败的SC2传奇人物PartinG表示十分不错。</p>
+<p><a target="_blank" rel="noopener" href="https://imgse.com/i/piIm99H"><img src="https://s11.ax1x.com/2023/12/18/piIm99H.png" alt="Fig3.RollBack"></a><br>由于官方没有具体的技术说明，就说了主要是参考格斗游戏的，所以下面就是我根据现有的资料对RollBack机制猜测是怎么运行的</p>
+<h2 id="4-1-格斗游戏中的GGPO回滚网络"><a href="#4-1-格斗游戏中的GGPO回滚网络" class="headerlink" title="4.1 格斗游戏中的GGPO回滚网络"></a>4.1 格斗游戏中的GGPO回滚网络</h2><p>由于格斗游戏对实时性的要求特别高，所以很需要一个更加高效的同步技术，而不是玩家1来等待玩家2的网络，变得一卡一卡的。所以在2009年，格斗游戏中的回滚网络GGPO就被研发了出来，现在先说明一下GGPO网络运行的原理。<br>回滚网络机制主要是针对于网络中延迟问题，对于本地玩家的输入是100%正确的。<br>接下来的内容主要来自这篇文章Fight the Lag!  The Trick Behind GGPO’s Low Latency Netcode，图片也都来自那里。<br><a target="_blank" rel="noopener" href="https://imgse.com/i/piIexAO"><img src="https://s11.ax1x.com/2023/12/18/piIexAO.png" alt="Fig4.GGPO1"></a><br>图1表示传统的网络传输情况。可以看到，在正常的本地玩家1输入4之后，远端玩家输入2才到达，这时候才能合成出当前状态，呈现出游戏帧，也就是本地输入1，2，3的时候游戏都是没有响应的，这就是我们看到的卡顿<br><a target="_blank" rel="noopener" href="https://imgse.com/i/piIejHK"><img src="https://s11.ax1x.com/2023/12/18/piIejHK.png" alt="Fig5.GGPO2"></a><br>图2表示使用了GGPO回滚网络的情况的网络传输情况，此时假设系统对远端玩家2的预测都是正确的。可以看到，每次本地玩家1输入之后，都叠加了系统对远端玩家2预测状态，所以每次输出都可以更新游戏的状态，看起来就是所有的操作都没有卡顿，都正常被执行了。<br><a target="_blank" rel="noopener" href="https://imgse.com/i/piImS4e"><img src="https://s11.ax1x.com/2023/12/18/piImS4e.png" alt="Fig6.GGPO3"></a><br>图3表示使用了GGPO回滚网络，但是假设系统对远端玩家2的预测都是错误了。假设在本地玩家1输入3之后，远端玩家输入1到达，但是经过校验发现，本地的预测错误了，此时虽然当前游戏的视频帧执行到了帧3，需要立刻回滚到帧1，也就是本地玩家输入1的状态，使用正确的远端输入1叠加本地玩家1的输入得到了正确状态，同时快速进行，本地输入1，2，3都是加速执行，直到本地玩家输入4的步骤，都变成正常了。</p>
+<p>总而言之，GGPO回滚网络的原理，是将网络的延迟，放到了不会改变的动画的执行过程中。在格斗游戏中举了一个例子，比如对手在几帧前向你投掷了一个火球，那么这个火球的行为是完全确定的，不会受到对手未来输入的影响，此时本地就是预测对手未来的行动。</p>
+<h2 id="4-2-参考格斗游戏的回滚网络对于风暴之门中RollBack机制的猜测"><a href="#4-2-参考格斗游戏的回滚网络对于风暴之门中RollBack机制的猜测" class="headerlink" title="4.2 参考格斗游戏的回滚网络对于风暴之门中RollBack机制的猜测"></a>4.2 参考格斗游戏的回滚网络对于风暴之门中RollBack机制的猜测</h2><p>玩家1是本地用户，玩家2是远程用户，下面模拟一下玩家2由于rollback机制的存在，对于玩家1的视角来说是没有延迟的。<br><a target="_blank" rel="noopener" href="https://imgse.com/i/piImC3d"><img src="https://s11.ax1x.com/2023/12/18/piImC3d.png" alt="Fig7.农民例子"></a><br>以游戏开局，需要派出农民探路的场景举例子</p>
+<ol>
+<li>在原始点A给工蜂下达了一个去往B点的指令，每一个箭头表示需要1s的时间到达，正常情况下，工蜂需要3秒到达B点。</li>
+<li>然而，1秒后，当工蜂到达O点时，玩家2下达指令让工蜂改变目标为C点。由于网络延迟，这个指令需要1秒本地玩家1才能接受到</li>
+<li>如果是没有使用RollBack机制，游戏会不停的校验，需要本地和远程数据一致，才能继续执行。</li>
+<li>引入rollback机制的情况下，对于本地玩家1来说，他的视角中工蜂会继续按照蓝色箭头的方向前进1秒。</li>
+<li>此时过了1s，远程玩家2的数据到达了，经过校验发现工蜂的行进路径出现偏差，应该前往C点。</li>
+<li>Rollback机制检测到第一个出现偏差的点是O点，工蜂会瞬间回到O点，然后通过加速的方式尽快到达预期目标C点。</li>
+<li>正常情况下，从O到C需要2秒，但由于rollback机制，现在只需要1秒，最终工蜂从A到达C点，总共花费3秒，数据保持一致。</li>
+</ol>
+<p>举的这个例子是为了帮助理解用了十分夸张的时间机制，实际游戏中，不会有这么长的检测时间。看报道中选手的体验比较良好，看起来效果不错</p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><h2 id="SnowPlay引擎"><a href="#SnowPlay引擎" class="headerlink" title="SnowPlay引擎"></a>SnowPlay引擎</h2><p><a target="_blank" rel="noopener" href="https://screenrant.com/james-anhalt-tim-morten-interview-snowplay-technology-stormgate/">1-James Anhalt &amp; Tim Morten 访谈：SnowPlay技术和风暴之门</a><br/><br><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=1m8Z8iVXfDM&t=119s">2-Stormgate Technology &amp; Art Reveal - December 2022 技术和美术访谈，提到了RollBack机制</a><br/><br><a target="_blank" rel="noopener" href="https://stormgatenexus.com/article/stormgate-pre-alpha-interview-neuro-exclusive">3-“这就像一辆 F1 赛车”：风暴之门内部游戏测试的独家外观</a><br/></p>
+<h2 id="服务器搭建"><a href="#服务器搭建" class="headerlink" title="服务器搭建"></a>服务器搭建</h2><p><a target="_blank" rel="noopener" href="https://stormgatenexus.com/article/regional-identity-is-a-good-thing">4-地域认同是件好事，提到了sed老师和jim大神在中国赛区开发了凤凰巨像风格</a><br/><br><a target="_blank" rel="noopener" href="https://www.reddit.com/r/Stormgate/comments/14a7qu8/comment/jodmi65/">5-与冰霜巨人工作室合作的《风暴之门》官方游戏揭秘 AMA 线程-rediit</a><br/><br><a target="_blank" rel="noopener" href="https://old.reddit.com/r/Stormgate/comments/14a7qu8/official_stormgate_gameplay_reveal_ama_thread/jodk9yt/">6-与冰霜巨人工作室合作的《风暴之门》官方游戏揭秘 AMA 线程-old.reddit</a><br/><br><a target="_blank" rel="noopener" href="https://hathora.dev/">7-多人游戏的服务器编排公司</a><br/><br><a target="_blank" rel="noopener" href="https://bullet-mania.vercel.app/">8-hathora 构建可无限扩展的多人游戏，使用Kubernetes 计算集群，部署可伸缩的游戏服务器</a><br/></p>
+<h2 id="Rollback机制"><a href="#Rollback机制" class="headerlink" title="Rollback机制"></a>Rollback机制</h2><p><a target="_blank" rel="noopener" href="https://stormgatehub.com/stormgate-rollback-netcode-monumental-technical-leap-rts/">9-2023-10-11，风暴之门社区，新闻稿，风暴之门Rollback网络代码是RTS的巨大技术飞跃</a><br/><br><a target="_blank" rel="noopener" href="https://esi.si.com/news/stormgate-using-rollback-netcode">10-为什么风暴之门使用回滚网络代码？</a><br/><br><a target="_blank" rel="noopener" href="https://www.ggpo.net/">11-格斗游戏中使用的GGPO回滚网络机制</a><br/><br><a target="_blank" rel="noopener" href="https://drive.google.com/file/d/1cV0fY8e_SC1hIFF5E1rT8XRVRzPjU8W9/view">12-与滞后作斗争！GGPO低延迟网络代码背后的诀窍</a><br/><br><a target="_blank" rel="noopener" href="https://www.reddit.com/r/Stormgate/comments/174ty64/frost_giant_starts_testing_rollback_in_stormgate/">13-2023-10-11，风暴之门Rollback机制Alpha测试，reddit讨论帖</a></p>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="http://example.com/2023/12/18/Others/Stormgate/" title="猜想一下风暴之门的服务器设计以及RollBack机制" target="_blank" rel="external">http://example.com/2023/12/18/Others/Stormgate/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/gtoo8888" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/cat.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/gtoo8888" target="_blank"><span class="text-dark">gtoo8888</span><small class="ml-1x">C++ Developer</small></a></h3>
+        <div>喜欢Linux高并发服务器开发，喜欢探究代码的底层原理，热爱开源，乐于分享</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+      <div id="vcomments"></div>
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    
+    <li class="next">
+      <a href="/2023/12/10/Course/CourseUML/" title="UML教程"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/gtoo8888" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+
+
+
+   
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+   
+    
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine"></script>
+  <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: false,
+    notify: false,
+    appId: '',
+    appKey: '',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+  </script>
+
+     
+
+
+
+  <script src="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.3.5/dist/jquery.fancybox.min.js"></script>
+  <script>
+  //利用 FancyBox 实现点击图片放大
+  $(document).ready(function() {
+    $('article img').not('[hidden]').not('.panel-body img').each(function() {
+      var $image = $(this);
+      var imageCaption = $image.attr('alt');
+      var $imageWrapLink = $image.parent('a');
+      if ($imageWrapLink.length < 1) {
+        var src = this.getAttribute('src');
+        var idx = src.lastIndexOf('?');
+        if (idx != -1) {
+          src = src.substring(0, idx);
+        }
+        $imageWrapLink = $image.wrap('<a href="' + src + '"></a>').parent('a');
+      }
+      $imageWrapLink.attr('data-fancybox', 'images');
+      if (imageCaption) {
+        $imageWrapLink.attr('data-caption', imageCaption);
+      }
+    });
+    $().fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+    });
+  });
+  </script>
+
+
+
+
+
+</body>
+</html>

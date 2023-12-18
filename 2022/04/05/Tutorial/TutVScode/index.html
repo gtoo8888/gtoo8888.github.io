@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>VSCode 教程 | Hexo</title>
+  <meta name="description" content="代码里的左侧颜色标识:红色，未加入版本控制; (刚clone到本地)绿色，已经加入版本控制暂未提交; (新增部分)蓝色，加入版本控制，已提交，有改动； (修改部分)白色，加入版本控制，已提交，无改动；灰色：版本控制已忽略文件。 git文件标识:M: 文件的内容被修改了U: 文件没有被合并(你需要完成合并才能进行提交)D: 删除的一个文件 A: 增加的文件.C: 文件的一个新拷贝.R: 文件名被修改">
+<meta property="og:type" content="article">
+<meta property="og:title" content="VSCode 教程">
+<meta property="og:url" content="http://example.com/2022/04/05/Tutorial/TutVScode/index.html">
+<meta property="og:site_name" content="gtoo8888">
+<meta property="og:description" content="代码里的左侧颜色标识:红色，未加入版本控制; (刚clone到本地)绿色，已经加入版本控制暂未提交; (新增部分)蓝色，加入版本控制，已提交，有改动； (修改部分)白色，加入版本控制，已提交，无改动；灰色：版本控制已忽略文件。 git文件标识:M: 文件的内容被修改了U: 文件没有被合并(你需要完成合并才能进行提交)D: 删除的一个文件 A: 增加的文件.C: 文件的一个新拷贝.R: 文件名被修改">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-04-05T12:33:12.000Z">
+<meta property="article:modified_time" content="2023-01-02T12:57:33.290Z">
+<meta property="article:author" content="Kuku De">
+<meta property="article:tag" content="教程">
+<meta name="twitter:card" content="summary">
+  <!-- Canonical links -->
+  <link rel="canonical" href="http://example.com/2022/04/05/Tutorial/TutVScode/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="gtoo8888" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+    <link href="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.3.5/dist/jquery.fancybox.min.css" rel="stylesheet">
+  
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/gtoo8888" target="_blank">
+          <img class="img-circle img-rotate" src="/images/cat.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">gtoo8888</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">C++ Developer</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Luoyang, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav menu-highlight">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-source">
+          <a href="/source">
+            
+            <i class="icon icon-book-fill"></i>
+            
+            <span class="menu-title">资源</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">友链</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/gtoo8888" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>记录自己的学习过程，Linux网络编程冲啊</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/" rel="tag">Linux网络编程</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%B6%E4%BB%96/" rel="tag">其他</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%8D%E6%80%9D/" rel="tag">反思</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%99%E7%A8%8B/" rel="tag">教程</a><span class="tag-list-count">16</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" rel="tag">环境配置</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%AD%E6%B3%95/" rel="tag">语法</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%BE%E7%A8%8B/" rel="tag">课程</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A1%B9%E7%9B%AE/" rel="tag">项目</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%B8%9F%E5%93%A5%E7%9A%84Linux%E7%A7%81%E6%88%BF%E8%8F%9C/" rel="tag">鸟哥的Linux私房菜</a><span class="tag-list-count">7</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/Linux%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/" style="font-size: 13.57px;">Linux网络编程</a> <a href="/tags/%E5%85%B6%E4%BB%96/" style="font-size: 13.71px;">其他</a> <a href="/tags/%E5%8F%8D%E6%80%9D/" style="font-size: 13px;">反思</a> <a href="/tags/%E6%95%99%E7%A8%8B/" style="font-size: 14px;">教程</a> <a href="/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" style="font-size: 13.43px;">环境配置</a> <a href="/tags/%E8%AF%AD%E6%B3%95/" style="font-size: 13.14px;">语法</a> <a href="/tags/%E8%AF%BE%E7%A8%8B/" style="font-size: 13.86px;">课程</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 13.29px;">面试</a> <a href="/tags/%E9%A1%B9%E7%9B%AE/" style="font-size: 13.43px;">项目</a> <a href="/tags/%E9%B8%9F%E5%93%A5%E7%9A%84Linux%E7%A7%81%E6%88%BF%E8%8F%9C/" style="font-size: 13.43px;">鸟哥的Linux私房菜</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">十二月 2023</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">十月 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/09/">九月 2023</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">七月 2023</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">六月 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/04/">四月 2023</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">三月 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/01/">一月 2023</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">十二月 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">十一月 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">十月 2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">九月 2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">八月 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">七月 2022</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">六月 2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">五月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">四月 2022</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">三月 2022</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">二月 2022</a><span class="archive-list-count">7</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2023/12/18/Others/Stormgate/" class="title">猜想一下风暴之门的服务器设计以及RollBack机制</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2023-12-18T09:08:39.000Z" itemprop="datePublished">2023-12-18</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2023/12/10/Course/CourseUML/" class="title">UML教程</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2023-12-10T13:28:56.000Z" itemprop="datePublished">2023-12-10</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2023/10/28/Project/GtooPlayer/GtooPlayer/" class="title">GtooPlayer</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2023-10-28T12:59:04.000Z" itemprop="datePublished">2023-10-28</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2023/09/09/Course/ML/MMsegment/" class="title">mmsegment</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2023-09-09T06:43:15.000Z" itemprop="datePublished">2023-09-09</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2023/09/05/Course/ML/ISAT/" class="title">ISAT</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2023-09-05T02:28:23.000Z" itemprop="datePublished">2023-09-05</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-Tutorial/TutVScode" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      VSCode 教程
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2022/04/05/Tutorial/TutVScode/" class="article-date">
+	  <time datetime="2022-04-05T12:33:12.000Z" itemprop="datePublished">2022-04-05</time>
+	</a>
+</span>
+        
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/%E6%95%99%E7%A8%8B/" rel="tag">教程</a>
+  </span>
+
+
+        
+	<span class="article-read hidden-xs">
+	    <i class="icon icon-eye-fill" aria-hidden="true"></i>
+	    <span id="busuanzi_container_page_pv">
+			<span id="busuanzi_value_page_pv">0</span>
+		</span>
+	</span>
+
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2022/04/05/Tutorial/TutVScode/#comments" class="article-comment-link">评论</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h1 id="代码里的左侧颜色标识"><a href="#代码里的左侧颜色标识" class="headerlink" title="代码里的左侧颜色标识:"></a>代码里的左侧颜色标识:</h1><p>红色，未加入版本控制; (刚clone到本地)<br>绿色，已经加入版本控制暂未提交; (新增部分)<br>蓝色，加入版本控制，已提交，有改动； (修改部分)<br>白色，加入版本控制，已提交，无改动；<br>灰色：版本控制已忽略文件。</p>
+<p>git文件标识:<br>M: 文件的内容被修改了<br>U: 文件没有被合并(你需要完成合并才能进行提交)<br>D: 删除的一个文件</p>
+<p>A: 增加的文件.<br>C: 文件的一个新拷贝.<br>R: 文件名被修改了。<br>T: 文件的类型被修改了。<br>X: 未知状态</p>
+<h1 id="使用VSCode远程调试linux"><a href="#使用VSCode远程调试linux" class="headerlink" title="使用VSCode远程调试linux"></a>使用VSCode远程调试linux</h1><ol>
+<li>准备工作<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">apt-<span class="built_in">get</span> update</span><br><span class="line">apt-<span class="built_in">get</span> install sudo</span><br><span class="line">apt-<span class="built_in">get</span> install vim</span><br><span class="line">passwd # 修改密码</span><br></pre></td></tr></table></figure></li>
+<li>安装openssh<br>apt-get install openssh-server<br>apt-get install openssh-client</li>
+<li>修改ssh配置文件<br>sudo vi &#x2F;etc&#x2F;ssh&#x2F;sshd_config<br>PermitRootLogin yes<br>（默认为#PermitRootLogin prohibit-password）前面的#号要放开</li>
+<li>启动服务<br>&#x2F;etc&#x2F;init.d&#x2F;ssh restart</li>
+<li>连接测试<br>ssh user@[ip] -p [端口]<br>ssh <a href="mailto:&#x75;&#115;&#101;&#x72;&#x40;&#x31;&#x39;&#50;&#x2e;&#x31;&#x36;&#x38;&#46;&#x30;&#x2e;&#51;">&#x75;&#115;&#101;&#x72;&#x40;&#x31;&#x39;&#50;&#x2e;&#x31;&#x36;&#x38;&#46;&#x30;&#x2e;&#51;</a> -p 22</li>
+<li>vscode配置<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Host <span class="number">192.168</span>.<span class="number">0.3</span></span><br><span class="line">  HostName <span class="number">192.168</span>.<span class="number">0.3</span></span><br><span class="line">  <span class="keyword">User</span> <span class="title">username</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<h1 id="使用VSCode远程调试linux中的容器"><a href="#使用VSCode远程调试linux中的容器" class="headerlink" title="使用VSCode远程调试linux中的容器"></a>使用VSCode远程调试linux中的容器</h1><ol>
+<li>需要把容器的端口映射出来</li>
+</ol>
+<p>容器内的ssh修改需要把root登录打开<br>sudo vi &#x2F;etc&#x2F;ssh&#x2F;sshd_config<br>PermitRootLogin yes<br>重启，连接测试，可以连接</p>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Host <span class="number">15.1</span>.<span class="number">0.89</span>      <span class="comment"># 显示的名字</span></span><br><span class="line">  HostName <span class="number">15.1</span>.<span class="number">0.89</span></span><br><span class="line">  <span class="keyword">User</span> <span class="title">root</span></span><br><span class="line">  Port <span class="number">38529</span>        <span class="comment"># 使用的端口号</span></span><br><span class="line">  IdentityFile ~\.ssh\id_rsa</span><br></pre></td></tr></table></figure>
+
+<h1 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h1><table>
+<thead>
+<tr>
+<th align="center">快捷键</th>
+<th align="center">功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">ctl + k + 0</td>
+<td align="center">快速收缩全部代码</td>
+</tr>
+<tr>
+<td align="center">ctl + k + j</td>
+<td align="center">展开全部代码</td>
+</tr>
+<tr>
+<td align="center">ctl + shift + [</td>
+<td align="center">收缩当前代码</td>
+</tr>
+<tr>
+<td align="center">ctl + shift + ]</td>
+<td align="center">展开当前代码</td>
+</tr>
+<tr>
+<td align="center">alt + left</td>
+<td align="center">向后</td>
+</tr>
+<tr>
+<td align="center">alt + left</td>
+<td align="center">向前</td>
+</tr>
+<tr>
+<td align="center">ctl + g</td>
+<td align="center">跳到指定行</td>
+</tr>
+<tr>
+<td align="center">ctl + b</td>
+<td align="center">关闭左侧栏</td>
+</tr>
+<tr>
+<td align="center">ctl + j</td>
+<td align="center">关闭下面栏</td>
+</tr>
+<tr>
+<td align="center">ctl + K + T</td>
+<td align="center">换主题颜色</td>
+</tr>
+</tbody></table>
+<h1 id="一些设置"><a href="#一些设置" class="headerlink" title="一些设置"></a>一些设置</h1><p>C++不报错<br>C_Cpp.errorSquiggles</p>
+<p>code runner在命令行中运行，可以接受输入<br>Code-runner: Run In Terminal</p>
+<h1 id="前端使用的插件"><a href="#前端使用的插件" class="headerlink" title="前端使用的插件"></a>前端使用的插件</h1><p>快捷键<br>开头按输入!,自动填充基础内容</p>
+<h1 id="Live-Server"><a href="#Live-Server" class="headerlink" title="Live Server"></a>Live Server</h1><p>保存以后会自动更新<br>alt+KO可以打开新页面</p>
+<h1 id="代码滚动时候进行附着"><a href="#代码滚动时候进行附着" class="headerlink" title="代码滚动时候进行附着"></a>代码滚动时候进行附着</h1><p>sticky scroll<br>打开以后会把函数名进行附着</p>
+<h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><p>[在VScode中，代码提示左边的图标各自代表的含义]<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_42838904/article/details/108222619">https://blog.csdn.net/qq_42838904/article/details/108222619</a><br>[Sticky Scroll in vscode]<a target="_blank" rel="noopener" href="https://dev.to/this-is-learning/sticky-scroll-in-vscode-44h2">https://dev.to/this-is-learning/sticky-scroll-in-vscode-44h2</a></p>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="http://example.com/2022/04/05/Tutorial/TutVScode/" title="VSCode 教程" target="_blank" rel="external">http://example.com/2022/04/05/Tutorial/TutVScode/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/gtoo8888" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/cat.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/gtoo8888" target="_blank"><span class="text-dark">gtoo8888</span><small class="ml-1x">C++ Developer</small></a></h3>
+        <div>喜欢Linux高并发服务器开发，喜欢探究代码的底层原理，热爱开源，乐于分享</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+      <div id="vcomments"></div>
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/2022/04/05/Tutorial/LinuxDevEnv/TutMakefile/" title="makefile 教程"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/2022/04/03/Project/LinuxNetworkProgram/HeimaNetworkProgram/day07-Project/" title="day07-项目"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/gtoo8888" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+
+
+
+   
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+   
+    
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine"></script>
+  <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: false,
+    notify: false,
+    appId: '',
+    appKey: '',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+  </script>
+
+     
+
+
+
+  <script src="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.3.5/dist/jquery.fancybox.min.js"></script>
+  <script>
+  //利用 FancyBox 实现点击图片放大
+  $(document).ready(function() {
+    $('article img').not('[hidden]').not('.panel-body img').each(function() {
+      var $image = $(this);
+      var imageCaption = $image.attr('alt');
+      var $imageWrapLink = $image.parent('a');
+      if ($imageWrapLink.length < 1) {
+        var src = this.getAttribute('src');
+        var idx = src.lastIndexOf('?');
+        if (idx != -1) {
+          src = src.substring(0, idx);
+        }
+        $imageWrapLink = $image.wrap('<a href="' + src + '"></a>').parent('a');
+      }
+      $imageWrapLink.attr('data-fancybox', 'images');
+      if (imageCaption) {
+        $imageWrapLink.attr('data-caption', imageCaption);
+      }
+    });
+    $().fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+    });
+  });
+  </script>
+
+
+
+
+
+</body>
+</html>

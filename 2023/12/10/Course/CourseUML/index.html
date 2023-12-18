@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>UML教程 | Hexo</title>
+  <meta name="description" content="UML图的种类统一建模语言（UML）是一种用于软件工程和系统设计的标准建模语言UML提供了一组图形符号和规则，用于描述系统的不同方面。主要的UML图种类包括：  用例图（Use Case Diagrams）： 用于描述系统与外部实体（称为参与者）之间的功能需求和交互。  类图（Class Diagrams）： 用于显示系统中的类、类之间的关系以及类的属性和方法。  时序图（Sequence Dia">
+<meta property="og:type" content="article">
+<meta property="og:title" content="UML教程">
+<meta property="og:url" content="http://example.com/2023/12/10/Course/CourseUML/index.html">
+<meta property="og:site_name" content="gtoo8888">
+<meta property="og:description" content="UML图的种类统一建模语言（UML）是一种用于软件工程和系统设计的标准建模语言UML提供了一组图形符号和规则，用于描述系统的不同方面。主要的UML图种类包括：  用例图（Use Case Diagrams）： 用于描述系统与外部实体（称为参与者）之间的功能需求和交互。  类图（Class Diagrams）： 用于显示系统中的类、类之间的关系以及类的属性和方法。  时序图（Sequence Dia">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-12-10T13:28:56.000Z">
+<meta property="article:modified_time" content="2023-12-10T15:07:52.165Z">
+<meta property="article:author" content="Kuku De">
+<meta property="article:tag" content="课程">
+<meta name="twitter:card" content="summary">
+  <!-- Canonical links -->
+  <link rel="canonical" href="http://example.com/2023/12/10/Course/CourseUML/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="gtoo8888" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+    <link href="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.3.5/dist/jquery.fancybox.min.css" rel="stylesheet">
+  
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/gtoo8888" target="_blank">
+          <img class="img-circle img-rotate" src="/images/cat.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">gtoo8888</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">C++ Developer</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Luoyang, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav menu-highlight">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-source">
+          <a href="/source">
+            
+            <i class="icon icon-book-fill"></i>
+            
+            <span class="menu-title">资源</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">友链</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/gtoo8888" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>记录自己的学习过程，Linux网络编程冲啊</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/" rel="tag">Linux网络编程</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%B6%E4%BB%96/" rel="tag">其他</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%8D%E6%80%9D/" rel="tag">反思</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%99%E7%A8%8B/" rel="tag">教程</a><span class="tag-list-count">16</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" rel="tag">环境配置</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%AD%E6%B3%95/" rel="tag">语法</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%BE%E7%A8%8B/" rel="tag">课程</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A1%B9%E7%9B%AE/" rel="tag">项目</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%B8%9F%E5%93%A5%E7%9A%84Linux%E7%A7%81%E6%88%BF%E8%8F%9C/" rel="tag">鸟哥的Linux私房菜</a><span class="tag-list-count">7</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/Linux%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/" style="font-size: 13.57px;">Linux网络编程</a> <a href="/tags/%E5%85%B6%E4%BB%96/" style="font-size: 13.71px;">其他</a> <a href="/tags/%E5%8F%8D%E6%80%9D/" style="font-size: 13px;">反思</a> <a href="/tags/%E6%95%99%E7%A8%8B/" style="font-size: 14px;">教程</a> <a href="/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" style="font-size: 13.43px;">环境配置</a> <a href="/tags/%E8%AF%AD%E6%B3%95/" style="font-size: 13.14px;">语法</a> <a href="/tags/%E8%AF%BE%E7%A8%8B/" style="font-size: 13.86px;">课程</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 13.29px;">面试</a> <a href="/tags/%E9%A1%B9%E7%9B%AE/" style="font-size: 13.43px;">项目</a> <a href="/tags/%E9%B8%9F%E5%93%A5%E7%9A%84Linux%E7%A7%81%E6%88%BF%E8%8F%9C/" style="font-size: 13.43px;">鸟哥的Linux私房菜</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">十二月 2023</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">十月 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/09/">九月 2023</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">七月 2023</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">六月 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/04/">四月 2023</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">三月 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/01/">一月 2023</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">十二月 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">十一月 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">十月 2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">九月 2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">八月 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">七月 2022</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">六月 2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">五月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">四月 2022</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">三月 2022</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">二月 2022</a><span class="archive-list-count">7</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2023/12/18/Others/Stormgate/" class="title">猜想一下风暴之门的服务器设计以及RollBack机制</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2023-12-18T09:08:39.000Z" itemprop="datePublished">2023-12-18</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2023/12/10/Course/CourseUML/" class="title">UML教程</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2023-12-10T13:28:56.000Z" itemprop="datePublished">2023-12-10</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2023/10/28/Project/GtooPlayer/GtooPlayer/" class="title">GtooPlayer</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2023-10-28T12:59:04.000Z" itemprop="datePublished">2023-10-28</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2023/09/09/Course/ML/MMsegment/" class="title">mmsegment</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2023-09-09T06:43:15.000Z" itemprop="datePublished">2023-09-09</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2023/09/05/Course/ML/ISAT/" class="title">ISAT</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2023-09-05T02:28:23.000Z" itemprop="datePublished">2023-09-05</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-Course/CourseUML" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      UML教程
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2023/12/10/Course/CourseUML/" class="article-date">
+	  <time datetime="2023-12-10T13:28:56.000Z" itemprop="datePublished">2023-12-10</time>
+	</a>
+</span>
+        
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/%E8%AF%BE%E7%A8%8B/" rel="tag">课程</a>
+  </span>
+
+
+        
+	<span class="article-read hidden-xs">
+	    <i class="icon icon-eye-fill" aria-hidden="true"></i>
+	    <span id="busuanzi_container_page_pv">
+			<span id="busuanzi_value_page_pv">0</span>
+		</span>
+	</span>
+
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2023/12/10/Course/CourseUML/#comments" class="article-comment-link">评论</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h1 id="UML图的种类"><a href="#UML图的种类" class="headerlink" title="UML图的种类"></a>UML图的种类</h1><p>统一建模语言（UML）是一种用于软件工程和系统设计的标准建模语言<br>UML提供了一组图形符号和规则，用于描述系统的不同方面。主要的UML图种类包括：</p>
+<ol>
+<li><p><strong>用例图（Use Case Diagrams）：</strong> 用于描述系统与外部实体（称为参与者）之间的功能需求和交互。</p>
+</li>
+<li><p><strong>类图（Class Diagrams）：</strong> 用于显示系统中的类、类之间的关系以及类的属性和方法。</p>
+</li>
+<li><p><strong>时序图（Sequence Diagrams）：</strong> 描述系统中的对象之间的交互顺序，尤其是在特定场景下的交互顺序。</p>
+</li>
+<li><p><strong>协作图（Collaboration Diagrams）：</strong> 类似于时序图，描述对象之间的协作关系，但强调对象之间的合作而不是时序。</p>
+</li>
+<li><p><strong>状态图（State Diagrams）：</strong> 描述对象在其生命周期中所经历的状态及状态之间的转换。</p>
+</li>
+<li><p><strong>活动图（Activity Diagrams）：</strong> 描述系统中的活动流程，展示系统中各个活动的顺序和条件。</p>
+</li>
+<li><p><strong>组件图（Component Diagrams）：</strong> 描述系统中的组件及其相互关系，强调系统的组织结构。</p>
+</li>
+<li><p><strong>部署图（Deployment Diagrams）：</strong> 描述系统中软件和硬件之间的物理部署关系。</p>
+</li>
+</ol>
+<p>这些UML图形成了一个完整的模型，帮助软件开发团队以一种可视化和标准化的方式理解、设计和交流系统的不同方面。在实际应用中，通常会同时使用多种类型的UML图，以全面而清晰地描述系统。</p>
+<h2 id="比较重要的"><a href="#比较重要的" class="headerlink" title="比较重要的"></a>比较重要的</h2><ol>
+<li>用例图</li>
+<li>类图</li>
+<li>时序图</li>
+</ol>
+<h1 id="绘制UML图的工具"><a href="#绘制UML图的工具" class="headerlink" title="绘制UML图的工具"></a>绘制UML图的工具</h1><p>有许多工具可用于绘制和编辑UML图，这些工具提供了图形界面，使用户能够轻松地创建、修改和分享UML图。以下是一些常见的UML建模工具：</p>
+<ol>
+<li><p><strong>Enterprise Architect：</strong> 由Sparx Systems提供的工具，支持多种UML图，包括用例图、类图、时序图等。</p>
+</li>
+<li><p><strong>Visual Paradigm：</strong> 提供了丰富的UML建模功能，包括用例建模、类建模、时序建模等，同时支持团队协作。</p>
+</li>
+<li><p><strong>IBM Rational Software Architect：</strong> 适用于大型企业项目，提供广泛的建模和分析工具，包括UML和其他建模语言。</p>
+</li>
+<li><p><strong>Astah UML：</strong> 以易用性和轻量级著称，适用于个人和小型团队，支持多种UML图形。</p>
+</li>
+<li><p><strong>Lucidchart：</strong> 一个基于云的协作平台，支持绘制UML图和其他流程图，可通过浏览器进行在线编辑。</p>
+</li>
+<li><p><strong>Draw.io：</strong> 一个免费的在线图形编辑工具，支持UML图和其他类型的图表，可用于快速创建简单的UML图。</p>
+</li>
+<li><p><strong>Umbrello UML Modeller：</strong> 一个开源的UML建模工具，适用于Linux和Windows平台，提供用例图、类图等功能。</p>
+</li>
+<li><p><strong>PlantUML：</strong> 不同于传统图形界面的工具，PlantUML是一种使用文本描述语言创建UML图的工具，通过文本文件定义UML图形，然后生成图像。</p>
+</li>
+</ol>
+<p>选择UML建模工具通常取决于项目的规模、团队的需求和个人的喜好。大多数工具提供了多种导出和共享选项，以便在团队成员之间方便地分享和合作。</p>
+<h1 id="类图"><a href="#类图" class="headerlink" title="类图"></a>类图</h1><p>在UML类图中，两个对象之间可以存在不同类型的关系，这些关系用于描述对象之间的连接和交互。以下是一些常见的类图关系：</p>
+<ol>
+<li><p><strong>关联关系（Association）：</strong> 描述两个类之间的连接，表示一个类对象与另一个类对象之间存在某种关联。关联关系可以是双向的，也可以是单向的。</p>
+</li>
+<li><p><strong>聚合关系（Aggregation）：</strong> 表示一种弱的拥有关系，表示整体与部分之间的关系。聚合关系用空心菱形表示整体，与实线连接的部分。</p>
+</li>
+<li><p><strong>组合关系（Composition）：</strong> 表示一种强的拥有关系，整体对象负责部分对象的生命周期。组合关系用实心菱形表示整体，与实线连接的部分。</p>
+</li>
+<li><p><strong>泛化关系（Generalization）：</strong> 表示继承关系，表示一个类是另一个类的子类。泛化关系使用带有三角箭头的实线表示。</p>
+</li>
+<li><p><strong>依赖关系（Dependency）：</strong> 表示一个类依赖于另一个类，当一个类的变化可能影响到另一个类时，就存在依赖关系。依赖关系用虚线箭头表示。</p>
+</li>
+<li><p><strong>实现关系（Realization）：</strong> 表示一个类实现了一个接口，用带三角箭头的虚线表示。</p>
+</li>
+<li><p><strong>关联类关系（Association Class）：</strong> 表示关联关系中的关联类，即一个具有属性和方法的类，用在关联线上。</p>
+</li>
+<li><p><strong>约束关系（Constraint）：</strong> 表示对类或关系的一些限制条件，通常使用注释或标签进行表示。</p>
+</li>
+</ol>
+<p>这些关系可以组合使用，以更全面地描述系统中对象之间的关系和交互。在类图中，关系的选择取决于系统的设计需求和建模目的。</p>
+<table>
+<thead>
+<tr>
+<th>关系类型</th>
+<th>缩写</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>关联关系</td>
+<td>Association</td>
+<td>描述两个类之间的连接，表示一个类对象与另一个类对象之间存在某种关联。</td>
+</tr>
+<tr>
+<td>聚合关系</td>
+<td>Aggregation</td>
+<td>表示一种弱的拥有关系，表示整体与部分之间的关系。聚合关系用空心菱形表示整体，与实线连接的部分。</td>
+</tr>
+<tr>
+<td>组合关系</td>
+<td>Composition</td>
+<td>表示一种强的拥有关系，整体对象负责部分对象的生命周期。组合关系用实心菱形表示整体，与实线连接的部分。</td>
+</tr>
+<tr>
+<td>泛化关系</td>
+<td>Generalization</td>
+<td>表示继承关系，表示一个类是另一个类的子类。泛化关系使用带有三角箭头的实线表示。</td>
+</tr>
+<tr>
+<td>依赖关系</td>
+<td>Dependency</td>
+<td>表示一个类依赖于另一个类，当一个类的变化可能影响到另一个类时，存在依赖关系。</td>
+</tr>
+<tr>
+<td>实现关系</td>
+<td>Realization</td>
+<td>表示一个类实现了一个接口，用带三角箭头的虚线表示。</td>
+</tr>
+<tr>
+<td>关联类关系</td>
+<td>Association Class</td>
+<td>表示关联关系中的关联类，即一个具有属性和方法的类，用在关联线上。</td>
+</tr>
+<tr>
+<td>约束关系</td>
+<td>Constraint</td>
+<td>表示对类或关系的一些限制条件，通常使用注释或标签进行表示。</td>
+</tr>
+</tbody></table>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/biezhihua/article/details/43793729">https://blog.csdn.net/biezhihua/article/details/43793729</a></p>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="http://example.com/2023/12/10/Course/CourseUML/" title="UML教程" target="_blank" rel="external">http://example.com/2023/12/10/Course/CourseUML/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/gtoo8888" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/cat.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/gtoo8888" target="_blank"><span class="text-dark">gtoo8888</span><small class="ml-1x">C++ Developer</small></a></h3>
+        <div>喜欢Linux高并发服务器开发，喜欢探究代码的底层原理，热爱开源，乐于分享</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+      <div id="vcomments"></div>
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/2023/12/18/Others/Stormgate/" title="猜想一下风暴之门的服务器设计以及RollBack机制"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/2023/10/28/Project/GtooPlayer/GtooPlayer/" title="GtooPlayer"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/gtoo8888" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+
+
+
+   
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+   
+    
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine"></script>
+  <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: false,
+    notify: false,
+    appId: '',
+    appKey: '',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+  </script>
+
+     
+
+
+
+  <script src="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.3.5/dist/jquery.fancybox.min.js"></script>
+  <script>
+  //利用 FancyBox 实现点击图片放大
+  $(document).ready(function() {
+    $('article img').not('[hidden]').not('.panel-body img').each(function() {
+      var $image = $(this);
+      var imageCaption = $image.attr('alt');
+      var $imageWrapLink = $image.parent('a');
+      if ($imageWrapLink.length < 1) {
+        var src = this.getAttribute('src');
+        var idx = src.lastIndexOf('?');
+        if (idx != -1) {
+          src = src.substring(0, idx);
+        }
+        $imageWrapLink = $image.wrap('<a href="' + src + '"></a>').parent('a');
+      }
+      $imageWrapLink.attr('data-fancybox', 'images');
+      if (imageCaption) {
+        $imageWrapLink.attr('data-caption', imageCaption);
+      }
+    });
+    $().fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+    });
+  });
+  </script>
+
+
+
+
+
+</body>
+</html>

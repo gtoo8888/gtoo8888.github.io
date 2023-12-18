@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>ORB_SLAM | Hexo</title>
+  <meta name="description" content="安装系统完成小鱼一键安装ros装好系统，直接使用小鱼一键安装，开机就直接安装会帮助换源同时装好了opencv，Eigen3 1wget http:&#x2F;&#x2F;fishros.com&#x2F;install -O fishros &amp;&amp; . fishros   ros-melodic11211重启一下系统 查看一下opencv和eigen是否安装成功sudo apt list –installed |">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ORB_SLAM">
+<meta property="og:url" content="http://example.com/2023/07/15/EnvConfige/InstORBSLAM/index.html">
+<meta property="og:site_name" content="gtoo8888">
+<meta property="og:description" content="安装系统完成小鱼一键安装ros装好系统，直接使用小鱼一键安装，开机就直接安装会帮助换源同时装好了opencv，Eigen3 1wget http:&#x2F;&#x2F;fishros.com&#x2F;install -O fishros &amp;&amp; . fishros   ros-melodic11211重启一下系统 查看一下opencv和eigen是否安装成功sudo apt list –installed |">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-07-15T06:23:09.000Z">
+<meta property="article:modified_time" content="2023-07-30T14:55:28.232Z">
+<meta property="article:author" content="Kuku De">
+<meta property="article:tag" content="环境配置">
+<meta name="twitter:card" content="summary">
+  <!-- Canonical links -->
+  <link rel="canonical" href="http://example.com/2023/07/15/EnvConfige/InstORBSLAM/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="gtoo8888" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+    <link href="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.3.5/dist/jquery.fancybox.min.css" rel="stylesheet">
+  
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/gtoo8888" target="_blank">
+          <img class="img-circle img-rotate" src="/images/cat.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">gtoo8888</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">C++ Developer</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Luoyang, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav menu-highlight">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-source">
+          <a href="/source">
+            
+            <i class="icon icon-book-fill"></i>
+            
+            <span class="menu-title">资源</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">友链</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/gtoo8888" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>记录自己的学习过程，Linux网络编程冲啊</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/" rel="tag">Linux网络编程</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%B6%E4%BB%96/" rel="tag">其他</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%8D%E6%80%9D/" rel="tag">反思</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%99%E7%A8%8B/" rel="tag">教程</a><span class="tag-list-count">16</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" rel="tag">环境配置</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%AD%E6%B3%95/" rel="tag">语法</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%BE%E7%A8%8B/" rel="tag">课程</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A1%B9%E7%9B%AE/" rel="tag">项目</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%B8%9F%E5%93%A5%E7%9A%84Linux%E7%A7%81%E6%88%BF%E8%8F%9C/" rel="tag">鸟哥的Linux私房菜</a><span class="tag-list-count">7</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/Linux%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/" style="font-size: 13.57px;">Linux网络编程</a> <a href="/tags/%E5%85%B6%E4%BB%96/" style="font-size: 13.71px;">其他</a> <a href="/tags/%E5%8F%8D%E6%80%9D/" style="font-size: 13px;">反思</a> <a href="/tags/%E6%95%99%E7%A8%8B/" style="font-size: 14px;">教程</a> <a href="/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" style="font-size: 13.43px;">环境配置</a> <a href="/tags/%E8%AF%AD%E6%B3%95/" style="font-size: 13.14px;">语法</a> <a href="/tags/%E8%AF%BE%E7%A8%8B/" style="font-size: 13.86px;">课程</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 13.29px;">面试</a> <a href="/tags/%E9%A1%B9%E7%9B%AE/" style="font-size: 13.43px;">项目</a> <a href="/tags/%E9%B8%9F%E5%93%A5%E7%9A%84Linux%E7%A7%81%E6%88%BF%E8%8F%9C/" style="font-size: 13.43px;">鸟哥的Linux私房菜</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">十二月 2023</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">十月 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/09/">九月 2023</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">七月 2023</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">六月 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/04/">四月 2023</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">三月 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/01/">一月 2023</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">十二月 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">十一月 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">十月 2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">九月 2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">八月 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">七月 2022</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">六月 2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">五月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">四月 2022</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">三月 2022</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">二月 2022</a><span class="archive-list-count">7</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2023/12/18/Others/Stormgate/" class="title">猜想一下风暴之门的服务器设计以及RollBack机制</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2023-12-18T09:08:39.000Z" itemprop="datePublished">2023-12-18</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2023/12/10/Course/CourseUML/" class="title">UML教程</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2023-12-10T13:28:56.000Z" itemprop="datePublished">2023-12-10</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2023/10/28/Project/GtooPlayer/GtooPlayer/" class="title">GtooPlayer</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2023-10-28T12:59:04.000Z" itemprop="datePublished">2023-10-28</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2023/09/09/Course/ML/MMsegment/" class="title">mmsegment</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2023-09-09T06:43:15.000Z" itemprop="datePublished">2023-09-09</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2023/09/05/Course/ML/ISAT/" class="title">ISAT</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2023-09-05T02:28:23.000Z" itemprop="datePublished">2023-09-05</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-EnvConfige/InstORBSLAM" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      ORB_SLAM
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2023/07/15/EnvConfige/InstORBSLAM/" class="article-date">
+	  <time datetime="2023-07-15T06:23:09.000Z" itemprop="datePublished">2023-07-15</time>
+	</a>
+</span>
+        
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" rel="tag">环境配置</a>
+  </span>
+
+
+        
+	<span class="article-read hidden-xs">
+	    <i class="icon icon-eye-fill" aria-hidden="true"></i>
+	    <span id="busuanzi_container_page_pv">
+			<span id="busuanzi_value_page_pv">0</span>
+		</span>
+	</span>
+
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2023/07/15/EnvConfige/InstORBSLAM/#comments" class="article-comment-link">评论</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h1 id="安装系统完成"><a href="#安装系统完成" class="headerlink" title="安装系统完成"></a>安装系统完成</h1><h1 id="小鱼一键安装ros"><a href="#小鱼一键安装ros" class="headerlink" title="小鱼一键安装ros"></a>小鱼一键安装ros</h1><p>装好系统，直接使用小鱼一键安装，开机就直接安装<br>会帮助换源<br>同时装好了opencv，Eigen3</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget http://fishros.com/install -O fishros &amp;&amp; . fishros  </span><br></pre></td></tr></table></figure>
+<p>ros-melodic<br>1<br>1<br>2<br>1<br>1<br>重启一下系统</p>
+<p>查看一下opencv和eigen是否安装成功<br>sudo apt list –installed | grep opencv<br>sudo dpkg -l | grep eigen</p>
+<h2 id="安装小工具"><a href="#安装小工具" class="headerlink" title="安装小工具"></a>安装小工具</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install vim openssh-server openssh-client net-tools git -y</span><br><span class="line">sed -i <span class="string">&quot;s/#PermitRootLogin prohibit-password/PermitRootLogin yes/g&quot;</span> /etc/ssh/sshd_config</span><br><span class="line"><span class="comment"># sudo vi /etc/ssh/sshd_config</span></span><br><span class="line"><span class="comment"># PermitRootLogin yes </span></span><br><span class="line">/etc/init.d/ssh restart</span><br><span class="line"><span class="comment"># ssh yzx@127.0.0.1</span></span><br></pre></td></tr></table></figure>
+<h2 id="一键安装ORB-SLAM3"><a href="#一键安装ORB-SLAM3" class="headerlink" title="一键安装ORB-SLAM3"></a>一键安装ORB-SLAM3</h2><p>24GB &#x3D; 24576MB<br>28GB &#x3D; 28672MB</p>
+<h1 id="安装D455驱动"><a href="#安装D455驱动" class="headerlink" title="安装D455驱动"></a>安装D455驱动</h1><p>sudo apt-get install libudev-dev pkg-config libgtk-3-dev libusb-1.0-0-dev libglfw3-dev libssl-dev -y<br>sudo apt-get install terminator -y # 安装多窗口终端</p>
+<p>mkdir build &amp;&amp; cd build<br>cmake ..&#x2F; -DBUILD_EXAMPLES&#x3D;true<br>make -j 4 # 需要保证git clone https是通的<br>sudo make install</p>
+<p>librealsene&#x2F;Cmake&#x2F;external_libcurl.cmake<br>GIT_REPOSITORY “<a target="_blank" rel="noopener" href="https://github.com/curl/curl.git&quot;">https://github.com/curl/curl.git&quot;</a><br>GIT_REPOSITORY “<a href="mailto:&#x67;&#x69;&#x74;&#64;&#x67;&#x69;&#116;&#x68;&#117;&#98;&#x2e;&#x63;&#x6f;&#109;">&#x67;&#x69;&#x74;&#64;&#x67;&#x69;&#116;&#x68;&#117;&#98;&#x2e;&#x63;&#x6f;&#109;</a>:curl&#x2F;curl.git” # 需要配置一下git拉取</p>
+<p>（1）连接相机<br>（2）测试相机（方法1）<br>   cd ~&#x2F;librealsense-2.50.0&#x2F;build&#x2F;examples&#x2F;capture<br>   .&#x2F;rs-capture<br>      &#x2F;&#x2F;出现相机拍摄窗口和IMU窗口且终端显示相机参数即为安装成功<br>（3）测试相机（方法2）<br>   cd &#x2F;home&#x2F;qinyibo&#x2F;librealsense-2.50.0&#x2F;build&#x2F;tools&#x2F;realsense-viewer<br>   sudo .&#x2F;realsense-viewer<br>      &#x2F;&#x2F;相机运行软件中出现出现相机拍摄窗口和IMU窗口并且可以设置模式与参数即为成功<br>      &#x2F;&#x2F;右上角出现Dismiss错误时，可以重新插拔，但即使不出现错误，其Motion Module打开时依旧报错，但貌似不影响使用，暂时不管<br>         Severity:Error<br>         Description:Motion Module failure</p>
+<p>while true; do free -h | tail ; sleep 1; done<br>while true; do rostopic list;echo “————-“  ; sleep 1; done</p>
+<p>rostopic list | tail</p>
+<h2 id="跑bag包测试"><a href="#跑bag包测试" class="headerlink" title="跑bag包测试"></a>跑bag包测试</h2><ol>
+<li>roscore</li>
+</ol>
+<p>cd $HOME&#x2F;orb_slam&#x2F;ORB_SLAM3_detailed_comments&#x2F;Examples&#x2F;ROS&#x2F;ORB_SLAM3&#x2F;build&#x2F;<br>2. source $HOME&#x2F;orb_slam&#x2F;ORB_SLAM3_detailed_comments&#x2F;Examples&#x2F;ROS&#x2F;ORB_SLAM3&#x2F;build&#x2F;devel&#x2F;setup.bash</p>
+<p>source $HOME&#x2F;orb_slam&#x2F;ORB_SLAM3_pigg&#x2F;Examples_old&#x2F;ROS&#x2F;ORB_SLAM3_dense_yolo&#x2F;build&#x2F;devel&#x2F;setup.bash</p>
+<p>cd $HOME&#x2F;orb_slam&#x2F;ORB_SLAM3_detailed_comments&#x2F;</p>
+<ol>
+<li><p>rosrun ORB_SLAM3 Mono Vocabulary&#x2F;ORBvoc.txt Examples_old&#x2F;Monocular-Inertial&#x2F;EuRoC.yaml<br>&#x2F;&#x2F;运行ORB-SLAM3,并在ORB_SLAM3下产生运行结果（关键帧轨迹文件）<br>&#x2F;&#x2F;如果运行完记录包，出现跟踪局部地图失败提示，好像是因为运行快没有提取到特征点，目前解决方案是重新运行跑一次。<br>&#x2F;&#x2F;跑完记录包，本运行终端不会停止运行，暂时只能Ctrl+C结束，会有qt报错和核心转储报错，暂时无法解决。</p>
+</li>
+<li><p>在ROS记录包目录下打开终端3，运行记录包<br>rosbag play –pause MH_01_easy.bag &#x2F;cam0&#x2F;image_raw:&#x3D;&#x2F;camera&#x2F;image_raw &#x2F;imu0:&#x3D;&#x2F;imu<br>&#x2F;&#x2F;选择下载的Euroc数据集的ROS记录包<br>&#x2F;&#x2F;设置发布的话题名称，要与ORB-SLAM3订阅的话题一样<br>&#x2F;&#x2F;pause代表用space可以控制开始和暂停跑包</p>
+</li>
+</ol>
+<h2 id="双系统的问题"><a href="#双系统的问题" class="headerlink" title="双系统的问题"></a>双系统的问题</h2><ol>
+<li>没有网卡<ol>
+<li>AX211 160MHZ</li>
+</ol>
+</li>
+<li>没有显卡驱动</li>
+<li>没有输入法</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">cp</span> /etc/apt/sources.list /etc/apt/sources.list.bak</span><br><span class="line">sudo vi /etc/apt/sources.list</span><br><span class="line">sudo apt-get update <span class="comment"># 更新软件包列表,从软件源中获取最新的软件包信息，并将其存储在本地的软件包列表中。</span></span><br><span class="line">sudo apt-get upgrade <span class="comment"># 升级已安装的软件包的命令，它会检查本地软件包列表中的软件包是否有更新的版本，如果有的话就会将其升级到最新版本。</span></span><br></pre></td></tr></table></figure>
+
+
+<h1 id=""><a href="#" class="headerlink" title=""></a></h1><p>ps aux 命令会显示所有用户的所有进程，并且以用户为基础显示进程的详细信息。<br>sudo dpkg -i XXX(你下载的安装包名).deb</p>
+<p>sudo apt list –installed | grep opencv<br>sudo dpkg -l | grep eigen</p>
+<p>apt list # 列出所有已安装的软件包。<br>apt list –installed # 列出所有已安装的软件包。<br>apt list –upgradable # 列出可升级的软件包</p>
+<p>tar -zxvf FileName.tar.gz               # 解压<br>tar -zcvf FileName.tar.gz DirName       # 将DirName和其下所有文件（夹）压缩</p>
+<p>tar -zcvf orb_slam.tar.gz orb_slam</p>
+<p>sudo apt install libglew-dev</p>
+<h2 id="需要安装的包"><a href="#需要安装的包" class="headerlink" title="需要安装的包"></a>需要安装的包</h2><p>Pangolin<br>opencv<br>Eigen3</p>
+<h1 id="安装clash-linux"><a href="#安装clash-linux" class="headerlink" title="安装clash linux"></a>安装clash linux</h1><h1 id="关闭自动更新"><a href="#关闭自动更新" class="headerlink" title="关闭自动更新"></a>关闭自动更新</h1><p>打开软件安装，更新，永远停止</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># os-specific listings first</span></span><br><span class="line">yaml file:///home/yzx/rosdistro/rosdep/osx-homebrew.yaml osx</span><br><span class="line"></span><br><span class="line"><span class="comment"># generic</span></span><br><span class="line">yaml file:///home/yzx/rosdistro/rosdep/base.yaml</span><br><span class="line">yaml file:///home/yzx/rosdistro/rosdep/python.yaml</span><br><span class="line">yaml file:///home/yzx/rosdistro/rosdep/ruby.yaml</span><br><span class="line">gbpdistro file:///home/yzx/rosdistro/releases/fuerte.yaml fuerte</span><br><span class="line"><span class="comment"># newer distributions (Groovy, Hydro, ...) must not be listed anymore, they are being fetched from the rosdistro index.yaml instead</span></span><br></pre></td></tr></table></figure>
+<p>FUERTE_GBPDISTRO_URL &#x3D; ‘file:&#x2F;&#x2F;&#x2F;home&#x2F;yzx&#x2F;rosdistro&#x2F;‘ <br>    ‘releases&#x2F;fuerte.yaml’</p>
+<p>REP3_TARGETS_URL &#x3D; ‘file:&#x2F;&#x2F;&#x2F;home&#x2F;yzx&#x2F;rosdistro&#x2F;releases&#x2F;targets.yaml’</p>
+<p>DEFAULT_INDEX_URL &#x3D; ‘file:&#x2F;&#x2F;&#x2F;home&#x2F;yzx&#x2F;rosdistro&#x2F;index-v4.yaml’</p>
+<p>.&#x2F;Examples&#x2F;Monocular-Inertial&#x2F;mono_inertial_euroc .&#x2F;Vocabulary&#x2F;ORBvoc.txt .&#x2F;Examples&#x2F;Monocular-Inertial&#x2F;EuRoC.yaml &#x2F;home&#x2F;yzx&#x2F;MH01 .&#x2F;Examples&#x2F;Monocular-Inertial&#x2F;EuRoC_TimeStamps&#x2F;MH01.txt dataset-MH01_monoi</p>
+<h1 id="主要头文件所在位置"><a href="#主要头文件所在位置" class="headerlink" title="主要头文件所在位置"></a>主要头文件所在位置</h1><p>&#x2F;opt&#x2F;ros&#x2F;melodic&#x2F;include<br>&#x2F;usr&#x2F;include&#x2F;pcl-1.8&#x2F;</p>
+<p>“${workspaceFolder}&#x2F;<strong>“,<br>“&#x2F;usr&#x2F;include&#x2F;</strong>“,<br>“&#x2F;opt&#x2F;ros&#x2F;melodic&#x2F;include&#x2F;**”</p>
+<h2 id="第一个libtorch例子"><a href="#第一个libtorch例子" class="headerlink" title="第一个libtorch例子"></a>第一个libtorch例子</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;torch/torch.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  torch::Tensor tensor = torch::<span class="built_in">eye</span>(<span class="number">3</span>);</span><br><span class="line">  std::cout &lt;&lt; tensor &lt;&lt; std::endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cmake_minimum_required</span>(VERSION <span class="number">3.0</span> FATAL_ERROR)</span><br><span class="line"><span class="built_in">project</span>(dcgan)</span><br><span class="line"></span><br><span class="line"><span class="built_in">find_package</span>(Torch REQUIRED)</span><br><span class="line"></span><br><span class="line"><span class="built_in">add_executable</span>(dcgan dcgan.cpp)</span><br><span class="line"><span class="built_in">target_link_libraries</span>(dcgan <span class="string">&quot;$&#123;TORCH_LIBRARIES&#125;&quot;</span>)</span><br><span class="line"><span class="built_in">set_property</span>(TARGET dcgan PROPERTY CXX_STANDARD <span class="number">14</span>)</span><br></pre></td></tr></table></figure>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/142014944">Ubuntu20.04软件源更换 - 知乎 (zhihu.com)</a></p>
+<p><a target="_blank" rel="noopener" href="https://opclash.com/fenxiang/302.html">https://opclash.com/fenxiang/302.html</a></p>
+<p><a target="_blank" rel="noopener" href="https://fishros.org.cn/forum/topic/20/%E5%B0%8F%E9%B1%BC%E7%9A%84%E4%B8%80%E9%94%AE%E5%AE%89%E8%A3%85%E7%B3%BB%E5%88%97">https://fishros.org.cn/forum/topic/20/%E5%B0%8F%E9%B1%BC%E7%9A%84%E4%B8%80%E9%94%AE%E5%AE%89%E8%A3%85%E7%B3%BB%E5%88%97</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_58402697/article/details/122298129">https://blog.csdn.net/m0_58402697/article/details/122298129</a><br><a target="_blank" rel="noopener" href="https://www.intel.com/content/www/us/en/support/articles/000005511/wireless.html">https://www.intel.com/content/www/us/en/support/articles/000005511/wireless.html</a></p>
+<p><a target="_blank" rel="noopener" href="https://pytorch.org/cppdocs/installing.html">libtorch总教程</a><br><a target="_blank" rel="noopener" href="https://pytorch.org/tutorials/advanced/cpp_frontend.html">libtorch简单的介绍</a></p>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="http://example.com/2023/07/15/EnvConfige/InstORBSLAM/" title="ORB_SLAM" target="_blank" rel="external">http://example.com/2023/07/15/EnvConfige/InstORBSLAM/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/gtoo8888" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/cat.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/gtoo8888" target="_blank"><span class="text-dark">gtoo8888</span><small class="ml-1x">C++ Developer</small></a></h3>
+        <div>喜欢Linux高并发服务器开发，喜欢探究代码的底层原理，热爱开源，乐于分享</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+      <div id="vcomments"></div>
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/2023/07/18/Tutorial/TutROS/" title="ROS教程"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/2023/06/07/Tutorial/TutOrigin2022/" title="Origin2022"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/gtoo8888" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+
+
+
+   
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+   
+    
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine"></script>
+  <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: false,
+    notify: false,
+    appId: '',
+    appKey: '',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+  </script>
+
+     
+
+
+
+  <script src="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.3.5/dist/jquery.fancybox.min.js"></script>
+  <script>
+  //利用 FancyBox 实现点击图片放大
+  $(document).ready(function() {
+    $('article img').not('[hidden]').not('.panel-body img').each(function() {
+      var $image = $(this);
+      var imageCaption = $image.attr('alt');
+      var $imageWrapLink = $image.parent('a');
+      if ($imageWrapLink.length < 1) {
+        var src = this.getAttribute('src');
+        var idx = src.lastIndexOf('?');
+        if (idx != -1) {
+          src = src.substring(0, idx);
+        }
+        $imageWrapLink = $image.wrap('<a href="' + src + '"></a>').parent('a');
+      }
+      $imageWrapLink.attr('data-fancybox', 'images');
+      if (imageCaption) {
+        $imageWrapLink.attr('data-caption', imageCaption);
+      }
+    });
+    $().fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+    });
+  });
+  </script>
+
+
+
+
+
+</body>
+</html>
